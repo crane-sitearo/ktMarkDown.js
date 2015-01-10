@@ -214,6 +214,26 @@
 
 
 
+	// VIDEO TAG
+	KtMarkDown.prototype._char_Video = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\!v\[(.*?)\]\((.*?)\)(.*)$/ ) ) { 
+			var head = matches[ 1 ];
+			var url  = matches[ 3 ];
+			var alt  = matches[ 2 ];
+			var tail = matches[ 4 ];
+			textOut += head + '<video src="' + url + '">';
+			textIn   = tail;
+		}
+		return( textOut + textIn );
+	}
+
+
+
 	// LINK TAG
 	KtMarkDown.prototype._char_Link = function( aLineIn ) {
 
@@ -224,7 +244,7 @@
 		while ( matches = textIn.match( /^(.*?)\[(.+?)\]\((.+?)\)(.*)$/ ) ) {
 			var title = matches[ 2 ];
 			var url   = matches[ 3 ];
-			textOut = matches[ 1 ] + '<a href="' + url + '">' + title + '</a>';
+			textOut = matches[ 1 ] + '<a href="' + url + '" controls>' + title + '</a>';
 			textIn  = matches[ 4 ];
 		}
 		return( textOut + textIn );
@@ -308,6 +328,7 @@
 			text = this._char_RectButton( text );	// Rectangle Button
 			text = this._char_OvalButton( text );	// Round Rectangle Button
 			text = this._char_Image( text );		// Image
+			text = this._char_Video( text );		// Video
 			text = this._char_Link( text );			// Link
 			text = this._char_AutoLink( text );		// Auto Link
 			text = this._char_Name( text );			// Name

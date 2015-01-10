@@ -19,7 +19,9 @@
 <script type="text/ktMarkDown" class="markdownSrc">/*
 # ktMarkDown.js : Reference
 
-## IMAGE
+## IMAGES AND VIDEOS
+
+### IMAGES
 
 " (( ![ )) title / alt (( \]\( )) url (( \) )) " の記述で画像を表示することが出来ます。
 
@@ -42,6 +44,27 @@
 ::![crane](img/crane.jpg)
 ::Centering
 )))
+
+### VIDEOS
+
+" (( !v[ )) title (( \]\( )) url (( \) )) " の記述で動画を表示することが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\:\:(( !v[ )) KERO (( \]\( )) img/sample.m4v (( \) ))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+::!v[KERO](img/sample.m4v)
+)))
+
+
+
 
 ---
 :: ''[Back](../../index.html)''
