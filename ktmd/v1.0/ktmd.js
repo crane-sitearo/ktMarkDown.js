@@ -617,18 +617,26 @@
 	}
 
 
+
 /**
-  *  MATCH HORIZONTAL LINE ( LINE TOP --- )
+  *  Horizontal Rule
   *   Search : ---, - - -, ***, * * *
   */
 
-	KtMarkDown.prototype._line_HorLine = function( aLineIn ) {
+	KtMarkDown.prototype._line_HorRule = function( aLineIn ) {
 
 		var text = aLineIn;
 		var sTag, clas, styl, eTag, matches;
 
-		if ( matches = text.match( /^---(.*)$/ ) ) {
-			if ( matches[ 1 ].length < 1 ) { return( '<hr class="ktmd_horLine_1">' ); }
+		if ( matches = text.match( /^---(.*)$/ ) ) { // BASIC
+
+			var matchFoot = matches[ 1 ];
+			if ( matchFoot.length < 1 ) { return( '<hr class="ktmd_horRule_1">' ); }
+
+			if ( matches = matchFoot.match( /^(.+?)\:/ ) ) {
+				return( '<hr class="ktmd_horRule_' + matches[ 1 ] + '">' );
+			}
+
 //			return( '<hr class="ktmd_horLine_' + matches[ 1 ] + ">' ); }
 		}
 
@@ -660,15 +668,15 @@
 		// Outside of 'PRE TAG'
 		if ( matches = text.match( /^\`\`\`(.*)$/ ) ) { // Open prefix
 
-			var tail = matches[ 1 ];
-			if ( matches = tail.match( /^\{(.+?)\}(.*)$/ ) ) { // for highlight.js 
-				clas = matches[ 1 ]; 
-				tail = matches[ 2 ];
+			var matchFoot = matches[ 1 ];
+			if ( matches = matchFoot.match( /^\{(.+?)\}(.*)$/ ) ) { // for highlight.js 
+				clas      = matches[ 1 ]; 
+				matchFoot = matches[ 2 ];
 			}
 
 			this.inPrefix  = true;
 			sTag = 'pre';
-			text = '<code>' + tail;
+			text = '<code>' + matchFoot;
 			eTag = '';
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
@@ -755,9 +763,8 @@
 
 
 
-
 /**
-  *  BUILD TEXT
+  *  Build TEXT
   */
 
 	KtMarkDown.prototype._buildTEXT = function( aText ) {
@@ -788,11 +795,8 @@
 
 
 
-
-
-
 /*
- *  BUILD HTML
+ *  Build HTML
  */
 
 	KtMarkDown.prototype._buildHTML = function( aSrcElement ) {
@@ -824,7 +828,7 @@
 					else if ( htmlLine = this._line_RectBox(    mdLine ) ) { } // Rect Box
 					else if ( htmlLine = this._line_OvalBox(    mdLine ) ) { } // Oval Box
 					else if ( htmlLine = this._line_Indent(     mdLine ) ) { } // Indent
-					else if ( htmlLine = this._line_HorLine(    mdLine ) ) { } // Horizontal Line
+					else if ( htmlLine = this._line_HorRule(    mdLine ) ) { } // Horizontal Rule
 					else if ( htmlLine = this._line_Table(      mdLine ) ) { } // Table
 					else if ( htmlLine = this._line_PageBreak(  mdLine ) ) { } // Page Break
 					else {    htmlLine = this._buildLine( 'div', null, null, mdLine, 'div' ); }
