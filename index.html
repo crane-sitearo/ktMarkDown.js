@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js</title>
+	<meta name="keywords" content="JavaScript Markdown Processor" />
+
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="ktmd/v1.0/ktmd.css" type="text/css">
+	<script type="text/javascript"><!-- Configuration -->
+		var KtMarkDown_Options = {
+			autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
+		};
+	</script>
+
+	<script type="text/javascript"><!-- Google -->
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-30906109-1']);
+		_gaq.push(['_setDomainName', 'sitearo.com']);
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_trackPageview']);
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+</head>
+
+<body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# ktMarkDown.js
+
+:: **JavaScript Driven MarkDown Processor**
+
+:: ご興味のある方は [@_crane_](https://twitter.com/_crane_) までお気軽に。
+::: 2015.1.9 Kengo Tsuruzono / crane@sitearo
+
+## FEATURES
+
+　ktMarkDown の特徴は、以下のとおりです。
+
+(((
+* HTML中にマークダウンの記法で記述すると、ブラウザだけでリッチテキストに変換できる ( サーバ不要 )。
+* JavaScriptをエンジンにしているため、OSを選ばず利用可能。
+* マークダウンの方言を複数サポートしており、既存のテキストを流量可能 ( 例外はあり )。
+* マークダウンとHTMLやJavaScriptとの混在が可能 ( アクセス解析やシンタックスハイライトなども可能 )。
+* なるべくマークダウンのまま読みやすい ( 結果が推測しやすい ) 文法を優先している。
+* 他のマークダウンでは不可能な修飾を可能とする拡張を行っている。
+)))
+
+なお、このドキュメント自身も ktMarkDown.js を使って記述しています。
+
+## INSTALL
+
+　まず、[こちら](#DOWNLOAD) よりダウンロードを行い解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
+
+(((1:
+''CONTENTS OF ZIP''
+)))
+(((2:
+* ![](ktmd/doc/img/folder.png) ktMarkDown.js
+	* ![](ktmd/doc/img/file.png) index.html ( このドキュメント )
+	* ![](ktmd/doc/img/folder.png) ''ktmd''
+		* ![](ktmd/doc/img/folder.png) v1.0 ( KtMarkDown本体 )
+			* ![](ktmd/doc/img/file.png) ''ktmd.js''  ( JavaScript )
+			* ![](ktmd/doc/img/file.png) ktmd.css ( CSS )
+		* ![](ktmd/doc/img/folder.png) doc ( ドキュメント類 )
+)))
+
+　HTMLの基本形は以下のようになっています。
+
+```
+{{!DOCTYPE html}}
+{{html lang="ja"}}
+{{head}}
+  {{meta charset="UTF-8"}}
+  __{{link rel="stylesheet" href="**ktmd/v1.0/ktmd.css**" type="text/css"}}__ ...((1))
+  {{script type="text/javascript"}}
+    var __KtMarkDown_Options__ = { ...((2))
+      autoReload : 30,	// Interval of auto reload ( sec, 0 = Don't reload )
+    };
+  {{/script}}
+{{/head}}
+
+{{body}}
+__{{script type="text/ktMarkDown" class="markdownSrc"}}/*__ ...((3))
+    :
+  ここにマークダウンを書きます
+    :
+__\*\/{{/script}}__
+
+__{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
+{{/body}}
+{{/html}}
+```
+
+1. ((head)) の中で使用する CSS を指定します。標準のものを使う場合は、このままで構いません。書いているHTMLの場所によってはパス指定の変更が必要です。
+2. ((KtMarkDown_Options)) に設定を記述できます。
+3. ((script)) タグの中にマークダウンを書きます。この ((script)) タグは複数存在しても構いません。各 ((script)) タグの直前にレンダリング結果を挿入しますので、((script)) タグの外側には、HTML や JavaScript を自由に書くことが出来ます。
+4. ((body)) の終了タグの直前で、ktMarkDown.js を読み込ませます。書いているHTMLの場所によってはパス指定の変更が必要です。
+
+## SYNTAX REFERENCE : CHARACTER ATTRIBUTES
+
+* ''[文字修飾](ktmd/doc/ref_Char.html)'' ( Character Attributes )
+	* ''[太字](ktmd/doc/ref_Char.html#BOLD)'' ( \*\* Bold \*\* )
+	* //[斜体](ktmd/doc/ref_Char.html#ITALIC)// ( \/\/ Italic \/\/ )
+	* __[下線](ktmd/doc/ref_Char.html#UNDERLINE)__ ( \_\_ Underline \_\_ )
+	* ~~[打ち消し線](ktmd/doc/ref_Char.html#STRIKETHROUGH)~~ ( \~\~ Strikethrough \~\~ )
+	* ``[等幅](ktmd/doc/ref_Char.html#MONOSPACE)`` ( \`\` Monospace \`\` )
+	* ([ [角囲み](ktmd/doc/ref_Char.html#ROUNDED_RECTANGLE_BOX) ]) ( \(\[ Rect Box \]\) )
+	* (( [丸囲み](ktmd/doc/ref_Char.html#RECTANGLE_BOX) )) ( \(\( Rounded Box \)\) )
+* ''[リンク](ktmd/doc/ref_Link.html)''
+* ''[画像](ktmd/doc/ref_Image.html)''
+* ''[エスケープシーケンス](ktmd/doc/ref_Escape.html)''
+
+## SYNTAX REFERENCE : LINE ATTRIBUTES
+
+* ''[見出し](ktmd/doc/ref_Header.html)'' ( \# Header )
+* ''[引用](ktmd/doc/ref_Blockquote.html)'' ( \} Blockquote )
+* ''[リスト](ktmd/doc/ref_List.html)''
+	* [番号付きリスト](ktmd/doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ( \+ Ordered list )
+	* [番号無しリスト](ktmd/doc/ref_List.html#ORDERED_LIST_:_PLUS) ( \* Unordered list )
+* ''[プレフィックス](ktmd/doc/ref_Prefix.html)'' ( \`\`\` Prefix )
+* ''[テキストボックス](ktmd/doc/ref_TextBox.html)''
+* ''[文字揃え](ktmd/doc/ref_TextAlign.html)''
+* ''[テーブル](ktmd/doc/ref_Table.html)'' ( |---|---| )
+* ''[水平線](ktmd/doc/ref_HorLine.html)'' ( --- )
+* ''[改ページ](ktmd/doc/ref_PageBreak.html)'' ( ===== )
+
+## CONFIGURATION
+
+```
+  {{script type="text/javascript"}}
+    var ''KtMarkDown_Options'' = {
+      __autoReload__ : 30,	// Interval of auto reload ( sec, 0 = Don't reload )
+    };
+  {{/script}}
+```
+
+* ''自動リロード'' autoReload : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。
+
+
+## DOWNLOAD
+
+* [Version 1.0b3 : 2015.01.09](download/ktMarkDown.js_1.0b3.zip)
+* [Version 1.0b2 : 2015.01.09](download/ktMarkDown.js_1.0b2.zip)
+* [Version 1.0b1 : 2015.01.06](download/ktMarkDown.js_1.0b1.zip)
+
+## HISTORY
+
+* ''Version 1.0b3'' : 2015.01.--
+	* highlight.js 連携機能の言語指定文法変更。
+* ''Version 1.0b2'' : 2015.01.09
+	* highlight.js 連携機能追加。
+	* 改ページ機能追加。
+	* 1行に複数のリンクを指定したときの不具合修正。
+	* ヘッダーとページ内リンクの同時使用の不具合修正。
+* ''Version 1.0b1'' : 2015.01.06
+	* ファーストリリース
+
+
+## PLAN
+
+### Version 1.0
+
+* ''Basic Functions''
+	* Video and Audio support.
+
+* ''Etc.''
+	* Some Themes.
+
+### Version 2.0
+
+* ''Presentaion Syntax''
+
+
+
+
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='ktmd/v1.0/ktmd.js'></script>
+</body></html>

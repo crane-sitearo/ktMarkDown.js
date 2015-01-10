@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+		<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+		<script type="text/javascript">
+			var KtMarkDown_Options = {
+				autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+			};
+		</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## LISTS
+
+List is described {{ul}} or {{ol}} and {{li}} tag in HTML.
+リストとは、HTMLの {{ul}} や {{ol}} と {{li}} で記述されるものです。
+
+### UNORDERED LISTS : ASTERISK
+
+You can make an __unordered List__ by list items with " ((*)) ((space)) " at line top.
+行頭に " ((*)) ((space)) " を書くことで、番号なしのリストアイテムを作ることが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\((*))((space))Japan
+\((*))((space))China
+\((*))((space))USA
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+* Japan
+* China
+* USA
+)))
+
+
+### UNORDERED LISTS : MINUS
+
+You can make an __unordered List__ by list items with " ((-)) ((space)) " at line top, too.
+行頭に " ((-)) ((space)) " を書くことでも、番号なしのリストアイテムを作ることが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\((-))((space))Japan
+\((-))((space))China
+\((-))((space))USA
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+- Japan
+- China
+- USA
+)))
+
+
+### ORDERED LIST : PLUS
+
+You can make an __ordered List__ by list items with " ((+)) ((space)) " at line top.
+行頭に " ((+)) ((space)) " を書くことで、番号付きのリストアイテムを作ることが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\((+))((space))Japan
+\((+))((space))China
+\((+))((space))USA
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
++ Japan
++ China
++ USA
+)))
+
+
+### ORDERED LIST : NUMBER.
+
+You can make an __ordered List__ by list items with " ((number)) ((.)) ((space)) " at line top, too.
+行頭に " ((数字)) ((.)) ((space)) " を書くことでも、番号付きのリストアイテムを作ることが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\((1))((.))((space))Japan
+\((2))((.))((space))China
+\((3))((.))((space))USA
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+1. Japan
+2. China
+3. USA
+)))
+
+
+### NESTED LISTS INDENTED BY 'TAB'
+
+You can create nested lists indenting list items by ((tab)) at line top.
+((タブ))でインデントすることで、入れ子のリストを作成することが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\((*))((space))Japan
+((tab))((+))((space))Tokyo
+((tab))((+))((space))Osaka
+((tab))((+))((space))Kyoto
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+* Japan
+	+ Tokyo
+	+ Osaka
+	+ Kyoto
+)))
+
+
+### NESTED LISTS INDENTED BY 'TWO SPACE'
+
+You can create nested lists indenting list items by two ((space)) at line top, too.
+2つの((半角スペース))でインデントすることでも、入れ子のリストを作成することが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\*((space))Japan
+((space))((space))((+))((space))Tokyo
+((space))((space))((+))((space))Osaka
+((space))((space))((+))((space))Kyoto
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+* Japan
+  + Tokyo
+  + Osaka
+  + Kyoto
+)))
+
+
+### NESTED LISTS INDENTED BY 'MULTIPLE MARKS'
+
+You can create nested lists indenting list items by multiple ((*)) or ((-)) or ((+)) at line top, too.
+複数の ((*)) か ((-)) か ((+)) でインデントすることでも、入れ子のリストを作成することが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\((*))((space))Japan
+\((+))\((+))((space))Tokyo
+\((+))\((+))((space))Osaka
+\((+))\((+))((space))Kyoto
+)))
+
+(((1:
+''INPUT''
+)))
+(((2:
+* Japan
+++ Tokyo
+++ Osaka
+++ Kyoto
+)))
+
+
+### CHARACTER ATTRIBUTES IN LIST
+
+You can use character attributes in list.
+リスト内でも文字修飾は利用可能です。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\((*))((space))Japan
+((tab))((+))((space))\'\'Tokyo\'\'
+((tab))((+))((space))\_\_Osaka\_\_
+((tab))((+))((space))\/\/Kyoto\/\/
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+* Japan
+	+ ''Tokyo''
+	+ __Osaka__
+	+ //Kyoto//
+)))
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

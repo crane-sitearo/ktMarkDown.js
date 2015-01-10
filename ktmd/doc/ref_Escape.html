@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+	<script type="text/javascript">
+		var KtMarkDown_Options = {
+			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		};
+	</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## ESCAPE SQUENCE
+
+### BACKSLASH 
+
+((\\)) に続く文字はそのまま出力されます。マークダウンによる変換を避ける時に使います。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\\*\\* BOLD \\*\\*
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+\*\* BOLD \*\*
+)))
+
+((注意)) 行頭の " ((*)) ((space)) " は番号なしリストを表しますので、注意して使ってください。
+
+
+### A SIGN OF INEQUALITY
+
+HTMLの中にマークダウンを記述する関係上、HTMLのタグと認識されることを避けるため、不等号は、(( \{\{ )) (( \}\} )) と記述します。
+
+(((1:
+''INPUT''
+)))
+(((2:
+(( \{\{ )) HTML (( \}\} ))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+{{HTML}}
+)))
+
+
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

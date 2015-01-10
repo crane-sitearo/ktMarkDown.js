@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+	<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+		var KtMarkDown_Options = {
+			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		};
+	</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+<script class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## BLOCKQUOTES
+
+You can indicate blockquotes with a " ((\})) " at line top.
+行頭に " ((})) " を書くことで引用であることを示すことが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((\})) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+((\}\})) Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+((\}\}\})) Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+}} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+}}} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+)))
+
+(((1:
+''OUTPUT'' as HTML
+)))
+(((2:
+{{blockquotes}} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  {{blockquotes}} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    {{blockquotes}} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    {{/blockquotes}} 
+  {{/blockquotes}} 
+{{/blockquotes}} 
+)))
+
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

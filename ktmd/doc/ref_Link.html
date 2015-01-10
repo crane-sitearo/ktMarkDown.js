@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+	<script type="text/javascript">
+		var KtMarkDown_Options = {
+			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		};
+	</script>
+	<!-- KTMARKDOWN END -->
+</head>
+
+<body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## LINKS
+
+
+### MANUAL LINK
+
+You can create a linked text with " ((\[)) title (( \]\( )) url (( \) )) ".
+" ((\[)) title (( \]\( )) url (( \) )) " の記述でリンクを作ることが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((\[))Apple(( \]\( )) http://www.apple.com (( \) ))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+[Apple](http://www.apple.com)
+)))
+
+### AUTO LINK
+
+You can create a linked text with URL only.
+URLを書くだけでリンクが作成されます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+Apple site is here (( http\://www.apple.com/ )) .
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+Apple site is here http://www.apple.com/ .
+)))
+
+* ''Supported schemes''
+	- http ( http://abc.com/ )
+	- https ( https://abc.com/ )
+	- ftp ( ftp://abc.com/ )
+	- mailto ( mailto:foo@abc.com )
+	- file ( file://localfile.html )
+
+
+### LINK TO SAME PAGE
+
+You can make place with " (({\#)) place name ((})) " and link to it with ((#)).
+" (({\#)) place name ((})) " で場所を定義して、((#)) でその場所へのリンクが可能です。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((\[))SECTION 1(( \]\( ))#section_1(( \) ))
+(({\#))section_1((})) SECTION 1 ( Link to here )
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+[SECTION 1](#section_1)
+{#section_1} SECTION 1 ( Link to here )
+)))
+
+
+### LINK TO SAME PAGE : HEADER
+
+You can define place with using header ( # at line top ). See also [Headers](ref_Header.html).
+ヘッダーを使うことで場所の定義を行うことが出来ます。[ヘッダー](ref_Header.html)もご覧ください.
+
+(((1:
+''INPUT''
+)))
+(((2:
+\#\# SECTION 2
+)))
+
+(((1:
+''OUTPUT'' as HTML
+)))
+(((2:
+{{h2}}{{a name="SECTION_2"}}{{/a}}SECTION 2{{/h2}}
+)))
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

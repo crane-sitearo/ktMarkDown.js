@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+	<script type="text/javascript">
+		var KtMarkDown_Options = {
+			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		};
+	</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## CHARACTER ATTRIBUTES
+
+### BOLD 
+
+You can create **BOLD** text with two ((*)) or ((')) before and after.
+2つの ((*)) か ((')) をテキストの前後に置くことで**太字**にすることができます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((*\*))BOLD((*\*)) ( font-weight:900 )
+(('\'))BOLD(('\')) ( font-weight:600 )
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+**BOLD** ( font-weight:900 )
+''BOLD'' ( font-weight:600 )
+)))
+
+((NOTE)) Unordered list item is described by " ((*)) ((space)) " at line top. Please use it carefully.
+((注意)) 行頭の " ((*)) ((space)) " は番号なしリストを表しますので、注意して使ってください。
+
+
+### ITALIC
+
+You can create //ITALIC// text with two ((/)) before and after.
+2つの ((/)) をテキストの前後に置くことで//斜体字//にすることができます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((/\/))ITALIC((/\/))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+//ITALIC//
+)))
+
+
+### UNDERLINE
+
+You can create __UNDERLINE__ added text with two ((_)) before and after.
+2つの ((_)) をテキストの前後に置くことで__下線__を付加することができます。(( 数字: )) を付けることでバリエーションを付けることが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((\_\_))UNDERLINE((\_\_)) ktmd_uline_1
+((\_\_2:))UNDERLINE((\_\_)) ktmd_uline_2
+((\_\_3:))UNDERLINE((\_\_)) ktmd_uline_3
+((\_\_11:))UNDERLINE((\_\_)) ktmd_uline_11
+((\_\_12:))UNDERLINE((\_\_)) ktmd_uline_12
+((\_\_13:))UNDERLINE((\_\_)) ktmd_uline_13
+((\_\_21:))UNDERLINE((\_\_)) ktmd_uline_21
+((\_\_22:))UNDERLINE((\_\_)) ktmd_uline_22
+((\_\_23:))UNDERLINE((\_\_)) ktmd_uline_23
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+__UNDERLINE__ ktmd_uline_1
+__2:UNDERLINE__ ktmd_uline_2
+__3:UNDERLINE__ ktmd_uline_3
+__11:UNDERLINE__ ktmd_uline_11
+__12:UNDERLINE__ ktmd_uline_12
+__13:UNDERLINE__ ktmd_uline_13
+__21:UNDERLINE__ ktmd_uline_21
+__22:UNDERLINE__ ktmd_uline_22
+__23:UNDERLINE__ ktmd_uline_23
+)))
+
+
+
+### STRIKETHROUGH
+
+You can create STRIKETHROUGH added text with two ((~)) before and after.
+2つの ((~)) をテキストの前後に置くことで__打ち消し船__を付加することができます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((~\~))STRIKETHROUGH((~\~))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+~~STRIKETHROUGH~~
+)))
+
+
+### MONOSPACE
+
+You can create ``MONOSPACED`` text with two ((`)) before and after.
+2つの ((`)) をテキストの前後に置くことで ``等幅文字`` を付加することができます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((`\`))MONOSPACE((`\`))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+``MONOSPACE``
+)))
+
+
+### RECTANGLE BOX
+
+You can create ([RECTANGLE BOX]) added text with before (( \(\[ )) and after (( \]\) )).
+テキストを  (( \(\[ )) と (( \]\) )) で囲うことで ([角囲み]) を付加することができます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+(( \(\[ )) RECTANGLE BOX (( \]\) ))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+([ RECTANGLE BOX ])
+)))
+
+
+### ROUNDED BOX
+
+You can create ((ROUNDED RECTANGLE BOX)) added text with before (( \(\( )) and after (( \)\) )).
+テキストを  (( \(\( )) と (( \)\) )) で囲うことで ((丸囲み)) を付加することができます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+(( \(\( )) ROUNDED RECTANGLE BOX (( \)\) ))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+(( RECTANGLE BOX ))
+)))
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

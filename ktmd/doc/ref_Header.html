@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+	<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+		var KtMarkDown_Options = {
+			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		};
+	</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+<script class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## HEADERS
+
+行頭に " ((\#)) " を書くことで見出しを作成できます。" ((\#)) " の個数を増やすことで「大見出し」→「中見出し」→「小見出し」のようになります。
+
+(((1:
+''INPUT''
+)))
+(((2:
+((\#)) HEADER 1
+((\#\#)) HEADER 2
+((\#\#\#)) HEADER 3
+((\#\#\#\#)) HEADER 4
+((\#\#\#\#\#)) HEADER 5
+((\#\#\#\#\#\#)) HEADER 6
+)))
+
+(((
+''OUTPUT''
+)))
+
+# HEADER 1
+## HEADER 2
+### HEADER 3
+#### HEADER 4
+##### HEADER 5
+###### HEADER 6
+
+見出しの文字列は、ページ内のリンクになります。
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

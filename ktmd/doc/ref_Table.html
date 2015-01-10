@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+		<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+		<script type="text/javascript">
+			var KtMarkDown_Options = {
+				autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+			};
+		</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+
+
+
+<script class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## TABLE
+
+表を作成するには、行頭と行末に ((|)) を書いて、セルの境界にも ((|)) を書いていきます。
+
+(((
+''INPUT''
+)))
+```
+|Name      |Phone      |Age      |
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |456-2345   |       20|
+```
+
+(((
+''OUTPUT''
+)))
+|Name      |Phone      |Age      |
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |123-2345   |       20|
+
+セル内の文字列の文字揃えを指定する場合は、以下の表の2行目のように書きます。
+
+(((
+''INPUT''
+)))
+```
+|Name      |Phone Number |Age        |
+|:---------|:-----------:|----------:|
+|Left Align|Center Align |Right Align|
+|John      |123-4567     |         10|
+|Bill      |456-2345     |         20|
+```
+
+(((
+''OUTPUT''
+)))
+|Name      |Phone Number |Age        |
+|:---------|:-----------:|----------:|
+|Left Align|Center Aling |Right Align|
+|John      |123-4567     |         10|
+|Bill      |456-2345     |         20|
+
+* Text Align in Table Cell
+	* Left Align ``:------``
+	* Center Align ``:-----:``
+	* Right Align ``-------:``
+
+
+---
+:::This document is made by ktMarkDown.js.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

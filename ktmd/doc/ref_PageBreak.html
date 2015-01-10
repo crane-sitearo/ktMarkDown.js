@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+
+	<!-- KTMARKDOWN START -->
+	<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+		var KtMarkDown_Options = {
+			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		};
+	</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+<script class="markdownSrc">/*
+# ktMarkDown.js : Reference
+
+## PAGE BREAK
+
+行頭の " ((=====)) " で改ページを行います。Webブラウザ上では反映されませんが、印刷やPDF出力に反映されます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+1ページ
+((=====)) 
+2ページ
+)))
+
+(((
+''OUTPUT''
+)))
+
+1ページ ↓ PDF出力するとここで改ページ
+=====
+2ページ
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>
