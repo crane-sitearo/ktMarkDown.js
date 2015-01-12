@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>ktMarkDown.js : Reference : Escape Sequence</title>
+	<title>ktMarkDown.js : Reference : Images</title>
 
 	<!-- KTMARKDOWN START -->
 	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
@@ -13,52 +13,73 @@
 		};
 	</script>
 	<!-- KTMARKDOWN END -->
-
 </head>
 
 <body>
 <script type="text/ktMarkDown" class="markdownSrc">/*
 # ktMarkDown.js : Reference
 
-## ESCAPE SQUENCE
+## IMAGES AND VIDEOS AND AUDIOS
 
-### BACKSLASH 
+### IMAGES
 
-((\\)) に続く文字はそのまま出力されます。マークダウンによる変換を避ける時に使います。
+" (( ![ )) title / alt (( \]\( )) url (( \) )) " の記述で画像を表示することが出来ます。
 
 (((2:
 ''INPUT''
 )))
 (((3:
-\\*\\* BOLD \\*\\*
+(( ![ )) crane (( \]\( )) img/crane.jpg (( \) ))
+
+\:\:(( ![ )) crane (( \]\()) img/crane.jpg (( \) ))
+\:\:Centering
 )))
 
 (((2:
 ''OUTPUT''
 )))
 (((3:
-\*\* BOLD \*\*
+![crane](img/crane.jpg)
+
+::![crane](img/crane.jpg)
+::Centering
 )))
 
-((注意)) 行頭の " ((*)) ((space)) " は番号なしリストを表しますので、注意して使ってください。
+### VIDEOS
 
-
-### A SIGN OF INEQUALITY
-
-HTMLの中にマークダウンを記述する関係上、HTMLのタグと認識されることを避けるため、不等号は、(( \{\{ )) (( \}\} )) と記述します。
+" (( !v[ )) title (( \]\( )) url (( \) )) " の記述で動画を表示することが出来ます。
 
 (((2:
 ''INPUT''
 )))
 (((3:
-(( \{\{ )) HTML (( \}\} ))
+\:\:(( !v[ )) KERO (( \]\()) img/sample.m4v (( \) ))
 )))
 
 (((2:
 ''OUTPUT''
 )))
 (((3:
-{{HTML}}
+::!v[KERO](img/sample.m4v)
+)))
+
+
+### AUDIOS
+
+" (( !a[ )) title (( \]\( )) url (( \) )) " の記述で音声を表示することが出来ます。
+
+(((2:
+''INPUT''
+)))
+(((3:
+\:\:(( !a[ )) SHORT MUSIC (( \]\()) img/sample.m4a (( \) ))
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+::!a[SHORT MUSIC](img/sample.m4a)
 )))
 
 

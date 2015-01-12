@@ -2,17 +2,33 @@
 	CSS for ktMarkDown.js
 */
 
+	@box_bgColor:			rgb(230,230,230);
+	@box_bdColor:			rgb(190,190,190);
+
+	@box_bgDarkColor:		rgb(200,200,200);
+
 
 	body {
 		font-size:			10pt;
 		box-sizing:			border-box;
-		line-height:		2.0em;
+		line-height:		2.1em;
 		font-family:		Verdana, 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
 		margin:				0;
 		padding:			0;
 		box-sizing:			border-box;
 	}
 
+	page {
+	
+		display:	block;
+		width:		100%;
+		height:		100%;
+		background: rgba(226,226,226,1);
+		
+		margin: 0px;
+		border: 1px solid rgba(72,72,72,1);
+		
+	}
 
 	.ktMarkDown { /* SMALL SCREEN */
 		box-sizing:			border-box;
@@ -50,47 +66,6 @@
 		margin:				0;
 		padding:			0;
 	}
-
-/* RECTANGLE BOX */
-
-	.ktmd_rBox { 
-		margin:				10px 6px;
-		border:				1px solid  rgb(210,210,240);
-		padding:			0px 4px;
-		background: 		rgb(230,230,240);
-		color: 				rgb(30,30,30);
-	}
-
-/* OVAL BOX */
-
-	.ktmd_oBox {
-		box-sizing:			border-box;
-		margin:				10px 12px;
-		border:				1px solid  rgb(180,180,180);
-		padding:			0px 4px;
-		border-radius:		4px; 
-		background: 		rgb(230,230,230);
-		color: 				rgb(30,30,30);
-	}
-
-	.ktmd_oBox_1 {
-		margin-bottom:		0;
-		border-radius:		4px 4px 0 0; 
-		background: 		rgb(210,210,210);
-	}
-
-	.ktmd_oBox_2 {
-		margin-top:			0;
-		border-radius:		0 0 4px 4px;
-		border-top-color: 		rgb(230,230,230);
-	}
-
-
-	.ktmd_oBox > div    { 
-		margin:				2px 2px;
-	}
-
-
 
 /*************
  *  HEADERS  *
@@ -182,172 +157,57 @@
 		text-align:			left;
 	}
 
-/**********
- *  LIST  *
- **********/
+/**************
+ *  RECT-BOX  *
+ **************/
 
-	ul {
+	.ktmd_rBox {
 		box-sizing:			border-box;
-		margin:				2px 3%;
-		margin:				4px 4px 4px 2em;
-		padding:			0;
-	}
-
-	ol {
-		box-sizing:			border-box;
-		margin:				2px 3%;
-		margin:				4px 4px 4px 2em;
-		padding:			0;
-	}
-
-	li {
-		box-sizing:			border-box;
-		margin:				2px 3%;
-		line-height:		1.8em;
-		color:				rgb( 20, 20, 20);
-	}
-
-	.ktmd_indent {
-		padding:			4px 4em 4px 8em;
-		color:				rgb( 20, 20, 20);
-	}
-
-
-	/***** HORIZONTAL LINES ******/
-
-	.ktmd_horRule {
-		width:98%;
-		margin:					4px auto 4px auto;
-		height:					1px;
-		border-width:			0;
-		border-bottom-color:	#bbb;
-		border-bottom-width:	1px;
-		border-bottom-style:	solid;
-		padding: 			0;
-	}
-
-	.ktmd_horRule_1 {
-		.ktmd_horRule;
-	}
-
-	.ktmd_horRule_2 {
-		.ktmd_horRule;
-		height:						2px;
-		border-bottom-width:		2px;
-	}
-
-	.ktmd_horRule_11 {
-		.ktmd_horRule;
-		border-bottom-style:		dotted;
-	}
-
-	.ktmd_horRule_12 {
-		.ktmd_horRule;
-		height:						2px;
-		border-bottom-style:		dotted;
-		border-bottom-width:		2px;
-	}
-
-
-
-	page {
-	
-		display:	block;
-		width:		100%;
-		height:		100%;
-		background: rgba(226,226,226,1);
-		
-		margin: 0px;
-		border: 1px solid rgba(72,72,72,1);
-		
-	}
-
-
-
-
-
-
-	/*** UNDERLINES ***/
-	
-	/* SOLID */
-	.ktmd_uline_1  { border-bottom:1px solid #999; padding-bottom:1px; }
-	.ktmd_uline_2  { border-bottom:2px solid #999; padding-bottom:1px; }
-	.ktmd_uline_3  { border-bottom:3px solid #999; padding-bottom:1px; }
-	
-	/* DOTTED */
-	.ktmd_uline_11 { border-bottom:1px dotted #999; padding-bottom:1px; }
-	.ktmd_uline_12 { border-bottom:2px dotted #999; padding-bottom:1px; }
-	.ktmd_uline_13 { border-bottom:3px dotted #999; padding-bottom:1px; }
-	
-	/* DASHED */
-	.ktmd_uline_21 { border-bottom:1px dashed #999; padding-bottom:1px; }
-	.ktmd_uline_22 { border-bottom:2px dashed #999; padding-bottom:1px; }
-	.ktmd_uline_23 { border-bottom:3px dashed #999; padding-bottom:1px; }
-
-
-
-	/*** TEXT ROUNDED BOXES ***/
-
-
-	.ktmd_rButton    { 
-		margin: 2px; 
-		padding:1px 5px 1px 5px; 
-		background: rgb(240,240,240);
-		border:1px solid  #888; 
-		border-radius:0px; 
-	}
-	
-	/* ROUNDED SOLID */
-
-	.ktmd_oButton    { 
-		margin: 2px; 
-		padding:1px 5px 3px 5px; 
-		border:1px solid  rgb(120,120,120); 
-		background: rgb(230,230,230);
-		border-radius:6px;
-/*		box-shadow: 0px 1px 3px rgb(120,120,120);
-*/	}
-
-
-	.rbox_2  { padding:1px 5px; border:2px solid  #888; border-radius:8px; }
-	.rbox_3  { padding:0px 4px; border:3px solid  #888; border-radius:8px; }
-
-
-
-	.ktmd_fw900 {
-		font-weight: 900;
-	}
-
-	.ktmd_fw600 {
-		font-weight: 600;
-	}
-
-
-	/*** MONO SPACE ***/
-	.ktmd_mono_1 {
-		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
-	}
-
-	blockquote {
-		margin-left: 1.5em;
-		border-left: 6px solid rgb(200,200,200);
-		padding-left: 1em;
-	}
-
-
-	/*** PREFIX ***/
-	pre {
 		margin:				10px 12px;
-		border: 			1px solid #ccc;
+		border:				1px solid rgb(180,180,180);
+		padding:			0px 4px;
+		background: 		@box_bgColor;
+		color: 				rgb(0,0,0);
+	}
+
+/**************
+ *  OVAL-BOX  *
+ **************/
+
+	.ktmd_oBox_1 {
+		.ktmd_rBox;
+		border-radius:		4px; 
+	}
+
+	.ktmd_oBox_2 { /* TITLE */
+		.ktmd_rBox;
+		margin-bottom:		0;
+		border-radius:		4px 4px 0 0; 
+		background: 		rgb(180,180,180);
+	}
+
+	.ktmd_oBox_3 {
+		.ktmd_rBox;
+		margin-top:			0;
+		border-radius:		0 0 4px 4px;
+		border-top-color:	rgb(230,230,230);
+	}
+
+	* > div    { 
+		margin:				2px 2px;
+	}
+
+/************
+ *  PREFIX  *
+ ************/
+
+	pre {
+		.ktmd_rBox;
 		border-radius:		4px;
 		padding:			8px;
-
-		background-color:	#ddd;
 		overflow-x:			scroll;
-
 		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
 		line-height:		1.8em;
-		color:				rgb( 20, 20, 20);
 	}
 	@media print {
 		pre {
@@ -359,74 +219,308 @@
 		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
 	}
 
+/****************
+ *  BLOCKQUOTE  *
+ ****************/
 
+	blockquote {
+		margin-left: 1.5em;
+		border-left: 6px solid rgb(200,200,200);
+		padding-left: 1em;
+	}
 
-	/***** TABLE ******/
+/**********
+ *  LIST  *
+ **********/
+
+	ul {
+		box-sizing:				border-box;
+		margin:					2px 3%;
+		margin:					4px 4px 4px 2em;
+		padding:				0;
+	}
+
+	ol {
+		box-sizing:				border-box;
+		margin:					2px 3%;
+		margin:					4px 4px 4px 2em;
+		padding:				0;
+	}
+
+	li {
+		box-sizing:				border-box;
+		margin:					2px 3%;
+		line-height:			1.8em;
+		color:					rgb( 20, 20, 20);
+	}
+
+	.ktmd_indent {
+		padding:				4px 4em 4px 8em;
+		color:					rgb( 20, 20, 20);
+	}
+
+/*********************
+ *  HORIZONTAL RULE  *
+ *********************/
 
 	table {
 		margin:				10px 12px;
-		border:				0px solid rgb(200,200,200);
+		border:				0px solid @box_bdColor;
 		border-spacing:		0;
 		padding:			0;
 	}
 
+	/***** ROW *****/
 	th {
-		margin: 			0;
-		border-left: 		1px solid rgb(200,200,200);
-		border-top: 		1px solid rgb(200,200,200);
-		padding: 			4px;
-		background: 		rgb(220,220,220);
-		text-align: 		center;
+		margin:				0;
+		border-left:		1px solid @box_bdColor;
+		border-top:			1px solid @box_bdColor;
+		padding:			4px;
+		background:			@box_bgDarkColor;
+		text-align:			center;
 	}
-
 	table th:last-child {
 		margin:				0;
 		padding:			4px;
-		background:			rgb(220,220,220);
-		border-left:		1px solid rgb(200,200,200);
-		border-right:		1px solid rgb(200,200,200);
-		border-top: 		1px solid rgb(200,200,200);
-		text-align: 		center;
+		border-right:		1px solid @box_bdColor;
 	}
 
-
+	/***** CELL *****/
 	td {
-		margin: 			0;
-		padding: 			4px;
-		border-left: 		1px solid rgb(200,200,200);
-		border-top: 		1px solid rgb(200,200,200);
-		background: 		rgb(240,240,240);
+		margin:				0;
+		padding:			4px;
+		border-left:		1px solid @box_bdColor;
+		border-top:			1px solid @box_bdColor;
+		background:			@box_bgColor;
 	}
-
 	table td:last-child {
-		margin: 			0;
-		padding: 			4px;
-		border-left: 		1px solid rgb(200,200,200);
-		border-right: 		1px solid rgb(200,200,200);
-		border-top: 		1px solid rgb(200,200,200);
-		background: 		rgb(240,240,240);
+		border-right:		1px solid @box_bdColor;
 	}
-
 	table tr:last-child td {
-		margin: 			0;
-		padding: 			4px;
-		border-left: 		1px solid rgb(200,200,200);
-		border-top: 		1px solid rgb(200,200,200);
-		border-bottom: 		1px solid rgb(200,200,200);
+		border-bottom:		1px solid @box_bdColor;
+	}
+
+/*********************
+ *  HORIZONTAL RULE  *
+ *********************/
+
+	.ktmd_horRule {
+		width:98%;
+		margin:					4px auto 4px auto;
+		height:					1px;
+		border-width:			0;
+		border-bottom-color:	#bbb;
+		border-bottom-width:	1px;
+		border-bottom-style:	solid;
+		padding:				0;
+	}
+
+	.ktmd_horRule_1 {
+		.ktmd_horRule;
+	}
+
+	.ktmd_horRule_2 {
+		.ktmd_horRule;
+		height:					2px;
+		border-bottom-width:	2px;
+	}
+
+	.ktmd_horRule_11 {
+		.ktmd_horRule;
+		border-bottom-style:	dotted;
+	}
+
+	.ktmd_horRule_12 {
+		.ktmd_horRule;
+		height:					2px;
+		border-bottom-style:	dotted;
+		border-bottom-width:	2px;
+	}
+
+/**********
+ *  BOLD  *
+ **********/
+
+	.ktmd_fw900 {
+		font-weight: 900;
+	}
+
+	.ktmd_fw600 {
+		font-weight: 600;
+	}
+
+/***************
+ *  UNDERLINE  *
+ ***************/
+
+	/*** BASE ***/
+	.ktmd_uline {
+		border-bottom:1px solid rgb(70,70,70);
+		padding-bottom:1px;
+	}
+
+	/*** SOLID ***/
+	.ktmd_uline_1  {
+		.ktmd_uline;
+	}
+	.ktmd_uline_2  { 
+		.ktmd_uline;
+		border-bottom-width: 2px;
+	}
+	.ktmd_uline_3  { 
+		.ktmd_uline;
+		border-bottom-width: 3px;
+	}
+	
+	/*** DOTTED ***/
+	.ktmd_uline_11 { 
+		.ktmd_uline;
+		border-bottom-style: dotted;
+	}
+	.ktmd_uline_12 { 
+		.ktmd_uline;
+		border-bottom-style: dotted;
+		border-bottom-width: 2px;
+	}
+	.ktmd_uline_13 { 
+		.ktmd_uline;
+		border-bottom-style: dotted;
+		border-bottom-width: 3px;
+	}
+	
+	/*** DASHED ***/
+	.ktmd_uline_21 { 
+		.ktmd_uline;
+		border-bottom-style: dashed;
+	}
+	.ktmd_uline_22 { 
+		.ktmd_uline;
+		border-bottom-width: 2px;
+		border-bottom-style: dashed;
+	}
+	.ktmd_uline_23 { 
+		.ktmd_uline;
+		border-bottom-style: dashed;
+		border-bottom-width: 3px;
+	}
+
+/*****************
+ *  TEXT SHADOW  *
+ *****************/
+
+	.ktmd_text_shadow {
+		text-shadow:	1px 3px 4px rgb(30,30,30,);
+	}
+
+/*****************
+ *  RECT BUTTON  *
+ *****************/
+
+	.ktmd_rButton { 
+		margin: 			2px;
+		padding:			1px 5px 3px 5px;
 		background: 		rgb(240,240,240);
+		border-color: 		rgb(80,80,80);
+		border-style:		solid;
+		border-width: 		0;
+		border-radius:		0px;
+	}
+	
+	.ktmd_rButton_1 { .ktmd_rButton; border-width: 1px; }
+	.ktmd_rButton_2 { .ktmd_rButton; border-width: 2px; }
+	.ktmd_rButton_3 { .ktmd_rButton; border-width: 3px; }
+
+	.ktmd_rButton_11 { .ktmd_rButton; border-style: dotted; border-width: 1px; }
+	.ktmd_rButton_12 { .ktmd_rButton; border-style: dotted; border-width: 2px; }
+	.ktmd_rButton_13 { .ktmd_rButton; border-style: dotted; border-width: 3px; }
+
+	.ktmd_rButton_21 { .ktmd_rButton; border-style: dashed; border-width: 1px; }
+	.ktmd_rButton_22 { .ktmd_rButton; border-style: dashed; border-width: 2px; }
+	.ktmd_rButton_23 { .ktmd_rButton; border-style: dashed; border-width: 3px; }
+
+	/* GRAD */
+	.ktmd_rButton_50 {
+		.ktmd_rButton;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(210,210,210)), color-stop(100%,rgb(180,180,180))); /* Chrome,Safari4+ */
+	}
+	.ktmd_rButton_51 { .ktmd_rButton_50; border-width: 1px; }
+	.ktmd_rButton_52 { .ktmd_rButton_50; border-width: 2px; }
+	.ktmd_rButton_53 { .ktmd_rButton_50; border-width: 3px; }
+
+	/* SHADOW */
+	.ktmd_rButton_60 {
+		.ktmd_rButton;
+		box-shadow: 0px 1px 3px rgb(60,60,60);
+	}
+	.ktmd_rButton_61 { .ktmd_rButton_60; border-width: 1px; }
+	.ktmd_rButton_62 { .ktmd_rButton_60; border-width: 2px; }
+	.ktmd_rButton_63 { .ktmd_rButton_60; border-width: 3px; }
+
+	/* GRAD + SHADOW */
+	.ktmd_rButton_70 {
+		.ktmd_rButton;
+		box-shadow: 0px 1px 3px rgb(60,60,60);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(210,210,210)), color-stop(100%,rgb(180,180,180))); /* Chrome,Safari4+ */
+	}
+	.ktmd_rButton_71 { .ktmd_rButton_70; border-width: 1px; }
+	.ktmd_rButton_72 { .ktmd_rButton_70; border-width: 2px; }
+	.ktmd_rButton_73 { .ktmd_rButton_70; border-width: 3px; }
+
+
+/*****************
+ *  OVAL BUTTON  *
+ *****************/
+
+	.ktmd_oButton_R { border-radius:10px; }
+
+	/* SOLD */
+	.ktmd_oButton_1 { .ktmd_rButton_1; .ktmd_oButton_R; }
+	.ktmd_oButton_2 { .ktmd_rButton_2; .ktmd_oButton_R; }
+	.ktmd_oButton_3 { .ktmd_rButton_3; .ktmd_oButton_R; }
+
+	/* DOTTED */
+	.ktmd_oButton_11 { .ktmd_rButton_11; .ktmd_oButton_R; }
+	.ktmd_oButton_12 { .ktmd_rButton_12; .ktmd_oButton_R; }
+	.ktmd_oButton_13 { .ktmd_rButton_13; .ktmd_oButton_R; }
+
+	/* DASHED */
+	.ktmd_oButton_21 { .ktmd_rButton_21; .ktmd_oButton_R; }
+	.ktmd_oButton_22 { .ktmd_rButton_22; .ktmd_oButton_R; }
+	.ktmd_oButton_23 { .ktmd_rButton_23; .ktmd_oButton_R; }
+
+	/* GRAD */
+	.ktmd_oButton_50 { .ktmd_rButton_50; .ktmd_oButton_R; }
+	.ktmd_oButton_51 { .ktmd_rButton_51; .ktmd_oButton_R; }
+	.ktmd_oButton_52 { .ktmd_rButton_52; .ktmd_oButton_R; }
+	.ktmd_oButton_53 { .ktmd_rButton_53; .ktmd_oButton_R; }
+
+	/* SHADOW */
+	.ktmd_oButton_60 { .ktmd_rButton_60; .ktmd_oButton_R; }
+	.ktmd_oButton_61 { .ktmd_rButton_61; .ktmd_oButton_R; }
+	.ktmd_oButton_62 { .ktmd_rButton_62; .ktmd_oButton_R; }
+	.ktmd_oButton_63 { .ktmd_rButton_63; .ktmd_oButton_R; }
+
+	/* GRAD + SHADOW */
+	.ktmd_oButton_70 { .ktmd_rButton_70; .ktmd_oButton_R; }
+	.ktmd_oButton_71 { .ktmd_rButton_71; .ktmd_oButton_R; }
+	.ktmd_oButton_72 { .ktmd_rButton_72; .ktmd_oButton_R; }
+	.ktmd_oButton_73 { .ktmd_rButton_73; .ktmd_oButton_R; }
+
+/***************
+ *  MONOSPACE  *
+ ***************/
+
+	.ktmd_mono {
+		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
+	}
+
+	.ktmd_mono_1 {
+		.ktmd_mono;
 	}
 
 
-	.ktmd_table {
-		display: table;
-	}
 
-	.ktmd_tableRow {
-		display: table;
-	}
 
-	.ktmd_tableCell {
-	}
 
 
 

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+	<title>ktMarkDown.js : Reference : Character Attributes</title>
 
 	<!-- KTMARKDOWN START -->
 	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
@@ -27,18 +27,18 @@
 You can create **BOLD** text with two ((*)) or ((')) before and after.
 2つの ((*)) か ((')) をテキストの前後に置くことで**太字**にすることができます。
 
-(((1:
+(((2:
 ''INPUT''
 )))
-(((2:
+(((3:
 ((*\*))BOLD((*\*)) ( font-weight:900 )
 (('\'))BOLD(('\')) ( font-weight:600 )
 )))
 
-(((1:
+(((2:
 ''OUTPUT''
 )))
-(((2:
+(((3:
 **BOLD** ( font-weight:900 )
 ''BOLD'' ( font-weight:600 )
 )))
@@ -52,17 +52,17 @@ You can create **BOLD** text with two ((*)) or ((')) before and after.
 You can create //ITALIC// text with two ((/)) before and after.
 2つの ((/)) をテキストの前後に置くことで//斜体字//にすることができます。
 
-(((1:
+(((2:
 ''INPUT''
 )))
-(((2:
+(((3:
 ((/\/))ITALIC((/\/))
 )))
 
-(((1:
+(((2:
 ''OUTPUT''
 )))
-(((2:
+(((3:
 //ITALIC//
 )))
 
@@ -72,10 +72,10 @@ You can create //ITALIC// text with two ((/)) before and after.
 You can create __UNDERLINE__ added text with two ((_)) before and after.
 2つの ((_)) をテキストの前後に置くことで__下線__を付加することができます。(( 数字: )) を付けることでバリエーションを付けることが出来ます。
 
-(((1:
+(((2:
 ''INPUT''
 )))
-(((2:
+(((3:
 ((\_\_))UNDERLINE((\_\_)) ktmd_uline_1
 ((\_\_2:))UNDERLINE((\_\_)) ktmd_uline_2
 ((\_\_3:))UNDERLINE((\_\_)) ktmd_uline_3
@@ -87,10 +87,10 @@ You can create __UNDERLINE__ added text with two ((_)) before and after.
 ((\_\_23:))UNDERLINE((\_\_)) ktmd_uline_23
 )))
 
-(((1:
+(((2:
 ''OUTPUT''
 )))
-(((2:
+(((3:
 __UNDERLINE__ ktmd_uline_1
 __2:UNDERLINE__ ktmd_uline_2
 __3:UNDERLINE__ ktmd_uline_3
@@ -109,17 +109,17 @@ __23:UNDERLINE__ ktmd_uline_23
 You can create STRIKETHROUGH added text with two ((~)) before and after.
 2つの ((~)) をテキストの前後に置くことで__打ち消し船__を付加することができます。
 
-(((1:
+(((2:
 ''INPUT''
 )))
-(((2:
+(((3:
 ((~\~))STRIKETHROUGH((~\~))
 )))
 
-(((1:
+(((2:
 ''OUTPUT''
 )))
-(((2:
+(((3:
 ~~STRIKETHROUGH~~
 )))
 
@@ -129,38 +129,150 @@ You can create STRIKETHROUGH added text with two ((~)) before and after.
 You can create ``MONOSPACED`` text with two ((`)) before and after.
 2つの ((`)) をテキストの前後に置くことで ``等幅文字`` を付加することができます。
 
-(((1:
+(((2:
 ''INPUT''
 )))
-(((2:
+(((3:
 ((`\`))MONOSPACE((`\`))
 )))
 
-(((1:
+(((2:
 ''OUTPUT''
 )))
-(((2:
+(((3:
 ``MONOSPACE``
 )))
 
+
+### TEXT SHADOW
+
+2つの ((;)) をテキストの前後に置くことで ;;影付き文字;; を作ることができます。
+
+(((2:
+''INPUT''
+)))
+(((3:
+((\;\;))TEXT SHADOW((\;\;))
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+;;TEXT SHADOW;;
+)))
 
 ### RECTANGLE BOX
 
 You can create ([RECTANGLE BOX]) added text with before (( \(\[ )) and after (( \]\) )).
 テキストを  (( \(\[ )) と (( \]\) )) で囲うことで ([角囲み]) を付加することができます。
 
-(((1:
+(((2:
 ''INPUT''
 )))
-(((2:
-(( \(\[ )) RECTANGLE BOX (( \]\) ))
+(((3:
+Solid
+\(\[ RECTANGLE BOX \]\) class='ktmd_rButton_1'
+\(\[1: RECTANGLE BOX \]\) class='ktmd_rButton_1'
+\(\[2: RECTANGLE BOX \]\) class='ktmd_rButton_2'
+\(\[3: RECTANGLE BOX \]\) class='ktmd_rButton_3'
+
+Dotted
+\(\[11: RECTANGLE BOX \]\) class='ktmd_rButton_11'
+\(\[12: RECTANGLE BOX \]\) class='ktmd_rButton_12'
+\(\[13: RECTANGLE BOX \]\) class='ktmd_rButton_13'
+
+Dashed
+\(\[21: RECTANGLE BOX \]\) class='ktmd_rButton_21'
+\(\[22: RECTANGLE BOX \]\) class='ktmd_rButton_22'
+\(\[23: RECTANGLE BOX \]\) class='ktmd_rButton_23'
 )))
 
-(((1:
+(((2:
 ''OUTPUT''
 )))
+(((3:
+Solid
+([ RECTANGLE BOX ]) class='ktmd_rButton_1'
+([1: RECTANGLE BOX ]) class='ktmd_rButton_1'
+([2: RECTANGLE BOX ]) class='ktmd_rButton_2'
+([3: RECTANGLE BOX ]) class='ktmd_rButton_3'
+
+Dotted
+([11: RECTANGLE BOX ]) class='ktmd_rButton_11'
+([12: RECTANGLE BOX ]) class='ktmd_rButton_12'
+([13: RECTANGLE BOX ]) class='ktmd_rButton_13'
+
+Dashed
+([21: RECTANGLE BOX ]) class='ktmd_rButton_21'
+([22: RECTANGLE BOX ]) class='ktmd_rButton_22'
+([23: RECTANGLE BOX ]) class='ktmd_rButton_23'
+)))
+
+#### GRADATION
+
 (((2:
-([ RECTANGLE BOX ])
+''INPUT''
+)))
+(((3:
+(( \(\[50: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_50'
+(( \(\[51: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_51'
+(( \(\[52: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_52'
+(( \(\[53: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_53'
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+([50: RECTANGLE BOX ]) class='ktmd_rButton_50'
+([51: RECTANGLE BOX ]) class='ktmd_rButton_51'
+([52: RECTANGLE BOX ]) class='ktmd_rButton_52'
+([53: RECTANGLE BOX ]) class='ktmd_rButton_53'
+)))
+
+#### SHADOW
+
+(((2:
+''INPUT''
+)))
+(((3:
+(( \(\[60: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_60'
+(( \(\[61: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_61'
+(( \(\[62: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_62'
+(( \(\[63: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_63'
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+([60: RECTANGLE BOX ]) class='ktmd_rButton_60'
+([61: RECTANGLE BOX ]) class='ktmd_rButton_61'
+([62: RECTANGLE BOX ]) class='ktmd_rButton_62'
+([63: RECTANGLE BOX ]) class='ktmd_rButton_63'
+)))
+
+#### GRADATION + SHADOW
+
+(((2:
+''INPUT''
+)))
+(((3:
+(( \(\[70: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_70'
+(( \(\[71: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_71'
+(( \(\[72: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_72'
+(( \(\[73: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_73'
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+([70: RECTANGLE BOX ]) class='ktmd_rButton_70'
+([71: RECTANGLE BOX ]) class='ktmd_rButton_71'
+([72: RECTANGLE BOX ]) class='ktmd_rButton_72'
+([73: RECTANGLE BOX ]) class='ktmd_rButton_73'
 )))
 
 
@@ -169,18 +281,98 @@ You can create ([RECTANGLE BOX]) added text with before (( \(\[ )) and after (( 
 You can create ((ROUNDED RECTANGLE BOX)) added text with before (( \(\( )) and after (( \)\) )).
 テキストを  (( \(\( )) と (( \)\) )) で囲うことで ((丸囲み)) を付加することができます。
 
-(((1:
+(((2:
 ''INPUT''
 )))
-(((2:
+(((3:
 (( \(\( )) ROUNDED RECTANGLE BOX (( \)\) ))
 )))
 
-(((1:
+(((2:
 ''OUTPUT''
 )))
+(((3:
+Solid
+(( RECTANGLE BOX )) class='ktmd_oButton_1'
+((1: RECTANGLE BOX )) class='ktmd_oButton_1'
+((2: RECTANGLE BOX )) class='ktmd_oButton_2'
+((3: RECTANGLE BOX )) class='ktmd_oButton_3'
+
+Dotted
+((11: RECTANGLE BOX )) class='ktmd_oButton_11'
+((12: RECTANGLE BOX )) class='ktmd_oButton_12'
+((13: RECTANGLE BOX )) class='ktmd_oButton_13'
+
+Dashed
+((21: RECTANGLE BOX )) class='ktmd_oButton_21'
+((22: RECTANGLE BOX )) class='ktmd_oButton_22'
+((23: RECTANGLE BOX )) class='ktmd_oButton_23'
+)))
+
+#### GRADATION
+
 (((2:
-(( RECTANGLE BOX ))
+''INPUT''
+)))
+(((3:
+(( \(\(50: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_50'
+(( \(\(51: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_51'
+(( \(\(52: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_52'
+(( \(\(53: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_53'
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+((50: RECTANGLE BOX )) class='ktmd_oButton_50'
+((51: RECTANGLE BOX )) class='ktmd_oButton_51'
+((52: RECTANGLE BOX )) class='ktmd_oButton_52'
+((53: RECTANGLE BOX )) class='ktmd_oButton_53'
+)))
+
+#### SHADOW
+
+(((2:
+''INPUT''
+)))
+(((3:
+(( \(\(60: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_60'
+(( \(\(61: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_61'
+(( \(\(62: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_62'
+(( \(\(63: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_63'
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+((60: RECTANGLE BOX )) class='ktmd_oButton_60'
+((61: RECTANGLE BOX )) class='ktmd_oButton_61'
+((62: RECTANGLE BOX )) class='ktmd_oButton_62'
+((63: RECTANGLE BOX )) class='ktmd_oButton_63'
+)))
+
+#### GRADATION + SHADOW
+
+(((2:
+''INPUT''
+)))
+(((3:
+(( \(\(70: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_70'
+(( \(\(71: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_71'
+(( \(\(72: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_72'
+(( \(\(73: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_73'
+)))
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+((70: RECTANGLE BOX )) class='ktmd_oButton_70'
+((71: RECTANGLE BOX )) class='ktmd_oButton_71'
+((72: RECTANGLE BOX )) class='ktmd_oButton_72'
+((73: RECTANGLE BOX )) class='ktmd_oButton_73'
 )))
 
 ---

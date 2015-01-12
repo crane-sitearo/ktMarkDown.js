@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+	<title>ktMarkDown.js : Reference : Images</title>
 
 	<!-- KTMARKDOWN START -->
 	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
@@ -19,7 +19,7 @@
 <script type="text/ktMarkDown" class="markdownSrc">/*
 # ktMarkDown.js : Reference
 
-## IMAGES AND VIDEOS
+## IMAGES AND VIDEOS AND AUDIOS
 
 ### IMAGES
 
@@ -31,7 +31,7 @@
 (((2:
 (( ![ )) crane (( \]\( )) img/crane.jpg (( \) ))
 
-\:\:(( ![ )) crane (( \]\( )) img/crane.jpg (( \) ))
+\:\:(( ![ )) crane (( \]\()) img/crane.jpg (( \) ))
 \:\:Centering
 )))
 
@@ -53,7 +53,7 @@
 ''INPUT''
 )))
 (((2:
-\:\:(( !v[ )) KERO (( \]\( )) img/sample.m4v (( \) ))
+\:\:(( !v[ )) KERO (( \]\()) img/sample.m4v (( \) ))
 )))
 
 (((1:
@@ -63,6 +63,24 @@
 ::!v[KERO](img/sample.m4v)
 )))
 
+
+### AUDIOS
+
+" (( !a[ )) title (( \]\( )) url (( \) )) " の記述で音声を表示することが出来ます。
+
+(((1:
+''INPUT''
+)))
+(((2:
+\:\:(( !a[ )) SHORT MUSIC (( \]\()) img/sample.m4a (( \) ))
+)))
+
+(((1:
+''OUTPUT''
+)))
+(((2:
+::!a[SHORT MUSIC](img/sample.m4a)
+)))
 
 
 

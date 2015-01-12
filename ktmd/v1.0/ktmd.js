@@ -3,13 +3,16 @@
  *    JavaScript MarkDown Processor by Kengo Tsuruzono ( crane@sitearo.com )     
  */
 
+
 	'use strict';
 
-/**
- * KtMarkDown Object
- * @constructor
- */
 
+//-----------------------------------------------------------------------------
+//  MAIN
+//-----------------------------------------------------------------------------
+
+
+	///// CONSTRUCTOR /////
 	function KtMarkDown() {
 
 		if ( window.KtMarkDown_Options ) { this.opts  = KtMarkDown_Options; }
@@ -25,12 +28,143 @@
 	}
 
 
-/**
- * Function : Add 'Bold' character attribute
- *   Search  : '' BOLD ''
- *   Replace : <b> BOLD </b>
- */
+//-----------------------------------------------------------------------------
+//  CHARACTOR
+//-----------------------------------------------------------------------------
 
+
+	///// BUILD TEXT /////
+	KtMarkDown.prototype._buildTEXT = function( aText ) {
+
+		var text = aText;
+		var matches = [];
+
+		// [ >> ] -> &lt;
+		while ( matches = text.match( /^(.*?)\{\{(.*?)$/ )) {
+			text = matches[ 1 ] + '&lt;' + matches[ 2 ];
+		}
+
+		// [ << ] -> &gt;
+		while ( matches = text.match( /^(.*?)\}\}(.*?)$/ )) {
+			text = matches[ 1 ] + '&gt;' + matches[ 2 ];
+		}
+
+		// [ /? ] -> ?;
+		var outText = '';
+		while ( matches = text.match( /^(.*?)\\(.)(.*?)$/ )) {
+			outText += matches[ 1 ] + matches[ 2 ];
+			text     = matches[ 3 ];
+		}
+		outText += text;
+
+		return( outText );
+	}
+
+
+	KtMarkDown.prototype.emojis = {
+
+		// PEOPLE
+
+			bowtie				: '',
+			smile				: '😄',
+			laughing			: '',
+
+			blush				: '😊',
+			smiley				: '😃',
+			relaxed				: '☺',
+
+			smikr				: '😏',
+			heart_eyes			: '😍',
+			kissing_heart		: '😘',
+
+			kissing_closed_eyes	: '😚',
+			flushed				: '😳',
+			relieved			: '😌',
+
+			satisfied			: '',
+			grin				: '😁',
+			wink				: '😉',
+
+			stuck_out_tongue_winking_eye	: '',
+			stuck_out_tongue_closed_eye		: '',
+			grinning			: '',
+
+			kissing				: '',
+			kissing_smiling_eyes	: '',
+			stuck_out_tongue	: '',
+
+		// OBJECTS
+
+			bamboo				: '🎍',
+			gift_heart			: '💝',
+			dolls				: '🎎',
+
+			school_satchel		: '🎒',
+			mortar_board		: '🎓',
+			flags				: '🎏',
+
+			fireworks			: '🎆',
+			sparkler			: '🎇',
+			wind_chime			: '🎐',
+
+			sunny				: '☀',
+			umbrella			: '☔',
+			cloud				: '☁',
+			snowflake			: '',
+			snowman				: '⛄',
+			zap					: '⚡',
+			cyclone				: '🌀',
+
+			foggy				: '',
+			ocean				: '',
+
+			cat					: '🐱',
+			dog					: '🐶',
+			mouse				: '🐭',
+			hamster				: '🐹',
+			rabbit				: '🐰',
+			wolf				: '🐺',
+			frog				: '🐸',
+			tiger				: '🐯',
+			pig_nose			: '',
+
+
+			football			: '🏈',
+			basketball			: '🏀',
+			soccer				: '⚽',
+			baseball			: '⚾',
+			tennis				: '🎾',
+			'8ball'				: '🎱',
+
+
+
+	};
+
+
+	///// EMOJI /////
+	KtMarkDown.prototype._char_Emoji = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches = [];
+
+		while ( matches = textIn.match( /^(.*?)\ \:(.*?)\:\ (.*)$/ ) ) {	// :emoji:
+			var emoji = this.emojis[ matches[ 2 ] ];
+			if ( emoji ) {
+				textOut += matches[ 1 ] + emoji;
+				textIn   = matches[ 3 ];
+			} else {
+				textOut += matches[ 1 ] + ' EMOJI ';
+				textIn   = matches[ 3 ];
+			}
+		}
+
+		return( textOut + textIn );
+
+	}
+
+
+	///// BOLD /////
 	KtMarkDown.prototype._char_Bold = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -53,12 +187,7 @@
 	}
 
 
-/**
- *  Italic
- *   Search  : // ITALIC // 
- *   Replace : <i> ITALIC </i>
- */
-
+	///// ITALIC /////
 	KtMarkDown.prototype._char_Italic = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -73,15 +202,11 @@
 	}
 
 
-/**
- * Function : Add 'Underline' character attribute
- *   Search  : __N:UNDERLINE__
- *   Replace : <span class="ktmd_uline_N">UNDERLINE</span>
- */
-
+	///// UNDERLINE /////
 	KtMarkDown.prototype._char_Underline = function( aLineIn ) {
 
 		var textIn    = aLineIn;
+		var textOut   = '';
 		var spanClass = '';
 		var matchBody = '';
 		var matches   = [];
@@ -92,11 +217,7 @@
 			var matchBody = matches[ 2 ];
 			var matchFoot = matches[ 3 ];
 
-			if ( matches = matchBody.match( /^\:(.*)$/ ) ) { // __:STRING__
-				spanClass = 'ktmd_uline_2';
-				matchBody = matches[ 1 ];
-			} 
-			else if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) { // __N:STRING__
+			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) { // __N:STRING__
 				spanClass = 'ktmd_uline_' + matches[ 1 ];
 				matchBody = matches[ 2 ];
 			}
@@ -104,20 +225,16 @@
 				spanClass = 'ktmd_uline_1';
 			}
 
-			textIn = matchHead + '<span class="' + spanClass + '">' + matchBody + '</span>' + matchFoot;
+			textOut += matchHead + '<span class="' + spanClass + '">' + matchBody + '</span>';
+			textIn   = matchFoot;
 
 		}
 
-		return( textIn );
+		return( textOut + textIn );
 	}
 
 
-/**
- *  Strikethrough
- *   Search  : ~~ STRIKETHROUGH ~~
- *   Replace : <del> STRIKETHROUGH </del>
- */
-
+	///// STRIKETHROUGH /////
 	KtMarkDown.prototype._char_Strike = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -131,13 +248,22 @@
 		return( textOut + textIn );
 	}
 
+	///// SHADOW /////
+	KtMarkDown.prototype._char_Shadow = function( aLineIn ) {
 
-/**
- *  MonoSpace
- *   Search  : [[ MONOSPACE ]] 
- *   Replace : <span class="ktmd_mono"> MONOSPACE </span>
- */
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
 
+		while ( matches = textIn.match( /^(.*?)\;\;(.*?)\;\;(.*)$/ ) ) {
+			textOut += matches[ 1 ] + '<span class="ktmd_text_shadow">' + matches[ 2 ] + '</span>';
+			textIn   = matches[ 3 ];
+		}
+		return( textOut + textIn );
+	}
+
+
+	///// MONOSPACE /////
 	KtMarkDown.prototype._char_MonoSpace = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -152,15 +278,13 @@
 
 			textOut += matchHead + '<span class="ktmd_mono_1">' + matchBody + '</span>';
 			textIn   = matchFoot;
+
 		}
 		return( textOut + textIn );
 	}
 
 
-/**
- *   ([ RECTANGLE ]) -> <span class="ktmd_rButton"> RECTANGLE </span>
- */
-
+	///// RECT BUTTON /////
 	KtMarkDown.prototype._char_RectButton = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -168,17 +292,25 @@
 		var matches;
 
 		while ( matches = textIn.match( /^(.*?)\(\[(.*?)\]\)(.*)$/ ) ) {
-			textOut += matches[ 1 ] + '<span class="ktmd_rButton">' + matches[ 2 ] + '</span>';
-			textIn   = matches[ 3 ];
+
+			var matchHead = matches[ 1 ];
+			var matchBody = matches[ 2 ];
+			var matchFoot = matches[ 3 ];
+
+			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
+				textOut += matchHead + '<span class="ktmd_rButton_' + matches[ 1 ] + '">' + matchBody + '</span>';
+				textIn   = matchFoot;
+			} else {
+				textOut += matchHead + '<span class="ktmd_rButton_1">' + matchBody + '</span>';
+				textIn   = matchFoot;
+			}
+
 		}
 		return( textOut + textIn );
 	}
 
 
-/**
- *   (( ROUND RECTANGLE )) -> <span class="ktmd_oButton"> ROUND RECTANGLE </span>
- */
-
+	///// OVAL BUTTON /////
 	KtMarkDown.prototype._char_OvalButton = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -186,15 +318,25 @@
 		var matches;
 
 		while ( matches = textIn.match( /^(.*?)\(\((.*?)\)\)(.*)$/ ) ) { 
-			textOut += matches[ 1 ] + '<span class="ktmd_oButton">' + matches[ 2 ] + '</span>';
-			textIn   = matches[ 3 ];
+
+			var matchHead = matches[ 1 ];
+			var matchBody = matches[ 2 ];
+			var matchFoot = matches[ 3 ];
+
+			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
+				textOut += matchHead + '<span class="ktmd_oButton_' + matches[ 1 ] + '">' + matchBody + '</span>';
+				textIn   = matchFoot;
+			} else {
+				textOut += matchHead + '<span class="ktmd_oButton_1">' + matchBody + '</span>';
+				textIn   = matchFoot;
+			}
+
 		}
 		return( textOut + textIn );
 	}
 
 
-
-	// IMAGE TAG
+	///// IMAGE /////
 	KtMarkDown.prototype._char_Image = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -213,8 +355,7 @@
 	}
 
 
-
-	// VIDEO TAG
+	///// VIDEO /////
 	KtMarkDown.prototype._char_Video = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -226,15 +367,33 @@
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
 			var tail = matches[ 4 ];
-			textOut += head + '<video src="' + url + '">';
+			textOut += head + '<video src="' + url + '" controls>';
 			textIn   = tail;
 		}
 		return( textOut + textIn );
 	}
 
 
+	///// AUDIO /////
+	KtMarkDown.prototype._char_Audio = function( aLineIn ) {
 
-	// LINK TAG
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\!a\[(.*?)\]\((.*?)\)(.*)$/ ) ) { 
+			var head = matches[ 1 ];
+			var url  = matches[ 3 ];
+			var alt  = matches[ 2 ];
+			var tail = matches[ 4 ];
+			textOut += head + '<audio src="' + url + '" controls>';
+			textIn   = tail;
+		}
+		return( textOut + textIn );
+	}
+
+
+	///// LINK /////
 	KtMarkDown.prototype._char_Link = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -251,7 +410,7 @@
 	}
 
 
-	// LINK TAG
+	///// AUTO LINK /////
 	KtMarkDown.prototype._char_AutoLink = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -273,7 +432,7 @@
 	}
 
 
-	// LINK TAG
+	///// NAME /////
 	KtMarkDown.prototype._char_Name = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -288,16 +447,12 @@
 	}
 
 
-///////////////////////////////////////////////////////////////////////////////
-//  LINE ATTRIBUTES
-///////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+//  LINE
+//-----------------------------------------------------------------------------
 
 
-
-/**
-  *  BUILD TAG
-  */
-
+	///// BUILD LINE /////
 	KtMarkDown.prototype._buildLine = function( aStartTag, aCssClass, aCssStyle, aText, aEndTag ) {
 
 		var tagText = '';
@@ -329,9 +484,12 @@
 			text = this._char_OvalButton( text );	// Round Rectangle Button
 			text = this._char_Image( text );		// Image
 			text = this._char_Video( text );		// Video
+			text = this._char_Audio( text );		// Audio
 			text = this._char_Link( text );			// Link
 			text = this._char_AutoLink( text );		// Auto Link
 			text = this._char_Name( text );			// Name
+			text = this._char_Shadow( text );		// Shadow
+			text = this._char_Emoji( text );		// Emoji
 
 			tagText += this._buildTEXT( text ); 
 //			tagText += text; 
@@ -345,11 +503,7 @@
 	}
 
 
-
-/**
-  * Adjust List Level
-  */
-
+	///// ADJUST LIST LEVEL ///
 	KtMarkDown.prototype._adjust_ListLevel = function( aLineIn ) {
 
 		var lineIn  = aLineIn;
@@ -361,7 +515,7 @@
 		var listMark;							// 'List Mark' of current line
 
 		///// GET INDENT LEVEL /////
-		if ( matches = lineIn.match( /^([\*|\+|\-]+)\ (.*)$/ ) ) { // Indent by 'LIST MARK' ( *, **, *** )
+		if ( matches = lineIn.match( /^([\*\+\-]+)\ (.*)$/ ) ) { // Indent by 'LIST MARK' ( *, **, *** )
 			dstLevel = matches[ 1 ].length;
 			listMark = matches[ 1 ].substr( 0, 1 );
 		}
@@ -398,26 +552,22 @@
 	}
 
 
-
-/**
-  *  MATCH LIST ITEM ( LINE TOP TAB+ASTERISK OR TAB+PLUS )
-  */
-
+	///// LIST ITEM /////
 	KtMarkDown.prototype._line_ListItem = function( aLineIn ) {
 
 		var text = aLineIn;
 		var sTag, clas, styl, eTag, matches;
 
-		if ( matches = text.match( /^([\*|\+|\-]+)\ (.*)$/ ) ) { // Indented by 'MULTIPLE LIST MARKS'
+		if ( matches = text.match( /^([\*\+\-]+)\ (.*)$/ ) ) { // Indented by 'MULTIPLE LIST MARKS'
 			sTag = 'li';
 			text = matches[ 2 ];
 			eTag = 'li';
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
-		if ( matches = text.match( /^([\t|\ \ ]*?)(\*|\+|\-|\d+?\.)\ (.*)$/ ) ) { // Indented by 'TAB'
+		if ( matches = text.match( /^((\t|\ \ )*?)(\*|\+|\-|\d+?\.)\ (.*)$/ ) ) { // Indented by 'TAB'
 			sTag = 'li';
-			text = matches[ 3 ];
+			text = matches[ 4 ];
 			eTag = 'li';
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
@@ -426,7 +576,7 @@
 	}
 
 
-
+	///// ADJUST TABLE /////
 	KtMarkDown.prototype._adjust_Table = function( aLineIn ) {
 
 		var lineIn  = aLineIn;
@@ -450,11 +600,7 @@
 	}
 
 
-
-/**
-  *  TABLE ( LINE TOP TAB+ASTERISK OR TAB+PLUS )
-  */
-
+	///// TABLE /////
 	KtMarkDown.prototype._line_Table = function( aLineIn ) {
 
 		var	lineIn  = aLineIn;
@@ -468,7 +614,7 @@
 			cols.shift();	// REMOVE FIRST ITEM
 
 			///// TEXT ALIGN /////
-			if ( cols[ 0 ].match( /^\-|\:/ ) ) { 
+			if ( cols[ 0 ].match( /^(\-|\:)/ ) ) { 
 				for ( var i = 0, n = cols.length ; i < n ; i++ ) {
 					if ( matches = cols[ i ].match( /^(.).*(.)$/ ) ) {
 						if      (( matches[ 1 ] === ':' )&&( matches[ 2 ] === '-' )) { cols[ i ] = 'left';   }
@@ -506,11 +652,7 @@
 	}
 
 
-
-/**
- * HEADER TAG ( LINE TOP SHARP )
- */
-
+	///// HEADER /////
 	KtMarkDown.prototype._line_Header = function( aLineIn ) {
 
 		var text = aLineIn;
@@ -540,7 +682,7 @@
 	}
 
 
-
+	///// ADJUST BLOCKQUOTE /////
 	KtMarkDown.prototype._adjust_Blockquote = function( aLineIn ) {
 
 		var text = aLineIn;
@@ -557,10 +699,8 @@
 
 	}
 
-/**
- * BLOCKQUOTE TAG
- */
 
+	///// BLOCKQUOTE /////
 	KtMarkDown.prototype._line_Blockquote = function( aLineIn ) {
 
 		var text = aLineIn;
@@ -579,23 +719,11 @@
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
-		// ///// BLOCKQUOTE CLOSE /////
-		// if ( matches = text.match( /^(\{+)(.*)$/ ) ) {	// LINE TOP }
-		// 	sTag = ''
-		// 	text = matches[ 2 ];
-		// 	eTag = 'blockquote';
-		// 	return( this._buildLine( sTag, clas, styl, text, eTag ) );
-		// }
-
 		return;
 	}
 
 
-
-/**
-  *  MATCH INDENT ( LINE TOP TAB )
-  */
-
+	///// INDENT ///
 	KtMarkDown.prototype._line_Indent = function( aLineIn ) {
 
 		var text = aLineIn;
@@ -613,7 +741,7 @@
 	}
 
 
-
+	///// TEXT ALIGN /////
 	KtMarkDown.prototype._line_TextAlign= function( aLineIn ) {
 
 		var text = aLineIn;
@@ -638,12 +766,7 @@
 	}
 
 
-
-/**
-  *  Horizontal Rule
-  *   Search : ---, - - -, ***, * * *
-  */
-
+	///// HORIZONTAL RULE /////
 	KtMarkDown.prototype._line_HorRule = function( aLineIn ) {
 
 		var text = aLineIn;
@@ -665,11 +788,7 @@
 	}
 
 
-
-/**
-  *  MATCH PREFIX
-  */
-
+	///// PREFIX ///
 	KtMarkDown.prototype._line_Prefix = function( aLineIn ) {
 		
 		var text = aLineIn;
@@ -706,24 +825,31 @@
 	}
 
 
-
-/**
-  *  MATCH RECTANGLE-BOX
-  */
-
+	///// RECT BOX /////
 	KtMarkDown.prototype._line_RectBox = function( aLineIn ) {
 
 		var text = aLineIn;
 		var sTag, clas, styl, eTag, matches;
 
-		if ( matches = text.match( /^\(\(\[(.*)$/ ) ) { // Open Box
+		if ( matches = text.match( /^\(\(\[(.*)$/ ) ) { ///// Open Box /////
+
 			sTag = 'div';
 			clas = 'ktmd_rBox';
 			text = matches[ 1 ];
+
+			if ( matches = text.match( /^(\d+?)\:(.*)$/ ) ) { // N: Custom Css Class
+				clas = ' ktmd_rBox_' + matches[ 1 ];
+				text = matches[ 2 ];
+			}
+			else if ( matches = text.match( /^\{(.+?)\}(.*)/ ) ) { // {Class}
+				clas = matches[ 1 ];
+				text = matches[ 2 ];
+			}
+
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 		
-		if ( matches = text.match( /^\]\)\)(.*)$/ ) ) { // Close Box
+		if ( matches = text.match( /^\]\)\)(.*)$/ ) ) { ///// Close Box /////
 			text = matches[ 1 ];
 			eTag = 'div';
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
@@ -733,30 +859,31 @@
 	};
 
 
-
-/**
-  *  MATCH OVAL-BOX
-  */
-
+	///// OVAL BOX /////
 	KtMarkDown.prototype._line_OvalBox = function( aLineIn ) {
 
 		var text = aLineIn;
 		var sTag, clas, styl, eTag, matches;
 
-		if ( matches = text.match( /^\(\(\((.*)$/ ) ) { // Open Box
+		if ( matches = text.match( /^\(\(\((.*)$/ ) ) { ///// Open Box /////
+
 			sTag = 'div';
-			clas = 'ktmd_oBox';
+			clas = 'ktmd_oBox_1';
 			text = matches[ 1 ];
-			eTag = '';
-			if ( matches = text.match( /^(\d+?)\:(.*)$/ ) ) { // Custom Css Class
-				clas += ' ktmd_oBox_' + matches[ 1 ];
-				text  = matches[ 2 ];
+
+			if ( matches = text.match( /^(\d+?)\:(.*)$/ ) ) { // N: Custom Css Class
+				clas = ' ktmd_oBox_' + matches[ 1 ];
+				text = matches[ 2 ];
 			}
+			else if ( matches = text.match( /^\{(.+?)\}(.*)/ ) ) { // {Class}
+				clas = matches[ 1 ];
+				text = matches[ 2 ];
+			}
+
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
-		if ( matches = text.match( /^\)\)\)(.*)$/ ) ) { // Close Box
-			sTag = '';
+		if ( matches = text.match( /^\)\)\)(.*)$/ ) ) { ///// Close Box /////
 			text = matches[ 1 ];
 			eTag = 'div';
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
@@ -766,11 +893,7 @@
 	};
 
 
-
-/**
-  *  PAGE BREAK
-  */
-
+	///// PAGE BREAK /////
 	KtMarkDown.prototype._line_PageBreak = function( aLineIn ) {
 
 		var text = aLineIn;
@@ -783,43 +906,7 @@
 	};
 
 
-
-/**
-  *  Build TEXT
-  */
-
-	KtMarkDown.prototype._buildTEXT = function( aText ) {
-
-		var text = aText;
-		var matches = [];
-
-		// [ >> ] -> &lt;
-		while ( matches = text.match( /^(.*?)\{\{(.*?)$/ )) {
-			text = matches[ 1 ] + '&lt;' + matches[ 2 ];
-		}
-
-		// [ << ] -> &gt;
-		while ( matches = text.match( /^(.*?)\}\}(.*?)$/ )) {
-			text = matches[ 1 ] + '&gt;' + matches[ 2 ];
-		}
-
-		// [ /? ] -> ?;
-		var outText = '';
-		while ( matches = text.match( /^(.*?)\\(.)(.*?)$/ )) {
-			outText += matches[ 1 ] + matches[ 2 ];
-			text     = matches[ 3 ];
-		}
-		outText += text;
-
-		return( outText );
-	}
-
-
-
-/*
- *  Build HTML
- */
-
+	///// BUILD HTML /////
 	KtMarkDown.prototype._buildHTML = function( aSrcElement ) {
 	
 		var htmlOut = '';
@@ -873,11 +960,7 @@
 	}
 
 
-
-/**
-  *  Reload Page Automatically
-  */
-
+	///// COUNT DOWN RELOADING /////
 	KtMarkDown.prototype._countDownReloading = function() {
 		if ( 0 < this.reloadAfter ) {
 			document.title = this.docTitle + ' ( ' + this.reloadAfter + ' secs )';
@@ -890,12 +973,8 @@
 	}
 
 
-
-/**
-  *  Start Reloading Page Automatically
-  */
-
-	KtMarkDown.prototype._startCountDownReloading = function() {
+	///// START RELOADING /////
+	KtMarkDown.prototype._startReloading = function() {
 		if ( this.opts ) {
 			if ( 0 < this.opts.autoReload ) {
 				this.reloadAfter = this.opts.autoReload;
@@ -905,11 +984,7 @@
 	}
 
 
-
-/**
-  *  Build MarkDown
-  */
-
+	///// BUILD MARKDOWN /////
 	KtMarkDown.prototype.buildMarkDown = function() {
 
 		// MarkDown all target elements
@@ -920,7 +995,7 @@
 
 		if ( window.hljs ) { hljs.initHighlightingOnLoad(); } // Support highlight.js
 
-		this._startCountDownReloading(); // Reload
+		this._startReloading(); // Reload
 	}
 
 	var ktmd = new KtMarkDown();

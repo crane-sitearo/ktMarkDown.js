@@ -56,10 +56,10 @@
 
 　まず、[こちら](#DOWNLOAD) よりダウンロードを行い解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
-(((1:
+(((2:
 ''CONTENTS OF ZIP''
 )))
-(((2:
+(((3:
 * ![](ktmd/doc/img/folder.png) ktMarkDown.js
 	* ![](ktmd/doc/img/file.png) index.html ( このドキュメント )
 	* ![](ktmd/doc/img/folder.png) ''ktmd''
@@ -87,7 +87,7 @@
 {{body}}
 __{{script type="text/ktMarkDown" class="markdownSrc"}}/*__ ...((3))
     :
-  ここにマークダウンを書きます
+  WRITE MARKDOWN TEXT HERE!
     :
 __\*\/{{/script}}__
 
@@ -103,31 +103,39 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 
 ## SYNTAX REFERENCE : CHARACTER ATTRIBUTES
 
-* ''[文字修飾](ktmd/doc/ref_Char.html)'' ( Character Attributes )
-	* ''[太字](ktmd/doc/ref_Char.html#BOLD)'' ( \*\* Bold \*\* )
-	* //[斜体](ktmd/doc/ref_Char.html#ITALIC)// ( \/\/ Italic \/\/ )
-	* __[下線](ktmd/doc/ref_Char.html#UNDERLINE)__ ( \_\_ Underline \_\_ )
-	* ~~[打ち消し線](ktmd/doc/ref_Char.html#STRIKETHROUGH)~~ ( \~\~ Strikethrough \~\~ )
-	* ``[等幅](ktmd/doc/ref_Char.html#MONOSPACE)`` ( \`\` Monospace \`\` )
-	* ([ [角囲み](ktmd/doc/ref_Char.html#ROUNDED_RECTANGLE_BOX) ]) ( \(\[ Rect Box \]\) )
-	* (( [丸囲み](ktmd/doc/ref_Char.html#RECTANGLE_BOX) )) ( \(\( Rounded Box \)\) )
-* ''[リンク](ktmd/doc/ref_Link.html)''
-* ''[画像](ktmd/doc/ref_Image.html)''
-* ''[エスケープシーケンス](ktmd/doc/ref_Escape.html)''
+* ''[Character Attributes](ktmd/doc/ref_Char.html)''
+	* ''[Bold](ktmd/doc/ref_Char.html#BOLD)'' ([ \*\* Bold \*\* ]) ([ \'\' Bold \'\' ])
+	* //[Italic](ktmd/doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
+	* __[Underline](ktmd/doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
+	* ~~[Strikethrough](ktmd/doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
+	* ;;[Text Shadow](ktmd/doc/ref_Char.html#TEXT_SHADOW);; ([ \;\; Text Shadow \;\; ])
+	* ``[Nonospace](ktmd/doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
+	* ([ [Rect Box](ktmd/doc/ref_Char.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
+	* (( [Oval Box](ktmd/doc/ref_Char.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
+* ''[Link](ktmd/doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
+	* ''[Name](ktmd/doc/ref_Link.html#NAME)'' ([ \{\#Name\} ])
+* ''[Multimedia](ktmd/doc/ref_Multimedia.html)''
+	* [Image](ktmd/doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
+	* [Video](ktmd/doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
+	* [Audio](ktmd/doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
+* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])
+* ''[Escape Sequence](ktmd/doc/ref_Escape.html)'' ([ \\ ])
 
 ## SYNTAX REFERENCE : LINE ATTRIBUTES
 
-* ''[見出し](ktmd/doc/ref_Header.html)'' ( \# Header )
-* ''[引用](ktmd/doc/ref_Blockquote.html)'' ( \} Blockquote )
-* ''[リスト](ktmd/doc/ref_List.html)''
-	* [番号付きリスト](ktmd/doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ( \+ Ordered list )
-	* [番号無しリスト](ktmd/doc/ref_List.html#ORDERED_LIST_:_PLUS) ( \* Unordered list )
-* ''[プレフィックス](ktmd/doc/ref_Prefix.html)'' ( \`\`\` Prefix )
-* ''[テキストボックス](ktmd/doc/ref_TextBox.html)''
-* ''[文字揃え](ktmd/doc/ref_TextAlign.html)''
-* ''[テーブル](ktmd/doc/ref_Table.html)'' ( |---|---| )
-* ''[水平線](ktmd/doc/ref_HorRule.html)'' ( --- )
-* ''[改ページ](ktmd/doc/ref_PageBreak.html)'' ( ===== )
+* ''[Header](ktmd/doc/ref_Header.html)'' ([ \# Header ])
+* ''[Blockquote](ktmd/doc/ref_Blockquote.html)'' ([ \} Blockquote ])
+* ''[List](ktmd/doc/ref_List.html)''
+	* [Ordered List](ktmd/doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ( \+ Ordered List )
+	* [Unordered List](ktmd/doc/ref_List.html#ORDERED_LIST_:_PLUS) ( \* Unordered List )
+* ''[Prefix](ktmd/doc/ref_Prefix.html)'' ( \`\`\` Prefix \`\`\` )
+* ''[Text Box](ktmd/doc/ref_TextBox.html)''
+	* ''[Rect Text Box](ktmd/doc/ref_TextBox.html)''
+	* ''[Oval Text Box](ktmd/doc/ref_TextBox.html)''
+* ''[Text Align](ktmd/doc/ref_TextAlign.html)''
+* ''[Table](ktmd/doc/ref_Table.html)'' ( |---|---| )
+* ''[Horizontal Rule](ktmd/doc/ref_HorRule.html)'' ( --- )
+* ''[Page Break](ktmd/doc/ref_PageBreak.html)'' ( ===== )
 
 ## CONFIGURATION
 
@@ -154,16 +162,16 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 
 ## HISTORY
 
-* ''Version 1.0b3'' : 2015.01.--
-	* highlight.js 連携機能の言語指定文法変更。
-	* 動画表示サポート。
+* ''Version 1.0b3'' : 2015.01.12
+	* Add 'Text Shadow' funciton.
+	* Support 'Video' and 'Audio'.
+	* Change syntax for 'highlight.js'.
 * ''Version 1.0b2'' : 2015.01.09
-	* highlight.js 連携機能追加。
-	* 改ページ機能追加。
-	* 1行に複数のリンクを指定したときの不具合修正。
-	* ヘッダーとページ内リンクの同時使用の不具合修正。
+	* Add supporting 'highlight.js'.
+	* Add 'Page break' funciton.
+	* Bug fix about headers and links to same page.
 * ''Version 1.0b1'' : 2015.01.06
-	* ファーストリリース
+	* First release.
 
 
 ## PLAN
