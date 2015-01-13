@@ -298,7 +298,7 @@
 			var matchFoot = matches[ 3 ];
 
 			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
-				textOut += matchHead + '<span class="ktmd_rButton_' + matches[ 1 ] + '">' + matchBody + '</span>';
+				textOut += matchHead + '<span class="ktmd_rButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
 				textIn   = matchFoot;
 			} else {
 				textOut += matchHead + '<span class="ktmd_rButton_1">' + matchBody + '</span>';
@@ -324,7 +324,7 @@
 			var matchFoot = matches[ 3 ];
 
 			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
-				textOut += matchHead + '<span class="ktmd_oButton_' + matches[ 1 ] + '">' + matchBody + '</span>';
+				textOut += matchHead + '<span class="ktmd_oButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
 				textIn   = matchFoot;
 			} else {
 				textOut += matchHead + '<span class="ktmd_oButton_1">' + matchBody + '</span>';
