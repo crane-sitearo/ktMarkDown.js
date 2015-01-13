@@ -167,6 +167,24 @@ You can create ``MONOSPACED`` text with two ((`)) before and after.
 You can create ([RECTANGLE BOX]) added text with before (( \(\[ )) and after (( \]\) )).
 テキストを  (( \(\[ )) と (( \]\) )) で囲うことで ([角囲み]) を付加することができます。
 
+* 1の位 枠線の太さ
+	* 0 : 0px
+	* 1 : 1px
+	* 2 : 2px
+	* 3 : 3px
+* 10の位 枠線の種類
+	* 0 : 実線 ( Solid )
+	* 1 : 点線 ( Dotted )
+	* 2 : 破線 ( Dashed )
+* 100の位 塗りの種類
+	* 0 : 塗りなし
+	* 1 : 単色
+	* 2 : グラデーション
+* 1000の位 影
+	* 0 : 影なし
+	* 1 : 影あり
+
+
 (((2:
 ''INPUT''
 )))
@@ -192,88 +210,151 @@ Dashed
 ''OUTPUT''
 )))
 (((3:
-Solid
+Solid Line
 ([ RECTANGLE BOX ]) class='ktmd_rButton_1'
 ([1: RECTANGLE BOX ]) class='ktmd_rButton_1'
 ([2: RECTANGLE BOX ]) class='ktmd_rButton_2'
 ([3: RECTANGLE BOX ]) class='ktmd_rButton_3'
 
-Dotted
+Dotted Line
 ([11: RECTANGLE BOX ]) class='ktmd_rButton_11'
 ([12: RECTANGLE BOX ]) class='ktmd_rButton_12'
 ([13: RECTANGLE BOX ]) class='ktmd_rButton_13'
 
-Dashed
+Dashed Line
 ([21: RECTANGLE BOX ]) class='ktmd_rButton_21'
 ([22: RECTANGLE BOX ]) class='ktmd_rButton_22'
 ([23: RECTANGLE BOX ]) class='ktmd_rButton_23'
 )))
 
-#### GRADATION
-
-(((2:
-''INPUT''
-)))
-(((3:
-(( \(\[50: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_50'
-(( \(\[51: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_51'
-(( \(\[52: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_52'
-(( \(\[53: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_53'
-)))
+#### FILL
 
 (((2:
 ''OUTPUT''
 )))
 (((3:
-([50: RECTANGLE BOX ]) class='ktmd_rButton_50'
-([51: RECTANGLE BOX ]) class='ktmd_rButton_51'
-([52: RECTANGLE BOX ]) class='ktmd_rButton_52'
-([53: RECTANGLE BOX ]) class='ktmd_rButton_53'
+Fill Only
+100 ([100: RECTANGLE BOX ]) class='ktmd_rButton_100'
+
+Solid Line
+101 ([101: RECTANGLE BOX ]) class='ktmd_rButton_101'
+102 ([102: RECTANGLE BOX ]) class='ktmd_rButton_102'
+103 ([103: RECTANGLE BOX ]) class='ktmd_rButton_103'
+
+Dotted Line
+111 ([111: RECTANGLE BOX ]) class='ktmd_rButton_111'
+112 ([112: RECTANGLE BOX ]) class='ktmd_rButton_112'
+113 ([113: RECTANGLE BOX ]) class='ktmd_rButton_113'
+
+Dashed Line
+121 ([121: RECTANGLE BOX ]) class='ktmd_rButton_121'
+122 ([122: RECTANGLE BOX ]) class='ktmd_rButton_122'
+123 ([123: RECTANGLE BOX ]) class='ktmd_rButton_123'
+)))
+
+#### GRADATION
+
+(((2:
+''OUTPUT''
+)))
+(((3:
+Gradation Only
+200 ([200: RECTANGLE BOX ]) class='ktmd_rButton_200'
+
+Solid Line
+201 ([201: RECTANGLE BOX ]) class='ktmd_rButton_201'
+202 ([202: RECTANGLE BOX ]) class='ktmd_rButton_202'
+203 ([203: RECTANGLE BOX ]) class='ktmd_rButton_203'
+
+Dotted Line
+211 ([211: RECTANGLE BOX ]) class='ktmd_rButton_211'
+212 ([212: RECTANGLE BOX ]) class='ktmd_rButton_212'
+213 ([213: RECTANGLE BOX ]) class='ktmd_rButton_213'
+
+Dashed Line
+221 ([221: RECTANGLE BOX ]) class='ktmd_rButton_221'
+222 ([222: RECTANGLE BOX ]) class='ktmd_rButton_222'
+223 ([223: RECTANGLE BOX ]) class='ktmd_rButton_223'
 )))
 
 #### SHADOW
 
 (((2:
-''INPUT''
+''OUTPUT''
 )))
 (((3:
-(( \(\[60: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_60'
-(( \(\[61: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_61'
-(( \(\[62: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_62'
-(( \(\[63: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_63'
+Shadow Only
+1000 ([1000: RECTANGLE BOX ]) class='ktmd_rButton_1000'
+
+Solid Line
+1001 ([1001: RECTANGLE BOX ]) class='ktmd_rButton_1001'
+1002 ([1002: RECTANGLE BOX ]) class='ktmd_rButton_1002'
+1003 ([1003: RECTANGLE BOX ]) class='ktmd_rButton_1003'
+
+Dotted Line
+1011 ([1011: RECTANGLE BOX ]) class='ktmd_rButton_1011'
+1012 ([1012: RECTANGLE BOX ]) class='ktmd_rButton_1012'
+1013 ([1013: RECTANGLE BOX ]) class='ktmd_rButton_1013'
+
+Dashed Line
+1021 ([1021: RECTANGLE BOX ]) class='ktmd_rButton_1021'
+1022 ([1022: RECTANGLE BOX ]) class='ktmd_rButton_1022'
+1023 ([1023: RECTANGLE BOX ]) class='ktmd_rButton_1023'
 )))
+
+
+#### FILL + SHADOW
 
 (((2:
 ''OUTPUT''
 )))
 (((3:
-([60: RECTANGLE BOX ]) class='ktmd_rButton_60'
-([61: RECTANGLE BOX ]) class='ktmd_rButton_61'
-([62: RECTANGLE BOX ]) class='ktmd_rButton_62'
-([63: RECTANGLE BOX ]) class='ktmd_rButton_63'
+Shadow Only
+1100 ([1100: RECTANGLE BOX ]) class='ktmd_rButton_1100'
+
+Solid Line
+1101 ([1101: RECTANGLE BOX ]) class='ktmd_rButton_1101'
+1102 ([1102: RECTANGLE BOX ]) class='ktmd_rButton_1102'
+1103 ([1103: RECTANGLE BOX ]) class='ktmd_rButton_1103'
+
+Dotted Line
+1111 ([1111: RECTANGLE BOX ]) class='ktmd_rButton_1111'
+1112 ([1112: RECTANGLE BOX ]) class='ktmd_rButton_1112'
+1113 ([1113: RECTANGLE BOX ]) class='ktmd_rButton_1113'
+
+Dashed Line
+1121 ([1121: RECTANGLE BOX ]) class='ktmd_rButton_1121'
+1122 ([1122: RECTANGLE BOX ]) class='ktmd_rButton_1122'
+1123 ([1123: RECTANGLE BOX ]) class='ktmd_rButton_1123'
 )))
+
 
 #### GRADATION + SHADOW
 
 (((2:
-''INPUT''
-)))
-(((3:
-(( \(\[70: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_70'
-(( \(\[71: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_71'
-(( \(\[72: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_72'
-(( \(\[73: )) RECTANGLE BOX (( \]\) )) class='ktmd_rButton_73'
-)))
-
-(((2:
 ''OUTPUT''
 )))
 (((3:
-([70: RECTANGLE BOX ]) class='ktmd_rButton_70'
-([71: RECTANGLE BOX ]) class='ktmd_rButton_71'
-([72: RECTANGLE BOX ]) class='ktmd_rButton_72'
-([73: RECTANGLE BOX ]) class='ktmd_rButton_73'
+Shadow Only
+1200 ([1200: RECTANGLE BOX ]) class='ktmd_rButton_1200'
+
+Solid Line
+1201 ([1201: RECTANGLE BOX ]) class='ktmd_rButton_1201'
+1202 ([1202: RECTANGLE BOX ]) class='ktmd_rButton_1202'
+1203 ([1203: RECTANGLE BOX ]) class='ktmd_rButton_1203'
+
+Dotted Line
+1211 ([1211: RECTANGLE BOX ]) class='ktmd_rButton_1211'
+1212 ([1212: RECTANGLE BOX ]) class='ktmd_rButton_1212'
+1213 ([1213: RECTANGLE BOX ]) class='ktmd_rButton_1213'
+
+Dashed Line
+1221 ([1221: RECTANGLE BOX ]) class='ktmd_rButton_1221'
+1222 ([1222: RECTANGLE BOX ]) class='ktmd_rButton_1222'
+1223 ([1223: RECTANGLE BOX ]) class='ktmd_rButton_1223'
 )))
+
+
 
 
 ### ROUNDED BOX
@@ -285,7 +366,21 @@ You can create ((ROUNDED RECTANGLE BOX)) added text with before (( \(\( )) and a
 ''INPUT''
 )))
 (((3:
-(( \(\( )) ROUNDED RECTANGLE BOX (( \)\) ))
+Solid Line
+(( \(\( )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_1'
+(( \(\(1: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_1'
+(( \(\(2: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_2'
+(( \(\(3: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_3'
+
+Dotted Line
+(( \(\(11: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_11'
+(( \(\(12: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_12'
+(( \(\(13: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_13'
+
+Dashed Line
+(( \(\(21: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_21'
+(( \(\(22: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_22'
+(( \(\(23: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_23'
 )))
 
 (((2:
@@ -307,72 +402,6 @@ Dashed
 ((21: RECTANGLE BOX )) class='ktmd_oButton_21'
 ((22: RECTANGLE BOX )) class='ktmd_oButton_22'
 ((23: RECTANGLE BOX )) class='ktmd_oButton_23'
-)))
-
-#### GRADATION
-
-(((2:
-''INPUT''
-)))
-(((3:
-(( \(\(50: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_50'
-(( \(\(51: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_51'
-(( \(\(52: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_52'
-(( \(\(53: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_53'
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-((50: RECTANGLE BOX )) class='ktmd_oButton_50'
-((51: RECTANGLE BOX )) class='ktmd_oButton_51'
-((52: RECTANGLE BOX )) class='ktmd_oButton_52'
-((53: RECTANGLE BOX )) class='ktmd_oButton_53'
-)))
-
-#### SHADOW
-
-(((2:
-''INPUT''
-)))
-(((3:
-(( \(\(60: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_60'
-(( \(\(61: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_61'
-(( \(\(62: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_62'
-(( \(\(63: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_63'
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-((60: RECTANGLE BOX )) class='ktmd_oButton_60'
-((61: RECTANGLE BOX )) class='ktmd_oButton_61'
-((62: RECTANGLE BOX )) class='ktmd_oButton_62'
-((63: RECTANGLE BOX )) class='ktmd_oButton_63'
-)))
-
-#### GRADATION + SHADOW
-
-(((2:
-''INPUT''
-)))
-(((3:
-(( \(\(70: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_70'
-(( \(\(71: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_71'
-(( \(\(72: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_72'
-(( \(\(73: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_73'
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-((70: RECTANGLE BOX )) class='ktmd_oButton_70'
-((71: RECTANGLE BOX )) class='ktmd_oButton_71'
-((72: RECTANGLE BOX )) class='ktmd_oButton_72'
-((73: RECTANGLE BOX )) class='ktmd_oButton_73'
 )))
 
 ---

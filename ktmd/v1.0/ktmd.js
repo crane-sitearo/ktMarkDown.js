@@ -61,6 +61,7 @@
 	}
 
 
+	///// EMOJI /////
 	KtMarkDown.prototype.emojis = {
 
 		// PEOPLE
@@ -92,6 +93,8 @@
 			kissing				: '',
 			kissing_smiling_eyes	: '',
 			stuck_out_tongue	: '',
+
+			speech_balloon 		: '',
 
 		// OBJECTS
 
@@ -126,8 +129,12 @@
 			wolf				: '🐺',
 			frog				: '🐸',
 			tiger				: '🐯',
+			koala				: '🐨',
+			bear 				: '🐻',
+			pig 				: '🐷',
 			pig_nose			: '',
-
+			cow 				: '🐮',
+			boar 				: '🐗',
 
 			football			: '🏈',
 			basketball			: '🏀',
@@ -136,7 +143,13 @@
 			tennis				: '🎾',
 			'8ball'				: '🎱',
 
+			warning				: '⚠',
+			construction		: '🚧',
+			beginner			: '🔰',
+			atm					: '🏧',
 
+			clock1 				: '🕐',
+			clock10 			: '🕙',
 
 	};
 
@@ -298,7 +311,7 @@
 			var matchFoot = matches[ 3 ];
 
 			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
-				textOut += matchHead + '<span class="ktmd_rButton_' + matches[ 1 ] + '">' + matchBody + '</span>';
+				textOut += matchHead + '<span class="ktmd_rButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
 				textIn   = matchFoot;
 			} else {
 				textOut += matchHead + '<span class="ktmd_rButton_1">' + matchBody + '</span>';
@@ -324,7 +337,7 @@
 			var matchFoot = matches[ 3 ];
 
 			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
-				textOut += matchHead + '<span class="ktmd_oButton_' + matches[ 1 ] + '">' + matchBody + '</span>';
+				textOut += matchHead + '<span class="ktmd_oButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
 				textIn   = matchFoot;
 			} else {
 				textOut += matchHead + '<span class="ktmd_oButton_1">' + matchBody + '</span>';
