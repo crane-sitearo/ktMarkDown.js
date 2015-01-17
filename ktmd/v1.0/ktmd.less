@@ -2,6 +2,8 @@
 	CSS for ktMarkDown.js
 */
 
+
+
 	@box_bgColor:			rgb(230,230,230);
 	@box_bdColor:			rgb(190,190,190);
 
@@ -53,10 +55,8 @@
 
 	div {
 		box-sizing:			border-box;
-		margin:				8px 1em;
-		border:				0px solid rgb(190,190,230);
+		margin:				0 0.3em;
 		padding:			0 4px;
-
 		text-align:			justify;
 		color:				rgb( 20, 20, 20);
 	}
@@ -125,7 +125,7 @@
 		line-height:		 1.8em;
 		color:				rgb( 20, 20, 20);
 		border:				1px solid rgb(200,200,200);
-		border-radius:		50px 50px 50px 50px;
+		border-radius:		20px;
 
 		background-color:	rgb(230,230,240);
 		text-align:    		left;
@@ -157,68 +157,6 @@
 		text-align:			left;
 	}
 
-/**************
- *  RECT-BOX  *
- **************/
-
-	.ktmd_rBox {
-		box-sizing:			border-box;
-		margin:				10px 12px;
-		border:				1px solid rgb(180,180,180);
-		padding:			0px 4px;
-		background: 		@box_bgColor;
-		color: 				rgb(0,0,0);
-	}
-
-/**************
- *  OVAL-BOX  *
- **************/
-
-	.ktmd_oBox_1 {
-		.ktmd_rBox;
-		border-radius:		4px; 
-	}
-
-	.ktmd_oBox_2 { /* TITLE */
-		.ktmd_rBox;
-		margin-bottom:		0;
-		border-radius:		4px 4px 0 0; 
-		background: 		rgb(180,180,180);
-	}
-
-	.ktmd_oBox_3 {
-		.ktmd_rBox;
-		margin-top:			0;
-		border-radius:		0 0 4px 4px;
-		border-top-color:	rgb(230,230,230);
-	}
-
-	* > div    { 
-		margin:				2px 2px;
-	}
-
-/************
- *  PREFIX  *
- ************/
-
-	pre {
-		.ktmd_rBox;
-		border-radius:		4px;
-		padding:			8px;
-		overflow-x:			scroll;
-		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
-		line-height:		1.8em;
-	}
-	@media print {
-		pre {
-			overflow-x:			auto;
-		}
-	}
-
-	code {
-		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
-	}
-
 /****************
  *  BLOCKQUOTE  *
  ****************/
@@ -235,21 +173,19 @@
 
 	ul {
 		box-sizing:				border-box;
-		margin:					2px 3%;
-		margin:					4px 4px 4px 2em;
+		margin:					0px 4px 4px 2em;
 		padding:				0;
 	}
 
 	ol {
 		box-sizing:				border-box;
-		margin:					2px 3%;
-		margin:					4px 4px 4px 2em;
+		margin:					0px 4px 4px 2em;
 		padding:				0;
 	}
 
 	li {
 		box-sizing:				border-box;
-		margin:					2px 3%;
+		margin:					0px 3%;
 		line-height:			1.8em;
 		color:					rgb( 20, 20, 20);
 	}
@@ -257,84 +193,6 @@
 	.ktmd_indent {
 		padding:				4px 4em 4px 8em;
 		color:					rgb( 20, 20, 20);
-	}
-
-/*********************
- *  HORIZONTAL RULE  *
- *********************/
-
-	table {
-		margin:				10px 12px;
-		border:				0px solid @box_bdColor;
-		border-spacing:		0;
-		padding:			0;
-	}
-
-	/***** ROW *****/
-	th {
-		margin:				0;
-		border-left:		1px solid @box_bdColor;
-		border-top:			1px solid @box_bdColor;
-		padding:			4px;
-		background:			@box_bgDarkColor;
-		text-align:			center;
-	}
-	table th:last-child {
-		margin:				0;
-		padding:			4px;
-		border-right:		1px solid @box_bdColor;
-	}
-
-	/***** CELL *****/
-	td {
-		margin:				0;
-		padding:			4px;
-		border-left:		1px solid @box_bdColor;
-		border-top:			1px solid @box_bdColor;
-		background:			@box_bgColor;
-	}
-	table td:last-child {
-		border-right:		1px solid @box_bdColor;
-	}
-	table tr:last-child td {
-		border-bottom:		1px solid @box_bdColor;
-	}
-
-/*********************
- *  HORIZONTAL RULE  *
- *********************/
-
-	.ktmd_horRule {
-		width:98%;
-		margin:					4px auto 4px auto;
-		height:					1px;
-		border-width:			0;
-		border-bottom-color:	#bbb;
-		border-bottom-width:	1px;
-		border-bottom-style:	solid;
-		padding:				0;
-	}
-
-	.ktmd_horRule_1 {
-		.ktmd_horRule;
-	}
-
-	.ktmd_horRule_2 {
-		.ktmd_horRule;
-		height:					2px;
-		border-bottom-width:	2px;
-	}
-
-	.ktmd_horRule_11 {
-		.ktmd_horRule;
-		border-bottom-style:	dotted;
-	}
-
-	.ktmd_horRule_12 {
-		.ktmd_horRule;
-		height:					2px;
-		border-bottom-style:	dotted;
-		border-bottom-width:	2px;
 	}
 
 /**********
@@ -409,14 +267,12 @@
  *****************/
 
 	.ktmd_text_shadow {
-		text-shadow:	1px 3px 4px rgb(30,30,30,);
+		text-shadow:	1px 2px 3px rgb(30,30,30,);
 	}
 
 /*****************
  *  RECT BUTTON  *
  *****************/
-
-
 
 	.ktmd_rButton { 
 		margin: 			2px;
@@ -622,8 +478,410 @@
 		.ktmd_mono;
 	}
 
+/***************
+ *  SPAN CLASS *
+ ***************/
+
+	.big_1 {
+		font-size: 1.3rem;
+	}
+
+/******************
+ *  GOOGLE FONTS  *
+ ******************/
+
+	@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
+
+	.Nunito {
+		font-family: 'Nunito', sans-serif;
+		font-size: 24px;
+	}
 
 
+/**************
+ *  RECT-BOX  *
+ **************/
+
+	.ktmd_rBox {
+		box-sizing:			border-box;
+		margin:				10px 12px;
+		border:				0px solid rgb(160,160,160);
+		padding:			4px 4px;
+		color: 				rgb(0,0,0);
+	}
+	.ktmd_BoxFill     { background: @box_bgColor; }
+	.ktmd_BoxGrad     { background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(210,210,210)), color-stop(100%,rgb(180,180,180))); }
+	.ktmd_BoxGradDark { background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(190,190,190)), color-stop(100%,rgb(160,160,160))); }
+	.ktmd_BoxShadow { box-shadow: 0px 1px 3px rgb(60,60,60); }
+
+	.ktmd_rBoxTopFill { margin-bottom: 0; background: @box_bgDarkColor; }
+	.ktmd_rBoxTopGrad { margin-bottom: 0; .ktmd_BoxGradDark }
+	.ktmd_rBoxBottom  { margin-top: 0; border-top-width: 0; }
+
+
+	/*** FRAME ONLY ***/
+		/* SOLID LINE */
+		.ktmd_rBox_1 { .ktmd_rBox; border-width: 1px; }
+		.ktmd_rBox_2 { .ktmd_rBox; border-width: 2px; }
+		.ktmd_rBox_3 { .ktmd_rBox; border-width: 3px; }
+		/* DOTTED LINE */
+		.ktmd_rBox_11 { .ktmd_rBox; border-style: dotted; border-width: 1px; }
+		.ktmd_rBox_12 { .ktmd_rBox; border-style: dotted; border-width: 2px; }
+		.ktmd_rBox_13 { .ktmd_rBox; border-style: dotted; border-width: 3px; }
+		/* DASHED LINE */
+		.ktmd_rBox_21 { .ktmd_rBox; border-style: dashed; border-width: 1px; }
+		.ktmd_rBox_22 { .ktmd_rBox; border-style: dashed; border-width: 2px; }
+		.ktmd_rBox_23 { .ktmd_rBox; border-style: dashed; border-width: 3px; }
+
+	/*** FILL ***/
+		/* NO LINE + FILL */
+		.ktmd_rBox_100 { .ktmd_rBox; .ktmd_BoxFill; }
+			.ktmd_rBox_t100 { .ktmd_rBox_100; .ktmd_rBoxTopFill; }
+			.ktmd_rBox_b100 { .ktmd_rBox_100; .ktmd_rBoxBottom; }
+		/* SOLID LINE + FILL */
+		.ktmd_rBox_101 { .ktmd_rBox_1; .ktmd_BoxFill; }  
+			.ktmd_rBox_t101 { .ktmd_rBox_101; .ktmd_rBoxTopFill; }
+			.ktmd_rBox_b101 { .ktmd_rBox_101; .ktmd_rBoxBottom; }
+		.ktmd_rBox_102 { .ktmd_rBox_2; .ktmd_BoxFill; }
+			.ktmd_rBox_t102 { .ktmd_rBox_102; .ktmd_rBoxTopFill; }
+			.ktmd_rBox_b102 { .ktmd_rBox_102; .ktmd_rBoxBottom; }
+		.ktmd_rBox_103 { .ktmd_rBox_3; .ktmd_BoxFill; }
+			.ktmd_rBox_t103 { .ktmd_rBox_103; .ktmd_rBoxTopFill; }
+			.ktmd_rBox_b103 { .ktmd_rBox_103; .ktmd_rBoxBottom; }
+		/* DOTTED LINE + FILL */
+		.ktmd_rBox_111 { .ktmd_rBox_11; .ktmd_BoxFill; }
+		.ktmd_rBox_112 { .ktmd_rBox_12; .ktmd_BoxFill; }
+		.ktmd_rBox_113 { .ktmd_rBox_13; .ktmd_BoxFill; }
+		/* DASHED LINE + FILL */
+		.ktmd_rBox_121 { .ktmd_rBox_21; .ktmd_BoxFill; }
+		.ktmd_rBox_122 { .ktmd_rBox_22; .ktmd_BoxFill; }
+		.ktmd_rBox_123 { .ktmd_rBox_23; .ktmd_BoxFill; }
+
+	/*** GRAD ***/
+		/* NO LINE + GRAD */
+		.ktmd_rBox_200 { .ktmd_rBox; .ktmd_BoxGrad; }
+			.ktmd_rBox_t200 { .ktmd_rBox_200; .ktmd_rBoxTopGrad; }
+		/* SOLID LINE + GRAD */
+		.ktmd_rBox_201 { .ktmd_rBox_1; .ktmd_BoxGrad; }
+			.ktmd_rBox_t201 { .ktmd_rBox_201; .ktmd_rBoxTopGrad; }
+		.ktmd_rBox_202 { .ktmd_rBox_2; .ktmd_BoxGrad; }
+			.ktmd_rBox_t202 { .ktmd_rBox_202; .ktmd_rBoxTopGrad; }
+		.ktmd_rBox_203 { .ktmd_rBox_3; .ktmd_BoxGrad; }
+			.ktmd_rBox_t203 { .ktmd_rBox_203; .ktmd_rBoxTopGrad; }
+		/* DOTTED LINE + GRAD */
+		.ktmd_rBox_211 { .ktmd_rBox_11; .ktmd_BoxGrad; }
+		.ktmd_rBox_212 { .ktmd_rBox_12; .ktmd_BoxGrad; }
+		.ktmd_rBox_213 { .ktmd_rBox_13; .ktmd_BoxGrad; }
+		/* DASHED LINE + GRAD */
+		.ktmd_rBox_221 { .ktmd_rBox_21; .ktmd_BoxGrad; }
+		.ktmd_rBox_222 { .ktmd_rBox_22; .ktmd_BoxGrad; }
+		.ktmd_rBox_223 { .ktmd_rBox_23; .ktmd_BoxGrad; }
+
+	/*** SHADOW ***/
+		/* NO LINE + SHADOW */
+		.ktmd_rBox_1000 { .ktmd_rBox; .ktmd_BoxShadow; }
+		/* SOLID LINE + SHADOW */
+		.ktmd_rBox_1001 { .ktmd_rBox_1; .ktmd_BoxShadow; }
+		.ktmd_rBox_1002 { .ktmd_rBox_2; .ktmd_BoxShadow; }
+		.ktmd_rBox_1003 { .ktmd_rBox_3; .ktmd_BoxShadow; }
+		/* DOTTED LINE + SHADOW */
+		.ktmd_rBox_1011 { .ktmd_rBox_11; .ktmd_BoxShadow; }
+		.ktmd_rBox_1012 { .ktmd_rBox_12; .ktmd_BoxShadow; }
+		.ktmd_rBox_1013 { .ktmd_rBox_13; .ktmd_BoxShadow; }
+		/* DASHED LINE + SHADOW */
+		.ktmd_rBox_1021 { .ktmd_rBox_21; .ktmd_BoxShadow; }
+		.ktmd_rBox_1022 { .ktmd_rBox_22; .ktmd_BoxShadow; }
+		.ktmd_rBox_1023 { .ktmd_rBox_23; .ktmd_BoxShadow; }
+
+	/*** FILL + SHADOW ***/
+		/* NO LINE + FILL + SHADOW */
+		.ktmd_rBox_1100 { .ktmd_rBox_100; .ktmd_BoxShadow; }
+		/* SOLID LINE + FILL + SHADOW */
+		.ktmd_rBox_1101 { .ktmd_rBox_101; .ktmd_BoxShadow; }
+		.ktmd_rBox_1102 { .ktmd_rBox_102; .ktmd_BoxShadow; }
+		.ktmd_rBox_1103 { .ktmd_rBox_103; .ktmd_BoxShadow; }
+		/* DOTTED LINE + FILL + SHADOW  */
+		.ktmd_rBox_1111 { .ktmd_rBox_111; .ktmd_BoxShadow; }
+		.ktmd_rBox_1112 { .ktmd_rBox_112; .ktmd_BoxShadow; }
+		.ktmd_rBox_1113 { .ktmd_rBox_113; .ktmd_BoxShadow; }
+		/* DASHED LINE + FILL + SHADOW  */
+		.ktmd_rBox_1121 { .ktmd_rBox_121; .ktmd_BoxShadow; }
+		.ktmd_rBox_1122 { .ktmd_rBox_122; .ktmd_BoxShadow; }
+		.ktmd_rBox_1123 { .ktmd_rBox_123; .ktmd_BoxShadow; }
+
+	/*** GRAD + SHADOW ***/
+		/* NO LINE + GRAD + SHADOW */
+		.ktmd_rBox_1200 { .ktmd_rBox_200; .ktmd_BoxShadow; }
+		/* SOLID LINE + GRAD + SHADOW  */
+		.ktmd_rBox_1201 { .ktmd_rBox_201; .ktmd_BoxShadow; }
+		.ktmd_rBox_1202 { .ktmd_rBox_202; .ktmd_BoxShadow; }
+		.ktmd_rBox_1203 { .ktmd_rBox_203; .ktmd_BoxShadow; }
+		/* DOTTED LINE + GRAD + SHADOW  */
+		.ktmd_rBox_1211 { .ktmd_rBox_211; .ktmd_BoxShadow; }
+		.ktmd_rBox_1212 { .ktmd_rBox_212; .ktmd_BoxShadow; }
+		.ktmd_rBox_1213 { .ktmd_rBox_213; .ktmd_BoxShadow; }
+		/* DASHED LINE + GRAD + SHADOW  */
+		.ktmd_rBox_1221 { .ktmd_rBox_221; .ktmd_BoxShadow; }
+		.ktmd_rBox_1222 { .ktmd_rBox_222; .ktmd_BoxShadow; }
+		.ktmd_rBox_1223 { .ktmd_rBox_223; .ktmd_BoxShadow; }
+
+/**************
+ *  OVAL-BOX  *
+ **************/
+
+	.ktmd_oBox_R      { border-radius:8px; }
+	.ktmd_oBoxTopFill { .ktmd_rBoxTopFill; border-radius: 8px 8px 0 0; }
+	.ktmd_oBoxTopGrad { .ktmd_rBoxTopGrad; border-radius: 8px 8px 0 0; }
+	.ktmd_oBoxBottom  { .ktmd_rBoxBottom;  border-radius: 0 0 8px 8px; }
+
+	/*** FRAME ONLY ***/
+		/* SOLID LINE */
+		.ktmd_oBox_1 { .ktmd_rBox_1; .ktmd_oBox_R; }
+		.ktmd_oBox_2 { .ktmd_rBox_2; .ktmd_oBox_R; }
+		.ktmd_oBox_3 { .ktmd_rBox_3; .ktmd_oBox_R; }
+		/* DOTTED LINE */
+		.ktmd_oBox_11 { .ktmd_rBox_11; .ktmd_oBox_R; }
+		.ktmd_oBox_12 { .ktmd_rBox_12; .ktmd_oBox_R; }
+		.ktmd_oBox_13 { .ktmd_rBox_13; .ktmd_oBox_R; }
+		/* DASHED LINE */
+		.ktmd_oBox_21 { .ktmd_rBox_21; .ktmd_oBox_R; }
+		.ktmd_oBox_22 { .ktmd_rBox_22; .ktmd_oBox_R; }
+		.ktmd_oBox_23 { .ktmd_rBox_23; .ktmd_oBox_R; }
+
+	/*** FILL ***/
+		/* NO LINE + FILL */
+		.ktmd_oBox_100 { .ktmd_rBox_100; .ktmd_oBox_R; }
+			.ktmd_oBox_t100 { .ktmd_oBox_100; .ktmd_oBoxTopFill; }
+			.ktmd_oBox_b100 { .ktmd_oBox_100; .ktmd_oBoxBottom; }
+		/* SOLID LINE + FILL */
+		.ktmd_oBox_101 { .ktmd_rBox_101; .ktmd_oBox_R; }
+			.ktmd_oBox_t101 { .ktmd_oBox_101; .ktmd_oBoxTopFill; }
+			.ktmd_oBox_b101 { .ktmd_oBox_101; .ktmd_oBoxBottom; }
+		.ktmd_oBox_102 { .ktmd_rBox_102; .ktmd_oBox_R; }
+			.ktmd_oBox_t102 { .ktmd_oBox_102; .ktmd_oBoxTopFill; }
+			.ktmd_oBox_b102 { .ktmd_oBox_102; .ktmd_oBoxBottom; }
+		.ktmd_oBox_103 { .ktmd_rBox_103; .ktmd_oBox_R; }
+			.ktmd_oBox_t103 { .ktmd_oBox_103; .ktmd_oBoxTopFill; }
+			.ktmd_oBox_b103 { .ktmd_oBox_103; .ktmd_oBoxBottom; }
+		/* DOTTED LINE + FILL */
+		.ktmd_oBox_111 { .ktmd_rBox_111; .ktmd_oBox_R; }
+		.ktmd_oBox_112 { .ktmd_rBox_112; .ktmd_oBox_R; }
+		.ktmd_oBox_113 { .ktmd_rBox_113; .ktmd_oBox_R; }
+		/* DASHED LINE + FILL */
+		.ktmd_oBox_121 { .ktmd_rBox_121; .ktmd_oBox_R; }
+		.ktmd_oBox_122 { .ktmd_rBox_122; .ktmd_oBox_R; }
+		.ktmd_oBox_123 { .ktmd_rBox_123; .ktmd_oBox_R; }
+
+	/*** GRAD ***/
+		/* NO LINE + GRAD */
+		.ktmd_oBox_200 { .ktmd_rBox_200; .ktmd_oBox_R; }
+			.ktmd_oBox_t200 { .ktmd_oBox_200; .ktmd_oBoxTopGrad; }
+			.ktmd_oBox_b200 { .ktmd_oBox_200; .ktmd_oBoxBottom; }
+		/* SOLID LINE + GRAD */
+		.ktmd_oBox_201 { .ktmd_rBox_201; .ktmd_oBox_R; }
+			.ktmd_oBox_t201 { .ktmd_oBox_201; .ktmd_oBoxTopGrad; }
+			.ktmd_oBox_b201 { .ktmd_oBox_201; .ktmd_oBoxBottom; }
+		.ktmd_oBox_202 { .ktmd_rBox_202; .ktmd_oBox_R; }
+			.ktmd_oBox_t202 { .ktmd_oBox_202; .ktmd_oBoxTopGrad; }
+			.ktmd_oBox_b202 { .ktmd_oBox_202; .ktmd_oBoxBottom; }
+		.ktmd_oBox_203 { .ktmd_rBox_203; .ktmd_oBox_R; }
+			.ktmd_oBox_t203 { .ktmd_oBox_203; .ktmd_oBoxTopGrad; }
+			.ktmd_oBox_b203 { .ktmd_oBox_203; .ktmd_oBoxBottom; }
+		/* DOTTED LINE + GRAD */
+		.ktmd_oBox_211 { .ktmd_rBox_211; .ktmd_oBox_R; }
+		.ktmd_oBox_212 { .ktmd_rBox_212; .ktmd_oBox_R; }
+		.ktmd_oBox_213 { .ktmd_rBox_213; .ktmd_oBox_R; }
+		/* DASHED LINE + GRAD */
+		.ktmd_oBox_221 { .ktmd_rBox_221; .ktmd_oBox_R; }
+		.ktmd_oBox_222 { .ktmd_rBox_222; .ktmd_oBox_R; }
+		.ktmd_oBox_223 { .ktmd_rBox_223; .ktmd_oBox_R; }
+
+	/*** SHADOW ***/
+		/* NO LINE + SHADOW */
+		.ktmd_oBox_1000 { .ktmd_rBox_1000; .ktmd_oBox_R; }
+		/* SOLID LINE + SHADOW */
+		.ktmd_oBox_1001 { .ktmd_rBox_1001; .ktmd_oBox_R; }
+		.ktmd_oBox_1002 { .ktmd_rBox_1002; .ktmd_oBox_R; }
+		.ktmd_oBox_1003 { .ktmd_rBox_1003; .ktmd_oBox_R; }
+		/* DOTTED LINE + SHADOW */
+		.ktmd_oBox_1011 { .ktmd_rBox_1011; .ktmd_oBox_R; }
+		.ktmd_oBox_1012 { .ktmd_rBox_1012; .ktmd_oBox_R; }
+		.ktmd_oBox_1013 { .ktmd_rBox_1013; .ktmd_oBox_R; }
+		/* DASHED LINE + SHADOW */
+		.ktmd_oBox_1021 { .ktmd_rBox_1021; .ktmd_oBox_R; }
+		.ktmd_oBox_1022 { .ktmd_rBox_1022; .ktmd_oBox_R; }
+		.ktmd_oBox_1023 { .ktmd_rBox_1023; .ktmd_oBox_R; }
+
+	/*** SHADOW + FILL ***/
+		/* NO LINE + FILL + SHADOW */
+		.ktmd_oBox_1100 { .ktmd_rBox_1100; .ktmd_oBox_R; }
+		/* SOLID LINE + FILL + SHADOW */
+		.ktmd_oBox_1101 { .ktmd_rBox_1101; .ktmd_oBox_R; }
+		.ktmd_oBox_1102 { .ktmd_rBox_1102; .ktmd_oBox_R; }
+		.ktmd_oBox_1103 { .ktmd_rBox_1103; .ktmd_oBox_R; }
+		/* DOTTED LINE + FILL + SHADOW  */
+		.ktmd_oBox_1111 { .ktmd_rBox_1111; .ktmd_oBox_R; }
+		.ktmd_oBox_1112 { .ktmd_rBox_1112; .ktmd_oBox_R; }
+		.ktmd_oBox_1113 { .ktmd_rBox_1113; .ktmd_oBox_R; }
+		/* DASHED LINE + FILL + SHADOW  */
+		.ktmd_oBox_1121 { .ktmd_rBox_1121; .ktmd_oBox_R; }
+		.ktmd_oBox_1122 { .ktmd_rBox_1122; .ktmd_oBox_R; }
+		.ktmd_oBox_1123 { .ktmd_rBox_1123; .ktmd_oBox_R; }
+
+	/*** SHADOW + GRAD ***/
+		/* NO LINE + GRAD + SHADOW  */
+		.ktmd_oBox_1200 { .ktmd_rBox_1200; .ktmd_oBox_R; }
+		/* SOLID LINE + GRAD + SHADOW  */
+		.ktmd_oBox_1201 { .ktmd_rBox_1201; .ktmd_oBox_R; }
+		.ktmd_oBox_1202 { .ktmd_rBox_1202; .ktmd_oBox_R; }
+		.ktmd_oBox_1203 { .ktmd_rBox_1203; .ktmd_oBox_R; }
+		/* DOTTED LINE + GRAD + SHADOW  */
+		.ktmd_oBox_1211 { .ktmd_rBox_1211; .ktmd_oBox_R; }
+		.ktmd_oBox_1212 { .ktmd_rBox_1212; .ktmd_oBox_R; }
+		.ktmd_oBox_1213 { .ktmd_rBox_1213; .ktmd_oBox_R; }
+		/* DASHED LINE + GRAD + SHADOW  */
+		.ktmd_oBox_1221 { .ktmd_rBox_1221; .ktmd_oBox_R; }
+		.ktmd_oBox_1222 { .ktmd_rBox_1222; .ktmd_oBox_R; }
+		.ktmd_oBox_1223 { .ktmd_rBox_1223; .ktmd_oBox_R; }
+
+
+/*	* > div    { 
+		margin:				2px 2px;
+	}
+*/
+/************
+ *  PREFIX  *
+ ************/
+
+	pre {
+		.ktmd_rBox_101;
+		border-radius:		4px;
+		padding:			8px;
+		overflow-x:			scroll;
+		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
+		line-height:		1.8em;
+	}
+	@media print {
+		pre {
+			overflow-x:			auto;
+		}
+	}
+
+	code {
+		font-family:		courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
+	}
+
+/*********************
+ *  HORIZONTAL RULE  *
+ *********************/
+
+	.ktmd_horRule {
+		width:98%;
+		margin:					4px auto 4px auto;
+		height:					1px;
+		border-width:			0;
+		border-bottom-color:	#bbb;
+		border-bottom-width:	1px;
+		border-bottom-style:	solid;
+		padding:				0;
+	}
+
+	.ktmd_horRule_1 {
+		.ktmd_horRule;
+	}
+
+	.ktmd_horRule_2 {
+		.ktmd_horRule;
+		height:					2px;
+		border-bottom-width:	2px;
+	}
+
+	.ktmd_horRule_3 {
+		.ktmd_horRule;
+		height:					3px;
+		border-bottom-width:	3px;
+	}
+
+	.ktmd_horRule_11 {
+		.ktmd_horRule;
+		border-bottom-style:	dotted;
+	}
+
+	.ktmd_horRule_12 {
+		.ktmd_horRule;
+		height:					2px;
+		border-bottom-style:	dotted;
+		border-bottom-width:	2px;
+	}
+
+	.ktmd_horRule_13 {
+		.ktmd_horRule;
+		height:					3px;
+		border-bottom-style:	dotted;
+		border-bottom-width:	3px;
+	}
+
+
+	.ktmd_horRule_21 {
+		.ktmd_horRule;
+		border-bottom-style:	dashed;
+	}
+
+	.ktmd_horRule_22 {
+		.ktmd_horRule;
+		height:					2px;
+		border-bottom-style:	dashed;
+		border-bottom-width:	2px;
+	}
+
+	.ktmd_horRule_23 {
+		.ktmd_horRule;
+		height:					3px;
+		border-bottom-style:	dashed;
+		border-bottom-width:	3px;
+	}
+
+
+/***********
+ *  TABLE  *
+ ***********/
+
+	table {
+		margin:				10px 12px;
+		border:				0px solid @box_bdColor;
+		border-spacing:		0;
+		padding:			0;
+	}
+
+	/***** ROW *****/
+	th {
+		margin:				0;
+		border-left:		1px solid @box_bdColor;
+		border-top:			1px solid @box_bdColor;
+		padding:			4px;
+		background:			@box_bgDarkColor;
+		text-align:			center;
+	}
+	table th:last-child {
+		margin:				0;
+		padding:			4px;
+		border-right:		1px solid @box_bdColor;
+	}
+
+	/***** CELL *****/
+	td {
+		margin:				0;
+		padding:			4px;
+		border-left:		1px solid @box_bdColor;
+		border-top:			1px solid @box_bdColor;
+		background:			@box_bgColor;
+	}
+	table td:last-child {
+		border-right:		1px solid @box_bdColor;
+	}
+	table tr:last-child td {
+		border-bottom:		1px solid @box_bdColor;
+	}
 
 
 

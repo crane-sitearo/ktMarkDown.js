@@ -349,6 +349,28 @@
 	}
 
 
+	///// SPAN CLASS /////
+	KtMarkDown.prototype._char_SpanClass = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\[\[(.*?)\:(.*?)\]\](.*)$/ ) ) {
+
+			var matchHead = matches[ 1 ];
+			var matchSpan = matches[ 2 ];
+			var matchBody = matches[ 3 ];
+			var matchFoot = matches[ 4 ];
+
+			textOut += matchHead + '<span class="' + matchSpan + '">' + matchBody + '</span>';
+			textIn   = matchFoot;
+
+		}
+		return( textOut + textIn );
+	}
+
+
 	///// IMAGE /////
 	KtMarkDown.prototype._char_Image = function( aLineIn ) {
 
@@ -502,6 +524,7 @@
 			text = this._char_AutoLink( text );		// Auto Link
 			text = this._char_Name( text );			// Name
 			text = this._char_Shadow( text );		// Shadow
+			text = this._char_SpanClass( text );	// Span Class
 			text = this._char_Emoji( text );		// Emoji
 
 			tagText += this._buildTEXT( text ); 
@@ -847,10 +870,10 @@
 		if ( matches = text.match( /^\(\(\[(.*)$/ ) ) { ///// Open Box /////
 
 			sTag = 'div';
-			clas = 'ktmd_rBox';
+			clas = 'ktmd_rBox_101';
 			text = matches[ 1 ];
 
-			if ( matches = text.match( /^(\d+?)\:(.*)$/ ) ) { // N: Custom Css Class
+			if ( matches = text.match( /^(\S+?)\:(.*)$/ ) ) { // N: Custom Css Class
 				clas = ' ktmd_rBox_' + matches[ 1 ];
 				text = matches[ 2 ];
 			}
@@ -881,10 +904,10 @@
 		if ( matches = text.match( /^\(\(\((.*)$/ ) ) { ///// Open Box /////
 
 			sTag = 'div';
-			clas = 'ktmd_oBox_1';
+			clas = 'ktmd_oBox_101';
 			text = matches[ 1 ];
 
-			if ( matches = text.match( /^(\d+?)\:(.*)$/ ) ) { // N: Custom Css Class
+			if ( matches = text.match( /^(\S+?)\:(.*)$/ ) ) { // N: Custom Css Class
 				clas = ' ktmd_oBox_' + matches[ 1 ];
 				text = matches[ 2 ];
 			}

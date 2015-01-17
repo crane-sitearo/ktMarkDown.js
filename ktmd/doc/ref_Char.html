@@ -22,387 +22,175 @@
 
 ## CHARACTER ATTRIBUTES
 
-### BOLD 
+### BASIC
 
-You can create **BOLD** text with two ((*)) or ((')) before and after.
-2つの ((*)) か ((')) をテキストの前後に置くことで**太字**にすることができます。
+| INPUT								| OUTPUT						|
+|:---------------------------------:|:-----------------------------:|
+| ((*\*))BOLD((*\*))				| **BOLD** ( font-weight:900)	|
+| (('\'))BOLD(('\'))				| ''BOLD'' ( font-weight:600)	|
+| ((/\/))ITALIC((/\/))				| //ITALIC// 					|
+| ((_\_))UNDERLINE((_\_))			| __UNDERLINE__ 				|
+| ((~\~))STRIKETHROUGH((~\~))		| ~~STRIKETHROUGH~~				|
+| ((`\`))MONOSPACE((`\`))			| ``MONOSPACE``					|
+| (( (\[ ))RECT BUTTON(( \]\) ))	| ([RECT BUTTON])				|
+| (( (\( ))OVAL BUTTON(( \)\) ))	| ((OVAL BUTTON))				|
+| ((;\;))TEXT SHADOW((;\;))			| ;;TEXT SHADOW;;				|
 
-(((2:
-''INPUT''
-)))
-(((3:
-((*\*))BOLD((*\*)) ( font-weight:900 )
-(('\'))BOLD(('\')) ( font-weight:600 )
-)))
+### MIXED
 
-(((2:
-''OUTPUT''
-)))
-(((3:
-**BOLD** ( font-weight:900 )
-''BOLD'' ( font-weight:600 )
-)))
-
-((NOTE)) Unordered list item is described by " ((*)) ((space)) " at line top. Please use it carefully.
-((注意)) 行頭の " ((*)) ((space)) " は番号なしリストを表しますので、注意して使ってください。
+| INPUT									| OUTPUT						|
+|:-------------------------------------:|:-----------------------------:|
+| ((*\*\;\;)) BOLD SHADOW ((;\;\*\*))	| **;;BOLD SHADOW;;**			|
 
 
-### ITALIC
+### CUSTOM CLASS
 
-You can create //ITALIC// text with two ((/)) before and after.
-2つの ((/)) をテキストの前後に置くことで//斜体字//にすることができます。
-
-(((2:
-''INPUT''
-)))
-(((3:
-((/\/))ITALIC((/\/))
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-//ITALIC//
-)))
+| INPUT 										| OUTPUT 					| CSS CLASS 		|
+|:---------------------------------------------:|:-------------------------:|:------------------|
+| (( \[\[ ))big_1((:)) BIG ((\]\]))				| [[big_1: BIG ]]			| big_1 			|
+| (( \[\[ ))Nunito((:)) Nunito Font ((\]\]))	| [[Nunito: Nunito Font ]]	| Nunito 			|
 
 
 ### UNDERLINE
 
-You can create __UNDERLINE__ added text with two ((_)) before and after.
-2つの ((_)) をテキストの前後に置くことで__下線__を付加することができます。(( 数字: )) を付けることでバリエーションを付けることが出来ます。
-
-(((2:
-''INPUT''
-)))
-(((3:
-((\_\_))UNDERLINE((\_\_)) ktmd_uline_1
-((\_\_2:))UNDERLINE((\_\_)) ktmd_uline_2
-((\_\_3:))UNDERLINE((\_\_)) ktmd_uline_3
-((\_\_11:))UNDERLINE((\_\_)) ktmd_uline_11
-((\_\_12:))UNDERLINE((\_\_)) ktmd_uline_12
-((\_\_13:))UNDERLINE((\_\_)) ktmd_uline_13
-((\_\_21:))UNDERLINE((\_\_)) ktmd_uline_21
-((\_\_22:))UNDERLINE((\_\_)) ktmd_uline_22
-((\_\_23:))UNDERLINE((\_\_)) ktmd_uline_23
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-__UNDERLINE__ ktmd_uline_1
-__2:UNDERLINE__ ktmd_uline_2
-__3:UNDERLINE__ ktmd_uline_3
-__11:UNDERLINE__ ktmd_uline_11
-__12:UNDERLINE__ ktmd_uline_12
-__13:UNDERLINE__ ktmd_uline_13
-__21:UNDERLINE__ ktmd_uline_21
-__22:UNDERLINE__ ktmd_uline_22
-__23:UNDERLINE__ ktmd_uline_23
-)))
-
-
-
-### STRIKETHROUGH
-
-You can create STRIKETHROUGH added text with two ((~)) before and after.
-2つの ((~)) をテキストの前後に置くことで__打ち消し船__を付加することができます。
-
-(((2:
-''INPUT''
-)))
-(((3:
-((~\~))STRIKETHROUGH((~\~))
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-~~STRIKETHROUGH~~
-)))
-
-
-### MONOSPACE
-
-You can create ``MONOSPACED`` text with two ((`)) before and after.
-2つの ((`)) をテキストの前後に置くことで ``等幅文字`` を付加することができます。
-
-(((2:
-''INPUT''
-)))
-(((3:
-((`\`))MONOSPACE((`\`))
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-``MONOSPACE``
-)))
-
-
-### TEXT SHADOW
-
-2つの ((;)) をテキストの前後に置くことで ;;影付き文字;; を作ることができます。
-
-(((2:
-''INPUT''
-)))
-(((3:
-((\;\;))TEXT SHADOW((\;\;))
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-;;TEXT SHADOW;;
-)))
-
-### RECTANGLE BOX
-
-You can create ([RECTANGLE BOX]) added text with before (( \(\[ )) and after (( \]\) )).
-テキストを  (( \(\[ )) と (( \]\) )) で囲うことで ([角囲み]) を付加することができます。
-
-* 1の位 枠線の太さ
-	* 0 : 0px
+* **枠線の太さ** ( 1の位 )
 	* 1 : 1px
 	* 2 : 2px
 	* 3 : 3px
-* 10の位 枠線の種類
+* **枠線の種類** ( 10の位 )
 	* 0 : 実線 ( Solid )
 	* 1 : 点線 ( Dotted )
 	* 2 : 破線 ( Dashed )
-* 100の位 塗りの種類
+
+#### BASIC
+
+| INPUT 						| OUTPUT 			| CSS CLASS 		|
+|:-----------------------------:|:-----------------:|:------------------|
+| ((\_\_))UNDERLINE((\_\_))		| __UNDERLINE__		| ktmd_uline_1 		|
+
+#### LINE STYLE
+
+| INPUT 						| OUTPUT 			| CSS CLASS 		|
+|:-----------------------------:|:-----------------:|:------------------|
+| ((\_\_1:))UNDERLINE((\_\_)) 	| __1:UNDERLINE__	| ktmd_uline_1		|
+| ((\_\_2:))UNDERLINE((\_\_)) 	| __2:UNDERLINE__ 	| ktmd_uline_2		|
+| ((\_\_3:))UNDERLINE((\_\_)) 	| __3:UNDERLINE__ 	| ktmd_uline_3		|
+| ((\_\_11:))UNDERLINE((\_\_))	| __11:UNDERLINE__ 	| ktmd_uline_11		|
+| ((\_\_12:))UNDERLINE((\_\_))	| __12:UNDERLINE__ 	| ktmd_uline_12		|
+| ((\_\_13:))UNDERLINE((\_\_))	| __13:UNDERLINE__ 	| ktmd_uline_13		|
+| ((\_\_21:))UNDERLINE((\_\_))	| __21:UNDERLINE__ 	| ktmd_uline_21		|
+| ((\_\_22:))UNDERLINE((\_\_))	| __22:UNDERLINE__ 	| ktmd_uline_22		|
+| ((\_\_23:))UNDERLINE((\_\_))	| __23:UNDERLINE__ 	| ktmd_uline_23		|
+
+### RECT BUTTON / OVAL BUTTON
+
+* **枠線の太さ** ( 1の位 )
+	* 0 : 0px ( 枠線なし )
+	* 1 : 1px
+	* 2 : 2px
+	* 3 : 3px
+* **枠線の種類** ( 10の位 )
+	* 0 : 実線 ( Solid )
+	* 1 : 点線 ( Dotted )
+	* 2 : 破線 ( Dashed )
+* **塗りの種類** ( 100の位 )
 	* 0 : 塗りなし
 	* 1 : 単色
 	* 2 : グラデーション
-* 1000の位 影
+* **影** ( 1000の位 )
 	* 0 : 影なし
 	* 1 : 影あり
 
+#### BASIC
+| INPUT 						| OUTPUT 				| CSS CLASS 		|
+|:-----------------------------:|:---------------------:|:------------------|
+| \(\[ RECT BUTTON \]\) 		| ([ RECT BUTTON ])		| ktmd_rButton_1	|
+| \(\( OVAL BUTTON \]\) 		| ([ OVAL BUTTON ])		| ktmd_oButton_1	|
 
-(((2:
-''INPUT''
-)))
-(((3:
-Solid
-\(\[ RECTANGLE BOX \]\) class='ktmd_rButton_1'
-\(\[1: RECTANGLE BOX \]\) class='ktmd_rButton_1'
-\(\[2: RECTANGLE BOX \]\) class='ktmd_rButton_2'
-\(\[3: RECTANGLE BOX \]\) class='ktmd_rButton_3'
-
-Dotted
-\(\[11: RECTANGLE BOX \]\) class='ktmd_rButton_11'
-\(\[12: RECTANGLE BOX \]\) class='ktmd_rButton_12'
-\(\[13: RECTANGLE BOX \]\) class='ktmd_rButton_13'
-
-Dashed
-\(\[21: RECTANGLE BOX \]\) class='ktmd_rButton_21'
-\(\[22: RECTANGLE BOX \]\) class='ktmd_rButton_22'
-\(\[23: RECTANGLE BOX \]\) class='ktmd_rButton_23'
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-Solid Line
-([ RECTANGLE BOX ]) class='ktmd_rButton_1'
-([1: RECTANGLE BOX ]) class='ktmd_rButton_1'
-([2: RECTANGLE BOX ]) class='ktmd_rButton_2'
-([3: RECTANGLE BOX ]) class='ktmd_rButton_3'
-
-Dotted Line
-([11: RECTANGLE BOX ]) class='ktmd_rButton_11'
-([12: RECTANGLE BOX ]) class='ktmd_rButton_12'
-([13: RECTANGLE BOX ]) class='ktmd_rButton_13'
-
-Dashed Line
-([21: RECTANGLE BOX ]) class='ktmd_rButton_21'
-([22: RECTANGLE BOX ]) class='ktmd_rButton_22'
-([23: RECTANGLE BOX ]) class='ktmd_rButton_23'
-)))
+#### FRAME ONLY
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1: RECT BUTTON \]\) 		| ([1: RECT BUTTON ])		| ktmd_rButton_1	|
+| \(\[2: RECT BUTTON \]\) 		| ([2: RECT BUTTON ])		| ktmd_rButton_2	|
+| \(\[3: RECT BUTTON \]\) 		| ([2: RECT BUTTON ])		| ktmd_rButton_3	|
+| \(\[11: RECT BUTTON \]\) 		| ([11: RECT BUTTON ])		| ktmd_rButton_11	|
+| \(\[12: RECT BUTTON \]\) 		| ([12: RECT BUTTON ])		| ktmd_rButton_12	|
+| \(\[13: RECT BUTTON \]\) 		| ([13: RECT BUTTON ])		| ktmd_rButton_13	|
+| \(\[21: RECT BUTTON \]\) 		| ([21: RECT BUTTON ])		| ktmd_rButton_21	|
+| \(\[22: RECT BUTTON \]\) 		| ([22: RECT BUTTON ])		| ktmd_rButton_22	|
+| \(\[23: RECT BUTTON \]\) 		| ([23: RECT BUTTON ])		| ktmd_rButton_23	|
 
 #### FILL
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-Fill Only
-100 ([100: RECTANGLE BOX ]) class='ktmd_rButton_100'
-
-Solid Line
-101 ([101: RECTANGLE BOX ]) class='ktmd_rButton_101'
-102 ([102: RECTANGLE BOX ]) class='ktmd_rButton_102'
-103 ([103: RECTANGLE BOX ]) class='ktmd_rButton_103'
-
-Dotted Line
-111 ([111: RECTANGLE BOX ]) class='ktmd_rButton_111'
-112 ([112: RECTANGLE BOX ]) class='ktmd_rButton_112'
-113 ([113: RECTANGLE BOX ]) class='ktmd_rButton_113'
-
-Dashed Line
-121 ([121: RECTANGLE BOX ]) class='ktmd_rButton_121'
-122 ([122: RECTANGLE BOX ]) class='ktmd_rButton_122'
-123 ([123: RECTANGLE BOX ]) class='ktmd_rButton_123'
-)))
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[100: RECT BOX \]\) 		| ([100: RECT BOX ])		| ktmd_rButton_100	|
+| \(\[101: RECT BOX \]\) 		| ([101: RECT BOX ])		| ktmd_rButton_101	|
+| \(\[102: RECT BOX \]\) 		| ([102: RECT BOX ])		| ktmd_rButton_102	|
+| \(\[103: RECT BOX \]\) 		| ([102: RECT BOX ])		| ktmd_rButton_103	|
+| \(\[111: RECT BOX \]\) 		| ([111: RECT BOX ])		| ktmd_rButton_111	|
+| \(\[112: RECT BOX \]\) 		| ([112: RECT BOX ])		| ktmd_rButton_112	|
+| \(\[113: RECT BOX \]\) 		| ([113: RECT BOX ])		| ktmd_rButton_113	|
+| \(\[121: RECT BOX \]\) 		| ([121: RECT BOX ])		| ktmd_rButton_121	|
+| \(\[122: RECT BOX \]\) 		| ([122: RECT BOX ])		| ktmd_rButton_122	|
+| \(\[123: RECT BOX \]\) 		| ([123: RECT BOX ])		| ktmd_rButton_123	|
 
 #### GRADATION
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-Gradation Only
-200 ([200: RECTANGLE BOX ]) class='ktmd_rButton_200'
-
-Solid Line
-201 ([201: RECTANGLE BOX ]) class='ktmd_rButton_201'
-202 ([202: RECTANGLE BOX ]) class='ktmd_rButton_202'
-203 ([203: RECTANGLE BOX ]) class='ktmd_rButton_203'
-
-Dotted Line
-211 ([211: RECTANGLE BOX ]) class='ktmd_rButton_211'
-212 ([212: RECTANGLE BOX ]) class='ktmd_rButton_212'
-213 ([213: RECTANGLE BOX ]) class='ktmd_rButton_213'
-
-Dashed Line
-221 ([221: RECTANGLE BOX ]) class='ktmd_rButton_221'
-222 ([222: RECTANGLE BOX ]) class='ktmd_rButton_222'
-223 ([223: RECTANGLE BOX ]) class='ktmd_rButton_223'
-)))
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[200: RECT BOX \]\) 		| ([200: RECT BOX ])		| ktmd_rButton_200	|
+| \(\[201: RECT BOX \]\) 		| ([201: RECT BOX ])		| ktmd_rButton_201	|
+| \(\[202: RECT BOX \]\) 		| ([202: RECT BOX ])		| ktmd_rButton_202	|
+| \(\[203: RECT BOX \]\) 		| ([202: RECT BOX ])		| ktmd_rButton_203	|
+| \(\[211: RECT BOX \]\) 		| ([211: RECT BOX ])		| ktmd_rButton_211	|
+| \(\[212: RECT BOX \]\) 		| ([212: RECT BOX ])		| ktmd_rButton_212	|
+| \(\[213: RECT BOX \]\) 		| ([213: RECT BOX ])		| ktmd_rButton_213	|
+| \(\[221: RECT BOX \]\) 		| ([221: RECT BOX ])		| ktmd_rButton_221	|
+| \(\[222: RECT BOX \]\) 		| ([222: RECT BOX ])		| ktmd_rButton_222	|
+| \(\[223: RECT BOX \]\) 		| ([223: RECT BOX ])		| ktmd_rButton_223	|
 
 #### SHADOW
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-Shadow Only
-1000 ([1000: RECTANGLE BOX ]) class='ktmd_rButton_1000'
-
-Solid Line
-1001 ([1001: RECTANGLE BOX ]) class='ktmd_rButton_1001'
-1002 ([1002: RECTANGLE BOX ]) class='ktmd_rButton_1002'
-1003 ([1003: RECTANGLE BOX ]) class='ktmd_rButton_1003'
-
-Dotted Line
-1011 ([1011: RECTANGLE BOX ]) class='ktmd_rButton_1011'
-1012 ([1012: RECTANGLE BOX ]) class='ktmd_rButton_1012'
-1013 ([1013: RECTANGLE BOX ]) class='ktmd_rButton_1013'
-
-Dashed Line
-1021 ([1021: RECTANGLE BOX ]) class='ktmd_rButton_1021'
-1022 ([1022: RECTANGLE BOX ]) class='ktmd_rButton_1022'
-1023 ([1023: RECTANGLE BOX ]) class='ktmd_rButton_1023'
-)))
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1000: RECT BOX \]\) 		| ([1000: RECT BOX ])		| ktmd_rButton_1000	|
+| \(\[1001: RECT BOX \]\) 		| ([1001: RECT BOX ])		| ktmd_rButton_1001	|
+| \(\[1002: RECT BOX \]\) 		| ([1002: RECT BOX ])		| ktmd_rButton_1002	|
+| \(\[1003: RECT BOX \]\) 		| ([1002: RECT BOX ])		| ktmd_rButton_1003	|
+| \(\[1011: RECT BOX \]\) 		| ([1011: RECT BOX ])		| ktmd_rButton_1011	|
+| \(\[1012: RECT BOX \]\) 		| ([1012: RECT BOX ])		| ktmd_rButton_1012	|
+| \(\[1013: RECT BOX \]\) 		| ([1013: RECT BOX ])		| ktmd_rButton_1013	|
+| \(\[1021: RECT BOX \]\) 		| ([1021: RECT BOX ])		| ktmd_rButton_1021	|
+| \(\[1022: RECT BOX \]\) 		| ([1022: RECT BOX ])		| ktmd_rButton_1022	|
+| \(\[1023: RECT BOX \]\) 		| ([1023: RECT BOX ])		| ktmd_rButton_1023	|
 
 
 #### FILL + SHADOW
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-Shadow Only
-1100 ([1100: RECTANGLE BOX ]) class='ktmd_rButton_1100'
-
-Solid Line
-1101 ([1101: RECTANGLE BOX ]) class='ktmd_rButton_1101'
-1102 ([1102: RECTANGLE BOX ]) class='ktmd_rButton_1102'
-1103 ([1103: RECTANGLE BOX ]) class='ktmd_rButton_1103'
-
-Dotted Line
-1111 ([1111: RECTANGLE BOX ]) class='ktmd_rButton_1111'
-1112 ([1112: RECTANGLE BOX ]) class='ktmd_rButton_1112'
-1113 ([1113: RECTANGLE BOX ]) class='ktmd_rButton_1113'
-
-Dashed Line
-1121 ([1121: RECTANGLE BOX ]) class='ktmd_rButton_1121'
-1122 ([1122: RECTANGLE BOX ]) class='ktmd_rButton_1122'
-1123 ([1123: RECTANGLE BOX ]) class='ktmd_rButton_1123'
-)))
-
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1100: RECT BOX \]\) 		| ([1100: RECT BOX ])		| ktmd_rButton_1100	|
+| \(\[1101: RECT BOX \]\) 		| ([1101: RECT BOX ])		| ktmd_rButton_1101	|
+| \(\[1102: RECT BOX \]\) 		| ([1102: RECT BOX ])		| ktmd_rButton_1102	|
+| \(\[1103: RECT BOX \]\) 		| ([1102: RECT BOX ])		| ktmd_rButton_1103	|
+| \(\[1111: RECT BOX \]\) 		| ([1111: RECT BOX ])		| ktmd_rButton_1111	|
+| \(\[1112: RECT BOX \]\) 		| ([1112: RECT BOX ])		| ktmd_rButton_1112	|
+| \(\[1113: RECT BOX \]\) 		| ([1113: RECT BOX ])		| ktmd_rButton_1113	|
+| \(\[1121: RECT BOX \]\) 		| ([1121: RECT BOX ])		| ktmd_rButton_1121	|
+| \(\[1122: RECT BOX \]\) 		| ([1122: RECT BOX ])		| ktmd_rButton_1122	|
+| \(\[1123: RECT BOX \]\) 		| ([1123: RECT BOX ])		| ktmd_rButton_1123	|
 
 #### GRADATION + SHADOW
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1200: RECT BOX \]\) 		| ([1200: RECT BOX ])		| ktmd_rButton_1200	|
+| \(\[1201: RECT BOX \]\) 		| ([1201: RECT BOX ])		| ktmd_rButton_1201	|
+| \(\[1202: RECT BOX \]\) 		| ([1202: RECT BOX ])		| ktmd_rButton_1202	|
+| \(\[1203: RECT BOX \]\) 		| ([1202: RECT BOX ])		| ktmd_rButton_1203	|
+| \(\[1211: RECT BOX \]\) 		| ([1211: RECT BOX ])		| ktmd_rButton_1211	|
+| \(\[1212: RECT BOX \]\) 		| ([1212: RECT BOX ])		| ktmd_rButton_1212	|
+| \(\[1213: RECT BOX \]\) 		| ([1213: RECT BOX ])		| ktmd_rButton_1213	|
+| \(\[1221: RECT BOX \]\) 		| ([1221: RECT BOX ])		| ktmd_rButton_1221	|
+| \(\[1222: RECT BOX \]\) 		| ([1222: RECT BOX ])		| ktmd_rButton_1222	|
+| \(\[1223: RECT BOX \]\) 		| ([1223: RECT BOX ])		| ktmd_rButton_1223	|
 
-(((2:
-''OUTPUT''
-)))
-(((3:
-Shadow Only
-1200 ([1200: RECTANGLE BOX ]) class='ktmd_rButton_1200'
-
-Solid Line
-1201 ([1201: RECTANGLE BOX ]) class='ktmd_rButton_1201'
-1202 ([1202: RECTANGLE BOX ]) class='ktmd_rButton_1202'
-1203 ([1203: RECTANGLE BOX ]) class='ktmd_rButton_1203'
-
-Dotted Line
-1211 ([1211: RECTANGLE BOX ]) class='ktmd_rButton_1211'
-1212 ([1212: RECTANGLE BOX ]) class='ktmd_rButton_1212'
-1213 ([1213: RECTANGLE BOX ]) class='ktmd_rButton_1213'
-
-Dashed Line
-1221 ([1221: RECTANGLE BOX ]) class='ktmd_rButton_1221'
-1222 ([1222: RECTANGLE BOX ]) class='ktmd_rButton_1222'
-1223 ([1223: RECTANGLE BOX ]) class='ktmd_rButton_1223'
-)))
-
-
-
-
-### ROUNDED BOX
-
-You can create ((ROUNDED RECTANGLE BOX)) added text with before (( \(\( )) and after (( \)\) )).
-テキストを  (( \(\( )) と (( \)\) )) で囲うことで ((丸囲み)) を付加することができます。
-
-(((2:
-''INPUT''
-)))
-(((3:
-Solid Line
-(( \(\( )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_1'
-(( \(\(1: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_1'
-(( \(\(2: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_2'
-(( \(\(3: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_3'
-
-Dotted Line
-(( \(\(11: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_11'
-(( \(\(12: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_12'
-(( \(\(13: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_13'
-
-Dashed Line
-(( \(\(21: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_21'
-(( \(\(22: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_22'
-(( \(\(23: )) ROUNDED RECTANGLE BOX (( \)\) )) class='ktmd_oButton_23'
-)))
-
-(((2:
-''OUTPUT''
-)))
-(((3:
-Solid
-(( RECTANGLE BOX )) class='ktmd_oButton_1'
-((1: RECTANGLE BOX )) class='ktmd_oButton_1'
-((2: RECTANGLE BOX )) class='ktmd_oButton_2'
-((3: RECTANGLE BOX )) class='ktmd_oButton_3'
-
-Dotted
-((11: RECTANGLE BOX )) class='ktmd_oButton_11'
-((12: RECTANGLE BOX )) class='ktmd_oButton_12'
-((13: RECTANGLE BOX )) class='ktmd_oButton_13'
-
-Dashed
-((21: RECTANGLE BOX )) class='ktmd_oButton_21'
-((22: RECTANGLE BOX )) class='ktmd_oButton_22'
-((23: RECTANGLE BOX )) class='ktmd_oButton_23'
-)))
 
 ---
 :: ''[Back](../../index.html)''

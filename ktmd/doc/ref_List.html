@@ -30,19 +30,19 @@ List is described {{ul}} or {{ol}} and {{li}} tag in HTML.
 You can make an __unordered List__ by list items with " ((*)) ((space)) " at line top.
 行頭に " ((*)) ((space)) " を書くことで、番号なしのリストアイテムを作ることが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \((*))((space))Japan
 \((*))((space))China
 \((*))((space))USA
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 * Japan
 * China
 * USA
@@ -54,19 +54,19 @@ You can make an __unordered List__ by list items with " ((*)) ((space)) " at lin
 You can make an __unordered List__ by list items with " ((-)) ((space)) " at line top, too.
 行頭に " ((-)) ((space)) " を書くことでも、番号なしのリストアイテムを作ることが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \((-))((space))Japan
 \((-))((space))China
 \((-))((space))USA
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 - Japan
 - China
 - USA
@@ -78,19 +78,19 @@ You can make an __unordered List__ by list items with " ((-)) ((space)) " at lin
 You can make an __ordered List__ by list items with " ((+)) ((space)) " at line top.
 行頭に " ((+)) ((space)) " を書くことで、番号付きのリストアイテムを作ることが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \((+))((space))Japan
 \((+))((space))China
 \((+))((space))USA
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 + Japan
 + China
 + USA
@@ -102,19 +102,19 @@ You can make an __ordered List__ by list items with " ((+)) ((space)) " at line 
 You can make an __ordered List__ by list items with " ((number)) ((.)) ((space)) " at line top, too.
 行頭に " ((数字)) ((.)) ((space)) " を書くことでも、番号付きのリストアイテムを作ることが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \((1))((.))((space))Japan
 \((2))((.))((space))China
 \((3))((.))((space))USA
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 1. Japan
 2. China
 3. USA
@@ -126,20 +126,20 @@ You can make an __ordered List__ by list items with " ((number)) ((.)) ((space))
 You can create nested lists indenting list items by ((tab)) at line top.
 ((タブ))でインデントすることで、入れ子のリストを作成することが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \((*))((space))Japan
 ((tab))((+))((space))Tokyo
 ((tab))((+))((space))Osaka
 ((tab))((+))((space))Kyoto
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 * Japan
 	+ Tokyo
 	+ Osaka
@@ -152,20 +152,20 @@ You can create nested lists indenting list items by ((tab)) at line top.
 You can create nested lists indenting list items by two ((space)) at line top, too.
 2つの((半角スペース))でインデントすることでも、入れ子のリストを作成することが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \*((space))Japan
 ((space))((space))((+))((space))Tokyo
 ((space))((space))((+))((space))Osaka
 ((space))((space))((+))((space))Kyoto
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 * Japan
   + Tokyo
   + Osaka
@@ -178,20 +178,20 @@ You can create nested lists indenting list items by two ((space)) at line top, t
 You can create nested lists indenting list items by multiple ((*)) or ((-)) or ((+)) at line top, too.
 複数の ((*)) か ((-)) か ((+)) でインデントすることでも、入れ子のリストを作成することが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \((*))((space))Japan
 \((+))\((+))((space))Tokyo
 \((+))\((+))((space))Osaka
 \((+))\((+))((space))Kyoto
 )))
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 * Japan
 ++ Tokyo
 ++ Osaka
@@ -204,20 +204,20 @@ You can create nested lists indenting list items by multiple ((*)) or ((-)) or (
 You can use character attributes in list.
 リスト内でも文字修飾は利用可能です。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \((*))((space))Japan
 ((tab))((+))((space))\'\'Tokyo\'\'
 ((tab))((+))((space))\_\_Osaka\_\_
 ((tab))((+))((space))\/\/Kyoto\/\/
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 * Japan
 	+ ''Tokyo''
 	+ __Osaka__

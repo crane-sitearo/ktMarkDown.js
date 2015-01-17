@@ -24,20 +24,20 @@
 
 ### MANUAL LINK
 
-You can create a linked text with " ((\[)) title (( \]\( )) url (( \) )) ".
+You can create a linked text with " ((\[)) title (( \]\()) url (( \) )) ".
 " ((\[)) title (( \]\( )) url (( \) )) " の記述でリンクを作ることが出来ます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
-((\[))Apple(( \]\( )) http://www.apple.com (( \) ))
+(((b101:
+((\[))Apple((\]\()) http://www.apple.com (( \) ))
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 [Apple](http://www.apple.com)
 )))
 
@@ -46,17 +46,17 @@ You can create a linked text with " ((\[)) title (( \]\( )) url (( \) )) ".
 You can create a linked text with URL only.
 URLを書くだけでリンクが作成されます。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 Apple site is here (( http\://www.apple.com/ )) .
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 Apple site is here http://www.apple.com/ .
 )))
 
@@ -73,18 +73,18 @@ Apple site is here http://www.apple.com/ .
 You can make place with " (({\#)) place name ((})) " and link to it with ((#)).
 " (({\#)) place name ((})) " で場所を定義して、((#)) でその場所へのリンクが可能です。
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 ((\[))SECTION 1(( \]\( ))#section_1(( \) ))
 (({\#))section_1((})) SECTION 1 ( Link to here )
 )))
 
-(((2:
+(((t101:
 ''OUTPUT''
 )))
-(((3:
+(((b101:
 [SECTION 1](#section_1)
 {#section_1} SECTION 1 ( Link to here )
 )))
@@ -95,17 +95,17 @@ You can make place with " (({\#)) place name ((})) " and link to it with ((#)).
 You can define place with using header ( # at line top ). See also [Headers](ref_Header.html).
 ヘッダーを使うことで場所の定義を行うことが出来ます。[ヘッダー](ref_Header.html)もご覧ください.
 
-(((2:
+(((t101:
 ''INPUT''
 )))
-(((3:
+(((b101:
 \#\# SECTION 2
 )))
 
-(((2:
+(((t101:
 ''OUTPUT'' as HTML
 )))
-(((3:
+(((b101:
 {{h2}}{{a name="SECTION_2"}}{{/a}}SECTION 2{{/h2}}
 )))
 
