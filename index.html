@@ -26,6 +26,10 @@
 		})();
 	</script>
 
+	<!-- highlight.js -->
+	<link rel="stylesheet" href="../lib/highlight/styles/github.css">
+	<script src="../lib/highlight/highlight.pack.js"></script>
+
 </head>
 
 <body>
@@ -39,7 +43,7 @@
 
 ## FEATURES
 
-　ktMarkDown の特徴は、以下のとおりです。
+　ktMarkDown.js は、JavaScript によって記述されたマークダウンプロセッサです。特徴は、以下のとおりです。なお、このドキュメント自身も ktMarkDown.js を使って記述しています。
 
 (((
 * HTML中にマークダウンの記法で記述すると、ブラウザだけでリッチテキストに変換できる ( サーバ不要 )。
@@ -50,8 +54,6 @@
 * 他のマークダウンでは不可能な修飾を可能とする拡張を行っている。
 * 外部ライブラリが不要。
 )))
-
-なお、このドキュメント自身も ktMarkDown.js を使って記述しています。
 
 ## INSTALL
 
@@ -68,12 +70,11 @@
 			* ![](ktmd/doc/img/file.png) ''ktmd.js''  ( JavaScript )
 			* ![](ktmd/doc/img/file.png) ktmd.css ( CSS )
 		* ![](ktmd/doc/img/folder.png) doc ( ドキュメント類 )
-
 )))
 
-　HTMLの基本形は以下のようになっています。
+　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させて行っています。
 
-```
+```{HTML}
 {{!DOCTYPE html}}
 {{html lang="ja"}}
 {{head}}
@@ -131,7 +132,7 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 	* [Ordered List](ktmd/doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ([ \+ Ordered List ])
 	* [Unordered List](ktmd/doc/ref_List.html#ORDERED_LIST_:_PLUS) ([ \* Unordered List ])
 * ''[Prefix](ktmd/doc/ref_Prefix.html)'' ([ \`\`\` Prefix \`\`\` ])
-	* Syntax Highlighted by highlight.js
+	* [Syntax Highlighted by highlight.js](ktmd/doc/ref_Prefix.html#HIGHLIGHT_SYNTAX_BY_HIGHLIGHT.JS)
 * ''[Text Box](ktmd/doc/ref_TextBox.html)''
 	* ''[Rect Box](ktmd/doc/ref_TextBox.html)'' ([ \(\(\[ Rect Box \]\)\) ])
 	* ''[Oval Box](ktmd/doc/ref_TextBox.html)'' ([ \(\(\( Oval Box \)\)\) ])
@@ -142,7 +143,7 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 
 ## CONFIGURATION
 
-```
+```{JavaScript}
   {{script type="text/javascript"}}
     var ''KtMarkDown_Options'' = {
       __autoReload__ : 30,	// Interval of auto reload ( sec, 0 = Don't reload )
@@ -156,7 +157,7 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 ## DOWNLOAD
 
 * ''Download from GitHub''
-	* [GitHub](https://github.com/crane-sitearo/ktMarkDown.js)
+	* ((1200: [GitHub](https://github.com/crane-sitearo/ktMarkDown.js) ))
 
 * ''Download from this site''
 	* [Version 1.0b3 : 2015.01.09](http://sitearoc.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip)

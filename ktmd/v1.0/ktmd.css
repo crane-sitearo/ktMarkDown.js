@@ -3,12 +3,12 @@
 	CSS for ktMarkDown.js
 */
 body {
+  box-sizing: border-box;
   font-size: 10pt;
-  line-height: 2.1em;
   font-family: Verdana, 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
+  line-height: 2.1em;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 page {
   display: block;
@@ -1011,6 +1011,16 @@ li {
   border-width: 3px;
   border-radius: 8px;
 }
+.ktmd_oButton_100 {
+  margin: 2px;
+  padding: 1px 5px 3px 5px;
+  border-color: #505050;
+  border-style: solid;
+  border-width: 0;
+  border-radius: 0px;
+  background: #c8c8c8;
+  border-radius: 8px;
+}
 /* SOLID LINE + FILL */
 .ktmd_oButton_101 {
   margin: 2px;
@@ -1117,6 +1127,16 @@ li {
   border-style: dashed;
   border-width: 3px;
   background: #c8c8c8;
+  border-radius: 8px;
+}
+.ktmd_oButton_200 {
+  margin: 2px;
+  padding: 1px 5px 3px 5px;
+  border-color: #505050;
+  border-style: solid;
+  border-width: 0;
+  border-radius: 0px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   border-radius: 8px;
 }
 /* SOLID LINE + GRAD */
@@ -1227,6 +1247,17 @@ li {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   border-radius: 8px;
 }
+/* NO LINE + SHADOW */
+.ktmd_oButton_1000 {
+  margin: 2px;
+  padding: 1px 5px 3px 5px;
+  border-color: #505050;
+  border-style: solid;
+  border-width: 0;
+  border-radius: 0px;
+  box-shadow: 0px 1px 3px #3c3c3c;
+  border-radius: 8px;
+}
 /* SOLID LINE + SHADOW */
 .ktmd_oButton_1001 {
   margin: 2px;
@@ -1332,6 +1363,18 @@ li {
   border-radius: 0px;
   border-style: dashed;
   border-width: 3px;
+  box-shadow: 0px 1px 3px #3c3c3c;
+  border-radius: 8px;
+}
+/* NO LINE + FILL + SHADOW */
+.ktmd_oButton_1100 {
+  margin: 2px;
+  padding: 1px 5px 3px 5px;
+  border-color: #505050;
+  border-style: solid;
+  border-width: 0;
+  border-radius: 0px;
+  background: #c8c8c8;
   box-shadow: 0px 1px 3px #3c3c3c;
   border-radius: 8px;
 }
@@ -1449,6 +1492,18 @@ li {
   border-style: dashed;
   border-width: 3px;
   background: #c8c8c8;
+  box-shadow: 0px 1px 3px #3c3c3c;
+  border-radius: 8px;
+}
+/* NO LINE + GRAD + SHADOW  */
+.ktmd_oButton_1200 {
+  margin: 2px;
+  padding: 1px 5px 3px 5px;
+  border-color: #505050;
+  border-style: solid;
+  border-width: 0;
+  border-radius: 0px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
   border-radius: 8px;
 }
@@ -3396,13 +3451,19 @@ code {
  *  TABLE  *
  ***********/
 table {
+  box-sizing: border-box;
   margin: 10px 12px;
   border: 0px solid #bebebe;
   border-spacing: 0;
   padding: 0;
 }
+.ktmd_table_100 {
+  width: 97%;
+  margin: 10px auto;
+}
 /***** ROW *****/
 th {
+  box-sizing: border-box;
   margin: 0;
   border-left: 1px solid #bebebe;
   border-top: 1px solid #bebebe;
@@ -3417,6 +3478,7 @@ table th:last-child {
 }
 /***** CELL *****/
 td {
+  box-sizing: border-box;
   margin: 0;
   padding: 4px;
   border-left: 1px solid #bebebe;

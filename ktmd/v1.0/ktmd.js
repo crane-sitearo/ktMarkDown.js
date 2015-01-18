@@ -901,8 +901,13 @@
 				this.tableInfo = null;
 			}
 		} else { // ALREADY OUTSIDE OF TABLE
-			if ( matches = lineIn.match( /^\|.*\|\s*$/ ) ) { // INSIDE OF TABLE
-				html += '<table>';
+			if ( matches = lineIn.match( /^\|(.*)\|\s*$/ ) ) { // INSIDE OF TABLE
+				var matchHead = matches[ 1 ];
+				if ( matches = matchHead.match( /^(\S+?)\:/) ) {
+					html += '<table class="ktmd_table_' + matches[ 1 ] + '">';
+				} else {
+					html += '<table>';
+				}
 				this.tableInfo = 'atHead';
 			}
 		}

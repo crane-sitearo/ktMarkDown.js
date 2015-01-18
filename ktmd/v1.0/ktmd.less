@@ -11,13 +11,12 @@
 
 
 	body {
-		font-size:			10pt;
 		box-sizing:			border-box;
-		line-height:		2.1em;
+		font-size:			10pt;
 		font-family:		Verdana, 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
+		line-height:		2.1em;
 		margin:				0;
 		padding:			0;
-		box-sizing:			border-box;
 	}
 
 	page {
@@ -400,6 +399,7 @@
 	.ktmd_oButton_22 { .ktmd_rButton_22; .ktmd_oButton_R; }
 	.ktmd_oButton_23 { .ktmd_rButton_23; .ktmd_oButton_R; }
 
+	.ktmd_oButton_100 { .ktmd_rButton_100; .ktmd_oButton_R; }
 	/* SOLID LINE + FILL */
 	.ktmd_oButton_101 { .ktmd_rButton_101; .ktmd_oButton_R; }
 	.ktmd_oButton_102 { .ktmd_rButton_102; .ktmd_oButton_R; }
@@ -413,6 +413,7 @@
 	.ktmd_oButton_122 { .ktmd_rButton_122; .ktmd_oButton_R; }
 	.ktmd_oButton_123 { .ktmd_rButton_123; .ktmd_oButton_R; }
 
+	.ktmd_oButton_200 { .ktmd_rButton_200; .ktmd_oButton_R; }
 	/* SOLID LINE + GRAD */
 	.ktmd_oButton_201 { .ktmd_rButton_201; .ktmd_oButton_R; }
 	.ktmd_oButton_202 { .ktmd_rButton_202; .ktmd_oButton_R; }
@@ -426,7 +427,8 @@
 	.ktmd_oButton_222 { .ktmd_rButton_222; .ktmd_oButton_R; }
 	.ktmd_oButton_223 { .ktmd_rButton_223; .ktmd_oButton_R; }
 
-
+	/* NO LINE + SHADOW */
+	.ktmd_oButton_1000 { .ktmd_rButton_1000; .ktmd_oButton_R; }
 	/* SOLID LINE + SHADOW */
 	.ktmd_oButton_1001 { .ktmd_rButton_1001; .ktmd_oButton_R; }
 	.ktmd_oButton_1002 { .ktmd_rButton_1002; .ktmd_oButton_R; }
@@ -440,6 +442,8 @@
 	.ktmd_oButton_1022 { .ktmd_rButton_1022; .ktmd_oButton_R; }
 	.ktmd_oButton_1023 { .ktmd_rButton_1023; .ktmd_oButton_R; }
 
+	/* NO LINE + FILL + SHADOW */
+	.ktmd_oButton_1100 { .ktmd_rButton_1100; .ktmd_oButton_R; }
 	/* SOLID LINE + FILL + SHADOW */
 	.ktmd_oButton_1101 { .ktmd_rButton_1101; .ktmd_oButton_R; }
 	.ktmd_oButton_1102 { .ktmd_rButton_1102; .ktmd_oButton_R; }
@@ -453,6 +457,8 @@
 	.ktmd_oButton_1122 { .ktmd_rButton_1122; .ktmd_oButton_R; }
 	.ktmd_oButton_1123 { .ktmd_rButton_1123; .ktmd_oButton_R; }
 
+	/* NO LINE + GRAD + SHADOW  */
+	.ktmd_oButton_1200 { .ktmd_rButton_1200; .ktmd_oButton_R; }
 	/* SOLID LINE + GRAD + SHADOW  */
 	.ktmd_oButton_1201 { .ktmd_rButton_1201; .ktmd_oButton_R; }
 	.ktmd_oButton_1202 { .ktmd_rButton_1202; .ktmd_oButton_R; }
@@ -847,14 +853,20 @@
  ***********/
 
 	table {
+		box-sizing:			border-box;
 		margin:				10px 12px;
 		border:				0px solid @box_bdColor;
 		border-spacing:		0;
 		padding:			0;
 	}
+	.ktmd_table_100 {
+		width:97%;
+		margin:				10px auto;
+	}
 
 	/***** ROW *****/
 	th {
+		box-sizing:			border-box;
 		margin:				0;
 		border-left:		1px solid @box_bdColor;
 		border-top:			1px solid @box_bdColor;
@@ -870,6 +882,7 @@
 
 	/***** CELL *****/
 	td {
+		box-sizing:			border-box;
 		margin:				0;
 		padding:			4px;
 		border-left:		1px solid @box_bdColor;
