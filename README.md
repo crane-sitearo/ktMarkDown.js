@@ -11,7 +11,7 @@ You can create rich text by **only** writing markdown text into html file only.
 * Still image / Movie / Sound are supported.
 * Emoji is supported. [Emoji Cheet Sheet](http://www.emoji-cheat-sheet.com)
 
-## Requirement
+## Requirements
 
 * No library!
 * But supports [highlight.js](https://highlightjs.org) for syntax highlighting.
