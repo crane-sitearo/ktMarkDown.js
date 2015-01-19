@@ -530,7 +530,7 @@
 		var matches;
 
 		while ( matches = textIn.match( /^(.*?)\~\~(.*?)\~\~(.*)$/ ) ) {
-			textOut += matches[ 1 ] + '<del class="ktmd_strike">' + matches[ 2 ] + '</del>';
+			textOut += matches[ 1 ] + '<del class="ktmd_strike_1">' + matches[ 2 ] + '</del>';
 			textIn   = matches[ 3 ];
 		}
 		return( textOut + textIn );
@@ -544,7 +544,7 @@
 		var matches;
 
 		while ( matches = textIn.match( /^(.*?)\;\;(.*?)\;\;(.*)$/ ) ) {
-			textOut += matches[ 1 ] + '<span class="ktmd_text_shadow">' + matches[ 2 ] + '</span>';
+			textOut += matches[ 1 ] + '<span class="ktmd_textShadow_1">' + matches[ 2 ] + '</span>';
 			textIn   = matches[ 3 ];
 		}
 		return( textOut + textIn );
@@ -631,7 +631,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\[\[(.*?)\:(.*?)\]\](.*)$/ ) ) {
+		while ( matches = textIn.match( /^(.*?)\[\[(\S*?)\;(.*?)\]\](.*)$/ ) ) {
 
 			var matchHead = matches[ 1 ];
 			var matchSpan = matches[ 2 ];
@@ -653,7 +653,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\!\[(.*?)\]\((.*?)\)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\!\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) { 
 			var head = matches[ 1 ];
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
@@ -672,7 +672,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\!v\[(.*?)\]\((.*?)\)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\!v\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) { 
 			var head = matches[ 1 ];
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
@@ -691,7 +691,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\!a\[(.*?)\]\((.*?)\)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\!a\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) { 
 			var head = matches[ 1 ];
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
@@ -710,7 +710,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\[(.+?)\]\((.+?)\)(.*)$/ ) ) {
+		while ( matches = textIn.match( /^(.*?)\[([^\[]+?)\]\((.+?)\)(.*)$/ ) ) {
 			var title = matches[ 2 ];
 			var url   = matches[ 3 ];
 			textOut = matches[ 1 ] + '<a href="' + url + '" controls>' + title + '</a>';

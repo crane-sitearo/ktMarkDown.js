@@ -24,17 +24,17 @@
 
 ### BASIC
 
-| INPUT								| OUTPUT						|
-|:---------------------------------:|:-----------------------------:|
-| ((*\*))BOLD((*\*))				| **BOLD** ( font-weight:900)	|
-| (('\'))BOLD(('\'))				| ''BOLD'' ( font-weight:600)	|
-| ((/\/))ITALIC((/\/))				| //ITALIC// 					|
-| ((_\_))UNDERLINE((_\_))			| __UNDERLINE__ 				|
-| ((~\~))STRIKETHROUGH((~\~))		| ~~STRIKETHROUGH~~				|
-| ((`\`))MONOSPACE((`\`))			| ``MONOSPACE``					|
-| (( (\[ ))RECT BUTTON(( \]\) ))	| ([RECT BUTTON])				|
-| (( (\( ))OVAL BUTTON(( \)\) ))	| ((OVAL BUTTON))				|
-| ((;\;))TEXT SHADOW((;\;))			| ;;TEXT SHADOW;;				|
+| INPUT								| OUTPUT					| CLASS								|
+|:---------------------------------:|:-------------------------:|:----------------------------------|
+| ((*\*))BOLD((*\*))				| **BOLD** 					| ktmd_fw900 ( font-weight:900 )	|
+| (('\'))BOLD(('\'))				| ''BOLD'' 					| ktmd_fw600 ( font-weight:600 )	|
+| ((/\/))ITALIC((/\/))				| //ITALIC// 				| {{i}}								|
+| ((_\_))UNDERLINE((_\_))			| __UNDERLINE__ 			| ktmd_uline_1 						|
+| ((~\~))STRIKETHROUGH((~\~))		| ~~STRIKETHROUGH~~			| ktmd_strike_1 					|
+| ((`\`))MONOSPACE((`\`))			| ``MONOSPACE``				| ktmd_mono_1 						|
+| (( (\[ ))RECT BUTTON(( \]\) ))	| ([RECT BUTTON])			| ktmd_rButton_1 					|
+| (( (\( ))OVAL BUTTON(( \)\) ))	| ((OVAL BUTTON))			| ktmd_oButton_1 					|
+| ((;\;))TEXT SHADOW((;\;))			| ;;TEXT SHADOW;;			| ktmd_textShadow_1 				|
 
 ### MIXED
 
@@ -47,8 +47,9 @@
 
 | INPUT 										| OUTPUT 					| CSS CLASS 		|
 |:---------------------------------------------:|:-------------------------:|:------------------|
-| (( \[\[ ))big_1((:)) BIG ((\]\]))				| [[big_1: BIG ]]			| big_1 			|
-| (( \[\[ ))Nunito((:)) Nunito Font ((\]\]))	| [[Nunito: Nunito Font ]]	| Nunito 			|
+| (( \[\[ ))big_1((;)) BIG ((\]\]))				| [[big_1; BIG ]]			| big_1 			|
+| (( \[\[ ))Nunito((;)) Nunito Font ((\]\]))	| [[Nunito; Nunito Font ]]	| Nunito 			|
+| (( \[\[ ))keyTop((;)) SHIFT ((\]\]))			| [[keyTop; SHIFT ]]		| keyTop 			|
 
 
 ### UNDERLINE

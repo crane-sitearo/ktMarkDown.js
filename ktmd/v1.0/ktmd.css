@@ -171,56 +171,56 @@ li {
  ***************/
 /*** BASE ***/
 .ktmd_uline {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
 }
 /*** SOLID ***/
 .ktmd_uline_1 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
 }
 .ktmd_uline_2 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-width: 2px;
 }
 .ktmd_uline_3 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-width: 3px;
 }
 /*** DOTTED ***/
 .ktmd_uline_11 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-style: dotted;
 }
 .ktmd_uline_12 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-style: dotted;
   border-bottom-width: 2px;
 }
 .ktmd_uline_13 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-style: dotted;
   border-bottom-width: 3px;
 }
 /*** DASHED ***/
 .ktmd_uline_21 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-style: dashed;
 }
 .ktmd_uline_22 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-width: 2px;
   border-bottom-style: dashed;
 }
 .ktmd_uline_23 {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #5a5a5a;
   padding-bottom: 1px;
   border-bottom-style: dashed;
   border-bottom-width: 3px;
@@ -228,7 +228,7 @@ li {
 /*****************
  *  TEXT SHADOW  *
  *****************/
-.ktmd_text_shadow {
+.ktmd_textShadow_1 {
   text-shadow: 1px 2px 3px #1e1e1e;
 }
 /*****************
@@ -2415,7 +2415,7 @@ li {
  *  OVAL-BOX  *
  **************/
 .ktmd_oBox_R {
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBoxTopFill {
   margin-bottom: 0;
@@ -2441,7 +2441,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_2 {
   box-sizing: border-box;
@@ -2450,7 +2450,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   border-width: 2px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_3 {
   box-sizing: border-box;
@@ -2459,7 +2459,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   border-width: 3px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DOTTED LINE */
 .ktmd_oBox_11 {
@@ -2470,7 +2470,7 @@ li {
   color: #000000;
   border-style: dotted;
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_12 {
   box-sizing: border-box;
@@ -2480,7 +2480,7 @@ li {
   color: #000000;
   border-style: dotted;
   border-width: 2px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_13 {
   box-sizing: border-box;
@@ -2490,7 +2490,7 @@ li {
   color: #000000;
   border-style: dotted;
   border-width: 3px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DASHED LINE */
 .ktmd_oBox_21 {
@@ -2501,7 +2501,7 @@ li {
   color: #000000;
   border-style: dashed;
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_22 {
   box-sizing: border-box;
@@ -2511,7 +2511,7 @@ li {
   color: #000000;
   border-style: dashed;
   border-width: 2px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_23 {
   box-sizing: border-box;
@@ -2521,7 +2521,7 @@ li {
   color: #000000;
   border-style: dashed;
   border-width: 3px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /*** FILL ***/
 /* NO LINE + FILL */
@@ -2532,7 +2532,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t100 {
   box-sizing: border-box;
@@ -2541,7 +2541,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
   border-radius: 8px 8px 0 0;
@@ -2553,7 +2553,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2567,7 +2567,7 @@ li {
   color: #000000;
   border-width: 1px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t101 {
   box-sizing: border-box;
@@ -2577,7 +2577,7 @@ li {
   color: #000000;
   border-width: 1px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
   border-radius: 8px 8px 0 0;
@@ -2590,7 +2590,7 @@ li {
   color: #000000;
   border-width: 1px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2603,7 +2603,7 @@ li {
   color: #000000;
   border-width: 2px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t102 {
   box-sizing: border-box;
@@ -2613,7 +2613,7 @@ li {
   color: #000000;
   border-width: 2px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
   border-radius: 8px 8px 0 0;
@@ -2626,7 +2626,7 @@ li {
   color: #000000;
   border-width: 2px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2639,7 +2639,7 @@ li {
   color: #000000;
   border-width: 3px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t103 {
   box-sizing: border-box;
@@ -2649,7 +2649,7 @@ li {
   color: #000000;
   border-width: 3px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
   border-radius: 8px 8px 0 0;
@@ -2662,7 +2662,7 @@ li {
   color: #000000;
   border-width: 3px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2677,7 +2677,7 @@ li {
   border-style: dotted;
   border-width: 1px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_112 {
   box-sizing: border-box;
@@ -2688,7 +2688,7 @@ li {
   border-style: dotted;
   border-width: 2px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_113 {
   box-sizing: border-box;
@@ -2699,7 +2699,7 @@ li {
   border-style: dotted;
   border-width: 3px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DASHED LINE + FILL */
 .ktmd_oBox_121 {
@@ -2711,7 +2711,7 @@ li {
   border-style: dashed;
   border-width: 1px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_122 {
   box-sizing: border-box;
@@ -2722,7 +2722,7 @@ li {
   border-style: dashed;
   border-width: 2px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_123 {
   box-sizing: border-box;
@@ -2733,7 +2733,7 @@ li {
   border-style: dashed;
   border-width: 3px;
   background: #e6e6e6;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /*** GRAD ***/
 /* NO LINE + GRAD */
@@ -2744,7 +2744,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t200 {
   box-sizing: border-box;
@@ -2753,7 +2753,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
   border-radius: 8px 8px 0 0;
@@ -2765,7 +2765,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2779,7 +2779,7 @@ li {
   color: #000000;
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t201 {
   box-sizing: border-box;
@@ -2789,7 +2789,7 @@ li {
   color: #000000;
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
   border-radius: 8px 8px 0 0;
@@ -2802,7 +2802,7 @@ li {
   color: #000000;
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2815,7 +2815,7 @@ li {
   color: #000000;
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t202 {
   box-sizing: border-box;
@@ -2825,7 +2825,7 @@ li {
   color: #000000;
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
   border-radius: 8px 8px 0 0;
@@ -2838,7 +2838,7 @@ li {
   color: #000000;
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2851,7 +2851,7 @@ li {
   color: #000000;
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_t203 {
   box-sizing: border-box;
@@ -2861,7 +2861,7 @@ li {
   color: #000000;
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
   border-radius: 8px 8px 0 0;
@@ -2874,7 +2874,7 @@ li {
   color: #000000;
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
   border-radius: 0 0 8px 8px;
@@ -2889,7 +2889,7 @@ li {
   border-style: dotted;
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_212 {
   box-sizing: border-box;
@@ -2900,7 +2900,7 @@ li {
   border-style: dotted;
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_213 {
   box-sizing: border-box;
@@ -2911,7 +2911,7 @@ li {
   border-style: dotted;
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DASHED LINE + GRAD */
 .ktmd_oBox_221 {
@@ -2923,7 +2923,7 @@ li {
   border-style: dashed;
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_222 {
   box-sizing: border-box;
@@ -2934,7 +2934,7 @@ li {
   border-style: dashed;
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_223 {
   box-sizing: border-box;
@@ -2945,7 +2945,7 @@ li {
   border-style: dashed;
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /*** SHADOW ***/
 /* NO LINE + SHADOW */
@@ -2956,7 +2956,7 @@ li {
   padding: 4px 4px;
   color: #000000;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* SOLID LINE + SHADOW */
 .ktmd_oBox_1001 {
@@ -2967,7 +2967,7 @@ li {
   color: #000000;
   border-width: 1px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1002 {
   box-sizing: border-box;
@@ -2977,7 +2977,7 @@ li {
   color: #000000;
   border-width: 2px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1003 {
   box-sizing: border-box;
@@ -2987,7 +2987,7 @@ li {
   color: #000000;
   border-width: 3px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DOTTED LINE + SHADOW */
 .ktmd_oBox_1011 {
@@ -2999,7 +2999,7 @@ li {
   border-style: dotted;
   border-width: 1px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1012 {
   box-sizing: border-box;
@@ -3010,7 +3010,7 @@ li {
   border-style: dotted;
   border-width: 2px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1013 {
   box-sizing: border-box;
@@ -3021,7 +3021,7 @@ li {
   border-style: dotted;
   border-width: 3px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DASHED LINE + SHADOW */
 .ktmd_oBox_1021 {
@@ -3033,7 +3033,7 @@ li {
   border-style: dashed;
   border-width: 1px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1022 {
   box-sizing: border-box;
@@ -3044,7 +3044,7 @@ li {
   border-style: dashed;
   border-width: 2px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1023 {
   box-sizing: border-box;
@@ -3055,7 +3055,7 @@ li {
   border-style: dashed;
   border-width: 3px;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /*** SHADOW + FILL ***/
 /* NO LINE + FILL + SHADOW */
@@ -3067,7 +3067,7 @@ li {
   color: #000000;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* SOLID LINE + FILL + SHADOW */
 .ktmd_oBox_1101 {
@@ -3079,7 +3079,7 @@ li {
   border-width: 1px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1102 {
   box-sizing: border-box;
@@ -3090,7 +3090,7 @@ li {
   border-width: 2px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1103 {
   box-sizing: border-box;
@@ -3101,7 +3101,7 @@ li {
   border-width: 3px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DOTTED LINE + FILL + SHADOW  */
 .ktmd_oBox_1111 {
@@ -3114,7 +3114,7 @@ li {
   border-width: 1px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1112 {
   box-sizing: border-box;
@@ -3126,7 +3126,7 @@ li {
   border-width: 2px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1113 {
   box-sizing: border-box;
@@ -3138,7 +3138,7 @@ li {
   border-width: 3px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DASHED LINE + FILL + SHADOW  */
 .ktmd_oBox_1121 {
@@ -3151,7 +3151,7 @@ li {
   border-width: 1px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1122 {
   box-sizing: border-box;
@@ -3163,7 +3163,7 @@ li {
   border-width: 2px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1123 {
   box-sizing: border-box;
@@ -3175,7 +3175,7 @@ li {
   border-width: 3px;
   background: #e6e6e6;
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /*** SHADOW + GRAD ***/
 /* NO LINE + GRAD + SHADOW  */
@@ -3187,7 +3187,7 @@ li {
   color: #000000;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* SOLID LINE + GRAD + SHADOW  */
 .ktmd_oBox_1201 {
@@ -3199,7 +3199,7 @@ li {
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1202 {
   box-sizing: border-box;
@@ -3210,7 +3210,7 @@ li {
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1203 {
   box-sizing: border-box;
@@ -3221,7 +3221,7 @@ li {
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DOTTED LINE + GRAD + SHADOW  */
 .ktmd_oBox_1211 {
@@ -3234,7 +3234,7 @@ li {
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1212 {
   box-sizing: border-box;
@@ -3246,7 +3246,7 @@ li {
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1213 {
   box-sizing: border-box;
@@ -3258,7 +3258,7 @@ li {
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /* DASHED LINE + GRAD + SHADOW  */
 .ktmd_oBox_1221 {
@@ -3271,7 +3271,7 @@ li {
   border-width: 1px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1222 {
   box-sizing: border-box;
@@ -3283,7 +3283,7 @@ li {
   border-width: 2px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .ktmd_oBox_1223 {
   box-sizing: border-box;
@@ -3295,7 +3295,7 @@ li {
   border-width: 3px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2d2d2), color-stop(100%, #b4b4b4));
   box-shadow: 0px 1px 3px #3c3c3c;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 /*	* > div    { 
 		margin:				2px 2px;
@@ -3490,4 +3490,20 @@ table td:last-child {
 }
 table tr:last-child td {
   border-bottom: 1px solid #bebebe;
+}
+.keyTop {
+  /*height: 24px;*/
+  min-width: 24px;
+  padding: 0 8px;
+  margin: 4px 4px;
+  background: #EFF0F2;
+  border-radius: 6px;
+  border-top: 1px solid #F5F5F5;
+  box-shadow: 0 0 25px #E8E8E8 inset, 0 1px 0 #C3C3C3, 0 2px 0 #C9C9C9, 0 2px 3px #333333;
+  color: #22222;
+  text-shadow: 0 1px 0 #F5F5F5;
+  font: bold 14px arial;
+  text-align: center;
+  line-height: 24px;
+  display: inline-block;
 }
