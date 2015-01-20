@@ -436,7 +436,7 @@
 		var textOut = '';
 		var matches = [];
 
-		while ( matches = textIn.match( /^(.*?)\ \:(.*?)\:\ (.*)$/ ) ) {	// :emoji:
+		while ( matches = textIn.match( /^(.*?)\ \:(\S*?)\:\ (.*)$/ ) ) {	// :emoji:
 			var emoji = this.emojis[ matches[ 2 ] ];
 			if ( emoji ) {
 				textOut += matches[ 1 ] + emoji;
