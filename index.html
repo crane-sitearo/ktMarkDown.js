@@ -10,6 +10,7 @@
 	<script type="text/javascript"><!-- Configuration -->
 		var KtMarkDown_Options = {
 			autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
+			extensions : [ 'emoji', 'textShadow' ],
 		};
 	</script>
 
@@ -38,26 +39,34 @@
 
 :: **JavaScript Driven MarkDown Processor**
 
-:: ご興味のある方は [@_crane_](https://twitter.com/_crane_) までお気軽に。
+:: produced by [@_crane_](https://twitter.com/_crane_).
 ::: 2015.1.17 Kengo Tsuruzono / crane@sitearo
 
 ## FEATURES
 
-　ktMarkDown.js は、JavaScript によって記述されたマークダウンプロセッサです。特徴は、以下のとおりです。なお、このドキュメント自身も ktMarkDown.js を使って記述しています。
+　**ktMarkDown.js** is a markdown processor described in JavaScript. The main feature of it is following.
 
 (((
-* HTML中にマークダウンの記法で記述すると、ブラウザだけでリッチテキストに変換できる ( サーバ不要 )。
+* いつも使っているお気に入りのテキストエディタでリッチなドキュメントが作れます。
+* いつも使っているお気に入りのウェブブラウザで開くとリッチなドキュメントに整形して表示されます。
 * JavaScriptをエンジンにしているため、OSを選ばず利用可能。
 * マークダウンの方言を複数サポートしており、既存のテキストを流量可能 ( 例外はあり )。
 * マークダウンとHTMLやJavaScriptとの混在が可能 ( アクセス解析やシンタックスハイライトなども可能 )。
 * なるべくマークダウンのまま読みやすい ( 結果が推測しやすい ) 文法を優先している。
 * 他のマークダウンでは不可能な修飾を可能とする拡張を行っている。
 * 外部ライブラリが不要。
+* 後から機能を追加する機能拡張モジュールを作成可能。
 )))
+
+## DOWNLOAD
+
+* **Download** from [[keyTop; [GitHub](https://github.com/crane-sitearo/ktMarkDown.js) ]]
+
+* **Download** from  [[keyTop; [this site](http://sitearoc.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
 
 ## INSTALL
 
-　まず、[こちら](#DOWNLOAD) よりダウンロードを行い解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
+　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
 (((t101:
 ''CONTENTS OF ZIP''
@@ -69,7 +78,10 @@
 		* ![](ktmd/doc/img/folder.png) v1.0 ( KtMarkDown本体 )
 			* ![](ktmd/doc/img/file.png) ''ktmd.js''  ( JavaScript )
 			* ![](ktmd/doc/img/file.png) ktmd.css ( CSS )
-		* ![](ktmd/doc/img/folder.png) doc ( ドキュメント類 )
+			* ![](ktmd/doc/img/folder.png) exts ( Extensions Folder )
+				* ![](ktmd/doc/img/folder.png) emoji ( Emoji Extension )
+				* ![](ktmd/doc/img/folder.png) textShadow ( Text Shadow Extension )
+		* ![](ktmd/doc/img/folder.png) doc ( Documents )
 )))
 
 　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させて行っています。
@@ -83,6 +95,7 @@
   {{script type="text/javascript"}}
     var __KtMarkDown_Options__ = { ...((2))
       autoReload : 30,	// Interval of auto reload ( sec, 0 = Don't reload )
+      extensions : [ 'emoji', 'textShadow' ]
     };
   {{/script}}
 {{/head}}
@@ -111,17 +124,13 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 	* //[Italic](ktmd/doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
 	* __[Underline](ktmd/doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
 	* ~~[Strikethrough](ktmd/doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
-	* ;;[Text Shadow](ktmd/doc/ref_Char.html#TEXT_SHADOW);; ([ \;\; Text Shadow \;\; ])
 	* ``[Nonospace](ktmd/doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
-	* ([ [Rect Box](ktmd/doc/ref_Char.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
-	* (( [Oval Box](ktmd/doc/ref_Char.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
 * ''[Link](ktmd/doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
 	* [Name](ktmd/doc/ref_Link.html#NAME) ([ \{\#Name\} ])
 * ''[Multimedia](ktmd/doc/ref_Multimedia.html)''
 	* [Image](ktmd/doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
 	* [Video](ktmd/doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
 	* [Audio](ktmd/doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
-* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])
 * ''[Escape Sequence](ktmd/doc/ref_Escape.html)'' ([ \\ ])
 
 ## SYNTAX REFERENCE : LINE ATTRIBUTES
@@ -147,20 +156,21 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
   {{script type="text/javascript"}}
     var ''KtMarkDown_Options'' = {
       __autoReload__ : 30,	// Interval of auto reload ( sec, 0 = Don't reload )
+      __extensions__ : [ 'emoji', 'textShadow' ],
     };
   {{/script}}
 ```
 
 * ''自動リロード'' autoReload : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。
+* ''機能拡張'' extensions : 使用する機能拡張を列挙します。
 
+## BUILT-IN EXTENSIONS
 
-## DOWNLOAD
-
-* ''Download from GitHub''
-	* [[keyTop; [GitHub](https://github.com/crane-sitearo/ktMarkDown.js) ]]
-
-* ''Download from this site''
-	* [[keyTop; [Version 1.0b3 : 2015.01.17](http://sitearoc.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]]
+* ''[Character Attributes](ktmd/doc/ref_Char.html)''
+	* ;;[Text Shadow](ktmd/doc/ref_Char.html#TEXT_SHADOW);; ([ \;\; Text Shadow \;\; ])
+	* ([ [Rect Box](ktmd/doc/ref_Char.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
+	* (( [Oval Box](ktmd/doc/ref_Char.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
+	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])
 
 ## HISTORY
 
@@ -180,6 +190,7 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 
 ### Version 1.0
 
+* Add 'Extension' function.
 * Some Themes.
 
 ### Version 2.0

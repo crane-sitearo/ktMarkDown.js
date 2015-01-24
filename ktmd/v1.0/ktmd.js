@@ -1,11 +1,9 @@
 /**
  *  ktMarkDown v1.0b3
- *    JavaScript MarkDown Processor by Kengo Tsuruzono ( crane@sitearo.com )     
+ *    JavaScript MarkDown Processor by Kengo Tsuruzono ( crane@sitearo.com )
  */
 
-
 	'use strict';
-
 
 //-----------------------------------------------------------------------------
 //  MAIN
@@ -17,16 +15,67 @@
 
 		if ( window.KtMarkDown_Options ) { this.opts  = KtMarkDown_Options; }
 
-		this.listStack        = [];				// 
-		this.inPrefix         = false;			// <pre> true </pre> false
+		this.listStack        = [];			//
+		this.inPrefix         = false;		// <pre> true </pre> false
 		this.blockquoteLevel  = 0;
-		this.tableInfo        = null;			// Current table structure
+		this.tableInfo        = null;		// Current table structure
 
 		this.reloadAfter = null;			// Reload Count Down
 		this.docTitle    = document.title;
-		
+
+		if ( this.loadExtensions() == false ) { // NO EXTENSION
+			this.buildMarkDown();
+		}
+
 	}
 
+	///// GET SCRIPT PATH /////
+	KtMarkDown.prototype.scriptPath = function() {
+
+		var elms = document.getElementsByTagName( 'script' );
+
+		for ( var i = 0, n = elms.length ; i < n ; i++ ) {
+			if ( elms[ i ].src.match( /ktmd.js$/ ) ) {
+				return( elms[ i ].src );
+			}
+		}
+
+	}
+
+	///// LOAD EXTENSIONS /////
+	KtMarkDown.prototype.loadExtensions = function() {
+
+		if ( this.opts == null ) { return( false ); }
+		if ( this.opts.extensions == null ) { return( false ); }
+
+		var ktmdPath = this.scriptPath();
+		var libPath  = ktmdPath.match( /^(.*\/)ktmd.js$/ )[ 1 ] + 'exts/';
+
+		this.extensionQue = [];
+		this.extensions = {};
+		var exts = this.opts.extensions;
+		for ( var i = 0, n = exts.length ; i < n ; i++ ) {
+			console.log( 'loading extension : ' + exts[ i ] );
+			var elm = document.createElement( 'script' );
+			elm.src = libPath + exts[ i ] + '/' + exts[ i ] + '.js';
+			document.body.appendChild( elm );
+			this.extensionQue.push( exts[ i ] );
+		}
+
+	}
+
+	///// READY EXTENSION /////
+	KtMarkDown.prototype.readyExtension = function( aExtName, aExt ) {
+		console.log( 'ready extension : ' + aExtName );
+		var idx = this.extensionQue.indexOf( aExtName );
+		if ( 0 <= idx ) {
+			this.extensions[ aExtName ] = aExt;
+			this.extensionQue.splice( idx, 1 );
+			if ( this.extensionQue.length < 1 ) {
+				this.buildMarkDown();
+			}
+		}
+	}
 
 //-----------------------------------------------------------------------------
 //  CHARACTOR
@@ -61,395 +110,6 @@
 	}
 
 
-	///// EMOJI /////
-	KtMarkDown.prototype.emojis = {
-
-		// PEOPLE
-
-			bowtie							: '',
-			smile							: '😄',
-			laughing						: '😆',
-			blush							: '😊',
-			smiley							: '😃',
-			relaxed							: '☺',
-			smikr							: '😏',
-			heart_eyes						: '😍',
-			kissing_heart					: '😘',
-			kissing_closed_eyes				: '😚',
-			flushed							: '😳',
-			relieved						: '😌',
-			satisfied						: '😆',
-			grin							: '😁',
-			wink							: '😉',
-			stuck_out_tongue_winking_eye	: '😜',
-			stuck_out_tongue_closed_eye		: '😝',
-			grinning						: '',
-			kissing							: '😗',
-			kissing_smiling_eyes			: '😙',
-			stuck_out_tongue				: '😛',
-			sleeping						: '😴',
-			worried							: '😟',
-			frowing							: '😦',
-			grimacing						: '',
-			confused						: '',
-			hushed							: '',
-			expressionless					: '',
-			unamused						: '',
-			sweat_smile						: '😅',
-			sweat 							: '😓',
-			disappointed_relieved 			: '😥',
-			weary 							: '😩',
-			pensive 						: '😔',
-			disappointed 					: '😞',
-			confounded 						: '😖',
-			fearful							: '😨',
-			cold_sweat						: '😰',
-			persevere						: '😣',
-			cry 							: '😢',
-			sob 							: '😭',
-			joy 							: '😂',
-			astonished 						: '😲',
-			scream 							: '😱',
-			neckbeard 						: '',
-			tired_face 						: '😫',
-			angry 							: '😠',
-			rage 							: '😡',
-			triumph							: '',
-			sleepy 							: '😪',
-			yum 							: '😋',
-			mask 							: '😷',
-			sunglasses 						: '',
-			dizzy_face 						: '',
-			imp								: '👿',
-			smiling_imp 					: '',
-			neutral_face					: '',
-			no_mouth 						: '',
-			innocent 						: '',
-			alien 							: '👽',
-
-			yellow_heart 					: '💛',
-			blue_heart 						: '💙',
-			purple_heart 					: '💜',
-			heart 							: '❤',
-			green_heart 					: '💚',
-			broken_heart 					: '💔',
-			heartbeat 						: '💓',
-			heartpulse	 					: '💗',
-			two_heart						: '💛',
-			revolving_heart					: '💛',
-			cupid 							: '💘',
-			sparkling_heart					: '',
-
-
-			speech_balloon 		: '',
-
-		// HANDS
-
-			'+1'				: '👍',
-			'thumbsup'			: '👍',
-			'-1'				: '👎',
-			'thumbsdown'		: '👎',
-			'ok_hand'			: '👌',
-			'punch'				: '👊',
-			'fist'				: '✊',
-			'v'					: '✌',
-			'wave'				: '👋',
-			'hand'				: '✋',
-			'raised_hand'		: '✋',
-			'open_hands'		: '👐',
-			'point_up'			: '👆',
-			'point_down'		: '👇',
-			'point_right'		: '👉',
-			'point_left'		: '👈',
-			'raised_hands'		: '🙌',
-			'pray'				: '🙏',
-			'point_up_2'		: '☝',
-			'clap'				: '👏',
-			'muscle'			: '💪',
-
-		// OBJECTS
-
-			bamboo				: '🎍',
-			gift_heart			: '💝',
-			dolls				: '🎎',
-
-			school_satchel		: '🎒',
-			mortar_board		: '🎓',
-			flags				: '🎏',
-
-			fireworks			: '🎆',
-			sparkler			: '🎇',
-			wind_chime			: '🎐',
-
-			sunny				: '☀',
-			umbrella			: '☔',
-			cloud				: '☁',
-			snowflake			: '',
-			snowman				: '⛄',
-			zap					: '⚡',
-			cyclone				: '🌀',
-
-			foggy				: '',
-			ocean				: '',
-
-		// MACHINES
-
-			cd 					: '💿',
-			dvd 				: '📀',
-			floppy_disk 		: '💾',
-			camera 				: '📷',
-			video_camera 		: '📹',
-			movie_camera		: '🎥',
-			computer 			: '💻',
-			tv 					: '📺',
-			iphone 				: '📱',
-			phone 				: '☎️',
-			telephone 			: '☎️',
-			telephone_receiver 	: '📞',
-			pager 				: '📟',
-			fax 				: '📠',
-			minidisc 			: '💽',
-			vhs 				: '📼',
-			sound 				: '🔊',
-			speaker 			: '🔊',
-			mute 				: '',
-			loudspeaker 		: '📢',
-			mega 				: '📣',
-			hourglass 			: '⌛️',
-			hourglass_flowing_sand : '⏳️',
-			alram_clock 		: '⏰',
-			watch 				: '⌚️',
-			radio 				: '📻',
-			satellite 			: '📡',
-			loop 				: '➿',
-			mag 				: '🔍',
-			mag_right 			: '🔎',
-			unlock 				: '🔓',
-			lock 				: '🔒',
-			lock_with_ink_pen 	: '🔏',
-			closed_lock_with_key : '🔐',
-			key 				: '🔑',
-			bulb 				: '💡',
-			flashlight 			: '🔦',
-			high_brightness 	: '🔆',
-			low_brightness 		: '🔅',
-			electric_plug 		: '🔌',
-			battery 			: '🔋',
-			calling 			: '📲',
-			email 				: '📩',
-			mailbox 			: '📫',
-			postbox 			: '📮',
-			bath 				: '🛀',
-			bathtub 			: '🛁',
-			shower 				: '🚿',
-			toilet 				: '🚽',
-			wrench 				: '🔧',
-			nut_and_bolt		: '🔩',
-			hammer 				: '🔨',
-			seat 				: '💺',
-
-		// MONEY
-
-			moneybag 			: '💰',
-			yen					: '💴',
-			doller 				: '💵',
-			pound 				: '💷',
-			euro 				: '💶',
-			credit_card 		: '💳',
-			money_with_wings	: '💸',
-
-		// ANIMALS & PLANTS
-
-			cat					: '🐱',
-			dog					: '🐶',
-			mouse				: '🐭',
-			hamster				: '🐹',
-			rabbit				: '🐰',
-			wolf				: '🐺',
-			frog				: '🐸',
-			tiger				: '🐯',
-			koala				: '🐨',
-			bear 				: '🐻',
-			pig 				: '🐷',
-			pig_nose			: '🐽',
-			cow 				: '🐮',
-			boar 				: '🐗',
-			monkey_face 		: '🐵',
-			monkey 				: '🐒',
-			horse 				: '🐴',
-			racehorse 			: '🐎',
-			camel 				: '🐪',
-			sheep				: '🐑',
-			elephant 			: '🐘',
-			panda_face			: '🐼',
-			snake 				: '🐍',
-			bird 				: '🐦',
-			baby_chick 			: '🐤',
-			hatched_chick 		: '🐥',
-			hatching_chick 		: '🐣',
-			chiken 				: '🐔',
-			penguin 			: '🐧',
-			turtle 				: '🐢',
-			bug 				: '🐛',
-			honeybee 			: '🐝',
-			ant 				: '🐜',
-			beetle 				: '🐞',
-			snail 				: '🐌',
-			octopus 			: '🐙',
-			tropical_fish 		: '🐠',
-			fish 				: '🐟',
-			whale 				: '🐳',
-			whale2 				: '🐋',
-			dolphin 			: '🐬',
-			cow2 				: '🐄',
-			ram 				: '🐏',
-			rat 				: '🐀',
-			water_buffalo 		: '🐃',
-			tiger2 				: '🐅',
-			rabbit2 			: '🐇',
-			dragon 				: '🐉',
-			goat 				: '🐐',
-			rooster 			: '🐓',
-			dog2 				: '🐕',
-			pig2 				: '🐖',
-			mouse2 				: '🐁',
-			ox 					: '🐂',
-			dragon_face			: '🐲',
-			blowfish 			: '🐡',
-			crocodile 			: '🐊',
-			dromedary_camel 	: '🐫',
-			leopard 			: '🐆',
-			cat2 				: '🐈',
-			poodle 				: '🐩',
-			paw_prints 			: '🐾',
-			bouquet 			: '💐',
-			cherry_blossom		: '🌸',
-			tulip 				: '🌷',
-			four_leaf_clover	: '🍀',
-			rose 				: '🌹',
-			sunflower 			: '🌻',
-			hibiscus 			: '🌺',
-			maple_leaf			: '🍁',
-			leaves 				: '🍃',
-			fallen_leaf 		: '🍂',
-			herb 				: '🌿',
-			mushroom 			: '🍄',
-			cactus 				: '🌵',
-			palm_tree 			: '',
-			evergreen_tree 		: '🌲',
-			deciduous_tree 		: '🌳',
-			chestnut 			: '🌰',
-			seedling 			: '',
-			blossom 			: '',
-			ear_of_rice 		: '🌾',
-			shell 				: '🐚',
-
-
-		// SPORTS
-
-			football			: '🏈',
-			basketball			: '🏀',
-			soccer				: '⚽',
-			baseball			: '⚾',
-			tennis				: '🎾',
-			'8ball'				: '🎱',
-
-			warning				: '⚠',
-			construction		: '🚧',
-			beginner			: '🔰',
-			atm					: '🏧',
-
-			dart				: '🎯',
-			mahjong				: '🀄',
-
-
-		// FOODS
-
-			coffee				: '☕',
-			tea					: '🍵',
-			sake				: '🍶',
-//			baby_buttle			: '',
-			beer				: '🍺',
-			beers				: '🍻',
-			cocktail			: '🍸',
-			fork_and_knife		: '🍴',
-//			pizza				: '',
-			hamburger			: '🍔',
-			fries				: '🍟',
-//			poultry_leg			: '',
-//			meat_on_bone		: '',
-			spagetti			: '🍝',
-			curry				: '🍛',
-//			fried_shrimp		: '',
-			bento				: '🍱',
-			sushi				: '🍣',
-//			fish_cake			: '',
-			rice_ball			: '🍙',
-			rice_cracker		: '🍘',
-			rice 				: '🍚',
-			ramen				: '🍜',
-			stew				: '🍲',
-			oden				: '🍢',
-			dango				: '🍡',
-			egg					: '🍳',
-			bread				: '🍞',
-//			doughnut			: '🍞',
-//			custard				: '🍞',
-			icecream			: '🍦',
-//			ice_cream			: '🍧',
-			shaved_ice			: '🍧',
-			birthday			: '🎂',
-			cake				: '🍰',
-//			cookie				: '🍰',
-//			chocolate_bar		: '🍰',
-//			candy				: '🍰',
-//			lollipop			: '🍰',
-//			honey_pot			: '🍰',
-			apple				: '🍎',
-			tangeline			: '🍊',
-//			lemon				: '🍊',
-//			cherries			: '🍊',
-//			grapes				: '🍊',
-			watermelon			: '🍉',
-			strawberry			: '🍓',
-//			peach				: '🍓',
-//			melon				: '🍓',
-//			banana				: '🍓',
-//			pear				: '🍓',
-//			pinapple			: '🍓',
-//			sweet_potatp		: '🍓',
-			eggplant			: '🍆',
-			tomato				: '🍅',
-//			corn				: '🍅',
-
-
-			clock1 				: '🕐',
-			clock10 			: '🕙',
-
-	};
-
-
-	///// EMOJI /////
-	KtMarkDown.prototype._char_Emoji = function( aLineIn ) {
-
-		var textIn  = aLineIn;
-		var textOut = '';
-		var matches = [];
-
-		while ( matches = textIn.match( /^(.*?)\ \:(\S*?)\:\ (.*)$/ ) ) {	// :emoji:
-			var emoji = this.emojis[ matches[ 2 ] ];
-			if ( emoji ) {
-				textOut += matches[ 1 ] + emoji;
-				textIn   = matches[ 3 ];
-			} else {
-				textOut += matches[ 1 ] + ' EMOJI ';
-				textIn   = matches[ 3 ];
-			}
-		}
-
-		return( textOut + textIn );
-
-	}
 
 
 	///// BOLD /////
@@ -499,7 +159,7 @@
 		var matchBody = '';
 		var matches   = [];
 
-		while ( matches = textIn.match( /^(.*?)__(.*?)__(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)__(.*?)__(.*)$/ ) ) {
 
 			var matchHead = matches[ 1 ];
 			var matchBody = matches[ 2 ];
@@ -536,19 +196,7 @@
 		return( textOut + textIn );
 	}
 
-	///// SHADOW /////
-	KtMarkDown.prototype._char_Shadow = function( aLineIn ) {
 
-		var textIn  = aLineIn;
-		var textOut = '';
-		var matches;
-
-		while ( matches = textIn.match( /^(.*?)\;\;(.*?)\;\;(.*)$/ ) ) {
-			textOut += matches[ 1 ] + '<span class="ktmd_textShadow_1">' + matches[ 2 ] + '</span>';
-			textIn   = matches[ 3 ];
-		}
-		return( textOut + textIn );
-	}
 
 
 	///// MONOSPACE /////
@@ -605,7 +253,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\(\((.*?)\)\)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\(\((.*?)\)\)(.*)$/ ) ) {
 
 			var matchHead = matches[ 1 ];
 			var matchBody = matches[ 2 ];
@@ -653,7 +301,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\!\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\!\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) {
 			var head = matches[ 1 ];
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
@@ -672,7 +320,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\!v\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\!v\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) {
 			var head = matches[ 1 ];
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
@@ -691,7 +339,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\!a\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\!a\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) {
 			var head = matches[ 1 ];
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
@@ -711,10 +359,19 @@
 		var matches;
 
 		while ( matches = textIn.match( /^(.*?)\[([^\[]+?)\]\((.+?)\)(.*)$/ ) ) {
+			var head  = matches[ 1 ];
 			var title = matches[ 2 ];
 			var url   = matches[ 3 ];
-			textOut = matches[ 1 ] + '<a href="' + url + '" controls>' + title + '</a>';
-			textIn  = matches[ 4 ];
+			var tail  = matches[ 4 ];
+			var target;
+
+			if ( url.match( /^\+(.+)$/ ) ) {
+				textOut = head + '<a href="' + url + '" target="_new">' + title + '</a>';
+			} else {
+				textOut = head + '<a href="' + url + '">' + title + '</a>';
+			}
+
+			textIn  = tail;
 		}
 		return( textOut + textIn );
 	}
@@ -727,7 +384,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)((https|http|ftp|mailto|file)\:\S+)(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\s((https|http|ftp|mailto|file)\:\S+)(.*)$/ ) ) {
 			var head = matches[ 1 ];
 			var tail = matches[ 4 ];
 			if ( head.substr( head.length - 2, 2 ) !== '="' ) {
@@ -749,7 +406,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\{\#(.+?)\}(.*)$/ ) ) { 
+		while ( matches = textIn.match( /^(.*?)\{\#(.+?)\}(.*)$/ ) ) {
 			textOut += matches[ 1 ] + '<a id="' + matches[ 2 ] + '"></a>';
 			textIn   = matches[ 3 ];
 		}
@@ -772,17 +429,17 @@
 			cssClass += ' ktmd_blankLine';
 		}
 
-		if ( aStartTag ) { 
+		if ( aStartTag ) {
 			tagText += '<' + aStartTag;
 			if ( aCssClass ) { tagText += ' class="' + cssClass  + '"'; }
 			if ( aCssStyle ) { tagText += ' style="' + aCssStyle + '"'; }
 			tagText += '>';
 		}
 
-		if ( aText ) { 
+		if ( aText ) {
 
 			var text = aText;
-//			var text += this._buildTEXT( aText ); 
+//			var text += this._buildTEXT( aText );
 
 			///// CHARACTER ATTRIBUTES /////
 			text = this._char_Bold( text );			// Bold
@@ -798,16 +455,22 @@
 			text = this._char_Link( text );			// Link
 			text = this._char_AutoLink( text );		// Auto Link
 			text = this._char_Name( text );			// Name
-			text = this._char_Shadow( text );		// Shadow
+//			text = this._char_Shadow( text );		// Shadow
 			text = this._char_SpanClass( text );	// Span Class
-			text = this._char_Emoji( text );		// Emoji
+//			text = this._char_Emoji( text );		// Emoji
 
-			tagText += this._buildTEXT( text ); 
-//			tagText += text; 
+			for ( var ext in this.extensions ) {
+				if ( this.extensions[ ext ].processLine ) {
+					text = this.extensions[ ext ].processLine( text );
+				}
+			}
+
+			tagText += this._buildTEXT( text );
+//			tagText += text;
 		}
 
-		if ( aEndTag ) { 
-			tagText += '</' + aEndTag + '>'; 
+		if ( aEndTag ) {
+			tagText += '</' + aEndTag + '>';
 		}
 
 		return( tagText );
@@ -842,10 +505,10 @@
 		}
 
 		///// INDENT LEVEL IS NOT CHANGED /////
-		if ( curLevel === dstLevel ) { return( '' ); } 
+		if ( curLevel === dstLevel ) { return( '' ); }
 
 		///// INDENT LEVEL IS DOWN : </ul> </ol> /////
-		if ( dstLevel < curLevel ) { 
+		if ( dstLevel < curLevel ) {
 			for ( var i = curLevel ; dstLevel < i ; i-- ) {
 				html += '</' + this.listStack.pop() + '>\n';
 			}
@@ -930,7 +593,7 @@
 			cols.shift();	// REMOVE FIRST ITEM
 
 			///// TEXT ALIGN /////
-			if ( cols[ 0 ].match( /^(\-|\:)/ ) ) { 
+			if ( cols[ 0 ].match( /^(\-|\:)/ ) ) {
 				for ( var i = 0, n = cols.length ; i < n ; i++ ) {
 					if ( matches = cols[ i ].match( /^(.).*(.)$/ ) ) {
 						if      (( matches[ 1 ] === ':' )&&( matches[ 2 ] === '-' )) { cols[ i ] = 'left';   }
@@ -941,10 +604,10 @@
 				}
 				this.tableInfo = cols;
 				return( ' ' );
-			} 
+			}
 
 			///// AT TABLE HEAD /////
-			if ( this.tableInfo === 'atHead' ) { 
+			if ( this.tableInfo === 'atHead' ) {
 				html += '<thead><tr>';
 				for ( var i = 0, n = cols.length ; i < n ; i++ ) {
 					html += '<th>' + this._buildLine( null, null, null, cols[ i ], null ) + '</th>';
@@ -952,7 +615,7 @@
 				html += '</tr></thead><tbody>';
 				this.tableInfo = 'atBody';
 				return( html );
-			} 
+			}
 
 			///// AT TABLE BODY /////
 			html += '<tr>';
@@ -989,9 +652,9 @@
 			name = name.replace( /^\s+/, '' );			// Remove spaces at line top
 			name = name.replace( /\s+$/, '' );			// Remove spaces at line end
 			name = name.replace( /[\ \#]/g, '_' );			// Space to Underscore
-			text = '<a id="' + name + '"></a>' + text;
+//			text = '<a id="' + name + '"></a>' + text;
 
-			return( this._buildLine( sTag, clas, styl, text, eTag ) );
+			return( this._buildLine( sTag, clas, styl, text, eTag ) + '<a id="' + name + '"></a>' );
 		}
 
 		return;
@@ -1106,7 +769,7 @@
 
 	///// PREFIX ///
 	KtMarkDown.prototype._line_Prefix = function( aLineIn ) {
-		
+
 		var text = aLineIn;
 		var sTag, clas, styl, eTag, matches;
 
@@ -1125,8 +788,8 @@
 		if ( matches = text.match( /^\`\`\`(.*)$/ ) ) { // Open prefix
 
 			var matchFoot = matches[ 1 ];
-			if ( matches = matchFoot.match( /^\{(.+?)\}(.*)$/ ) ) { // for highlight.js 
-				clas      = matches[ 1 ]; 
+			if ( matches = matchFoot.match( /^\{(.+?)\}(.*)$/ ) ) { // for highlight.js
+				clas      = matches[ 1 ];
 				matchFoot = matches[ 2 ];
 			}
 
@@ -1164,7 +827,7 @@
 
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
-		
+
 		if ( matches = text.match( /^\]\)\)(.*)$/ ) ) { ///// Close Box /////
 			text = matches[ 1 ];
 			eTag = 'div';
@@ -1224,10 +887,10 @@
 
 	///// BUILD HTML /////
 	KtMarkDown.prototype._buildHTML = function( aSrcElement ) {
-	
+
 		var htmlOut = '';
 		var mdLines = aSrcElement.innerHTML.split( /\r\n|\r|\n/ );	// Put all lines into array.
-	
+
 		for ( var i = 0, n = mdLines.length ; i < n ; i++ ) { // Process all lines.
 
 			var mdLine = mdLines[ i ];					// Current line.
@@ -1291,7 +954,8 @@
 
 	///// START RELOADING /////
 	KtMarkDown.prototype._startReloading = function() {
-		if ( this.opts ) {
+		if ( this.opts == null ) { return; }
+		if ( location.href.match( /^file\:/ ) ) {
 			if ( 0 < this.opts.autoReload ) {
 				this.reloadAfter = this.opts.autoReload;
 				this._countDownReloading();
@@ -1315,9 +979,3 @@
 	}
 
 	var ktmd = new KtMarkDown();
-	ktmd.buildMarkDown();
-
-
-
-
-
