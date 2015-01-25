@@ -10,7 +10,7 @@
 	<script type="text/javascript"><!-- Configuration -->
 		var KtMarkDown_Options = {
 			autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
-			extensions : [ 'emoji', 'textShadow' ],
+			extensions : [ 'basicExts',  'emoji' ],	// Extensions
 		};
 	</script>
 
@@ -38,24 +38,21 @@
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Processor**
-
-:: produced by [@_crane_](https://twitter.com/_crane_).
-::: 2015.1.17 Kengo Tsuruzono / crane@sitearo
+::: 2015.1.25 Kengo Tsuruzono / [@_crane_](https://twitter.com/_crane_)
 
 ## FEATURES
 
-　**ktMarkDown.js** is a markdown processor described in JavaScript. The main feature of it is following.
+　**ktMarkDown.js** is a markdown processor written in JavaScript. The main feature of it is following. This document is written by ktMarkDown.js.
 
 (((
-* いつも使っているお気に入りのテキストエディタでリッチなドキュメントが作れます。
-* いつも使っているお気に入りのウェブブラウザで開くとリッチなドキュメントに整形して表示されます。
-* JavaScriptをエンジンにしているため、OSを選ばず利用可能。
-* マークダウンの方言を複数サポートしており、既存のテキストを流量可能 ( 例外はあり )。
+* 必要な物は、テキストエディタ(入力/編集)とウェブブラウザ(表示)のみ。
+* マークダウンからHTMLにはJavaScriptを使用しているため、OSを選びません。
+* マークダウンの方言を複数サポートしており、既存のマークダウンテキストを流量が容易。
+* マークダウンのまま読めるような文法を優先。
 * マークダウンとHTMLやJavaScriptとの混在が可能 ( アクセス解析やシンタックスハイライトなども可能 )。
-* なるべくマークダウンのまま読みやすい ( 結果が推測しやすい ) 文法を優先している。
-* 他のマークダウンでは不可能な修飾を可能とする拡張を行っている。
-* 外部ライブラリが不要。
-* 後から機能を追加する機能拡張モジュールを作成可能。
+* JavaScriptの外部ライブラリを一切使用してません。
+* 機能拡張モジュールによって機能を後から追加することが可能。
+* 標準添付の機能拡張モジュールで、いくつかのマークダウン記法を追加しています。
 )))
 
 ## DOWNLOAD
@@ -79,8 +76,8 @@
 			* ![](ktmd/doc/img/file.png) ''ktmd.js''  ( JavaScript )
 			* ![](ktmd/doc/img/file.png) ktmd.css ( CSS )
 			* ![](ktmd/doc/img/folder.png) exts ( Extensions Folder )
+				* ![](ktmd/doc/img/folder.png) basicExts ( Basic Extensions )
 				* ![](ktmd/doc/img/folder.png) emoji ( Emoji Extension )
-				* ![](ktmd/doc/img/folder.png) textShadow ( Text Shadow Extension )
 		* ![](ktmd/doc/img/folder.png) doc ( Documents )
 )))
 
@@ -94,8 +91,8 @@
   __{{link rel="stylesheet" href="**ktmd/v1.0/ktmd.css**" type="text/css"}}__ ...((1))
   {{script type="text/javascript"}}
     var __KtMarkDown_Options__ = { ...((2))
-      autoReload : 30,	// Interval of auto reload ( sec, 0 = Don't reload )
-      extensions : [ 'emoji', 'textShadow' ]
+      autoReload : 30, // Interval of auto reload ( sec, 0 = Don't reload )
+      extensions : [ 'basicExts', 'emoji' ], // Extensions
     };
   {{/script}}
 {{/head}}
@@ -113,7 +110,7 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 ```
 
 1. ((head)) の中で使用する CSS を指定します。標準のものを使う場合は、このままで構いません。書いているHTMLの場所によってはパス指定の変更が必要です。
-2. ((KtMarkDown_Options)) に設定を記述できます。
+2. ((KtMarkDown_Options)) に設定を記述できます。詳細は[後述](#OPTIONS)。
 3. ((script)) タグの中にマークダウンを書きます。この ((script)) タグは複数存在しても構いません。各 ((script)) タグの直前にレンダリング結果を挿入しますので、((script)) タグの外側には、HTML や JavaScript を自由に書くことが出来ます。
 4. ((body)) の終了タグの直前で、ktMarkDown.js を読み込ませます。書いているHTMLの場所によってはパス指定の変更が必要です。
 
@@ -124,13 +121,13 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 	* //[Italic](ktmd/doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
 	* __[Underline](ktmd/doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
 	* ~~[Strikethrough](ktmd/doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
-	* ``[Nonospace](ktmd/doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
+	* ``[Monospace](ktmd/doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
 * ''[Link](ktmd/doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
 	* [Name](ktmd/doc/ref_Link.html#NAME) ([ \{\#Name\} ])
 * ''[Multimedia](ktmd/doc/ref_Multimedia.html)''
-	* [Image](ktmd/doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
-	* [Video](ktmd/doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
-	* [Audio](ktmd/doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
+	* [Images](ktmd/doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
+	* [Videos](ktmd/doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
+	* [Audios](ktmd/doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
 * ''[Escape Sequence](ktmd/doc/ref_Escape.html)'' ([ \\ ])
 
 ## SYNTAX REFERENCE : LINE ATTRIBUTES
@@ -142,38 +139,48 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 	* [Unordered List](ktmd/doc/ref_List.html#ORDERED_LIST_:_PLUS) ([ \* Unordered List ])
 * ''[Prefix](ktmd/doc/ref_Prefix.html)'' ([ \`\`\` Prefix \`\`\` ])
 	* [Syntax Highlighted by highlight.js](ktmd/doc/ref_Prefix.html#HIGHLIGHT_SYNTAX_BY_HIGHLIGHT.JS)
-* ''[Text Box](ktmd/doc/ref_TextBox.html)''
-	* ''[Rect Box](ktmd/doc/ref_TextBox.html)'' ([ \(\(\[ Rect Box \]\)\) ])
-	* ''[Oval Box](ktmd/doc/ref_TextBox.html)'' ([ \(\(\( Oval Box \)\)\) ])
-* ''[Text Align](ktmd/doc/ref_TextAlign.html)''
 * ''[Table](ktmd/doc/ref_Table.html)'' ([ |---|---| ])
 * ''[Horizontal Rule](ktmd/doc/ref_HorRule.html)'' ([ --- ])
-* ''[Page Break](ktmd/doc/ref_PageBreak.html)'' ([ ===== ])
 
-## CONFIGURATION
+## OPTIONS
 
 ```{JavaScript}
   {{script type="text/javascript"}}
     var ''KtMarkDown_Options'' = {
-      __autoReload__ : 30,	// Interval of auto reload ( sec, 0 = Don't reload )
-      __extensions__ : [ 'emoji', 'textShadow' ],
+      __autoReload__ : 30, // Interval of auto reload ( sec, 0 = Don't reload ) ...((1))
+      __extensions__ : [ 'basicExts', 'emoji' ], // Extensions ...((2))
     };
   {{/script}}
 ```
 
-* ''自動リロード'' autoReload : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。
-* ''機能拡張'' extensions : 使用する機能拡張を列挙します。
++ ''自動リロード'' ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
++ ''機能拡張'' ``extensions`` : 使用する機能拡張の名前を列挙します。
+
 
 ## BUILT-IN EXTENSIONS
 
-* ''[Character Attributes](ktmd/doc/ref_Char.html)''
-	* ;;[Text Shadow](ktmd/doc/ref_Char.html#TEXT_SHADOW);; ([ \;\; Text Shadow \;\; ])
-	* ([ [Rect Box](ktmd/doc/ref_Char.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
-	* (( [Oval Box](ktmd/doc/ref_Char.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
+ktMarkDown.js includes some built-in extensions.
+
+* **BASIC EXTENSIONS**
+	* ** Character Attributes **
+		* ;;[Text Shadow](ktmd/doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
+		* ([ [Rect Box](ktmd/doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
+		* (( [Oval Box](ktmd/doc/ref_BasicExtensions.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
+	* ** Line Attributes **
+		* ''[Text Box](ktmd/doc/ref_BasicExtensions.html)''
+			* ''[Rect Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\[ Rect Box \]\)\) ])
+			* ''[Oval Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\( Oval Box \)\)\) ])
+		* ''[Text Align](ktmd/doc/ref_BasicExtensions.html)''
+		* ''[Page Break](ktmd/doc/ref_BasicExtensions.html)'' ([ ===== ])
+
+* **EMOJI EXTENSION**
 	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])
+
 
 ## HISTORY
 
+* ''Version 1.0b4'' : 2015.01.25
+	* Support 'Extension module'.
 * ''Version 1.0b3'' : 2015.01.17
 	* Add 'Text Shadow' funciton.
 	* Support 'Video' and 'Audio'.

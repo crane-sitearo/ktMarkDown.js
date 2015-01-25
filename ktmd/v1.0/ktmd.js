@@ -294,8 +294,8 @@
 			var tail  = matches[ 4 ];
 			var target;
 
-			if ( url.match( /^\+(.+)$/ ) ) {
-				textOut = head + '<a href="' + url + '" target="_new">' + title + '</a>';
+			if ( matches = url.match( /^\+(.+)$/ ) ) { // LINK FOR NEW WINDOW
+				textOut = head + '<a href="' + matches[ 1 ] + '" target="_new">' + title + '</a>';
 			} else {
 				textOut = head + '<a href="' + url + '">' + title + '</a>';
 			}
@@ -348,6 +348,7 @@
 //-----------------------------------------------------------------------------
 
 
+
 	///// BUILD LINE /////
 	KtMarkDown.prototype._buildLine = function( aStartTag, aCssClass, aCssStyle, aText, aEndTag ) {
 
@@ -376,21 +377,16 @@
 			text = this._char_Underline( text );	// Underline
 			text = this._char_MonoSpace( text );	// Monospace
 			text = this._char_Strike( text );		// Strikethrough
-			// text = this._char_RectButton( text );	// Rectangle Button
-			// text = this._char_OvalButton( text );	// Round Rectangle Button
 			text = this._char_Image( text );		// Image
 			text = this._char_Video( text );		// Video
 			text = this._char_Audio( text );		// Audio
 			text = this._char_Link( text );			// Link
 			text = this._char_AutoLink( text );		// Auto Link
 			text = this._char_Name( text );			// Name
-//			text = this._char_Shadow( text );		// Shadow
-//			text = this._char_SpanClass( text );	// Span Class
-//			text = this._char_Emoji( text );		// Emoji
 
 			for ( var ext in this.extensions ) {
-				if ( this.extensions[ ext ].processLine ) {
-					text = this.extensions[ ext ].processLine( text );
+				if ( this.extensions[ ext ].processCharAttribute ) {
+					text = this.extensions[ ext ].processCharAttribute( text );
 				}
 			}
 
@@ -404,6 +400,20 @@
 
 		return( tagText );
 	}
+
+
+
+	///// BUILD LINE WITH TAG INFO /////
+	KtMarkDown.prototype._buildLineWithTagInfo = function( aTagInfo ) {
+		return( this._buildLine(
+			aTagInfo.startTag,
+			aTagInfo.cssClass,
+			aTagInfo.cssStyle,
+			aTagInfo.text,
+			aTagInfo.endTag
+		) );
+	}
+
 
 
 	///// ADJUST LIST LEVEL ///
@@ -733,73 +743,6 @@
 	}
 
 
-	///// RECT BOX /////
-	KtMarkDown.prototype._line_RectBox = function( aLineIn ) {
-
-		var text = aLineIn;
-		var sTag, clas, styl, eTag, matches;
-
-		if ( matches = text.match( /^\(\(\[(.*)$/ ) ) { ///// Open Box /////
-
-			sTag = 'div';
-			clas = 'ktmd_rBox_101';
-			text = matches[ 1 ];
-
-			if ( matches = text.match( /^(\S+?)\:(.*)$/ ) ) { // N: Custom Css Class
-				clas = ' ktmd_rBox_' + matches[ 1 ];
-				text = matches[ 2 ];
-			}
-			else if ( matches = text.match( /^\{(.+?)\}(.*)/ ) ) { // {Class}
-				clas = matches[ 1 ];
-				text = matches[ 2 ];
-			}
-
-			return( this._buildLine( sTag, clas, styl, text, eTag ) );
-		}
-
-		if ( matches = text.match( /^\]\)\)(.*)$/ ) ) { ///// Close Box /////
-			text = matches[ 1 ];
-			eTag = 'div';
-			return( this._buildLine( sTag, clas, styl, text, eTag ) );
-		}
-
-		return;
-	};
-
-
-	///// OVAL BOX /////
-	KtMarkDown.prototype._line_OvalBox = function( aLineIn ) {
-
-		var text = aLineIn;
-		var sTag, clas, styl, eTag, matches;
-
-		if ( matches = text.match( /^\(\(\((.*)$/ ) ) { ///// Open Box /////
-
-			sTag = 'div';
-			clas = 'ktmd_oBox_101';
-			text = matches[ 1 ];
-
-			if ( matches = text.match( /^(\S+?)\:(.*)$/ ) ) { // N: Custom Css Class
-				clas = ' ktmd_oBox_' + matches[ 1 ];
-				text = matches[ 2 ];
-			}
-			else if ( matches = text.match( /^\{(.+?)\}(.*)/ ) ) { // {Class}
-				clas = matches[ 1 ];
-				text = matches[ 2 ];
-			}
-
-			return( this._buildLine( sTag, clas, styl, text, eTag ) );
-		}
-
-		if ( matches = text.match( /^\)\)\)(.*)$/ ) ) { ///// Close Box /////
-			text = matches[ 1 ];
-			eTag = 'div';
-			return( this._buildLine( sTag, clas, styl, text, eTag ) );
-		}
-
-		return;
-	};
-
 
 	///// PAGE BREAK /////
 	KtMarkDown.prototype._line_PageBreak = function( aLineIn ) {
@@ -841,13 +784,27 @@
 					else if ( htmlLine = this._line_Header(     mdLine ) ) { } // Header
 					else if ( htmlLine = this._line_Blockquote( mdLine ) ) { } // Blockquote
 					else if ( htmlLine = this._line_TextAlign(  mdLine ) ) { } // Text Align
-					else if ( htmlLine = this._line_RectBox(    mdLine ) ) { } // Rect Box
-					else if ( htmlLine = this._line_OvalBox(    mdLine ) ) { } // Oval Box
 					else if ( htmlLine = this._line_Indent(     mdLine ) ) { } // Indent
 					else if ( htmlLine = this._line_HorRule(    mdLine ) ) { } // Horizontal Rule
 					else if ( htmlLine = this._line_Table(      mdLine ) ) { } // Table
 					else if ( htmlLine = this._line_PageBreak(  mdLine ) ) { } // Page Break
-					else {    htmlLine = this._buildLine( 'div', null, null, mdLine, 'div' ); }
+					else {
+
+						for ( var ext in this.extensions ) { // Run All Extensions
+							if ( this.extensions[ ext ].processLineAttribute ) { // Check Proc.
+								var tagInfo;
+								if ( tagInfo = this.extensions[ ext ].processLineAttribute( mdLine ) ) {
+									htmlLine = this._buildLineWithTagInfo( tagInfo );
+									break;
+								}
+							}
+						}
+
+						if ( ! htmlLine ) { // No Line Attribute
+							htmlLine = this._buildLine( 'div', null, null, mdLine, 'div' );
+						}
+
+					}
 				} else { // Inside of Prefix
 					htmlLine = this._buildLine( null, null, null, mdLine, null ) + '\r\n';
 				}

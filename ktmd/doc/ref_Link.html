@@ -10,6 +10,7 @@
 	<script type="text/javascript">
 		var KtMarkDown_Options = {
 			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+			extensions : [ 'basicExts',  'emoji' ],
 		};
 	</script>
 	<!-- KTMARKDOWN END -->
@@ -31,7 +32,7 @@ You can create a linked text with " ((\[)) title (( \]\()) url (( \) )) ".
 ''INPUT''
 )))
 (((b101:
-((\[))Apple((\]\()) http://www.apple.com (( \) ))
+((\[))Apple((\]\())http://www.apple.com (( \) ))
 )))
 
 (((t101:
@@ -40,6 +41,8 @@ You can create a linked text with " ((\[)) title (( \]\()) url (( \) )) ".
 (((b101:
 [Apple](http://www.apple.com)
 )))
+
+URLの先頭に (( + )) を書くことで、新規ウィンドウで開くリンクになります。
 
 (((t101:
 ''INPUT'' OPEN IN NEW TAB / WINDOW
@@ -59,7 +62,7 @@ You can create a linked text with " ((\[)) title (( \]\()) url (( \) )) ".
 ### AUTO LINK
 
 You can create a linked text with URL only.
-URLを書くだけでリンクが作成されます。
+スペースを書いてURLを書くだけでリンクが作成されます。
 
 (((t101:
 ''INPUT''

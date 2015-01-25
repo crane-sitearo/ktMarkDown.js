@@ -376,7 +376,7 @@
 	};
 
 
-	Emoji.prototype.processLine = function( aLineIn ) {
+	Emoji.prototype.processCharAttribute = function( aLineIn ) {
 
 		var textIn  = aLineIn;
 		var textOut = '';
