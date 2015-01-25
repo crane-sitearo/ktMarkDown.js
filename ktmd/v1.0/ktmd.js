@@ -29,6 +29,7 @@
 
 	}
 
+
 	///// GET SCRIPT PATH /////
 	KtMarkDown.prototype.scriptPath = function() {
 
@@ -42,14 +43,22 @@
 
 	}
 
+
+	///// GET EXTENSIONS FOLDER PATH /////
+	KtMarkDown.prototype.extensionsFolderPath = function() {
+		var ktmdPath = this.scriptPath();
+		var libPath  = ktmdPath.match( /^(.*\/)ktmd.js$/ )[ 1 ] + 'exts/';
+		return( libPath );
+	}
+
+
 	///// LOAD EXTENSIONS /////
 	KtMarkDown.prototype.loadExtensions = function() {
 
 		if ( this.opts == null ) { return( false ); }
 		if ( this.opts.extensions == null ) { return( false ); }
 
-		var ktmdPath = this.scriptPath();
-		var libPath  = ktmdPath.match( /^(.*\/)ktmd.js$/ )[ 1 ] + 'exts/';
+		var libPath  = this.extensionsFolderPath();
 
 		this.extensionQue = [];
 		this.extensions = {};
@@ -350,12 +359,12 @@
 
 
 	///// BUILD LINE /////
-	KtMarkDown.prototype._buildLine = function( aStartTag, aCssClass, aCssStyle, aText, aEndTag ) {
+	KtMarkDown.prototype._buildLine = function( aStartTag, aCssClass, aCssStyle, aText, aEndTag, aId ) {
 
 		var tagText = '';
 		var cssClass = aCssClass;
 
-		if (( aText.length < 1 )&&( aStartTag )&&( aEndTag )) {
+		if (( ! aText )&&( aStartTag )&&( aEndTag )) {
 			cssClass += ' ktmd_blankLine';
 		}
 
@@ -363,6 +372,7 @@
 			tagText += '<' + aStartTag;
 			if ( aCssClass ) { tagText += ' class="' + cssClass  + '"'; }
 			if ( aCssStyle ) { tagText += ' style="' + aCssStyle + '"'; }
+			if ( aId       ) { tagText += ' id="'    + aId       + '"'; }
 			tagText += '>';
 		}
 
@@ -410,7 +420,8 @@
 			aTagInfo.cssClass,
 			aTagInfo.cssStyle,
 			aTagInfo.text,
-			aTagInfo.endTag
+			aTagInfo.endTag,
+			aTagInfo.id
 		) );
 	}
 
