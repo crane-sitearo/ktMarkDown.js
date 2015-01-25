@@ -220,78 +220,7 @@
 	}
 
 
-	///// RECT BUTTON /////
-	KtMarkDown.prototype._char_RectButton = function( aLineIn ) {
 
-		var textIn  = aLineIn;
-		var textOut = '';
-		var matches;
-
-		while ( matches = textIn.match( /^(.*?)\(\[(.*?)\]\)(.*)$/ ) ) {
-
-			var matchHead = matches[ 1 ];
-			var matchBody = matches[ 2 ];
-			var matchFoot = matches[ 3 ];
-
-			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
-				textOut += matchHead + '<span class="ktmd_rButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
-				textIn   = matchFoot;
-			} else {
-				textOut += matchHead + '<span class="ktmd_rButton_1">' + matchBody + '</span>';
-				textIn   = matchFoot;
-			}
-
-		}
-		return( textOut + textIn );
-	}
-
-
-	///// OVAL BUTTON /////
-	KtMarkDown.prototype._char_OvalButton = function( aLineIn ) {
-
-		var textIn  = aLineIn;
-		var textOut = '';
-		var matches;
-
-		while ( matches = textIn.match( /^(.*?)\(\((.*?)\)\)(.*)$/ ) ) {
-
-			var matchHead = matches[ 1 ];
-			var matchBody = matches[ 2 ];
-			var matchFoot = matches[ 3 ];
-
-			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
-				textOut += matchHead + '<span class="ktmd_oButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
-				textIn   = matchFoot;
-			} else {
-				textOut += matchHead + '<span class="ktmd_oButton_1">' + matchBody + '</span>';
-				textIn   = matchFoot;
-			}
-
-		}
-		return( textOut + textIn );
-	}
-
-
-	///// SPAN CLASS /////
-	KtMarkDown.prototype._char_SpanClass = function( aLineIn ) {
-
-		var textIn  = aLineIn;
-		var textOut = '';
-		var matches;
-
-		while ( matches = textIn.match( /^(.*?)\[\[(\S*?)\;(.*?)\]\](.*)$/ ) ) {
-
-			var matchHead = matches[ 1 ];
-			var matchSpan = matches[ 2 ];
-			var matchBody = matches[ 3 ];
-			var matchFoot = matches[ 4 ];
-
-			textOut += matchHead + '<span class="' + matchSpan + '">' + matchBody + '</span>';
-			textIn   = matchFoot;
-
-		}
-		return( textOut + textIn );
-	}
 
 
 	///// IMAGE /////
@@ -447,8 +376,8 @@
 			text = this._char_Underline( text );	// Underline
 			text = this._char_MonoSpace( text );	// Monospace
 			text = this._char_Strike( text );		// Strikethrough
-			text = this._char_RectButton( text );	// Rectangle Button
-			text = this._char_OvalButton( text );	// Round Rectangle Button
+			// text = this._char_RectButton( text );	// Rectangle Button
+			// text = this._char_OvalButton( text );	// Round Rectangle Button
 			text = this._char_Image( text );		// Image
 			text = this._char_Video( text );		// Video
 			text = this._char_Audio( text );		// Audio
@@ -456,7 +385,7 @@
 			text = this._char_AutoLink( text );		// Auto Link
 			text = this._char_Name( text );			// Name
 //			text = this._char_Shadow( text );		// Shadow
-			text = this._char_SpanClass( text );	// Span Class
+//			text = this._char_SpanClass( text );	// Span Class
 //			text = this._char_Emoji( text );		// Emoji
 
 			for ( var ext in this.extensions ) {

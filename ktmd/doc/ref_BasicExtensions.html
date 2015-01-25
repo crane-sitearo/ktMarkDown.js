@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference : Character Attributes</title>
+
+	<!-- KTMARKDOWN START -->
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../v1.0/ktmd.css" type="text/css">
+	<script type="text/javascript">
+		var KtMarkDown_Options = {
+			autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+			extensions : [ 'basicExts',  'emoji' ],
+		};
+	</script>
+	<!-- KTMARKDOWN END -->
+
+</head>
+
+<body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# [ktMarkDown.js](../../index.html) : Basic Exts.
+
+
+
+## BASIC
+
+| INPUT									| OUTPUT					| CLASS								|
+|:-------------------------------------:|:-------------------------:|:----------------------------------|
+| ((;\;))TEXT SHADOW((;\;))				| ;;TEXT SHADOW;;			| ktmd_textShadow_1 				|
+| ((*\*\;\;)) BOLD SHADOW ((;\;\*\*))	| **;;BOLD SHADOW;;**		|									|
+| (( (\[ ))RECT BUTTON(( \]\) ))	| ([RECT BUTTON])			| ktmd_rButton_1 					|
+| (( (\( ))OVAL BUTTON(( \)\) ))	| ((OVAL BUTTON))			| ktmd_oButton_1 					|
+
+
+### CUSTOM CLASS
+
+| INPUT 										| OUTPUT 					| CSS CLASS 		|
+|:---------------------------------------------:|:-------------------------:|:------------------|
+| (( \[\[ ))big_1((;)) BIG ((\]\]))				| [[big_1; BIG ]]			| big_1 			|
+| (( \[\[ ))Nunito((;)) Nunito Font ((\]\]))	| [[Nunito; Nunito Font ]]	| Nunito 			|
+| (( \[\[ ))keyTop((;)) SHIFT ((\]\]))			| [[keyTop; SHIFT ]]		| keyTop 			|
+
+
+### RECT BUTTON
+
+* **枠線の太さ** ( 1の位 )
+	* 0 : 0px ( 枠線なし )
+	* 1 : 1px
+	* 2 : 2px
+	* 3 : 3px
+* **枠線の種類** ( 10の位 )
+	* 0 : 実線 ( Solid )
+	* 1 : 点線 ( Dotted )
+	* 2 : 破線 ( Dashed )
+* **塗りの種類** ( 100の位 )
+	* 0 : 塗りなし
+	* 1 : 単色
+	* 2 : グラデーション
+* **影** ( 1000の位 )
+	* 0 : 影なし
+	* 1 : 影あり
+
+#### BASIC
+| INPUT 						| OUTPUT 				| CSS CLASS 		|
+|:-----------------------------:|:---------------------:|:------------------|
+| \(\[ RECT BUTTON \]\) 		| ([ RECT BUTTON ])		| ktmd_rButton_1	|
+
+#### FRAME ONLY
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1: RECT BUTTON \]\) 		| ([1: RECT BUTTON ])		| ktmd_rButton_1	|
+| \(\[2: RECT BUTTON \]\) 		| ([2: RECT BUTTON ])		| ktmd_rButton_2	|
+| \(\[3: RECT BUTTON \]\) 		| ([2: RECT BUTTON ])		| ktmd_rButton_3	|
+| \(\[11: RECT BUTTON \]\) 		| ([11: RECT BUTTON ])		| ktmd_rButton_11	|
+| \(\[12: RECT BUTTON \]\) 		| ([12: RECT BUTTON ])		| ktmd_rButton_12	|
+| \(\[13: RECT BUTTON \]\) 		| ([13: RECT BUTTON ])		| ktmd_rButton_13	|
+| \(\[21: RECT BUTTON \]\) 		| ([21: RECT BUTTON ])		| ktmd_rButton_21	|
+| \(\[22: RECT BUTTON \]\) 		| ([22: RECT BUTTON ])		| ktmd_rButton_22	|
+| \(\[23: RECT BUTTON \]\) 		| ([23: RECT BUTTON ])		| ktmd_rButton_23	|
+
+#### FILL
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[100: RECT BOX \]\) 		| ([100: RECT BOX ])		| ktmd_rButton_100	|
+| \(\[101: RECT BOX \]\) 		| ([101: RECT BOX ])		| ktmd_rButton_101	|
+| \(\[102: RECT BOX \]\) 		| ([102: RECT BOX ])		| ktmd_rButton_102	|
+| \(\[103: RECT BOX \]\) 		| ([102: RECT BOX ])		| ktmd_rButton_103	|
+| \(\[111: RECT BOX \]\) 		| ([111: RECT BOX ])		| ktmd_rButton_111	|
+| \(\[112: RECT BOX \]\) 		| ([112: RECT BOX ])		| ktmd_rButton_112	|
+| \(\[113: RECT BOX \]\) 		| ([113: RECT BOX ])		| ktmd_rButton_113	|
+| \(\[121: RECT BOX \]\) 		| ([121: RECT BOX ])		| ktmd_rButton_121	|
+| \(\[122: RECT BOX \]\) 		| ([122: RECT BOX ])		| ktmd_rButton_122	|
+| \(\[123: RECT BOX \]\) 		| ([123: RECT BOX ])		| ktmd_rButton_123	|
+
+#### GRADATION
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[200: RECT BOX \]\) 		| ([200: RECT BOX ])		| ktmd_rButton_200	|
+| \(\[201: RECT BOX \]\) 		| ([201: RECT BOX ])		| ktmd_rButton_201	|
+| \(\[202: RECT BOX \]\) 		| ([202: RECT BOX ])		| ktmd_rButton_202	|
+| \(\[203: RECT BOX \]\) 		| ([202: RECT BOX ])		| ktmd_rButton_203	|
+| \(\[211: RECT BOX \]\) 		| ([211: RECT BOX ])		| ktmd_rButton_211	|
+| \(\[212: RECT BOX \]\) 		| ([212: RECT BOX ])		| ktmd_rButton_212	|
+| \(\[213: RECT BOX \]\) 		| ([213: RECT BOX ])		| ktmd_rButton_213	|
+| \(\[221: RECT BOX \]\) 		| ([221: RECT BOX ])		| ktmd_rButton_221	|
+| \(\[222: RECT BOX \]\) 		| ([222: RECT BOX ])		| ktmd_rButton_222	|
+| \(\[223: RECT BOX \]\) 		| ([223: RECT BOX ])		| ktmd_rButton_223	|
+
+#### SHADOW
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1000: RECT BOX \]\) 		| ([1000: RECT BOX ])		| ktmd_rButton_1000	|
+| \(\[1001: RECT BOX \]\) 		| ([1001: RECT BOX ])		| ktmd_rButton_1001	|
+| \(\[1002: RECT BOX \]\) 		| ([1002: RECT BOX ])		| ktmd_rButton_1002	|
+| \(\[1003: RECT BOX \]\) 		| ([1002: RECT BOX ])		| ktmd_rButton_1003	|
+| \(\[1011: RECT BOX \]\) 		| ([1011: RECT BOX ])		| ktmd_rButton_1011	|
+| \(\[1012: RECT BOX \]\) 		| ([1012: RECT BOX ])		| ktmd_rButton_1012	|
+| \(\[1013: RECT BOX \]\) 		| ([1013: RECT BOX ])		| ktmd_rButton_1013	|
+| \(\[1021: RECT BOX \]\) 		| ([1021: RECT BOX ])		| ktmd_rButton_1021	|
+| \(\[1022: RECT BOX \]\) 		| ([1022: RECT BOX ])		| ktmd_rButton_1022	|
+| \(\[1023: RECT BOX \]\) 		| ([1023: RECT BOX ])		| ktmd_rButton_1023	|
+
+
+#### FILL + SHADOW
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1100: RECT BOX \]\) 		| ([1100: RECT BOX ])		| ktmd_rButton_1100	|
+| \(\[1101: RECT BOX \]\) 		| ([1101: RECT BOX ])		| ktmd_rButton_1101	|
+| \(\[1102: RECT BOX \]\) 		| ([1102: RECT BOX ])		| ktmd_rButton_1102	|
+| \(\[1103: RECT BOX \]\) 		| ([1102: RECT BOX ])		| ktmd_rButton_1103	|
+| \(\[1111: RECT BOX \]\) 		| ([1111: RECT BOX ])		| ktmd_rButton_1111	|
+| \(\[1112: RECT BOX \]\) 		| ([1112: RECT BOX ])		| ktmd_rButton_1112	|
+| \(\[1113: RECT BOX \]\) 		| ([1113: RECT BOX ])		| ktmd_rButton_1113	|
+| \(\[1121: RECT BOX \]\) 		| ([1121: RECT BOX ])		| ktmd_rButton_1121	|
+| \(\[1122: RECT BOX \]\) 		| ([1122: RECT BOX ])		| ktmd_rButton_1122	|
+| \(\[1123: RECT BOX \]\) 		| ([1123: RECT BOX ])		| ktmd_rButton_1123	|
+
+#### GRADATION + SHADOW
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\[1200: RECT BOX \]\) 		| ([1200: RECT BOX ])		| ktmd_rButton_1200	|
+| \(\[1201: RECT BOX \]\) 		| ([1201: RECT BOX ])		| ktmd_rButton_1201	|
+| \(\[1202: RECT BOX \]\) 		| ([1202: RECT BOX ])		| ktmd_rButton_1202	|
+| \(\[1203: RECT BOX \]\) 		| ([1202: RECT BOX ])		| ktmd_rButton_1203	|
+| \(\[1211: RECT BOX \]\) 		| ([1211: RECT BOX ])		| ktmd_rButton_1211	|
+| \(\[1212: RECT BOX \]\) 		| ([1212: RECT BOX ])		| ktmd_rButton_1212	|
+| \(\[1213: RECT BOX \]\) 		| ([1213: RECT BOX ])		| ktmd_rButton_1213	|
+| \(\[1221: RECT BOX \]\) 		| ([1221: RECT BOX ])		| ktmd_rButton_1221	|
+| \(\[1222: RECT BOX \]\) 		| ([1222: RECT BOX ])		| ktmd_rButton_1222	|
+| \(\[1223: RECT BOX \]\) 		| ([1223: RECT BOX ])		| ktmd_rButton_1223	|
+
+
+### OVAL BUTTON
+
+* **枠線の太さ** ( 1の位 )
+	* 0 : 0px ( 枠線なし )
+	* 1 : 1px
+	* 2 : 2px
+	* 3 : 3px
+* **枠線の種類** ( 10の位 )
+	* 0 : 実線 ( Solid )
+	* 1 : 点線 ( Dotted )
+	* 2 : 破線 ( Dashed )
+* **塗りの種類** ( 100の位 )
+	* 0 : 塗りなし
+	* 1 : 単色
+	* 2 : グラデーション
+* **影** ( 1000の位 )
+	* 0 : 影なし
+	* 1 : 影あり
+
+#### BASIC
+| INPUT 						| OUTPUT 				| CSS CLASS 		|
+|:-----------------------------:|:---------------------:|:------------------|
+| \(\( OVAL BUTTON \)\) 		| (( OVAL BUTTON ))		| ktmd_oButton_1	|
+
+#### FRAME ONLY
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\(1: RECT BUTTON \)\) 		| ((1: RECT BUTTON ))		| ktmd_rButton_1	|
+| \(\(2: RECT BUTTON \)\) 		| ((2: RECT BUTTON ))		| ktmd_rButton_2	|
+| \(\(3: RECT BUTTON \)\) 		| ((2: RECT BUTTON ))		| ktmd_rButton_3	|
+| \(\(11: RECT BUTTON \)\) 		| ((11: RECT BUTTON ))		| ktmd_rButton_11	|
+| \(\(12: RECT BUTTON \)\) 		| ((12: RECT BUTTON ))		| ktmd_rButton_12	|
+| \(\(13: RECT BUTTON \)\) 		| ((13: RECT BUTTON ))		| ktmd_rButton_13	|
+| \(\(21: RECT BUTTON \)\) 		| ((21: RECT BUTTON ))		| ktmd_rButton_21	|
+| \(\(22: RECT BUTTON \)\) 		| ((22: RECT BUTTON ))		| ktmd_rButton_22	|
+| \(\(23: RECT BUTTON \)\) 		| ((23: RECT BUTTON ))		| ktmd_rButton_23	|
+
+#### FILL
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\(100: RECT BOX \)\) 		| ((100: RECT BOX ))		| ktmd_rButton_100	|
+| \(\(101: RECT BOX \)\) 		| ((101: RECT BOX ))		| ktmd_rButton_101	|
+| \(\(102: RECT BOX \)\) 		| ((102: RECT BOX ))		| ktmd_rButton_102	|
+| \(\(103: RECT BOX \)\) 		| ((102: RECT BOX ))		| ktmd_rButton_103	|
+| \(\(111: RECT BOX \)\) 		| ((111: RECT BOX ))		| ktmd_rButton_111	|
+| \(\(112: RECT BOX \)\) 		| ((112: RECT BOX ))		| ktmd_rButton_112	|
+| \(\(113: RECT BOX \)\) 		| ((113: RECT BOX ))		| ktmd_rButton_113	|
+| \(\(121: RECT BOX \)\) 		| ((121: RECT BOX ))		| ktmd_rButton_121	|
+| \(\(122: RECT BOX \)\) 		| ((122: RECT BOX ))		| ktmd_rButton_122	|
+| \(\(123: RECT BOX \)\) 		| ((123: RECT BOX ))		| ktmd_rButton_123	|
+
+#### GRADATION
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\(200: RECT BOX \)\) 		| ((200: RECT BOX ))		| ktmd_rButton_200	|
+| \(\(201: RECT BOX \)\) 		| ((201: RECT BOX ))		| ktmd_rButton_201	|
+| \(\(202: RECT BOX \)\) 		| ((202: RECT BOX ))		| ktmd_rButton_202	|
+| \(\(203: RECT BOX \)\) 		| ((202: RECT BOX ))		| ktmd_rButton_203	|
+| \(\(211: RECT BOX \)\) 		| ((211: RECT BOX ))		| ktmd_rButton_211	|
+| \(\(212: RECT BOX \)\) 		| ((212: RECT BOX ))		| ktmd_rButton_212	|
+| \(\(213: RECT BOX \)\) 		| ((213: RECT BOX ))		| ktmd_rButton_213	|
+| \(\(221: RECT BOX \)\) 		| ((221: RECT BOX ))		| ktmd_rButton_221	|
+| \(\(222: RECT BOX \)\) 		| ((222: RECT BOX ))		| ktmd_rButton_222	|
+| \(\(223: RECT BOX \)\) 		| ((223: RECT BOX ))		| ktmd_rButton_223	|
+
+#### SHADOW
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\(1000: RECT BOX \)\) 		| ((1000: RECT BOX ))		| ktmd_rButton_1000	|
+| \(\(1001: RECT BOX \)\) 		| ((1001: RECT BOX ))		| ktmd_rButton_1001	|
+| \(\(1002: RECT BOX \)\) 		| ((1002: RECT BOX ))		| ktmd_rButton_1002	|
+| \(\(1003: RECT BOX \)\) 		| ((1002: RECT BOX ))		| ktmd_rButton_1003	|
+| \(\(1011: RECT BOX \)\) 		| ((1011: RECT BOX ))		| ktmd_rButton_1011	|
+| \(\(1012: RECT BOX \)\) 		| ((1012: RECT BOX ))		| ktmd_rButton_1012	|
+| \(\(1013: RECT BOX \)\) 		| ((1013: RECT BOX ))		| ktmd_rButton_1013	|
+| \(\(1021: RECT BOX \)\) 		| ((1021: RECT BOX ))		| ktmd_rButton_1021	|
+| \(\(1022: RECT BOX \)\) 		| ((1022: RECT BOX ))		| ktmd_rButton_1022	|
+| \(\(1023: RECT BOX \)\) 		| ((1023: RECT BOX ))		| ktmd_rButton_1023	|
+
+
+#### FILL + SHADOW
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\(1100: RECT BOX \)\) 		| ((1100: RECT BOX ))		| ktmd_rButton_1100	|
+| \(\(1101: RECT BOX \)\) 		| ((1101: RECT BOX ))		| ktmd_rButton_1101	|
+| \(\(1102: RECT BOX \)\) 		| ((1102: RECT BOX ))		| ktmd_rButton_1102	|
+| \(\(1103: RECT BOX \)\) 		| ((1102: RECT BOX ))		| ktmd_rButton_1103	|
+| \(\(1111: RECT BOX \)\) 		| ((1111: RECT BOX ))		| ktmd_rButton_1111	|
+| \(\(1112: RECT BOX \)\) 		| ((1112: RECT BOX ))		| ktmd_rButton_1112	|
+| \(\(1113: RECT BOX \)\) 		| ((1113: RECT BOX ))		| ktmd_rButton_1113	|
+| \(\(1121: RECT BOX \)\) 		| ((1121: RECT BOX ))		| ktmd_rButton_1121	|
+| \(\(1122: RECT BOX \)\) 		| ((1122: RECT BOX ))		| ktmd_rButton_1122	|
+| \(\(1123: RECT BOX \)\) 		| ((1123: RECT BOX ))		| ktmd_rButton_1123	|
+
+#### GRADATION + SHADOW
+| INPUT 						| OUTPUT 					| CSS CLASS 		|
+|:-----------------------------:|:-------------------------:|:------------------|
+| \(\(1200: RECT BOX \)\) 		| ((1200: RECT BOX ))		| ktmd_rButton_1200	|
+| \(\(1201: RECT BOX \)\) 		| ((1201: RECT BOX ))		| ktmd_rButton_1201	|
+| \(\(1202: RECT BOX \)\) 		| ((1202: RECT BOX ))		| ktmd_rButton_1202	|
+| \(\(1203: RECT BOX \)\) 		| ((1202: RECT BOX ))		| ktmd_rButton_1203	|
+| \(\(1211: RECT BOX \)\) 		| ((1211: RECT BOX ))		| ktmd_rButton_1211	|
+| \(\(1212: RECT BOX \)\) 		| ((1212: RECT BOX ))		| ktmd_rButton_1212	|
+| \(\(1213: RECT BOX \)\) 		| ((1213: RECT BOX ))		| ktmd_rButton_1213	|
+| \(\(1221: RECT BOX \)\) 		| ((1221: RECT BOX ))		| ktmd_rButton_1221	|
+| \(\(1222: RECT BOX \)\) 		| ((1222: RECT BOX ))		| ktmd_rButton_1222	|
+| \(\(1223: RECT BOX \)\) 		| ((1223: RECT BOX ))		| ktmd_rButton_1223	|
+
+
+---
+:: ''[Back](../../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script src='../v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>
