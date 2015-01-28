@@ -1,7 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
+
 /*
 	CSS for ktMarkDown.js
 */
+
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,800);
+
 body {
   box-sizing: border-box;
   font-size: 10pt;

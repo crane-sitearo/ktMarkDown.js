@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-	<meta charset="UTF-8">
-	<title>ktMarkDown.js</title>
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+<title>ktMarkDown.js</title>
+
 	<meta name="keywords" content="JavaScript Markdown Processor" />
 
-	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="ktmd/v1.0/ktmd.css" type="text/css">
-	<script type="text/javascript"><!-- Configuration -->
-		var KtMarkDown_Options = {
-			autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
-			extensions : [ 'basicExts',  'emoji' ],	// Extensions
-		};
-	</script>
-
-	<script type="text/javascript"><!-- Google -->
+	<!-- Google Analytics -->
+	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-30906109-1']);
 		_gaq.push(['_setDomainName', 'sitearo.com']);
@@ -31,10 +21,8 @@
 	<link rel="stylesheet" href="../lib/highlight/styles/github.css">
 	<script src="../lib/highlight/highlight.pack.js"></script>
 
-</head>
-
-<body>
-<script type="text/ktMarkDown" class="markdownSrc">/*
+</head><body>
+<script class="markdownSrc">/*
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Processor**
@@ -84,35 +72,19 @@
 　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させて行っています。
 
 ```{HTML}
-{{!DOCTYPE html}}
-{{html lang="ja"}}
-{{head}}
-  {{meta charset="UTF-8"}}
-  __{{link rel="stylesheet" href="**ktmd/v1.0/ktmd.css**" type="text/css"}}__ ...((1))
-  {{script type="text/javascript"}}
-    var __KtMarkDown_Options__ = { ...((2))
-      autoReload : 30, // Interval of auto reload ( sec, 0 = Don't reload )
-      extensions : [ 'basicExts', 'emoji' ], // Extensions
-    };
-  {{/script}}
-{{/head}}
-
-{{body}}
-__{{script type="text/ktMarkDown" class="markdownSrc"}}/*__ ...((3))
+{{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
+__{{script class="markdownSrc"}}/*__ ...((1))
     :
-  WRITE MARKDOWN TEXT HERE!
+  WRITE MARKDOWN TEXT HERE! ...((2))
     :
-__\*\/{{/script}}__
-
-__{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
-{{/body}}
-{{/html}}
+__\*\/{{/script}}__ ...((3))
+__{{script src='**ktmd/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
 ```
+1. マークダウンを記述する箇所の直前に {{script class="markDownSrc"}} を書きます。
+2. 次の行からマークダウンを書きます。
+3. マークダウンの記述の後に {{/script}} を書きます。
+4. {{/body}} の手前に {{script}} タグを書いて ktMarkDown.js を読み込みます。HTMLの場所によってはパスは調整が必要です。
 
-1. ((head)) の中で使用する CSS を指定します。標準のものを使う場合は、このままで構いません。書いているHTMLの場所によってはパス指定の変更が必要です。
-2. ((KtMarkDown_Options)) に設定を記述できます。詳細は[後述](#OPTIONS)。
-3. ((script)) タグの中にマークダウンを書きます。この ((script)) タグは複数存在しても構いません。各 ((script)) タグの直前にレンダリング結果を挿入しますので、((script)) タグの外側には、HTML や JavaScript を自由に書くことが出来ます。
-4. ((body)) の終了タグの直前で、ktMarkDown.js を読み込ませます。書いているHTMLの場所によってはパス指定の変更が必要です。
 
 ## SYNTAX REFERENCE : CHARACTER ATTRIBUTES
 
@@ -130,6 +102,7 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 	* [Audios](ktmd/doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
 * ''[Escape Sequence](ktmd/doc/ref_Escape.html)'' ([ \\ ])
 
+
 ## SYNTAX REFERENCE : LINE ATTRIBUTES
 
 * ''[Header](ktmd/doc/ref_Header.html)'' ([ \# Header ])
@@ -142,19 +115,53 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 * ''[Table](ktmd/doc/ref_Table.html)'' ([ |---|---| ])
 * ''[Horizontal Rule](ktmd/doc/ref_HorRule.html)'' ([ --- ])
 
-## OPTIONS
 
-```{JavaScript}
-  {{script type="text/javascript"}}
-    var ''KtMarkDown_Options'' = {
-      __autoReload__ : 30, // Interval of auto reload ( sec, 0 = Don't reload ) ...((1))
-      __extensions__ : [ 'basicExts', 'emoji' ], // Extensions ...((2))
-    };
-  {{/script}}
+## MULTI-PART MARKDOWN
+
+マークダウンの領域は {{script}}...{{/script}} を使って複数作っても構いません。その外側には自由にHTMLを記述することが出来ます。
+
+```{HTML}
+{{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
+    :
+  ANY HTML
+    :
+__{{script class="markdownSrc"}}/*__ ...((1))
+    :
+  WRITE MARKDOWN TEXT HERE!
+    :
+__\*\/{{/script}}__
+    :
+  ANY HTML
+    :
+__{{script class="markdownSrc"}}/*__ ...((2))
+    :
+  WRITE MARKDOWN TEXT HERE!
+    :
+__\*\/{{/script}}__
+    :
+  ANY HTML
+    :
+{{script src='**ktmd/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
 ```
 
-+ ''自動リロード'' ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
-+ ''機能拡張'' ``extensions`` : 使用する機能拡張の名前を列挙します。
+## OPTIONS
+
+ktMarkDown.js の動作のカスタマイズの1つにオプション指定があります。ktMarkDown.js を読み込む指定の直前に以下のような記述を行います。
+
+```{HTML}
+__{{script type="text/javascript"}}__
+  var __KtMarkDown_Options__ = { 
+    autoReload : 30, // Interval of auto reload ( sec, 0 = Don't reload ) ...((1))
+    extensions : [ 'basicExts', 'emoji' ], // Extensions ...((2))
+  };
+__{{/script}}__
+{{script src='**ktmd/ktmd.js**'}}{{/script}}
+{{/body}}
+{{/html}}
+```
+
+1. ''自動リロード'' ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
+2. ''機能拡張'' ``extensions`` : 使用する機能拡張の名前を列挙します。
 
 
 ## BUILT-IN EXTENSIONS
@@ -210,5 +217,12 @@ ktMarkDown.js includes some built-in extensions.
 
 */</script>
 
-<script src='ktmd/v1.0/ktmd.js'></script>
-</body></html>
+
+<script type="text/javascript"><!-- ktMarkDown.js -->
+	var KtMarkDown_Options = {
+		autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
+		extensions : [ 'basicExts',  'emoji' ],	// Extensions
+		css        : null, // CSSs
+	};
+</script>
+<script src='ktmd/v1.0/ktmd.js'></script></body></html>

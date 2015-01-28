@@ -5,6 +5,7 @@
 
 	'use strict';
 
+
 //-----------------------------------------------------------------------------
 //  MAIN
 //-----------------------------------------------------------------------------
@@ -13,7 +14,7 @@
 	///// CONSTRUCTOR /////
 	function KtMarkDown() {
 
-		if ( window.KtMarkDown_Options ) { this.opts  = KtMarkDown_Options; }
+		if ( window.KtMarkDown_Options ) { this.opts = KtMarkDown_Options; }
 
 		this.listStack        = [];			//
 		this.inPrefix         = false;		// <pre> true </pre> false
@@ -26,6 +27,13 @@
 		if ( this.loadExtensions() == false ) { // NO EXTENSION
 			this.buildMarkDown();
 		}
+
+		// LOAD CSS
+		var elm = document.createElement( 'link' );
+		elm.rel  = 'stylesheet';
+		elm.type = 'text/css';
+		elm.href = this.cssPath();
+		document.head.appendChild( elm );
 
 	}
 
@@ -49,6 +57,14 @@
 		var ktmdPath = this.scriptPath();
 		var libPath  = ktmdPath.match( /^(.*\/)ktmd.js$/ )[ 1 ] + 'exts/';
 		return( libPath );
+	}
+
+
+	///// GET CSS PATH /////
+	KtMarkDown.prototype.cssPath = function() {
+		var ktmdPath = this.scriptPath();
+		var cssPath  = ktmdPath.match( /^(.*\/)ktmd.js$/ )[ 1 ] + 'ktmd.css';
+		return( cssPath );
 	}
 
 
@@ -824,14 +840,14 @@
 
 		} // Loop end of all lines
 
-		var elmSrcMd = document.getElementsByTagName( 'body' )[ 0 ];
+//		var elmSrcMd = document.getElementsByTagName( 'body' )[ 0 ];
 		var elmDstMd = document.createElement( 'div' );
 		elmDstMd.className = 'ktMarkDown';
 		elmDstMd.innerHTML = htmlOut;
 
 //		elmSrcMd.appendChild( elmDstMd );
-		var bodyNode = document.getElementsByTagName('body')[0];
-		bodyNode.insertBefore( elmDstMd, aSrcElement );
+//		var bodyNode = document.getElementsByTagName('body')[0];
+		document.body.insertBefore( elmDstMd, aSrcElement );
 
 	}
 
