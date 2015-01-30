@@ -26,26 +26,46 @@
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Processor**
-::: 2015.1.28 Kengo Tsuruzono / [@_crane_](https://twitter.com/_crane_)
+::: 2015.1.30 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 
-## FEATURES
 
-　**ktMarkDown.js** is a markdown processor written in JavaScript. The main feature of it is following. This document is written by ktMarkDown.js.
+## OUTLINES
+
+　**ktMarkDown.js** は、JavaScriptによって記述されたマークダウンプロセッサです。
+
+### NO REQUREMENTS
+
+　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。難しい設定をしたり、サーバを立てたりといったことは一切不要です。JavaScript の外部ライブラリを使用していないため、色んなライブラリをかき集めてくる必要もありません。添付の[サンプルのHTMLファイル](sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
 
 (((
-* 必要な物は、テキストエディタ(入力/編集)とウェブブラウザ(表示)のみ。
-* マークダウンからHTMLにはJavaScriptを使用しているため、OSを選びません。
-* マークダウンの方言を複数サポートしており、既存のマークダウンテキストを流量が容易。
+* 編集に必要なモノ : いつも使っているテキストエディタ。
+* 表示に必要なモノ : いつも使っているウェブブラウザ。
+* 対応OS : いつも使っているOS。 ( OS X / Windows / Linux ... )
+* 外部ライブラリ : 必要ありません。
+)))
+
+### MARKDOWN SYNTAX
+
+　マークダウンには様々な方言がありますが、ktMarkDown.js は、デファクトスタンダード的な文法を中心にサポートを行っています。ただし、記号1文字によるものなどの副作用の多いモノは避けています。また、マークダウンの思想である「変換前のテキストもそのまま読める」ことも重要視しています。
+
+(((
+* マークダウンの方言を複数サポートしており、既存のマークダウンテキストを流量が比較的容易。
 * マークダウンのまま読めるような文法を優先。
+)))
+
+### EXTENSIBILITY
+
+　また、HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う [highlight.js](https://highlightjs.org) との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っています。
+
+(((
 * マークダウンとHTMLやJavaScriptとの混在が可能 ( アクセス解析やシンタックスハイライトなども可能 )。
-* JavaScriptの外部ライブラリを一切使用してません。
-* 機能拡張モジュールによって機能を後から追加することが可能。
+* 機能拡張モジュール ( Extension ) によって機能を後から追加することが可能。
 * 標準添付の機能拡張モジュールで、いくつかのマークダウン記法を追加しています。
 )))
 
 ## DOWNLOAD
 
-* **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]]
+* **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]] Latest version is here.
 
 * **Download** from  [[keyTop; [this site](http://sitearo.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
 
@@ -59,20 +79,25 @@
 (((b101:
 * ![ktMarkDown.js](ktmd/doc/img/folder.png) ktMarkDown.js
 	* ![](ktmd/doc/img/file.png) index.html ( This document )
-	* ![](ktmd/doc/img/folder.png) ''ktmd''
-		* ![](ktmd/doc/img/folder.png) v1.0 ( KtMarkDown本体 )
-			* ![](ktmd/doc/img/file.png) ''ktmd.js''  ( JavaScript )
-			* ![](ktmd/doc/img/file.png) ktmd.css ( CSS )
+	* ![](ktmd/doc/img/folder.png) **ktmd**
+		* ![](ktmd/doc/img/folder.png) v1.0 ( ktMarkDown )
+			* ![](ktmd/doc/img/file.png) **ktmd.js**  ( JavaScript )
+			* ![](ktmd/doc/img/file.png) **ktmd.css** ( Default CSS )
 			* ![](ktmd/doc/img/folder.png) exts ( Extensions Folder )
 				* ![](ktmd/doc/img/folder.png) basicExts ( Basic Extensions )
 				* ![](ktmd/doc/img/folder.png) emoji ( Emoji Extension )
+				* ![](ktmd/doc/img/folder.png) todo ( Todo Extension )
 		* ![](ktmd/doc/img/folder.png) doc ( Documents )
+	* ![](ktmd/doc/img/folder.png) sample ( Sample HTMLs )
+		* ![](ktmd/doc/img/file.png) simple.html
+		* ![](ktmd/doc/img/file.png) multipart.html
 )))
 
 　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させて行っています。
 
 ```{HTML}
-{{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}__{{script class="markdownSrc"}}/*__ ...((1))
+{{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
+__{{script class="markdownSrc"}}/*__ ...((1))
     :
   WRITE MARKDOWN TEXT HERE! ...((2))
     :
@@ -149,7 +174,7 @@ ktMarkDown.js の動作のカスタマイズの1つにオプション指定が�
 
 ```{HTML}
 __{{script type="text/javascript"}}__
-  var __KtMarkDown_Options__ = { 
+  var __KtMarkDown_Options__ = {
     autoReload : 30, // Interval of auto reload ( sec, 0 = Don't reload ) ...((1))
     extensions : [ 'basicExts', 'emoji' ], // Extensions ...((2))
   };
@@ -165,9 +190,9 @@ __{{/script}}__
 
 ## BUILT-IN EXTENSIONS
 
-ktMarkDown.js includes some built-in extensions.
+　ktMarkDown.js に添付の機能拡張モジュールがあります。
 
-* **BASIC EXTENSIONS**
+* **BASIC EXTENSIONS ( basicExts ) **
 	* ** Character Attributes **
 		* ;;[Text Shadow](ktmd/doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
 		* ([ [Rect Box](ktmd/doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
@@ -178,8 +203,12 @@ ktMarkDown.js includes some built-in extensions.
 			* ''[Oval Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\( Oval Box \)\)\) ])
 		* ''[Text Align](ktmd/doc/ref_BasicExtensions.html)''
 		* ''[Page Break](ktmd/doc/ref_BasicExtensions.html)'' ([ ===== ])
-
-* **EMOJI EXTENSION**
+---
+* **TODO EXTENSION ( todo ) **
+	* [x] My Todo-1
+	* [ ] My Todo-2
+---
+* **EMOJI EXTENSION ( emoji ) **
 	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])
 
 
@@ -203,7 +232,6 @@ ktMarkDown.js includes some built-in extensions.
 
 ### Version 1.0
 
-* Add 'Extension' function.
 * Some Themes.
 
 ### Version 2.0
@@ -220,8 +248,7 @@ ktMarkDown.js includes some built-in extensions.
 <script type="text/javascript"><!-- ktMarkDown.js -->
 	var KtMarkDown_Options = {
 		autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
-		extensions : [ 'basicExts',  'emoji' ],	// Extensions
-		css        : null, // CSSs
+		extensions : [ 'basicExts',  'emoji', 'todo' ],	// Extensions
 	};
 </script>
 <script src='ktmd/v1.0/ktmd.js'></script></body></html>

@@ -33,9 +33,7 @@
 		elm.rel  = 'stylesheet';
 		elm.type = 'text/css';
 		elm.href = this.cssPath();
-		//		document.head.appendChild( elm );
 		document.head.insertBefore( elm, document.head.childNodes[0] );
-
 
 	}
 
