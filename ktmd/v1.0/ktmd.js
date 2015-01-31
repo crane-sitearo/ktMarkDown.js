@@ -5,6 +5,17 @@
 
 	'use strict';
 
+//-----------------------------------------------------------------------------
+//  FUNCTIONS FOR EXTENSION
+//-----------------------------------------------------------------------------
+
+	KtMarkDown.prototype.loadCss = function( aCssPath ) {
+		var elm = document.createElement( 'link' );
+		elm.rel  = 'stylesheet';
+		elm.type = 'text/css';
+		elm.href = this.extensionsFolderPath() + aCssPath;
+		document.head.insertBefore( elm, document.head.childNodes[0] );
+	}
 
 //-----------------------------------------------------------------------------
 //  MAIN

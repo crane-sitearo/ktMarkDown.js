@@ -1,10 +1,9 @@
-
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,800);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
 /*
 	CSS for ktMarkDown.js
 */
-
-@import url(http://fonts.googleapis.com/css?family=Exo+2:400,800);
-
+/* Box Border Color */
 body {
   box-sizing: border-box;
   font-size: 10pt;
@@ -240,7 +239,7 @@ li {
 .ktmd_rButton {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -258,7 +257,7 @@ li {
 .ktmd_rButton_1 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -267,7 +266,7 @@ li {
 .ktmd_rButton_2 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -276,7 +275,7 @@ li {
 .ktmd_rButton_3 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -286,7 +285,7 @@ li {
 .ktmd_rButton_11 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -296,7 +295,7 @@ li {
 .ktmd_rButton_12 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -306,7 +305,7 @@ li {
 .ktmd_rButton_13 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -317,7 +316,7 @@ li {
 .ktmd_rButton_21 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -327,7 +326,7 @@ li {
 .ktmd_rButton_22 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -337,7 +336,7 @@ li {
 .ktmd_rButton_23 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -348,7 +347,7 @@ li {
 .ktmd_rButton_100 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -358,7 +357,7 @@ li {
 .ktmd_rButton_101 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -368,7 +367,7 @@ li {
 .ktmd_rButton_102 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -378,7 +377,7 @@ li {
 .ktmd_rButton_103 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -389,7 +388,7 @@ li {
 .ktmd_rButton_111 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -400,7 +399,7 @@ li {
 .ktmd_rButton_112 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -411,7 +410,7 @@ li {
 .ktmd_rButton_113 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -423,7 +422,7 @@ li {
 .ktmd_rButton_121 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -434,7 +433,7 @@ li {
 .ktmd_rButton_122 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -445,7 +444,7 @@ li {
 .ktmd_rButton_123 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -457,7 +456,7 @@ li {
 .ktmd_rButton_200 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -467,7 +466,7 @@ li {
 .ktmd_rButton_201 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -477,7 +476,7 @@ li {
 .ktmd_rButton_202 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -487,7 +486,7 @@ li {
 .ktmd_rButton_203 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -498,7 +497,7 @@ li {
 .ktmd_rButton_211 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -509,7 +508,7 @@ li {
 .ktmd_rButton_212 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -520,7 +519,7 @@ li {
 .ktmd_rButton_213 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -532,7 +531,7 @@ li {
 .ktmd_rButton_221 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -543,7 +542,7 @@ li {
 .ktmd_rButton_222 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -554,7 +553,7 @@ li {
 .ktmd_rButton_223 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -566,7 +565,7 @@ li {
 .ktmd_rButton_1000 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -576,7 +575,7 @@ li {
 .ktmd_rButton_1001 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -586,7 +585,7 @@ li {
 .ktmd_rButton_1002 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -596,7 +595,7 @@ li {
 .ktmd_rButton_1003 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -607,7 +606,7 @@ li {
 .ktmd_rButton_1011 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -618,7 +617,7 @@ li {
 .ktmd_rButton_1012 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -629,7 +628,7 @@ li {
 .ktmd_rButton_1013 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -641,7 +640,7 @@ li {
 .ktmd_rButton_1021 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -652,7 +651,7 @@ li {
 .ktmd_rButton_1022 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -663,7 +662,7 @@ li {
 .ktmd_rButton_1023 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -675,7 +674,7 @@ li {
 .ktmd_rButton_1100 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -686,7 +685,7 @@ li {
 .ktmd_rButton_1101 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -697,7 +696,7 @@ li {
 .ktmd_rButton_1102 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -708,7 +707,7 @@ li {
 .ktmd_rButton_1103 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -720,7 +719,7 @@ li {
 .ktmd_rButton_1111 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -732,7 +731,7 @@ li {
 .ktmd_rButton_1112 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -744,7 +743,7 @@ li {
 .ktmd_rButton_1113 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -757,7 +756,7 @@ li {
 .ktmd_rButton_1121 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -769,7 +768,7 @@ li {
 .ktmd_rButton_1122 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -781,7 +780,7 @@ li {
 .ktmd_rButton_1123 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -794,7 +793,7 @@ li {
 .ktmd_rButton_1200 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -805,7 +804,7 @@ li {
 .ktmd_rButton_1201 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -816,7 +815,7 @@ li {
 .ktmd_rButton_1202 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -827,7 +826,7 @@ li {
 .ktmd_rButton_1203 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -839,7 +838,7 @@ li {
 .ktmd_rButton_1211 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -851,7 +850,7 @@ li {
 .ktmd_rButton_1212 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -863,7 +862,7 @@ li {
 .ktmd_rButton_1213 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -876,7 +875,7 @@ li {
 .ktmd_rButton_1221 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -888,7 +887,7 @@ li {
 .ktmd_rButton_1222 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -900,7 +899,7 @@ li {
 .ktmd_rButton_1223 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -919,7 +918,7 @@ li {
 .ktmd_oButton_1 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -929,7 +928,7 @@ li {
 .ktmd_oButton_2 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -939,7 +938,7 @@ li {
 .ktmd_oButton_3 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -950,7 +949,7 @@ li {
 .ktmd_oButton_11 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -961,7 +960,7 @@ li {
 .ktmd_oButton_12 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -972,7 +971,7 @@ li {
 .ktmd_oButton_13 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -984,7 +983,7 @@ li {
 .ktmd_oButton_21 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -995,7 +994,7 @@ li {
 .ktmd_oButton_22 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1006,7 +1005,7 @@ li {
 .ktmd_oButton_23 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1017,7 +1016,7 @@ li {
 .ktmd_oButton_100 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1028,7 +1027,7 @@ li {
 .ktmd_oButton_101 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1039,7 +1038,7 @@ li {
 .ktmd_oButton_102 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1050,7 +1049,7 @@ li {
 .ktmd_oButton_103 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1062,7 +1061,7 @@ li {
 .ktmd_oButton_111 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1074,7 +1073,7 @@ li {
 .ktmd_oButton_112 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1086,7 +1085,7 @@ li {
 .ktmd_oButton_113 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1099,7 +1098,7 @@ li {
 .ktmd_oButton_121 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1111,7 +1110,7 @@ li {
 .ktmd_oButton_122 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1123,7 +1122,7 @@ li {
 .ktmd_oButton_123 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1135,7 +1134,7 @@ li {
 .ktmd_oButton_200 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1146,7 +1145,7 @@ li {
 .ktmd_oButton_201 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1157,7 +1156,7 @@ li {
 .ktmd_oButton_202 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1168,7 +1167,7 @@ li {
 .ktmd_oButton_203 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1180,7 +1179,7 @@ li {
 .ktmd_oButton_211 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1192,7 +1191,7 @@ li {
 .ktmd_oButton_212 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1204,7 +1203,7 @@ li {
 .ktmd_oButton_213 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1217,7 +1216,7 @@ li {
 .ktmd_oButton_221 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1229,7 +1228,7 @@ li {
 .ktmd_oButton_222 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1241,7 +1240,7 @@ li {
 .ktmd_oButton_223 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1254,7 +1253,7 @@ li {
 .ktmd_oButton_1000 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1265,7 +1264,7 @@ li {
 .ktmd_oButton_1001 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1276,7 +1275,7 @@ li {
 .ktmd_oButton_1002 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1287,7 +1286,7 @@ li {
 .ktmd_oButton_1003 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1299,7 +1298,7 @@ li {
 .ktmd_oButton_1011 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1311,7 +1310,7 @@ li {
 .ktmd_oButton_1012 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1323,7 +1322,7 @@ li {
 .ktmd_oButton_1013 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1336,7 +1335,7 @@ li {
 .ktmd_oButton_1021 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1348,7 +1347,7 @@ li {
 .ktmd_oButton_1022 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1360,7 +1359,7 @@ li {
 .ktmd_oButton_1023 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1373,7 +1372,7 @@ li {
 .ktmd_oButton_1100 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1385,7 +1384,7 @@ li {
 .ktmd_oButton_1101 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1397,7 +1396,7 @@ li {
 .ktmd_oButton_1102 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1409,7 +1408,7 @@ li {
 .ktmd_oButton_1103 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1422,7 +1421,7 @@ li {
 .ktmd_oButton_1111 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1435,7 +1434,7 @@ li {
 .ktmd_oButton_1112 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1448,7 +1447,7 @@ li {
 .ktmd_oButton_1113 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1462,7 +1461,7 @@ li {
 .ktmd_oButton_1121 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1475,7 +1474,7 @@ li {
 .ktmd_oButton_1122 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1488,7 +1487,7 @@ li {
 .ktmd_oButton_1123 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1502,7 +1501,7 @@ li {
 .ktmd_oButton_1200 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1514,7 +1513,7 @@ li {
 .ktmd_oButton_1201 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1526,7 +1525,7 @@ li {
 .ktmd_oButton_1202 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1538,7 +1537,7 @@ li {
 .ktmd_oButton_1203 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1551,7 +1550,7 @@ li {
 .ktmd_oButton_1211 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1564,7 +1563,7 @@ li {
 .ktmd_oButton_1212 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1577,7 +1576,7 @@ li {
 .ktmd_oButton_1213 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1591,7 +1590,7 @@ li {
 .ktmd_oButton_1221 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1604,7 +1603,7 @@ li {
 .ktmd_oButton_1222 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -1617,7 +1616,7 @@ li {
 .ktmd_oButton_1223 {
   margin: 2px;
   padding: 1px 5px 3px 5px;
-  border-color: #505050;
+  border-color: #8c8c8c;
   border-style: solid;
   border-width: 0;
   border-radius: 0px;
@@ -2423,17 +2422,17 @@ li {
 .ktmd_oBoxTopFill {
   margin-bottom: 0;
   background: #c8c8c8;
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBoxTopGrad {
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBoxBottom {
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 /*** FRAME ONLY ***/
 /* SOLID LINE */
@@ -2547,7 +2546,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b100 {
   box-sizing: border-box;
@@ -2559,7 +2558,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 /* SOLID LINE + FILL */
 .ktmd_oBox_101 {
@@ -2583,7 +2582,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b101 {
   box-sizing: border-box;
@@ -2596,7 +2595,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 .ktmd_oBox_102 {
   box-sizing: border-box;
@@ -2619,7 +2618,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b102 {
   box-sizing: border-box;
@@ -2632,7 +2631,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 .ktmd_oBox_103 {
   box-sizing: border-box;
@@ -2655,7 +2654,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: #c8c8c8;
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b103 {
   box-sizing: border-box;
@@ -2668,7 +2667,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 /* DOTTED LINE + FILL */
 .ktmd_oBox_111 {
@@ -2759,7 +2758,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b200 {
   box-sizing: border-box;
@@ -2771,7 +2770,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 /* SOLID LINE + GRAD */
 .ktmd_oBox_201 {
@@ -2795,7 +2794,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b201 {
   box-sizing: border-box;
@@ -2808,7 +2807,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 .ktmd_oBox_202 {
   box-sizing: border-box;
@@ -2831,7 +2830,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b202 {
   box-sizing: border-box;
@@ -2844,7 +2843,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 .ktmd_oBox_203 {
   box-sizing: border-box;
@@ -2867,7 +2866,7 @@ li {
   border-radius: 4px;
   margin-bottom: 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bebebe), color-stop(100%, #a0a0a0));
-  border-radius: 8px 8px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .ktmd_oBox_b203 {
   box-sizing: border-box;
@@ -2880,7 +2879,7 @@ li {
   border-radius: 4px;
   margin-top: 0;
   border-top-width: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
 }
 /* DOTTED LINE + GRAD */
 .ktmd_oBox_211 {
@@ -3300,7 +3299,7 @@ li {
   box-shadow: 0px 1px 3px #3c3c3c;
   border-radius: 4px;
 }
-/*	* > div    { 
+/*	* > div    {
 		margin:				2px 2px;
 	}
 */
@@ -3318,7 +3317,7 @@ pre {
   border-radius: 4px;
   padding: 8px;
   overflow-x: scroll;
-  font-family: courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
+  font-family: Menlo, Consolas, courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
   line-height: 1.8em;
 }
 @media print {
@@ -3456,7 +3455,7 @@ code {
 table {
   box-sizing: border-box;
   margin: 10px 12px;
-  border: 0px solid #bebebe;
+  border: 0px solid #d2d2d2;
   border-spacing: 0;
   padding: 0;
 }
@@ -3468,31 +3467,29 @@ table {
 th {
   box-sizing: border-box;
   margin: 0;
-  border-left: 1px solid #bebebe;
-  border-top: 1px solid #bebebe;
-  padding: 4px;
+  border-left: 1px solid #d2d2d2;
+  border-top: 1px solid #d2d2d2;
+  padding: 8px;
   background: #c8c8c8;
   text-align: center;
 }
 table th:last-child {
-  margin: 0;
-  padding: 4px;
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #d2d2d2;
 }
 /***** CELL *****/
 td {
   box-sizing: border-box;
   margin: 0;
-  padding: 4px;
-  border-left: 1px solid #bebebe;
-  border-top: 1px solid #bebebe;
+  padding: 8px;
+  border-left: 1px solid #d2d2d2;
+  border-top: 1px solid #d2d2d2;
   background: #e6e6e6;
 }
 table td:last-child {
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #d2d2d2;
 }
 table tr:last-child td {
-  border-bottom: 1px solid #bebebe;
+  border-bottom: 1px solid #d2d2d2;
 }
 .keyTop {
   /*height: 24px;*/

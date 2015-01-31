@@ -1,13 +1,15 @@
 /*
 	CSS for ktMarkDown.js
 */
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,800);
 
 
 
 	@box_bgColor:			rgb(230,230,230);
-	@box_bdColor:			rgb(190,190,190);
-
 	@box_bgDarkColor:		rgb(200,200,200);
+
+	@box_bdColor:			rgb(210,210,210);	/* Box Border Color */
+
 
 
 	body {
@@ -20,15 +22,15 @@
 	}
 
 	page {
-	
+
 		display:	block;
 		width:		100%;
 		height:		100%;
 		background: rgba(226,226,226,1);
-		
+
 		margin: 0px;
 		border: 1px solid rgba(72,72,72,1);
-		
+
 	}
 
 	.ktMarkDown { /* SMALL SCREEN */
@@ -220,42 +222,42 @@
 	.ktmd_uline_1  {
 		.ktmd_uline;
 	}
-	.ktmd_uline_2  { 
+	.ktmd_uline_2  {
 		.ktmd_uline;
 		border-bottom-width: 2px;
 	}
-	.ktmd_uline_3  { 
+	.ktmd_uline_3  {
 		.ktmd_uline;
 		border-bottom-width: 3px;
 	}
-	
+
 	/*** DOTTED ***/
-	.ktmd_uline_11 { 
+	.ktmd_uline_11 {
 		.ktmd_uline;
 		border-bottom-style: dotted;
 	}
-	.ktmd_uline_12 { 
+	.ktmd_uline_12 {
 		.ktmd_uline;
 		border-bottom-style: dotted;
 		border-bottom-width: 2px;
 	}
-	.ktmd_uline_13 { 
+	.ktmd_uline_13 {
 		.ktmd_uline;
 		border-bottom-style: dotted;
 		border-bottom-width: 3px;
 	}
-	
+
 	/*** DASHED ***/
-	.ktmd_uline_21 { 
+	.ktmd_uline_21 {
 		.ktmd_uline;
 		border-bottom-style: dashed;
 	}
-	.ktmd_uline_22 { 
+	.ktmd_uline_22 {
 		.ktmd_uline;
 		border-bottom-width: 2px;
 		border-bottom-style: dashed;
 	}
-	.ktmd_uline_23 { 
+	.ktmd_uline_23 {
 		.ktmd_uline;
 		border-bottom-style: dashed;
 		border-bottom-width: 3px;
@@ -273,10 +275,10 @@
  *  RECT BUTTON  *
  *****************/
 
-	.ktmd_rButton { 
+	.ktmd_rButton {
 		margin: 			2px;
 		padding:			1px 5px 3px 5px;
-		border-color: 		rgb(80,80,80);
+		border-color: 		rgb(140,140,140);
 		border-style:		solid;
 		border-width: 		0;
 		border-radius:		0px;
@@ -545,7 +547,7 @@
 			.ktmd_rBox_t100 { .ktmd_rBox_100; .ktmd_rBoxTopFill; }
 			.ktmd_rBox_b100 { .ktmd_rBox_100; .ktmd_rBoxBottom; }
 		/* SOLID LINE + FILL */
-		.ktmd_rBox_101 { .ktmd_rBox_1; .ktmd_BoxFill; }  
+		.ktmd_rBox_101 { .ktmd_rBox_1; .ktmd_BoxFill; }
 			.ktmd_rBox_t101 { .ktmd_rBox_101; .ktmd_rBoxTopFill; }
 			.ktmd_rBox_b101 { .ktmd_rBox_101; .ktmd_rBoxBottom; }
 		.ktmd_rBox_102 { .ktmd_rBox_2; .ktmd_BoxFill; }
@@ -751,7 +753,7 @@
 		.ktmd_oBox_1223 { .ktmd_rBox_1223; .ktmd_oBox_R; }
 
 
-/*	* > div    { 
+/*	* > div    {
 		margin:				2px 2px;
 	}
 */
@@ -764,7 +766,7 @@
 		border-radius:		4px;
 		padding:			8px;
 		overflow-x:			scroll;
-		font-family:		Menlo, Consolas, courier, ' Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
+		font-family:		Consolas, courier, 'Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
 		line-height:		1.8em;
 	}
 	@media print {
@@ -870,13 +872,11 @@
 		margin:				0;
 		border-left:		1px solid @box_bdColor;
 		border-top:			1px solid @box_bdColor;
-		padding:			4px;
+		padding:			8px;
 		background:			@box_bgDarkColor;
 		text-align:			center;
 	}
 	table th:last-child {
-		margin:				0;
-		padding:			4px;
 		border-right:		1px solid @box_bdColor;
 	}
 
@@ -884,7 +884,7 @@
 	td {
 		box-sizing:			border-box;
 		margin:				0;
-		padding:			4px;
+		padding:			8px;
 		border-left:		1px solid @box_bdColor;
 		border-top:			1px solid @box_bdColor;
 		background:			@box_bgColor;
@@ -913,5 +913,3 @@
 		line-height: 24px;
 		display: inline-block;
 	}
-
-

@@ -93,7 +93,7 @@
 		* ![](ktmd/doc/img/file.png) multipart.html
 )))
 
-　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させて行っています。
+　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させてることができます。
 
 ```{HTML}
 {{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
@@ -176,12 +176,10 @@ ktMarkDown.js の動作のカスタマイズの1つにオプション指定が�
 __{{script type="text/javascript"}}__
   var __KtMarkDown_Options__ = {
     autoReload : 30, // Interval of auto reload ( sec, 0 = Don't reload ) ...((1))
-    extensions : [ 'basicExts', 'emoji' ], // Extensions ...((2))
+    extensions : [ 'basicExts', 'emoji', 'todo' ], // Extensions ...((2))
   };
 __{{/script}}__
-{{script src='**ktmd/ktmd.js**'}}{{/script}}
-{{/body}}
-{{/html}}
+{{script src='**ktmd/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
 ```
 
 1. ''自動リロード'' ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
@@ -205,8 +203,12 @@ __{{/script}}__
 		* ''[Page Break](ktmd/doc/ref_BasicExtensions.html)'' ([ ===== ])
 ---
 * **TODO EXTENSION ( todo ) **
-	* [x] My Todo-1
-	* [ ] My Todo-2
+	* [x] My Todo-1 (( \[x\] ))
+	* [ ] My Todo-2 (( \[ \] ))
+	* @due(2015-10-20) (( \@due\(xxxx\) ))
+	* @start(2015-10-20) (( \@start\(xxxx\) ))
+	* @done(2015-10-20) (( \@done\(xxxx\) ))
+	* @wait(Bill) (( \@wait\(xxxx\) ))
 ---
 * **EMOJI EXTENSION ( emoji ) **
 	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])

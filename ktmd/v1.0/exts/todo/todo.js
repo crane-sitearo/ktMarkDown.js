@@ -6,6 +6,7 @@
 	'use strict';
 
 	function Todo() {
+		ktmd.loadCss( 'todo/todo.css' );
 	}
 
 
@@ -21,13 +22,32 @@
 			var chek = matches[ 2 ];	// null, space, x
 			var tail = matches[ 3 ];
 
-			textOut += '<input type="checkbox" disabled="disabled"';
+			textOut += head + '<input type="checkbox" disabled="disabled"';
 			if ( chek == 'x' ) { textOut += ' checked="checked"'; }
 			textOut += '>';
 
 			textIn = tail;
 
 		}
+
+		textIn  = textOut + textIn;
+		textOut = '';
+
+		while ( matches = textIn.match( /^(.*?)\@(due|start|done|wait|today|call)\((.+?)\)(.*)$/ ) ) {
+
+			var head = matches[ 1 ];
+			var stat = matches[ 2 ];	// due, start, done, wait, today, call
+			var opts = matches[ 3 ];
+			var tail = matches[ 4 ];
+
+			textOut += head;
+			textOut += '<span class="ktmd_todo_' + stat + '_head">' + stat + '</span>';
+			textOut += '<span class="ktmd_todo_' + stat + '_tail">' + opts + '</span>';
+
+			textIn = tail;
+
+		}
+
 
 		return( textOut + textIn );
 
