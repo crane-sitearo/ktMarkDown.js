@@ -25,7 +25,7 @@
   border-right-width: 0;
   padding: 2px 4px 2px 8px;
   background: #e6e6e6;
-  background: #f0dcdc;
+  background: #f0b4b4;
 }
 .ktmd_todo_due_tail {
   font-family: Consolas, courier, 'Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
@@ -44,7 +44,7 @@
   border-right-width: 0;
   padding: 2px 4px 2px 8px;
   background: #e6e6e6;
-  background: #dcdcfa;
+  background: #b4b4fa;
 }
 .ktmd_todo_start_tail {
   font-family: Consolas, courier, 'Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
@@ -63,7 +63,7 @@
   border-right-width: 0;
   padding: 2px 4px 2px 8px;
   background: #e6e6e6;
-  background: #dcfadc;
+  background: #b4fab4;
 }
 .ktmd_todo_done_tail {
   font-family: Consolas, courier, 'Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
@@ -82,9 +82,9 @@
   border-right-width: 0;
   padding: 2px 4px 2px 8px;
   background: #e6e6e6;
+  background: #fab4fa;
 }
 .ktmd_todo_wait_tail {
-  background: #fac8fa;
   font-family: Consolas, courier, 'Osaka-mono', 'Osaka−等幅', 'ＭＳ ゴシック', monospace;
   margin: 2px 2px 2px 0;
   border: 1px solid #dcdcdc;

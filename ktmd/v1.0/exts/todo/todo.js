@@ -10,6 +10,21 @@
 	}
 
 
+	Todo.prototype.stats = {	// WORD > CSS CLASS NAME
+		'due'		: 'due',
+		'start'		: 'start',
+		'done'		: 'done',
+		'end'		: 'done',
+		'wait'		: 'wait',
+		'〆切'		: 'due',
+		'期日'		: 'due',
+		'開始'		: 'start',
+		'終了'		: 'done',
+		'完了'		: 'done',
+		'待ち'		: 'wait',
+	};
+
+
 	Todo.prototype.processCharAttribute = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -33,16 +48,25 @@
 		textIn  = textOut + textIn;
 		textOut = '';
 
-		while ( matches = textIn.match( /^(.*?)\@(due|start|done|wait|today|call)\((.+?)\)(.*)$/ ) ) {
+		var statsKeys = Object.keys( this.stats );
+		var regexStr = this.stats[ statsKeys[ 0 ] ];
+		for ( var i = 1, n = statsKeys.length ; i < n ; i++ ) {
+			regexStr += '|' + statsKeys[ i ];
+		}
+		var regex = new RegExp( '^(.*?)\@(' + regexStr + ')\\((.+?)\\)(.*)$' );
+
+		// while ( matches = textIn.match( /^(.*?)\@(due|start|done|wait|today|call)\((.+?)\)(.*)$/ ) ) {
+		while ( matches = textIn.match( regex ) ) {
 
 			var head = matches[ 1 ];
 			var stat = matches[ 2 ];	// due, start, done, wait, today, call
+			var clas = this.stats[ stat ];
 			var opts = matches[ 3 ];
 			var tail = matches[ 4 ];
 
 			textOut += head;
-			textOut += '<span class="ktmd_todo_' + stat + '_head">' + stat + '</span>';
-			textOut += '<span class="ktmd_todo_' + stat + '_tail">' + opts + '</span>';
+			textOut += '<span class="ktmd_todo_' + clas + '_head">' + stat + '</span>';
+			textOut += '<span class="ktmd_todo_' + clas + '_tail">' + opts + '</span>';
 
 			textIn = tail;
 
