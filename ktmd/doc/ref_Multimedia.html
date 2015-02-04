@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
 <title>ktMarkDown.js : Reference : Images</title>
-<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
 </head><body>
 <script type="text/ktMarkDown" class="markdownSrc">/*
 # [ktMarkDown.js](../../index.html) : Reference
@@ -35,6 +34,17 @@
 ::[[keyTop; ![mail](img/mail.png) Mail ]]
 
 )))
+
+画像のサイズ指定も可能です。URLの後ろに半角スペースを入れ、等号の後ろに、幅と高さをコンマで区切って書きます。
+
+| INPUT										| OUTPUT									| INSTRUCITON				|
+|:-----------------------------------------:|:-----------------------------------------:|---------------------------|
+| !\[crane]\(img/crane.jpg =100,120)		| ![crane](img/crane.jpg =100,120) 			| 数字,数字 (ピクセル単位)		|
+| !\[crane]\(img/crane.jpg =100px,120px)	| ![crane](img/crane.jpg =100px,120px) 		| 数字px,数字px (ピクセル単位)	|
+| !\[crane]\(img/crane.jpg =100px,auto)		| ![crane](img/crane.jpg =100px,auto) 		| auto で片方のみ指定可能		|
+| !\[crane]\(img/crane.jpg =auto,100px)		| ![crane](img/crane.jpg =auto,100px) 		| auto で片方のみ指定可能		|
+| !\[crane]\(img/crane.jpg =80%,auto)		| ![crane](img/crane.jpg =80%,auto) 		| パーセント指定も可能			|
+
 
 ### VIDEOS
 

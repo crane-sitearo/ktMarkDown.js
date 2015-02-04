@@ -9,6 +9,7 @@
 //  FUNCTIONS FOR EXTENSION
 //-----------------------------------------------------------------------------
 
+
 	KtMarkDown.prototype.loadCss = function( aCssPath ) {
 		var elm = document.createElement( 'link' );
 		elm.rel  = 'stylesheet';
@@ -16,6 +17,7 @@
 		elm.href = this.extensionsFolderPath() + aCssPath;
 		document.head.insertBefore( elm, document.head.childNodes[0] );
 	}
+
 
 //-----------------------------------------------------------------------------
 //  MAIN
@@ -113,6 +115,7 @@
 		}
 	}
 
+
 //-----------------------------------------------------------------------------
 //  CHARACTOR
 //-----------------------------------------------------------------------------
@@ -144,8 +147,6 @@
 
 		return( outText );
 	}
-
-
 
 
 	///// BOLD /////
@@ -233,8 +234,6 @@
 	}
 
 
-
-
 	///// MONOSPACE /////
 	KtMarkDown.prototype._char_MonoSpace = function( aLineIn ) {
 
@@ -256,9 +255,6 @@
 	}
 
 
-
-
-
 	///// IMAGE /////
 	KtMarkDown.prototype._char_Image = function( aLineIn ) {
 
@@ -267,11 +263,24 @@
 		var matches;
 
 		while ( matches = textIn.match( /^(.*?)\!\[([^\[]*?)\]\((.*?)\)(.*)$/ ) ) {
+
 			var head = matches[ 1 ];
 			var url  = matches[ 3 ];
 			var alt  = matches[ 2 ];
 			var tail = matches[ 4 ];
-			textOut += head + '<img src="' + url + '" title="' + alt + '" alt="' + alt + '">';
+
+			textOut += head + '<img title="' + alt + '" alt="' + alt + '"';
+
+			if ( matches = url.match( /^(\S+) \=(.+?)\,(.+?)$/ ) ) { // WIDTH,HEIGHT
+				url        = matches[ 1 ];
+				var width  = matches[ 2 ];
+				var height = matches[ 3 ];
+				if ( Number( width  ) == width  ) { width  = String( width  ) + 'px'; }
+				if ( Number( height ) == height ) { height = String( height ) + 'px'; }
+				textOut += ' style="width:' + width + '; height:' + height + ';"';
+			}
+
+			textOut += ' src="' + url + '">';
 			textIn   = tail;
 		}
 		return( textOut + textIn );

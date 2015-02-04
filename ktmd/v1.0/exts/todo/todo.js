@@ -17,6 +17,7 @@
 		'end'		: 'done',
 		'wait'		: 'wait',
 		'〆切'		: 'due',
+		'目標'		: 'due',
 		'期日'		: 'due',
 		'開始'		: 'start',
 		'終了'		: 'done',
