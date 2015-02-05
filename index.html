@@ -26,7 +26,7 @@
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Processor**
-::: 2015.2.2 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
+::: 2015.2.4 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 
 
 ## OUTLINES
@@ -78,16 +78,16 @@
 )))
 (((b101:
 * ![ktMarkDown.js](ktmd/doc/img/folder.png) ktMarkDown.js
-	* ![](ktmd/doc/img/file.png) index.html ( This document )
+	* ![](ktmd/doc/img/file.png) index.html ( このドキュメント )
 	* ![](ktmd/doc/img/folder.png) **ktmd**
 		* ![](ktmd/doc/img/folder.png) v1.0 ( ktMarkDown )
 			* ![](ktmd/doc/img/file.png) **ktmd.js**  ( JavaScript )
 			* ![](ktmd/doc/img/file.png) **ktmd.css** ( Default CSS )
-			* ![](ktmd/doc/img/folder.png) exts ( Extensions Folder )
-				* ![](ktmd/doc/img/folder.png) basicExts ( Basic Extensions )
-				* ![](ktmd/doc/img/folder.png) emoji ( Emoji Extension )
-				* ![](ktmd/doc/img/folder.png) todo ( Todo Extension )
-		* ![](ktmd/doc/img/folder.png) doc ( Documents )
+			* ![](ktmd/doc/img/folder.png) exts ( 機能拡張フォルダ )
+				* ![](ktmd/doc/img/folder.png) basicExts ( 基本機能拡張 )
+				* ![](ktmd/doc/img/folder.png) emoji ( 絵文字機能拡張 )
+				* ![](ktmd/doc/img/folder.png) todo ( TODO機能拡張 )
+		* ![](ktmd/doc/img/folder.png) doc ( ドキュメント )
 	* ![](ktmd/doc/img/folder.png) sample ( Sample HTMLs )
 		* ![](ktmd/doc/img/file.png) simple.html
 		* ![](ktmd/doc/img/file.png) multipart.html
@@ -190,56 +190,47 @@ __{{/script}}__
 
 　ktMarkDown.js に添付の機能拡張モジュールがあります。
 
-* **BASIC EXTENSIONS ( basicExts ) **
-	* ** Character Attributes **
-		* ;;[Text Shadow](ktmd/doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
-		* ([ [Rect Box](ktmd/doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
-		* (( [Oval Box](ktmd/doc/ref_BasicExtensions.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
-	* ** Line Attributes **
-		* ''[Text Box](ktmd/doc/ref_BasicExtensions.html)''
-			* ''[Rect Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\[ Rect Box \]\)\) ])
-			* ''[Oval Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\( Oval Box \)\)\) ])
-		* ''[Text Align](ktmd/doc/ref_BasicExtensions.html)''
-		* ''[Page Break](ktmd/doc/ref_BasicExtensions.html)'' ([ ===== ])
----
-* **TODO EXTENSION ( todo ) **
-	* [x] My Todo-1 (( \[x\] ))
-	* [ ] My Todo-2 (( \[ \] ))
-	* English
+### 基本機能拡張 ( basicExts )
+* ** Character Attributes **
+	* ;;[Text Shadow](ktmd/doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
+	* ([ [Rect Box](ktmd/doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
+	* (( [Oval Box](ktmd/doc/ref_BasicExtensions.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
+* ** Line Attributes **
+	* ''[Text Box](ktmd/doc/ref_BasicExtensions.html)''
+		* ''[Rect Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\[ Rect Box \]\)\) ])
+		* ''[Oval Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\( Oval Box \)\)\) ])
+	* ''[Text Align](ktmd/doc/ref_BasicExtensions.html)''
+	* ''[Page Break](ktmd/doc/ref_BasicExtensions.html)'' ([ ===== ])
+
+### TODO機能拡張 ( todo )
+	* **チェックボックス**
+		* [x] My Todo-1 (( \[x\] ))
+		* [ ] My Todo-2 (( \[ \] ))
+	* **English**
 		* @due(2015-10-20) (( \@due\(xxxx\) ))
 		* @start(2015-10-20) (( \@start\(xxxx\) ))
 		* @done(2015-10-20) (( \@done\(xxxx\) ))
 		* @wait(Bill) (( \@wait\(xxxx\) ))
-	* 日本語
+	* **日本語**
 		* @〆切(2015-10-20) (( \@〆切\(xxxx\) ))
+		* @目標(2015-10-20) (( \@目標\(xxxx\) ))
 		* @期日(2015-10-20) (( \@期日\(xxxx\) ))
 		* @目標(2015-10-20) (( \@目標\(xxxx\) ))
 		* @開始(2015-10-20) (( \@開始\(xxxx\) ))
+		* @着手(2015-10-20) (( \@着手\(xxxx\) ))
 		* @終了(2015-10-20) (( \@終了\(xxxx\) ))
 		* @完了(2015-10-20) (( \@完了\(xxxx\) ))
 		* @待ち(太郎) (( \@待ち\(xxxx\) ))
----
-* **EMOJI EXTENSION ( emoji ) **
-	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])
+		* @依頼済(太郎) (( \@依頼済\(xxxx\) ))
+
+## 絵文字機能拡張 ( emoji )
+	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' :cat: ([ \:cat\: ])
 
 
 ## HISTORY
 
-* GitHub
-
-* ''Version 1.0b4'' : 2015.01.25
-	* Support 'Extension module'.
-* ''Version 1.0b3'' : 2015.01.17
-	* Add 'Text Shadow' funciton.
-	* Support 'Video' and 'Audio'.
-	* Change syntax for 'highlight.js'.
-* ''Version 1.0b2'' : 2015.01.09
-	* Add supporting 'highlight.js'.
-	* Add 'Page break' funciton.
-	* Bug fix about headers and links to same page.
-* ''Version 1.0b1'' : 2015.01.06
-	* First release.
-
+* 2015.02.05
+	* TODOのチェックボックスを表示したときにリストのマークを消すように修正。
 
 ## PLAN
 

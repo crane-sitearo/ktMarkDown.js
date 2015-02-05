@@ -11,18 +11,23 @@
 
 
 	Todo.prototype.stats = {	// WORD > CSS CLASS NAME
-		'due'		: 'due',
+
+		'due'		: 'due',	// ENGLISH
 		'start'		: 'start',
 		'done'		: 'done',
 		'end'		: 'done',
 		'wait'		: 'wait',
-		'〆切'		: 'due',
+
+		'〆切'		: 'due',	// JAPANESE
 		'目標'		: 'due',
 		'期日'		: 'due',
 		'開始'		: 'start',
+		'着手'		: 'start',
 		'終了'		: 'done',
 		'完了'		: 'done',
 		'待ち'		: 'wait',
+		'依頼済'		: 'wait',
+
 	};
 
 

@@ -529,6 +529,7 @@
 			sTag = 'li';
 			text = matches[ 4 ];
 			eTag = 'li';
+			if ( text.match( /^\[.\]/ ) ) { styl = 'list-style:none;'; } // ToDo 
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
