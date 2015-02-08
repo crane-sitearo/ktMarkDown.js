@@ -1,38 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-	<meta charset="UTF-8">
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
 	<title>ktMarkDown.js</title>
-	<meta name="keywords" content="JavaScript Markdown Processor" />
-
-	<link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="ktmd/v1.0/ktmd.css" type="text/css">
-	<script type="text/javascript"><!-- Configuration -->
-		var KtMarkDown_Options = {
-			autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
-			extensions : [ 'basicExts',  'emoji', 'slide' ],	// Extensions
-		};
-	</script>
-
 
 	<!-- highlight.js -->
 	<link rel="stylesheet" href="../lib/highlight/styles/github.css">
 	<script src="../lib/highlight/highlight.pack.js"></script>
+</head><body>
 
-</head>
-
-<body>
 <script type="text/ktMarkDown" class="markdownSrc">/*
-[[[slide
-# ktMarkDown.js
+[[[#slide
+# [#title:ktMarkDown.js]
 
 :: **JavaScript Driven MarkDown Processor**
 ::: 2015.1.25 Kengo Tsuruzono / [@_crane_](https://twitter.com/_crane_)
 
-]]]slide
-
-[[[slide
-## FEATURES
+]]]#slide
+[[[#slide
+## [#title:FEATURES]
 
 　**ktMarkDown.js** is a markdown processor written in JavaScript. The main feature of it is following. This document is written by ktMarkDown.js.
 
@@ -46,35 +29,37 @@
 * 機能拡張モジュールによって機能を後から追加することが可能。
 * 標準添付の機能拡張モジュールで、いくつかのマークダウン記法を追加しています。
 )))
-]]]slide
-
-
-## DOWNLOAD
-
+]]]#slide
+[[[#slide
+## [#title:DOWNLOAD]
 * **Download** from [[keyTop; [GitHub](https://github.com/crane-sitearo/ktMarkDown.js) ]]
-
 * **Download** from  [[keyTop; [this site](http://sitearoc.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
+]]]#slide
 
+
+[[[#slide
 ## INSTALL
-
 　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
 (((t101:
 ''CONTENTS OF ZIP''
 )))
 (((b101:
-* ![ktMarkDown.js](ktmd/doc/img/folder.png) ktMarkDown.js
-	* ![](ktmd/doc/img/file.png) index.html ( This document )
-	* ![](ktmd/doc/img/folder.png) ''ktmd''
-		* ![](ktmd/doc/img/folder.png) v1.0 ( KtMarkDown本体 )
-			* ![](ktmd/doc/img/file.png) ''ktmd.js''  ( JavaScript )
-			* ![](ktmd/doc/img/file.png) ktmd.css ( CSS )
-			* ![](ktmd/doc/img/folder.png) exts ( Extensions Folder )
-				* ![](ktmd/doc/img/folder.png) basicExts ( Basic Extensions )
-				* ![](ktmd/doc/img/folder.png) emoji ( Emoji Extension )
-		* ![](ktmd/doc/img/folder.png) doc ( Documents )
+* ![ktMarkDown.js](../ktmd/doc/img/folder.png) ktMarkDown.js
+	* ![](../ktmd/doc/img/file.png) index.html ( This document )
+	* ![](../ktmd/doc/img/folder.png) ''ktmd''
+		* ![](../ktmd/doc/img/folder.png) v1.0 ( KtMarkDown本体 )
+			* ![](../ktmd/doc/img/file.png) ''ktmd.js''  ( JavaScript )
+			* ![](../ktmd/doc/img/file.png) ktmd.css ( CSS )
+			* ![](../ktmd/doc/img/folder.png) exts ( Extensions Folder )
+				* ![](../ktmd/doc/img/folder.png) basicExts ( Basic Extensions )
+				* ![](../ktmd/doc/img/folder.png) emoji ( Emoji Extension )
+		* ![](../ktmd/doc/img/folder.png) doc ( Documents )
 )))
+]]]#slide
 
+
+[[[#slide
 　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させて行っています。
 
 ```{HTML}
@@ -107,8 +92,11 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 2. ((KtMarkDown_Options)) に設定を記述できます。詳細は[後述](#OPTIONS)。
 3. ((script)) タグの中にマークダウンを書きます。この ((script)) タグは複数存在しても構いません。各 ((script)) タグの直前にレンダリング結果を挿入しますので、((script)) タグの外側には、HTML や JavaScript を自由に書くことが出来ます。
 4. ((body)) の終了タグの直前で、ktMarkDown.js を読み込ませます。書いているHTMLの場所によってはパス指定の変更が必要です。
+]]]#slide
 
-## SYNTAX REFERENCE : CHARACTER ATTRIBUTES
+
+[[[#slide
+## [#title:SYNTAX REFERENCE : CHARACTER ATTRIBUTES]
 
 * ''[Character Attributes](ktmd/doc/ref_Char.html)''
 	* ''[Bold](ktmd/doc/ref_Char.html#BOLD)'' ([ \*\* Bold \*\* ]) ([ \'\' Bold \'\' ])
@@ -123,7 +111,10 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 	* [Videos](ktmd/doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
 	* [Audios](ktmd/doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
 * ''[Escape Sequence](ktmd/doc/ref_Escape.html)'' ([ \\ ])
+]]]#slide
 
+
+[[[#slide
 ## SYNTAX REFERENCE : LINE ATTRIBUTES
 
 * ''[Header](ktmd/doc/ref_Header.html)'' ([ \# Header ])
@@ -135,7 +126,10 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 	* [Syntax Highlighted by highlight.js](ktmd/doc/ref_Prefix.html#HIGHLIGHT_SYNTAX_BY_HIGHLIGHT.JS)
 * ''[Table](ktmd/doc/ref_Table.html)'' ([ |---|---| ])
 * ''[Horizontal Rule](ktmd/doc/ref_HorRule.html)'' ([ --- ])
+]]]#slide
 
+
+[[[#slide
 ## OPTIONS
 
 ```{JavaScript}
@@ -149,8 +143,10 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__ ...((4))
 
 + ''自動リロード'' ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
 + ''機能拡張'' ``extensions`` : 使用する機能拡張の名前を列挙します。
+]]]#slide
 
 
+[[[#slide
 ## BUILT-IN EXTENSIONS
 
 ktMarkDown.js includes some built-in extensions.
@@ -169,8 +165,10 @@ ktMarkDown.js includes some built-in extensions.
 
 * **EMOJI EXTENSION**
 	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' ([ \:cat\: ])
+]]]#slide
 
 
+[[[#slide
 ## HISTORY
 
 * ''Version 1.0b4'' : 2015.01.25
@@ -185,8 +183,10 @@ ktMarkDown.js includes some built-in extensions.
 	* Bug fix about headers and links to same page.
 * ''Version 1.0b1'' : 2015.01.06
 	* First release.
+]]]#slide
 
 
+[[[#slide
 ## PLAN
 
 ### Version 1.0
@@ -197,12 +197,16 @@ ktMarkDown.js includes some built-in extensions.
 ### Version 2.0
 
 * Presentaion Syntax.
+]]]#slide
 
 
----
-:::This document is made by __ktMarkDown.js__.
 
 */</script>
 
-<script src='ktmd/v1.0/ktmd.js'></script>
-</body></html>
+<script type="text/javascript"><!-- Configuration -->
+	var KtMarkDown_Options = {
+		autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
+		extensions : [ 'basicExts',  'emoji', 'slide' ],	// Extensions
+	};
+</script>
+<script src='../ktmd/v1.0/ktmd.js'></script></body></html>

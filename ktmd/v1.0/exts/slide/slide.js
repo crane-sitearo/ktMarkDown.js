@@ -7,64 +7,131 @@
 
 
 
-	function slide() {
-		this.curSlide = 0;	// Displayed Slide No
-		this.curBuildSlide = 0;
+	function Slide() {
 
-		var dirPath = ktmd.extensionsFolderPath() + 'slide/';
-		var cssPath = ktmd.extensionsFolderPath() + 'slide/slide.css';
+		ktmd.loadCss( 'slide/slide.css' );
 
-		var elm = document.createElement( 'link' );
-		elm.rel  = 'stylesheet';
-		elm.href = cssPath;
-		elm.type = 'text/css';
-		document.head.appendChild( elm );
+		this.slides        = [];	// Slides
+		this.numSlides     = 0;		// The Number of Slides
+		this.curSlide      = 0;		// Displaying Slide No.
+		this.curBuildSlide = 0;		// Building Slide No.
+
+		var self = this;
+
+		document.addEventListener( 'keydown' , function( aEvent ) {
+			var keyCode = aEvent.keyCode;
+			switch( keyCode ) {
+				case 27 : self.handleKeyEsc(   aEvent ); break;
+				case 37 : self.handleKeyLeft(  aEvent ); break;
+				case 38 : self.handleKeyUp(    aEvent ); break;
+				case 39 : self.handleKeyRight( aEvent ); break;
+				case 40 : self.handleKeyDown(  aEvent ); break;
+				default : console.log( keyCode ); break;
+			}
+		} );
+
 
 	}
 
 
+	Slide.prototype.handleKeyLeft = function( aEvent ) {
+		if ( 0 < this.curSlide ) {
 
-//-----------------------------------------------------------------------------
-//  LINE
-//-----------------------------------------------------------------------------
+			var lastSlideElm = document.getElementById( 'SLIDE:' + this.curSlide );
+			if ( ! lastSlideElm ) { return; }
+
+			this.curSlide--;
+			var curSlideElm  = document.getElementById( 'SLIDE:' + this.curSlide );
+			if ( ! curSlideElm ) { return; }
+
+			curSlideElm.className  = 'ktmd_slide ktmd_slideIn_fromLeft';
+			lastSlideElm.className = 'ktmd_slide ktmd_slide_hidden';
+
+			// curSlideElm.style.visibility = 'visible';
+			// curSlideElm.style.display    = null;
+			// lastSlideElm.style.visibility = 'hidden';
+			// lastSlideElm.style.display    = 'none';
+
+		}
+	}
+
+	Slide.prototype.handleKeyRight = function( aEvent ) {
+		if ( this.curSlide < this.numSlides - 1 ) {
+
+			var lastSlideElm = document.getElementById( 'SLIDE:' + this.curSlide );
+			if ( ! lastSlideElm ) { return; }
+
+			this.curSlide++;
+			var curSlideElm  = document.getElementById( 'SLIDE:' + this.curSlide );
+			if ( ! curSlideElm ) { return; }
+
+			curSlideElm.className  = 'ktmd_slide ktmd_slideIn_fromRight';
+			lastSlideElm.className = 'ktmd_slide ktmd_slide_hidden';
+
+			// curSlideElm.style.visibility = 'visible';
+			// curSlideElm.style.display    = null;
+
+			// lastSlideElm.style.visibility = 'hidden';
+			// lastSlideElm.style.display    = 'none';
+
+		}
+	}
+
+	Slide.prototype.handleKeyUp = function( aEvent ) {
+		console.log( 'up' );
+	}
+
+	Slide.prototype.handleKeyDown = function( aEvent ) {
+		console.log( 'down' );
+	}
 
 
+	Slide.prototype.handleKeyEsc = function( aEvent ) {
+		console.log( 'esc' );
+	}
 
-	///// OVAL BOX /////
-	slide.prototype._line_Slide = function( aLineIn ) {
+
+	// Slide.prototype.processCharAttribute = function( aLineIn ) {
+
+	// }
+
+
+	Slide.prototype._line_Slide = function( aLineIn ) {
 
 		var text = aLineIn;
 		var sTag, clas, styl, eTag, id, matches;
 
-		if ( matches = text.match( /^\[\[\[slide(.*)$/ ) ) { ///// Open Slide /////
+		if ( matches = text.match( /^\[\[\[\#slide(.*)$/ ) ) { ///// Open Slide /////
 
 			sTag = 'div';
-			clas = 'ktmd_slide';
-			styl = ( 0 < this.curBuildSlide ) ? 'visibility:hidden; display:none;' : undefined;
+			clas = ( 0 == this.curBuildSlide ) ? 'ktmd_slide' : 'ktmd_slide ktmd_slide_hidden';
 			text = matches[ 1 ];
-			id   = this.curBuildSlide;
+			id   = 'SLIDE:' + this.curBuildSlide;
+
+			this.curBuildSlide++;
+			this.numSlides++;
 
 			return( {
-				startTag: sTag,
-				cssClass: clas,
-				cssStyle: styl,
-				text    : text,
-				endTag  : eTag,
-				id      : id
+				'startTag': sTag,
+				'cssClass': clas,
+				'cssStyle': styl,
+				'text'    : text,
+				'endTag'  : eTag,
+				'id'      : id
 			} );
 
 		}
 
-		if ( matches = text.match( /^\]\]\]slide$/ ) ) { ///// Close Slide /////
+		if ( matches = text.match( /^\]\]\]\#slide(.*)$/ ) ) { ///// Close Slide /////
 			text = matches[ 1 ];
 			eTag = 'div';
-			this.curBuildSlide++;
 			return( {
-				startTag: sTag,
-				cssClass: clas,
-				cssStyle: styl,
-				text    : text,
-				endTag  : eTag
+				'startTag': sTag,
+				'cssClass': clas,
+				'cssStyle': styl,
+				'text'    : text,
+				'endTag'  : eTag,
+				'id'      : id
 			} );
 		}
 
@@ -73,7 +140,7 @@
 
 
 
-	slide.prototype.processLineAttribute = function( aLineIn ) {
+	Slide.prototype.processLineAttribute = function( aLineIn ) {
 		var tagInfo;
 		if ( tagInfo = this._line_Slide( aLineIn ) ) { }
 		return( tagInfo );
@@ -82,4 +149,4 @@
 
 
 	///// READY /////
-	ktmd.readyExtension( 'slide', new slide() );
+	ktmd.readyExtension( 'slide', new Slide() );

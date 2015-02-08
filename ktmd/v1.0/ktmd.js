@@ -15,7 +15,8 @@
 		elm.rel  = 'stylesheet';
 		elm.type = 'text/css';
 		elm.href = this.extensionsFolderPath() + aCssPath;
-		document.head.insertBefore( elm, document.head.childNodes[0] );
+		document.head.appendChild( elm );
+//		document.head.insertBefore( elm, document.head.childNodes[0] );
 	}
 
 
@@ -123,6 +124,8 @@
 
 	///// BUILD TEXT /////
 	KtMarkDown.prototype._buildTEXT = function( aText ) {
+
+		if ( ! aText ) { return( '' ); }
 
 		var text = aText;
 		var matches = [];
