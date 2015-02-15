@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+</head><body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# [ktMarkDown.js](../index.html) : Reference
+
+## TEXT ALIGN
+
+行頭の " ((:)) " の記述で文字の揃えを変えることが出来ます。
+
+(((t101:
+''INPUT''
+)))
+(((b101:
+Left Align
+\: Left Align
+\:\: Center Align
+\:\:\: Right Align
+)))
+
+(((t101:
+''OUTPUT''
+)))
+(((b101:
+Left Align
+: Left Align
+:: Center Align
+::: Right Align
+)))
+
+---
+:: ''[Back](../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script type="text/javascript">
+	var KtMarkDown_Options = {
+		autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		extensions : [ 'basicExts',  'emoji' ],
+	};
+</script>
+<script src='../ktmd/v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>

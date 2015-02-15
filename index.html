@@ -28,6 +28,11 @@
 :: **JavaScript Driven MarkDown Parser**
 ::: 2015.2.4 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 
+## CONTENTS
+
+- [[keyTop; [マーウダウンのすすめ](#begin) ]] : マークダウンって何?って方はまずこちら
+- [[keyTop; [マーウダウンのすすめ](#begin) ]]
+
 
 ## OUTLINES
 
@@ -77,20 +82,20 @@
 ''CONTENTS OF ZIP''
 )))
 (((b101:
-* ![ktMarkDown.js](ktmd/doc/img/folder.png) ktMarkDown.js
-	* ![](ktmd/doc/img/file.png) index.html ( このドキュメント )
-	* ![](ktmd/doc/img/folder.png) **ktmd**
-		* ![](ktmd/doc/img/folder.png) v1.0 ( ktMarkDown )
-			* ![](ktmd/doc/img/file.png) **ktmd.js**  ( JavaScript )
-			* ![](ktmd/doc/img/file.png) **ktmd.css** ( Default CSS )
-			* ![](ktmd/doc/img/folder.png) exts ( 機能拡張フォルダ )
-				* ![](ktmd/doc/img/folder.png) basicExts ( 基本機能拡張 )
-				* ![](ktmd/doc/img/folder.png) emoji ( 絵文字機能拡張 )
-				* ![](ktmd/doc/img/folder.png) todo ( TODO機能拡張 )
-		* ![](ktmd/doc/img/folder.png) doc ( ドキュメント )
-	* ![](ktmd/doc/img/folder.png) sample ( Sample HTMLs )
-		* ![](ktmd/doc/img/file.png) simple.html
-		* ![](ktmd/doc/img/file.png) multipart.html
+* ![ktMarkDown.js](ktmd_doc/img/folder.png) ktMarkDown.js
+	* ![](ktmd_doc/img/file.png) index.html ( このドキュメント )
+	* ![](ktmd_doc/img/folder.png) **ktmd**
+		* ![](ktmd_doc/img/folder.png) v1.0 ( ktMarkDown )
+			* ![](ktmd_doc/img/file.png) **ktmd.js**  ( JavaScript )
+			* ![](ktmd_doc/img/file.png) **ktmd.css** ( Default CSS )
+			* ![](ktmd_doc/img/folder.png) exts ( 機能拡張フォルダ )
+				* ![](ktmd_doc/img/folder.png) basicExts ( 基本機能拡張 )
+				* ![](ktmd_doc/img/folder.png) emoji ( 絵文字機能拡張 )
+				* ![](ktmd_doc/img/folder.png) todo ( TODO機能拡張 )
+		* ![](ktmd_doc/img/folder.png) doc ( ドキュメント )
+	* ![](ktmd_doc/img/folder.png) sample ( Sample HTMLs )
+		* ![](ktmd_doc/img/file.png) simple.html
+		* ![](ktmd_doc/img/file.png) multipart.html
 )))
 
 　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させてることができます。
@@ -112,32 +117,32 @@ __{{script src='**ktmd/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
 
 ## SYNTAX REFERENCE : CHARACTER ATTRIBUTES
 
-* ''[Character Attributes](ktmd/doc/ref_Char.html)''
-	* ''[Bold](ktmd/doc/ref_Char.html#BOLD)'' ([ \*\* Bold \*\* ]) ([ \'\' Bold \'\' ])
-	* //[Italic](ktmd/doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
-	* __[Underline](ktmd/doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
-	* ~~[Strikethrough](ktmd/doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
-	* ``[Monospace](ktmd/doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
-* ''[Link](ktmd/doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
-	* [Name](ktmd/doc/ref_Link.html#NAME) ([ \{\#Name\} ])
-* ''[Multimedia](ktmd/doc/ref_Multimedia.html)''
-	* [Images](ktmd/doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
-	* [Videos](ktmd/doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
-	* [Audios](ktmd/doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
-* ''[Escape Sequence](ktmd/doc/ref_Escape.html)'' ([ \\ ])
+* ''[Character Attributes](ktmd_doc/ref_Char.html)''
+	* ''[Bold](ktmd_doc/ref_Char.html#BOLD)'' ([ \*\* Bold \*\* ]) ([ \'\' Bold \'\' ])
+	* //[Italic](ktmd_doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
+	* __[Underline](ktmd_doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
+	* ~~[Strikethrough](ktmd_doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
+	* ``[Monospace](ktmd_doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
+* ''[Link](ktmd_doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
+	* [Name](ktmd_doc/ref_Link.html#NAME) ([ \{\#Name\} ])
+* ''[Multimedia](ktmd_doc/ref_Multimedia.html)''
+	* [Images](ktmd_doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
+	* [Videos](ktmd_doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
+	* [Audios](ktmd_doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
+* ''[Escape Sequence](ktmd_doc/ref_Escape.html)'' ([ \\ ])
 
 
 ## SYNTAX REFERENCE : LINE ATTRIBUTES
 
-* ''[Header](ktmd/doc/ref_Header.html)'' ([ \# Header ])
-* ''[Blockquote](ktmd/doc/ref_Blockquote.html)'' ([ \} Blockquote ])
-* ''[List](ktmd/doc/ref_List.html)''
-	* [Ordered List](ktmd/doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ([ \+ Ordered List ])
-	* [Unordered List](ktmd/doc/ref_List.html#ORDERED_LIST_:_PLUS) ([ \* Unordered List ])
-* ''[Prefix](ktmd/doc/ref_Prefix.html)'' ([ \`\`\` Prefix \`\`\` ])
-	* [Syntax Highlighted by highlight.js](ktmd/doc/ref_Prefix.html#HIGHLIGHT_SYNTAX_BY_HIGHLIGHT.JS)
-* ''[Table](ktmd/doc/ref_Table.html)'' ([ |---|---| ])
-* ''[Horizontal Rule](ktmd/doc/ref_HorRule.html)'' ([ --- ])
+* ''[Header](ktmd_doc/ref_Header.html)'' ([ \# Header ])
+* ''[Blockquote](ktmd_doc/ref_Blockquote.html)'' ([ \} Blockquote ])
+* ''[List](ktmd_doc/ref_List.html)''
+	* [Ordered List](ktmd_doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ([ \+ Ordered List ])
+	* [Unordered List](ktmd_doc/ref_List.html#ORDERED_LIST_:_PLUS) ([ \* Unordered List ])
+* ''[Prefix](ktmd_doc/ref_Prefix.html)'' ([ \`\`\` Prefix \`\`\` ])
+	* [Syntax Highlighted by highlight.js](ktmd_doc/ref_Prefix.html#HIGHLIGHT_SYNTAX_BY_HIGHLIGHT.JS)
+* ''[Table](ktmd_doc/ref_Table.html)'' ([ |---|---| ])
+* ''[Horizontal Rule](ktmd_doc/ref_HorRule.html)'' ([ --- ])
 
 
 ## MULTI-PART MARKDOWN
@@ -192,15 +197,15 @@ __{{/script}}__
 
 ### 基本機能拡張 ( basicExts )
 * ** Character Attributes **
-	* ;;[Text Shadow](ktmd/doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
-	* ([ [Rect Box](ktmd/doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
-	* (( [Oval Box](ktmd/doc/ref_BasicExtensions.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
+	* ;;[Text Shadow](ktmd_doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
+	* ([ [Rect Box](ktmd_doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
+	* (( [Oval Box](ktmd_doc/ref_BasicExtensions.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
 * ** Line Attributes **
-	* ''[Text Box](ktmd/doc/ref_BasicExtensions.html)''
-		* ''[Rect Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\[ Rect Box \]\)\) ])
-		* ''[Oval Box](ktmd/doc/ref_BasicExtensions.html)'' ([ \(\(\( Oval Box \)\)\) ])
-	* ''[Text Align](ktmd/doc/ref_BasicExtensions.html)''
-	* ''[Page Break](ktmd/doc/ref_BasicExtensions.html)'' ([ ===== ])
+	* ''[Text Box](ktmd_doc/ref_BasicExtensions.html)''
+		* ''[Rect Box](ktmd_doc/ref_BasicExtensions.html)'' ([ \(\(\[ Rect Box \]\)\) ])
+		* ''[Oval Box](ktmd_doc/ref_BasicExtensions.html)'' ([ \(\(\( Oval Box \)\)\) ])
+	* ''[Text Align](ktmd_doc/ref_BasicExtensions.html)''
+	* ''[Page Break](ktmd_doc/ref_BasicExtensions.html)'' ([ ===== ])
 
 ### TODO機能拡張 ( todo )
 	* **チェックボックス**
@@ -224,7 +229,7 @@ __{{/script}}__
 		* @依頼済(太郎) (( \@依頼済\(xxxx\) ))
 
 ## 絵文字機能拡張 ( emoji )
-	* ''[Emoji](ktmd/doc/ref_Emoji.html)'' :cat: ([ \:cat\: ])
+	* ''[Emoji](ktmd_doc/ref_Emoji.html)'' :cat: ([ \:cat\: ])
 
 
 ## HISTORY
