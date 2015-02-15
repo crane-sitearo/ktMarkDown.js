@@ -343,9 +343,9 @@
 			var target;
 
 			if ( matches = url.match( /^\+(.+)$/ ) ) { // LINK FOR NEW WINDOW
-				textOut = head + '<a href="' + matches[ 1 ] + '" target="_new">' + title + '</a>';
+				textOut += head + '<a href="' + matches[ 1 ] + '" target="_new">' + title + '</a>';
 			} else {
-				textOut = head + '<a href="' + url + '">' + title + '</a>';
+				textOut += head + '<a href="' + url + '">' + title + '</a>';
 			}
 
 			textIn  = tail;
@@ -402,38 +402,41 @@
 
 		var tagText = '';
 		var cssClass = aCssClass;
+		var text     = aText;
 
-		if (( ! aText )&&( aStartTag )&&( aEndTag )) {
-			cssClass += ' ktmd_blankLine';
+		if (( ! cssClass )&&( ! text )&&( aStartTag )&&( aEndTag )) {
+			cssClass = 'ktmd_blankLine';
+			text     = '&nbsp;';
 		}
 
 		if ( aStartTag ) {
 			tagText += '<' + aStartTag;
-			if ( aCssClass ) { tagText += ' class="' + cssClass  + '"'; }
+			if ( cssClass  ) { tagText += ' class="' + cssClass  + '"'; }
 			if ( aCssStyle ) { tagText += ' style="' + aCssStyle + '"'; }
 			if ( aId       ) { tagText += ' id="'    + aId       + '"'; }
 			tagText += '>';
 		}
 
-		if ( aText ) {
+		if ( text ) {
 
-			var text = aText;
+//			var text = aText;
 //			var text += this._buildTEXT( aText );
 
 			///// CHARACTER ATTRIBUTES /////
+			text = this._char_Link( text );			// Link
+			text = this._char_AutoLink( text );		// Auto Link
+			text = this._char_Name( text );			// Name
+
 			text = this._char_Bold( text );			// Bold
-			text = this._char_Italic( text );		// Italic
+			//text = this._char_Italic( text );		// Italic
 			text = this._char_Underline( text );	// Underline
 			text = this._char_MonoSpace( text );	// Monospace
 			text = this._char_Strike( text );		// Strikethrough
 			text = this._char_Image( text );		// Image
 			text = this._char_Video( text );		// Video
 			text = this._char_Audio( text );		// Audio
-			text = this._char_Link( text );			// Link
-			text = this._char_AutoLink( text );		// Auto Link
-			text = this._char_Name( text );			// Name
 
-			for ( var ext in this.extensions ) {
+			for ( var ext in this.extensions ) { // Call All Extensions
 				if ( this.extensions[ ext ].processCharAttribute ) {
 					text = this.extensions[ ext ].processCharAttribute( text );
 				}

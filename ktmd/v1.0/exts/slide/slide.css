@@ -9,10 +9,26 @@
 		height:100%;
 		box-sizing:			border-box;
 		overflow: hidden;
+		font-size: 24px;
+		line-height:		2.5em;
+	}
+
+	h1 {
+		margin:				0 0;
+		height:60%;
+		padding-top:20%;
+		font-size:			5rem;
+		-webkit-animation:	ktmd_slideIn_fromTop 0.5s;
+		border-width:		0 0 2px 0;
+		margin:				0 0 20px 0;
 	}
 
 	h2 {
-		margin:				0 0;
+		height:5%;
+		padding-top:1%;
+		font-size:			28pt;
+		margin:				0 0 20px 0;
+		-webkit-animation: ktmd_slideIn_fromTop 0.5s;
 	}
 
 	.ktMarkDown {
@@ -24,15 +40,21 @@
 		border:				0px solid rgb(220,220,220);
 		padding:			0;
 		background: rgba(0,0,0,0.1);
+		-webkit-perspective: 500px;
+		-webkit-transform-origin: 50% 50%;
 	}
 
 	.ktmd_slide {
+		vertical-align: middle;
 		position: absolute;
 		left:0;
 		top:0;
-		width:				100%;
+		width:100%;
+		height:100%;
 		margin:0;
 		padding: 0;
+		background: rgb(255,255,255);
+		overflow-y: scroll;
 	}
 
 	.ktmd_slide_hidden {
@@ -40,6 +62,7 @@
 	    visibility:hidden;
 	}
 
+	/*----- SLIDE IN -----*/
 	.ktmd_slideIn_fromRight {
 		-webkit-animation: ktmd_slideIn_fromRight 0.3s;
 	}
@@ -48,7 +71,6 @@
 		100% { -webkit-transform: translate(  0%,0); }
 	}
 
-
 	.ktmd_slideIn_fromLeft {
 		-webkit-animation: ktmd_slideIn_fromLeft 0.3s;
 	}
@@ -56,3 +78,31 @@
 		  0% { -webkit-transform: translate(-100%,0); }
 		100% { -webkit-transform: translate(   0%,0); }
 	}
+
+	.ktmd_slideIn_fromTop {
+		-webkit-animation: ktmd_slideIn_fromTop 0.3s;
+	}
+	@-webkit-keyframes ktmd_slideIn_fromTop {
+		  0% { -webkit-transform: translate(0%,-100%); }
+		100% { -webkit-transform: translate(0%,   0%); }
+	}
+
+	.ktmd_slideIn_fromBottom {
+		-webkit-animation: ktmd_slideIn_fromBottom 0.3s;
+	}
+	@-webkit-keyframes ktmd_slideIn_fromBottom {
+		  0% { -webkit-transform: translate(0%,100%); }
+		100% { -webkit-transform: translate(0%, 0%); }
+	}
+
+	/*----- SPIN IN -----*/
+	.ktmd_spinIn_fromRight {
+		-webkit-animation: ktmd_spinIn_fromRight 0.3s;
+	}
+	@-webkit-keyframes ktmd_spinIn_fromRight {
+		  0% { -webkit-transform: translate(100%,0) rotateY(40deg); }
+		100% { -webkit-transform: translate(  0%,0) rotateY( 0deg); }
+	}
+
+
+

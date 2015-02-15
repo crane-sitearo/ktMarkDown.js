@@ -8,7 +8,7 @@ body {
   box-sizing: border-box;
   font-size: 10pt;
   font-family: Verdana, 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
-  line-height: 2.1em;
+  line-height: 1.9em;
   margin: 0;
   padding: 0;
 }
@@ -29,7 +29,9 @@ page {
   padding: 0;
 }
 .ktmd_blankLine {
-  line-height: 0.5em;
+  line-height: 0.6em;
+  margin: 0;
+  padding: 0;
 }
 div {
   box-sizing: border-box;
@@ -62,7 +64,7 @@ h1 {
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 h2 {
-  margin: 16px 0;
+  margin: 4px 4px 0 4px;
   border-style: solid;
   border-color: #8787b9;
   border-width: 1px 6px;
@@ -76,7 +78,7 @@ h2 {
   text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
 }
 h3 {
-  margin: 26px 4px 16px 4px;
+  margin: 16px 4px 16px 4px;
   border: 1px solid #c8c8c8;
   padding: 2px 1em;
   background-color: #d0d0e4;

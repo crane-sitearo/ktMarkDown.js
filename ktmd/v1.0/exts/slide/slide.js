@@ -1,5 +1,5 @@
 /**
- *  Basic Extension for ktMarkDown.js
+ *  Slide Extension for ktMarkDown.js
  *    by Kengo Tsuruzono ( crane@sitearo.com )
  */
 
@@ -34,6 +34,7 @@
 	}
 
 
+	///// HANDLE CURSOR-LEFT KEY
 	Slide.prototype.handleKeyLeft = function( aEvent ) {
 		if ( 0 < this.curSlide ) {
 
@@ -44,17 +45,17 @@
 			var curSlideElm  = document.getElementById( 'SLIDE:' + this.curSlide );
 			if ( ! curSlideElm ) { return; }
 
-			curSlideElm.className  = 'ktmd_slide ktmd_slideIn_fromLeft';
-			lastSlideElm.className = 'ktmd_slide ktmd_slide_hidden';
+			curSlideElm.style.zIndex  = 100;
+			lastSlideElm.style.zIndex =   0;
 
-			// curSlideElm.style.visibility = 'visible';
-			// curSlideElm.style.display    = null;
-			// lastSlideElm.style.visibility = 'hidden';
-			// lastSlideElm.style.display    = 'none';
+			curSlideElm.className  = 'ktmd_slide ktmd_slideIn_fromLeft';
+			setTimeout( function() { lastSlideElm.className = 'ktmd_slide ktmd_slide_hidden'; }, 1000 );
 
 		}
 	}
 
+
+	///// HANDLE CURSOR-RIGHT KEY
 	Slide.prototype.handleKeyRight = function( aEvent ) {
 		if ( this.curSlide < this.numSlides - 1 ) {
 
@@ -65,17 +66,15 @@
 			var curSlideElm  = document.getElementById( 'SLIDE:' + this.curSlide );
 			if ( ! curSlideElm ) { return; }
 
+			curSlideElm.style.zIndex  = 100;
+			lastSlideElm.style.zIndex =   0;
+
 			curSlideElm.className  = 'ktmd_slide ktmd_slideIn_fromRight';
-			lastSlideElm.className = 'ktmd_slide ktmd_slide_hidden';
-
-			// curSlideElm.style.visibility = 'visible';
-			// curSlideElm.style.display    = null;
-
-			// lastSlideElm.style.visibility = 'hidden';
-			// lastSlideElm.style.display    = 'none';
+			setTimeout( function() { lastSlideElm.className = 'ktmd_slide ktmd_slide_hidden'; }, 1000 );
 
 		}
 	}
+
 
 	Slide.prototype.handleKeyUp = function( aEvent ) {
 		console.log( 'up' );
