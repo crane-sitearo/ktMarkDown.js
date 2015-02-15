@@ -423,6 +423,11 @@
 //			var text += this._buildTEXT( aText );
 
 			///// CHARACTER ATTRIBUTES /////
+
+			text = this._char_Image( text );		// Image
+			text = this._char_Video( text );		// Video
+			text = this._char_Audio( text );		// Audio
+
 			text = this._char_Link( text );			// Link
 			text = this._char_AutoLink( text );		// Auto Link
 			text = this._char_Name( text );			// Name
@@ -432,9 +437,6 @@
 			text = this._char_Underline( text );	// Underline
 			text = this._char_MonoSpace( text );	// Monospace
 			text = this._char_Strike( text );		// Strikethrough
-			text = this._char_Image( text );		// Image
-			text = this._char_Video( text );		// Video
-			text = this._char_Audio( text );		// Audio
 
 			for ( var ext in this.extensions ) { // Call All Extensions
 				if ( this.extensions[ ext ].processCharAttribute ) {
