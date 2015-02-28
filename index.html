@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
 <title>ktMarkDown.js</title>
 
-	<meta name="keywords" content="JavaScript Markdown Processor" />
+	<meta name="keywords" content="JavaScript Markdown Parser" />
 
 	<!-- Google Analytics -->
 	<script type="text/javascript">
@@ -21,17 +21,18 @@
 	<link rel="stylesheet" href="../lib/highlight/styles/github.css">
 	<script src="../lib/highlight/highlight.pack.js"></script>
 
+
 </head><body>
 <script class="markdownSrc">/*
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Parser**
-::: 2015.2.4 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
+::: 2015.2.28 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 
 ## CONTENTS
 
 - [[keyTop; [マーウダウンのすすめ](ktmd_doc/gd_whats.html) ]] : 「 マークダウンって何? 」って方はまずこちらをお読みください。
-
+- [[keyTop; [マーウダウンによるTODO管理のすすめ](ktmd_doc/gd_todo.html) ]] : マークダウンでTODO管理も出来るんです。
 
 ## OUTLINES
 
@@ -39,7 +40,7 @@
 
 ### NO REQUREMENTS
 
-　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。難しい設定をしたり、サーバを立てたりといったことは一切不要です。JavaScript の外部ライブラリを使用していないため、色んなライブラリをかき集めてくる必要もありません。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
+　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。難しい設定をしたり、ターミナルからごにょごにょしたり、サーバを立てたりといったことは一切不要です。JavaScript の外部ライブラリを使用していないため、色んなライブラリをかき集めてくる必要もありません。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
 
 (((
 * 編集に必要なモノ : いつも使っているテキストエディタ。
@@ -105,7 +106,7 @@ __{{script class="markdownSrc"}}/*__ ...((1))
   WRITE MARKDOWN TEXT HERE! ...((2))
     :
 __\*\/{{/script}}__ ...((3))
-__{{script src='**ktmd/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
+__{{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
 ```
 1. マークダウンを記述する箇所の直前に {{script class="markDownSrc"}} を書きます。
 2. 次の行からマークダウンを書きます。
@@ -182,7 +183,7 @@ __{{script type="text/javascript"}}__
     extensions : [ 'basicExts', 'emoji', 'todo' ], // Extensions ...((2))
   };
 __{{/script}}__
-{{script src='**ktmd/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
+{{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
 ```
 
 1. ''自動リロード'' ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
@@ -194,6 +195,61 @@ __{{/script}}__
 　ktMarkDown.js に添付の機能拡張モジュールがあります。
 
 ### 基本機能拡張 ( basicExts )
+
+* ** Bootstrap3 Support **
+	* ** Label ( label label-xxx ) **
+		* [[ label-default ]] [\[ label-default ]\]
+		* [[primary label-primary ]] [\[primary label-primary ]\]
+		* [[info label-info ]] [\[info label-info ]\]
+		* [[success label-sucess ]] [\[success label-sucess ]\]
+		* [[warning label-warning ]] [\[warning label-warning ]\]
+		* [[danger label-danger ]] [\[danger MYLABEL ]\]
+	* ** Button **
+		* Normal Size
+			* [[! button-default ]] [\[! button-default ]\]
+			* [[primary! button-primary ]] [\[primary! button-primary ]\]
+			* [[info! button-info ]] [\[info! button-info ]\]
+			* [[success! button-sucess ]] [\[success! button-sucess ]\]
+			* [[warning! button-warning ]] [\[warning! button-warning ]\]
+			* [[danger! button-danger ]] [\[danger! button-danger ]\]
+			* [[link! button-link ]] [\[link! button-link ]\]
+		* Large Size
+			* [[!+ button-default ]] [\[!+ button-default ]\]
+			* [[primary!+ button-primary ]] [\[primary!+ button-primary ]\]
+			* [[info!+ button-info ]] [\[info!+ button-info ]\]
+			* [[success!+ button-sucess ]] [\[success!+ button-sucess ]\]
+			* [[warning!+ button-warning ]] [\[warning!+ button-warning ]\]
+			* [[danger!+ button-danger ]] [\[danger!+ button-danger ]\]
+			* [[link!+ button-link ]] [\[link!+ button-link ]\]
+		* Small Size
+			* [[!- button-default ]] [\[!- button-default ]\]
+			* [[primary!- button-primary ]] [\[primary!- button-primary ]\]
+			* [[info!- button-info ]] [\[info!- button-info ]\]
+			* [[success!- button-sucess ]] [\[success!- button-sucess ]\]
+			* [[warning!- button-warning ]] [\[warning!- button-warning ]\]
+			* [[danger!- button-danger ]] [\[danger!- button-danger ]\]
+			* [[link!- button-link ]] [\[link!- button-link ]\]
+		* Extra Small Size
+			* [[!-- button-default ]] [\[!-- button-default ]\]
+			* [[primary!-- button-primary ]] [\[primary!-- button-primary ]\]
+			* [[info!-- button-info ]] [\[info!-- button-info ]\]
+			* [[success!-- button-sucess ]] [\[success!-- button-sucess ]\]
+			* [[warning!-- button-warning ]] [\[warning!-- button-warning ]\]
+			* [[danger!-- button-danger ]] [\[danger!-- button-danger ]\]
+			* [[link!-- button-link ]] [\[link!-- button-link ]\]
+		* Badge
+			* [[badge 10 ]] [\[badge 10 ]\]
+		* Alerts
+			* [[INFO alert-info ]] [[INFO alert-info ]\]
+			* [[SUCCESS alert-success ]] [[SUCCESS alert-success ]\]
+			* [[WARNING alert-warning ]] [[WARNING alert-warning ]\]
+			* [[DANGER alert-danger ]] [[DANGER alert-danger ]\]
+		* Icon ( [Bootstrap Grylphicons](+http://getbootstrap.com/components/) )
+			* [[!asterisk]] [\[!asterisk]]
+			* [[!time]] [\[!time]]
+			* [[!bell]] [\[!bell]]
+			* [[!cloud-download]] [\[!cloud-download]]
+
 * ** Character Attributes **
 	* ;;[Text Shadow](ktmd_doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
 	* ([ [Rect Box](ktmd_doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
@@ -239,12 +295,22 @@ __{{/script}}__
 
 ### Version 1.0
 
-* Some Themes.
+* [ ] Bootstrap3のサポート
+	- [x] ボタンのサポート @完了(2015.02.28)
+	- [x] ラベルのサポート @完了(2015.02.28)
+	- [x] アラートのサポート @完了(2015.02.28)
+	- [x] バッジのサポート @完了(2015.02.28)
+	- [x] アイコンのサポート @完了(2015.02.28)
+	- [ ] パネルのサポート
 
 ### Version 2.0
 
 * Presentaion Syntax.
 
+### Lisence
+
+Copyright (c) 2015 Kengo Tsuruzono
+Released under the MIT license
 
 ---
 :::This document is made by __ktMarkDown.js__.

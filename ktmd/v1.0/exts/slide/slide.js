@@ -9,7 +9,7 @@
 
 	function Slide() {
 
-		ktmd.loadCss( 'slide/slide.css' );
+		ktmd.loadExtensionCss( 'slide/slide.css' );
 
 		this.slides        = [];	// Slides
 		this.numSlides     = 0;		// The Number of Slides

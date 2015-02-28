@@ -10,13 +10,12 @@
 //-----------------------------------------------------------------------------
 
 
-	KtMarkDown.prototype.loadCss = function( aCssPath ) {
+	KtMarkDown.prototype.loadExtensionCss = function( aCssPath ) {
 		var elm = document.createElement( 'link' );
 		elm.rel  = 'stylesheet';
 		elm.type = 'text/css';
 		elm.href = this.extensionsFolderPath() + aCssPath;
 		document.head.appendChild( elm );
-//		document.head.insertBefore( elm, document.head.childNodes[0] );
 	}
 
 
@@ -43,11 +42,8 @@
 		}
 
 		// LOAD CSS
-		var elm = document.createElement( 'link' );
-		elm.rel  = 'stylesheet';
-		elm.type = 'text/css';
-		elm.href = this.cssPath();
-		document.head.insertBefore( elm, document.head.childNodes[0] );
+		this.loadCss( this.cssFolderPath() + 'ktmd.css' );
+		this.loadCss( this.libFolderPath() + 'bootstrap/css/bootstrap.css' );
 
 	}
 
@@ -75,11 +71,30 @@
 
 
 	///// GET CSS PATH /////
-	KtMarkDown.prototype.cssPath = function() {
+	KtMarkDown.prototype.cssFolderPath = function() {
 		var ktmdPath = this.scriptPath();
-		var cssPath  = ktmdPath.match( /^(.*\/)ktmd.js$/ )[ 1 ] + 'ktmd.css';
+		var cssPath  = ktmdPath.match( /^(.*\/)ktmd.js$/ )[ 1 ] + 'css/';
 		return( cssPath );
 	}
+
+
+	///// GET LIBRARY PATH /////
+	KtMarkDown.prototype.libFolderPath = function() {
+		var ktmdPath = this.scriptPath();
+		var cssPath  = ktmdPath.match( /^(.*\/ktmd\/).*?ktmd.js$/ )[ 1 ] + 'lib/';
+		return( cssPath );
+	}
+
+
+	///// GET CSS PATH /////
+	KtMarkDown.prototype.loadCss = function( aPath ) {
+		var elm = document.createElement( 'link' );
+		elm.rel  = 'stylesheet';
+		elm.type = 'text/css';
+		elm.href = aPath;
+		document.head.insertBefore( elm, document.head.childNodes[0] );
+	}
+
 
 
 	///// LOAD EXTENSIONS /////
@@ -433,7 +448,7 @@
 			text = this._char_Name( text );			// Name
 
 			text = this._char_Bold( text );			// Bold
-			//text = this._char_Italic( text );		// Italic
+			text = this._char_Italic( text );		// Italic
 			text = this._char_Underline( text );	// Underline
 			text = this._char_MonoSpace( text );	// Monospace
 			text = this._char_Strike( text );		// Strikethrough
@@ -562,7 +577,7 @@
 			if ( matches = lineIn.match( /^\|(.*)\|\s*$/ ) ) { // INSIDE OF TABLE
 				var matchHead = matches[ 1 ];
 				if ( matches = matchHead.match( /^(\S+?)\:/) ) {
-					html += '<table class="ktmd_table_' + matches[ 1 ] + '">';
+					html += '<table class="table table-hover ktmd_table_' + matches[ 1 ] + '">';
 				} else {
 					html += '<table>';
 				}

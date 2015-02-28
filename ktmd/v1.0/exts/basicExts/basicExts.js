@@ -6,10 +6,11 @@
 	'use strict';
 
 
-
 	function basicExts() {
+		var bootStrapPath = ktmd.libFolderPath() + 'bootstrap/css/bootstrap.css';
+		ktmd.loadCss( bootStrapPath );
+		// EMPTY
 	}
-
 
 
 	///// TEXT SHAODW /////
@@ -42,10 +43,10 @@
 			var matchFoot = matches[ 3 ];
 
 			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) {
-				textOut += matchHead + '<span class="ktmd_rButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
+				textOut += matchHead + '<span class="btn ktmd_rButton_' + matches[ 1 ] + '">' + matches[ 2 ] + '</span>';
 				textIn   = matchFoot;
 			} else {
-				textOut += matchHead + '<span class="ktmd_rButton_1">' + matchBody + '</span>';
+				textOut += matchHead + '<span class="btn btn-default btn-sm ktmd_rButton_1">' + matchBody + '</span>';
 				textIn   = matchFoot;
 			}
 
@@ -81,6 +82,117 @@
 	}
 
 
+	basicExts.BOOTSTRAP_TAG = {
+
+		// ALERTS
+		'INFO'    : { tag: 'div', class: 'alert alert-info'    },
+		'SUCCESS' : { tag: 'div', class: 'alert alert-success' },
+		'WARNING' : { tag: 'div', class: 'alert alert-warning' },
+		'DANGER'  : { tag: 'div', class: 'alert alert-danger'  },
+
+		// LABELS
+		'default' : { tag: 'span', class: 'label label-default' },
+		'primary' : { tag: 'span', class: 'label label-primary' },
+		'info'    : { tag: 'span', class: 'label label-info'    },
+		'success' : { tag: 'span', class: 'label label-success' },
+		'warning' : { tag: 'span', class: 'label label-warning' },
+		'danger'  : { tag: 'span', class: 'label label-danger'  },
+
+		// BUTTONS
+		'!'        : { tag: 'button', class: 'btn btn-default', type: 'button' },
+		'primary!' : { tag: 'button', class: 'btn btn-primary', type: 'button' },
+		'info!'    : { tag: 'button', class: 'btn btn-info',    type: 'button' },
+		'success!' : { tag: 'button', class: 'btn btn-success', type: 'button' },
+		'warning!' : { tag: 'button', class: 'btn btn-warning', type: 'button' },
+		'danger!'  : { tag: 'button', class: 'btn btn-danger',  type: 'button' },
+		'link!'    : { tag: 'button', class: 'btn btn-link',    type: 'button' },
+
+		// BUTTONS LARGE
+		'!+'        : { tag: 'button', class: 'btn btn-default btn-lg', type: 'button' },
+		'primary!+' : { tag: 'button', class: 'btn btn-primary btn-lg', type: 'button' },
+		'info!+'    : { tag: 'button', class: 'btn btn-info    btn-lg', type: 'button' },
+		'success!+' : { tag: 'button', class: 'btn btn-success btn-lg', type: 'button' },
+		'warning!+' : { tag: 'button', class: 'btn btn-warning btn-lg', type: 'button' },
+		'danger!+'  : { tag: 'button', class: 'btn btn-danger  btn-lg', type: 'button' },
+		'link!+'    : { tag: 'button', class: 'btn btn-link    btn-lg', type: 'button' },
+
+		// BUTTONS SMALL
+		'!-'        : { tag: 'button', class: 'btn btn-default btn-sm', type: 'button' },
+		'primary!-' : { tag: 'button', class: 'btn btn-primary btn-sm', type: 'button' },
+		'info!-'    : { tag: 'button', class: 'btn btn-info    btn-sm', type: 'button' },
+		'success!-' : { tag: 'button', class: 'btn btn-success btn-sm', type: 'button' },
+		'warning!-' : { tag: 'button', class: 'btn btn-warning btn-sm', type: 'button' },
+		'danger!-'  : { tag: 'button', class: 'btn btn-danger  btn-sm', type: 'button' },
+		'link!-'    : { tag: 'button', class: 'btn btn-link    btn-sm', type: 'button' },
+
+		// BUTTONS XTRA SMALL
+		'!--'        : { tag: 'button', class: 'btn btn-default btn-xs', type: 'button' },
+		'primary!--' : { tag: 'button', class: 'btn btn-primary btn-xs', type: 'button' },
+		'info!--'    : { tag: 'button', class: 'btn btn-info    btn-xs', type: 'button' },
+		'success!--' : { tag: 'button', class: 'btn btn-success btn-xs', type: 'button' },
+		'warning!--' : { tag: 'button', class: 'btn btn-warning btn-xs', type: 'button' },
+		'danger!--'  : { tag: 'button', class: 'btn btn-danger  btn-xs', type: 'button' },
+		'link!--'    : { tag: 'button', class: 'btn btn-link    btn-xs', type: 'button' },
+
+		'badge' : { tag: 'span', class: 'badge' },
+
+	};
+
+
+	///// OVAL BUTTON /////
+	basicExts.prototype._char_BootStrap = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\[\[(\S*?) (.*?) \]\](.*)$/ ) ) {
+
+			var matchHead = matches[ 1 ];
+			var matchBs   = matches[ 2 ];
+			var matchBody = matches[ 3 ];
+			var matchFoot = matches[ 4 ];
+
+			if ( matchBs.length == 0 ) { matchBs = 'default'; }
+
+			var tagInfo = basicExts.BOOTSTRAP_TAG[ matchBs ];
+			if ( tagInfo ) { 
+				textOut += matchHead + '<' + tagInfo.tag;
+				if ( tagInfo.class ) { textOut += ' class="' + tagInfo.class + '"'; }
+				if ( tagInfo.type  ) { textOut += ' type="'  + tagInfo.type  + '"'; } 
+				textOut += '>' + matchBody + '</' + tagInfo.tag + '>';
+				textIn   = matchFoot;
+			} else {
+				break;
+			}
+
+		}
+		return( textOut + textIn );
+	}
+
+
+
+	///// OVAL BUTTON /////
+	basicExts.prototype._char_BootStrapIcon = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\[\[\!(\S+?)\]\](.*)$/ ) ) {
+
+			var matchHead = matches[ 1 ];
+			var matchBody = matches[ 2 ];
+			var matchFoot = matches[ 3 ];
+
+			textOut += matchHead + '<span class="glyphicon glyphicon-' + matchBody + '" aria-hidden="true"></span>';
+			textIn   = matchFoot;
+
+		}
+		return( textOut + textIn );
+	}
+
+
 
 	///// SPAN CLASS /////
 	basicExts.prototype._char_CustomSpan = function( aLineIn ) {
@@ -107,8 +219,10 @@
 
 	///// PROCESS CHAR /////
 	basicExts.prototype.processCharAttribute = function( aLineIn ) {
-		var lineOut;
-		lineOut = this._char_textShadow( aLineIn );	// Text Shadow
+		var lineOut = aLineIn;
+		lineOut = this._char_BootStrap(  lineOut );	// Text Shadow
+		lineOut = this._char_BootStrapIcon(  lineOut );	// Text Shadow
+		lineOut = this._char_textShadow( lineOut );	// Text Shadow
 		lineOut = this._char_RectButton( lineOut );	// Rect Button
 		lineOut = this._char_OvalButton( lineOut );	// Oval Button
 		lineOut = this._char_CustomSpan( lineOut );	// Custom Span

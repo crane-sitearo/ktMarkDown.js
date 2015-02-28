@@ -6,7 +6,7 @@
 	'use strict';
 
 	function Todo() {
-		ktmd.loadCss( 'todo/todo.css' );
+		ktmd.loadExtensionCss( 'todo/todo.css' );
 	}
 
 
