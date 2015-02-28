@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+<title>ktMarkDown.js : Reference : Bootstrap3</title>
+</head><body>
+
+<script type="text/ktMarkDown" class="markdownSrc">/*
+# [ktMarkDown.js](../index.html) : Bootstrap3
+
+　ktMarkDown.js では、添付の機能拡張モジュールであるBasicExtsでBootstrap3をサポートしています。「 Bootstrap3って何? 」っていう方も心配はいりません。要は「 簡単に色んなドキュメントの修飾ができる 」ということです。どんな修飾が可能なのか
+
+
+## ラベル 
+
+　Bootstrap3には、文字とその背景部分に色をつけたラベルという機能があります。「 [\[ ラベル ]\] 」のように書くことで「 [[ ラベル ]] 」のような表示になります。さらに「 [\[primary ラベル ]\] 」のように種別を先頭に書くことで「 [[primary ラベル ]] 」のように色を変えることができます。色は6種類あります。ラベルとの違いは、大きさとマウスをホバーした時の色の変化です。
+
+| INPUT									| OUTPUT					| CLASS								|
+|:-------------------------------------:|:-------------------------:|:----------------------------------|
+| [\[ ラベル ]\]							| [[ ラベル ]]				| label label-default 				|
+| [\[primary ラベル ]\]					| [[primary ラベル ]]		| label label-primary 				|
+| [\[info ラベル ]\]						| [[info ラベル ]]			| label label-info	 				|
+| [\[success ラベル ]\]					| [[success ラベル ]]		| label label-success 				|
+| [\[warning ラベル ]\]					| [[warning ラベル ]]		| label label-warning 				|
+| [\[danger ラベル ]\]					| [[danger ラベル ]]			| label label-danger 				|
+
+
+### ボタン
+
+　ラベルと似ていますが、ボタンを表現するためのBootstrap3の機能もサポートしています。「 [\[! ボタン ]\] 」のように書くことで「 [[! ボタン ]] 」のような表示になります。さらに「 [\[primary! ボタン ]\] 」のように種別を先頭に書くことで「 [[primary! ボタン ]] 」のように色を変えることができます。色は7種類あります。
+
+| INPUT									| OUTPUT					| CLASS								|
+|:-------------------------------------:|:-------------------------:|:----------------------------------|
+| [\[! ボタン ]\]						| [[! ボタン ]]				| btn btn-default 					|
+| [\[primary! ボタン ]\]					| [[primary! ボタン ]]		| btn btn-primary 					|
+| [\[info! ボタン ]\]					| [[info! ボタン ]]			| btn btn-info	 					|
+| [\[success! ボタン ]\]					| [[success! ボタン ]]		| btn btn-success 					|
+| [\[warning! ボタン ]\]					| [[warning! ボタン ]]		| btn btn-warning 					|
+| [\[danger! ボタン ]\]					| [[danger! ボタン ]]		| btn btn-danger 					|
+| [\[link! ボタン ]\]					| [[link! ボタン ]]			| btn btn-link 						|
+
+#### 大きなボタン
+
+　ボタンには、大きさの指定が可能です。大きなボタンを作りたい場合は「 [\[!+ ボタン ]\] 」のように書きます。
+
+| INPUT									| OUTPUT					| CLASS								|
+|:-------------------------------------:|:-------------------------:|:----------------------------------|
+| [\[!+ ボタン ]\]						| [[!+ ボタン ]]				| btn btn-default btn-lg 			|
+| [\[primary!+ ボタン ]\]				| [[primary!+ ボタン ]]		| btn btn-primary btn-lg 			|
+| [\[info!+ ボタン ]\]					| [[info!+ ボタン ]]			| btn btn-info btn-lg	 			|
+| [\[success!+ ボタン ]\]				| [[success!+ ボタン ]]		| btn btn-success btn-lg 			|
+| [\[warning!+ ボタン ]\]				| [[warning!+ ボタン ]]		| btn btn-warning btn-lg 			|
+| [\[danger!+ ボタン ]\]					| [[danger!+ ボタン ]]		| btn btn-danger btn-lg 			|
+| [\[link!+ ボタン ]\]					| [[link!+ ボタン ]]			| btn btn-link btn-lg 				|
+
+#### 小さなボタン
+
+　小さいボタンもあります。「 [\[!- ボタン ]\] 」のように書きます。
+
+| INPUT									| OUTPUT					| CLASS								|
+|:-------------------------------------:|:-------------------------:|:----------------------------------|
+| [\[!- ボタン ]\]						| [[!- ボタン ]]				| btn btn-default btn-sm 			|
+| [\[primary!- ボタン ]\]				| [[primary!- ボタン ]]		| btn btn-primary btn-sm 			|
+| [\[info!- ボタン ]\]					| [[info!- ボタン ]]			| btn btn-info btn-sm	 			|
+| [\[success!- ボタン ]\]				| [[success!- ボタン ]]		| btn btn-success btn-sm 			|
+| [\[warning!- ボタン ]\]				| [[warning!- ボタン ]]		| btn btn-warning btn-sm 			|
+| [\[danger!- ボタン ]\]					| [[danger!- ボタン ]]		| btn btn-danger btn-sm 			|
+| [\[link!- ボタン ]\]					| [[link!- ボタン ]]			| btn btn-link btn-sm 				|
+
+#### より小さなボタン
+
+　もっと小さいボタンもあります。「 [\[!-- ボタン ]\] 」のように書きます。
+
+| INPUT									| OUTPUT					| CLASS								|
+|:-------------------------------------:|:-------------------------:|:----------------------------------|
+| [\[!-- ボタン ]\]						| [[!-- ボタン ]]			| btn btn-default btn-xs 			|
+| [\[primary!-- ボタン ]\]				| [[primary!-- ボタン ]]		| btn btn-primary btn-xs 			|
+| [\[info!-- ボタン ]\]					| [[info!-- ボタン ]]		| btn btn-info btn-xs	 			|
+| [\[success!-- ボタン ]\]				| [[success!-- ボタン ]]		| btn btn-success btn-xs 			|
+| [\[warning!-- ボタン ]\]				| [[warning!-- ボタン ]]		| btn btn-warning btn-xs 			|
+| [\[danger!-- ボタン ]\]				| [[danger!-- ボタン ]]		| btn btn-danger btn-xs 			|
+| [\[link!-- ボタン ]\]					| [[link!-- ボタン ]]		| btn btn-link btn-xs 				|
+
+
+### アラート
+
+　1行全体を使って情報や警告を表示したい場合にはアラートという機能が使えます。種類は4種類で「 [\[INFO ]\] 」のように大文字で記述します。
+
+#### INPUT
+[\[INFO アラート ]\]
+[\[SUCCESS アラート ]\]
+[\[WARNING アラート ]\]
+[\[DANGER ボタン ]\]
+
+#### OUTPUT
+[[INFO アラート ]]
+[[SUCCESS アラート ]]
+[[WARNING アラート ]]
+[[DANGER ボタン ]]
+
+
+### アイコン
+
+　Bootstrap3には、様々なアイコンが用意されていて、直感的に情報を伝えたり、デザインのアクセントに使えます。例えば「 [\[!ok]\] 」と書くと「 [[!ok]] 」。というアイコンに変わります。アイコンは260種類用意されており、一覧は[Bootstrap3](+http://getbootstrap.com/components/)のページにあります。アイコンの下に「 glyphicon glyphicon-XXX 」のように種類が書かれていますが、ktMarkDown.jsでは最後のXXXのところを抜き出して「 [\[! XXX ]\] 」と書くだけです。以下は一部のサンプルです。
+
+| INPUT										| OUTPUT								| 
+|:-----------------------------------------:|:-------------------------------------:|
+| [\[!ok]\]									| [[!ok]]			|
+| [\[!remove]\]								| [[!remove]]		|
+| [\[!cog]\]								| [[!cog]]			|
+| [\[!star]\]								| [[!star]]			|
+| [\[!heart]\]								| [[!heart]]		|
+| [\[!user]\]								| [[!user]]			|
+| [\[!bell]\]								| [[!bell]]			|
+| [\[!comment]\]							| [[!comment]]		|
+| [\[!thumbs-up]\]							| [[!thumbs-up]]	|
+| [\[!file]\]								| [[!file]]			|
+| [\[!download]\]							| [[!download]]		|
+
+
+### バッジ
+
+　Bootstrap3には、情報を細くするための丸で囲まれたバッジ機能というものがあります。例えば、メールの未読数なら「 未読 [\[badge 10 ]\] 」と書くと「 未読 [[badge 10 ]] 」のようにを表示できます。
+
+| INPUT 						| OUTPUT 				| CSS CLASS 		|
+|:-----------------------------:|:---------------------:|:------------------|
+| [\[badge バッジ \]\] 			| [[badge バッジ ]]		| badge				|
+
+　このバッジですが、ボタンやアラートとの組み合せができます。バッジの背景色は、ボタンの種類によってみやすい物に自動的に変化します。アイコンと組み合わせることでさらに見やすくなります。
+
+| INPUT												| OUTPUT												| 
+|:-------------------------------------------------:|:-----------------------------------------------------:|
+| [\[! [\[!ok]\] OK [\[badge 10 ]] ]\]				| [[! [[!ok]] OK [[badge 10 ]] ]]						|
+| [\[primary! いいね! [\[badge 10 ]] ]\]				| [[primary! [[!thumbs-up]] いいね! [[badge 10 ]] ]]		|
+| [\[info! [\[!comment]\] 情報 [\[badge 10 ]] ]\]	| [[info! [[!comment]] 情報 [[badge 10 ]] ]]				|
+
+
+---
+:: ''[Back](../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script type="text/javascript">
+	var KtMarkDown_Options = {
+		autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		extensions : [ 'basicExts',  'emoji' ],
+	};
+</script>
+<script src='../ktmd/v1.0/ktmd.js'></script></body></html>

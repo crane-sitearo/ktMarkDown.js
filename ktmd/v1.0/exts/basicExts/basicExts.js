@@ -140,6 +140,26 @@
 
 
 	///// OVAL BUTTON /////
+	basicExts.prototype._char_BootStrapBadge = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\[\[badge (.*?) \]\](.*)$/ ) ) {
+
+			var matchHead = matches[ 1 ];
+			var matchBody = matches[ 2 ];
+			var matchFoot = matches[ 3 ];
+
+			textOut += matchHead + '<span class="badge">' + matchBody + '</span>';
+			textIn   = matchFoot;
+
+		}
+		return( textOut + textIn );
+	}
+
+	///// OVAL BUTTON /////
 	basicExts.prototype._char_BootStrap = function( aLineIn ) {
 
 		var textIn  = aLineIn;
@@ -220,8 +240,9 @@
 	///// PROCESS CHAR /////
 	basicExts.prototype.processCharAttribute = function( aLineIn ) {
 		var lineOut = aLineIn;
-		lineOut = this._char_BootStrap(  lineOut );	// Text Shadow
+		lineOut = this._char_BootStrapBadge(  lineOut );	// Text Shadow
 		lineOut = this._char_BootStrapIcon(  lineOut );	// Text Shadow
+		lineOut = this._char_BootStrap(  lineOut );	// Text Shadow
 		lineOut = this._char_textShadow( lineOut );	// Text Shadow
 		lineOut = this._char_RectButton( lineOut );	// Rect Button
 		lineOut = this._char_OvalButton( lineOut );	// Oval Button
