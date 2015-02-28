@@ -3444,19 +3444,19 @@ code {
 /***********
  *  TABLE  *
  ***********/
-x_table {
+.ktmd_table {
   box-sizing: border-box;
   margin: 10px 12px;
   border: 0px solid #d2d2d2;
   border-spacing: 0;
   padding: 0;
 }
-.xktmd_table_100 {
+.ktmd_table_100 {
   width: 97%;
   margin: 10px auto;
 }
 /***** ROW *****/
-x_th {
+th {
   box-sizing: border-box;
   margin: 0;
   border-left: 1px solid #d2d2d2;
@@ -3465,11 +3465,11 @@ x_th {
   background: #c8c8c8;
   text-align: center;
 }
-x_table th:last-child {
+table th:last-child {
   border-right: 1px solid #d2d2d2;
 }
 /***** CELL *****/
-x_td {
+td {
   box-sizing: border-box;
   margin: 0;
   padding: 8px;
@@ -3477,10 +3477,10 @@ x_td {
   border-top: 1px solid #d2d2d2;
   background: #e6e6e6;
 }
-x_table td:last-child {
+table td:last-child {
   border-right: 1px solid #d2d2d2;
 }
-x_table tr:last-child td {
+table tr:last-child td {
   border-bottom: 1px solid #d2d2d2;
 }
 .keyTop {

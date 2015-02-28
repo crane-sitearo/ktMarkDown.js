@@ -577,9 +577,9 @@
 			if ( matches = lineIn.match( /^\|(.*)\|\s*$/ ) ) { // INSIDE OF TABLE
 				var matchHead = matches[ 1 ];
 				if ( matches = matchHead.match( /^(\S+?)\:/) ) {
-					html += '<table class="table table-hover ktmd_table_' + matches[ 1 ] + '">';
+					html += '<table class="ktmd_table_' + matches[ 1 ] + '">';
 				} else {
-					html += '<table>';
+					html += '<table class="ktmd_table">';
 				}
 				this.tableInfo = 'atHead';
 			}
