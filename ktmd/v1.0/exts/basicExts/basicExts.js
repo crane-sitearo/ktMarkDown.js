@@ -257,6 +257,67 @@
 //-----------------------------------------------------------------------------
 
 
+	///// BOOTSTRAP3 : PANEL /////
+	basicExts.prototype._line_BootstrapPanel = function( aLineIn ) {
+
+		var PANEL_TYPES = {
+			'default' : 'panel panel-default',
+			'primary' : 'panel panel-primary',
+			'success' : 'panel panel-success',
+			'info'    : 'panel panel-info',
+			'warning' : 'panel panel-warning',
+			'danger'  : 'panel panel-danger',
+		};
+
+		var text = aLineIn;
+		var sTag, clas, styl, eTag, matches;
+
+		if ( matches = text.match( /^\[\[\[(.*)$/ ) ) { ///// Open Panel /////
+
+			sTag = 'div';
+			clas = 'panel panel-default';
+			text = matches[ 1 ];
+
+			if ( matches = text.match( /^(\S+)(.*)$/ ) ) { // XXXX : Panel-Type
+				var type = matches[ 1 ];
+				if ( PANEL_TYPES[ type ] ) { clas = PANEL_TYPES[ type ]; }
+				text = matches[ 2 ];
+			}
+			else if ( matches = text.match( /^ (.*)$/ ) ) { // DEFAULT-PANEL
+				text = matches[ 1 ];
+			}
+
+			if ( 0 < text.length ) { text = '<div class="panel-heading">' + text + '</div>'; }
+			text += '<div class="panel-body">';
+
+			return( {
+				startTag: sTag,
+				cssClass: clas,
+				cssStyle: styl,
+				text    : text,
+				endTag  : eTag
+			} );
+		}
+
+		if ( matches = text.match( /^\]\]\](.*)$/ ) ) { ///// Close Panel /////
+			text = matches[ 1 ];
+			eTag = 'div';
+
+			if ( 0 < text.length ) { text = '<div class="panel-footer">' + text + '</div>'; }
+			text = "</div>" + text;
+
+			return( {
+				startTag: sTag,
+				cssClass: clas,
+				cssStyle: styl,
+				text    : text,
+				endTag  : eTag
+			} );
+		}
+
+		return;
+	};
+
 
 	///// RECT BOX /////
 	basicExts.prototype._line_RectBox = function( aLineIn ) {
@@ -354,10 +415,12 @@
 
 
 	basicExts.prototype.processLineAttribute = function( aLineIn ) {
+
 		var tagInfo;
 
 		if      ( tagInfo = this._line_RectBox( aLineIn ) ) { } // Rect Box
 		else if ( tagInfo = this._line_OvalBox( aLineIn ) ) { } // Oval Box
+		else if ( tagInfo = this._line_BootstrapPanel( aLineIn ) ) { }
 
 		return( tagInfo );
 

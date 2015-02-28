@@ -25,7 +25,7 @@ page {
   width: 100%;
   max-width: 740px;
   margin: 0 auto;
-  border: 1px solid #dcdcdc;
+  border: 0px solid #dcdcdc;
   padding: 0;
 }
 .ktmd_blankLine {
@@ -33,14 +33,14 @@ page {
   margin: 0;
   padding: 0;
 }
-div {
+ktmd_div {
   box-sizing: border-box;
   margin: 0 0.3em;
   padding: 0 4px;
   text-align: justify;
   color: #141414;
 }
-body > div {
+body > ktmd_div {
   box-sizing: border-box;
   margin: 0;
   padding: 0;

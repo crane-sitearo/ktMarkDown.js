@@ -33,40 +33,42 @@
 
 - [[keyTop; [マーウダウンのすすめ](ktmd_doc/gd_whats.html) ]] : 「 マークダウンって何? 」って方はまずこちらをお読みください。
 - [[keyTop; [マーウダウンによるTODO管理のすすめ](ktmd_doc/gd_todo.html) ]] : マークダウンでTODO管理も出来るんです。
+- [[keyTop; [Bootstrap3のサポート](ktmd_doc/ref_Bootstrap3.html) ]] : Bootstrap3の表現力をマークダウンに。
 
 ## OUTLINES
 
 　**ktMarkDown.js** は、JavaScriptによって記述されたマークダウンプロセッサです。テンプレートになるHTMLファイルに、テキストエディタでマークダウン記法で入力を行ったら、Webブラウザで表示するだけで確認ができます。
 
-### NO REQUREMENTS
+### QUICK START
 
 　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。難しい設定をしたり、ターミナルからごにょごにょしたり、サーバを立てたりといったことは一切不要です。JavaScript の外部ライブラリを使用していないため、色んなライブラリをかき集めてくる必要もありません。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
 
-(((
+[[[info [[!thumbs-up]] すぐに始められます
 * 編集に必要なモノ : いつも使っているテキストエディタ。
 * 表示に必要なモノ : いつも使っているウェブブラウザ。
 * 対応OS : いつも使っているOS。 ( OS X / Windows / Linux ... )
 * 外部ライブラリ : 必要ありません。
-)))
+]]]
 
 ### MARKDOWN SYNTAX
 
 　マークダウンには様々な方言がありますが、ktMarkDown.js は、デファクトスタンダード的な文法を中心にサポートを行っています。ただし、記号1文字によるものなどの副作用の多いモノは避けています。また、マークダウンの思想である「変換前のテキストもそのまま読める」ことも重要視しています。
 
-(((
+[[[info [[!check]] 文法
 * マークダウンの方言を複数サポートしており、既存のマークダウンテキストを流量が比較的容易。
 * マークダウンのまま読めるような文法を優先。
-)))
+]]]
 
 ### EXTENSIBILITY
 
 　また、HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う [highlight.js](https://highlightjs.org) との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っています。
 
-(((
+[[[info [[!cog]]  拡張性
 * マークダウンとHTMLやJavaScriptとの混在が可能 ( アクセス解析やシンタックスハイライトなども可能 )。
 * 機能拡張モジュール ( Extension ) によって機能を後から追加することが可能。
 * 標準添付の機能拡張モジュールで、いくつかのマークダウン記法を追加しています。
-)))
+* 標準添付の機能拡張モジュールにより、Bootstrap3の表現力をマークダウンに取り入れています。
+]]]
 
 ## DOWNLOAD
 
@@ -77,25 +79,22 @@
 
 　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
-(((t101:
-''CONTENTS OF ZIP''
-)))
-(((b101:
-* ![ktMarkDown.js](ktmd_doc/img/folder.png) ktMarkDown.js
-	* ![](ktmd_doc/img/file.png) index.html ( このドキュメント )
-	* ![](ktmd_doc/img/folder.png) **ktmd**
-		* ![](ktmd_doc/img/folder.png) v1.0 ( ktMarkDown )
-			* ![](ktmd_doc/img/file.png) **ktmd.js**  ( JavaScript )
-			* ![](ktmd_doc/img/file.png) **ktmd.css** ( Default CSS )
-			* ![](ktmd_doc/img/folder.png) exts ( 機能拡張フォルダ )
-				* ![](ktmd_doc/img/folder.png) basicExts ( 基本機能拡張 )
-				* ![](ktmd_doc/img/folder.png) emoji ( 絵文字機能拡張 )
-				* ![](ktmd_doc/img/folder.png) todo ( TODO機能拡張 )
-		* ![](ktmd_doc/img/folder.png) doc ( ドキュメント )
-	* ![](ktmd_doc/img/folder.png) sample ( Sample HTMLs )
-		* ![](ktmd_doc/img/file.png) simple.html
-		* ![](ktmd_doc/img/file.png) multipart.html
-)))
+[[[info ''CONTENTS OF ZIP''
+* [[!folder-open]] ktMarkDown.js
+	* [[!file]] index.html ( このドキュメント )
+	* [[!folder-open]] **ktmd**
+		* [[!folder-open]] v1.0 ( ktMarkDown )
+			* [[!file]]  **ktmd.js**  ( JavaScript )
+			* [[!file]]  **ktmd.css** ( Default CSS )
+			* [[!folder-open]] exts ( 機能拡張フォルダ )
+				* [[!folder-open]] basicExts ( 基本機能拡張 )
+				* [[!folder-open]] emoji ( 絵文字機能拡張 )
+				* [[!folder-open]] todo ( TODO機能拡張 )
+		* [[!folder-open]] doc ( ドキュメント )
+	* [[!folder-open]] sample ( Sample HTMLs )
+		* [[!file]]  simple.html
+		* [[!file]]  multipart.html
+]]]
 
 　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させてることができます。
 
@@ -254,8 +253,8 @@ __{{/script}}__
 
 ## HISTORY
 
-* 2015.02.05
-	* TODOのチェックボックスを表示したときにリストのマークを消すように修正。
+* 2015.02.28
+	* Bootstrap3のサポート開始。
 
 ## PLAN
 
@@ -267,7 +266,7 @@ __{{/script}}__
 	- [x] アラートのサポート @完了(2015.02.28)
 	- [x] アイコンのサポート @完了(2015.02.28)
 	- [x] バッジのサポート @完了(2015.02.28)
-	- [ ] パネルのサポート
+	- [x] パネルのサポート @完了(2015.02.28)
 
 ### Version 2.0
 
