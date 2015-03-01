@@ -12,21 +12,23 @@
 
 	Todo.prototype.stats = {	// WORD > CSS CLASS NAME
 
-		'due'		: 'due',	// ENGLISH
-		'start'		: 'start',
-		'done'		: 'done',
-		'end'		: 'done',
-		'wait'		: 'wait',
+		'due'		: 'warning',	// ENGLISH
+		'start'		: 'info',
+		'done'		: 'success',
+		'end'		: 'success',
+		'wait'		: 'danger',
+		'delayed'	: 'danger',
 
-		'〆切'		: 'due',	// JAPANESE
-		'目標'		: 'due',
-		'期日'		: 'due',
-		'開始'		: 'start',
-		'着手'		: 'start',
-		'終了'		: 'done',
-		'完了'		: 'done',
-		'待ち'		: 'wait',
-		'依頼済'		: 'wait',
+		'〆切'		: 'warning',	// JAPANESE
+		'目標'		: 'warning',
+		'期日'		: 'warning',
+		'開始'		: 'info',
+		'着手'		: 'info',
+		'終了'		: 'success',
+		'完了'		: 'success',
+		'待ち'		: 'danger',
+		'依頼済'		: 'danger',
+		'遅延'		: 'danger',
 
 	};
 
@@ -55,7 +57,7 @@
 		textOut = '';
 
 		var statsKeys = Object.keys( this.stats );
-		var regexStr = this.stats[ statsKeys[ 0 ] ];
+		var regexStr = statsKeys[ 0 ];
 		for ( var i = 1, n = statsKeys.length ; i < n ; i++ ) {
 			regexStr += '|' + statsKeys[ i ];
 		}
@@ -71,8 +73,10 @@
 			var tail = matches[ 4 ];
 
 			textOut += head;
-			textOut += '<span class="ktmd_todo_' + clas + '_head">' + stat + '</span>';
-			textOut += '<span class="ktmd_todo_' + clas + '_tail">' + opts + '</span>';
+			textOut += '<div class="btn-group" role="group">';
+			textOut +=   '<button type="button" class="btn btn-' + clas + ' btn-sm">' + stat + '</button>';
+			textOut +=   '<button type="button" class="btn btn-default btn-sm">' + opts + '</button>';
+			textOut += '</div>';
 
 			textIn = tail;
 

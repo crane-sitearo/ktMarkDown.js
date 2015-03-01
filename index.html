@@ -72,8 +72,10 @@
 
 ## DOWNLOAD
 
+[[[info [[!download]] ダウンロードサイト
 * **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]] Latest version is here.
 * **Download** from  [[keyTop; [this site](http://sitearo.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
+]]]
 
 ## INSTALL
 
@@ -85,11 +87,14 @@
 	* [[!folder-open]] **ktmd**
 		* [[!folder-open]] v1.0 ( ktMarkDown )
 			* [[!file]]  **ktmd.js**  ( JavaScript )
-			* [[!file]]  **ktmd.css** ( Default CSS )
+			* [[!folder-open]] css ( CSSフォルダ )
+				* [[!file]]  **ktmd.css** ( Default CSS )
 			* [[!folder-open]] exts ( 機能拡張フォルダ )
 				* [[!folder-open]] basicExts ( 基本機能拡張 )
 				* [[!folder-open]] emoji ( 絵文字機能拡張 )
 				* [[!folder-open]] todo ( TODO機能拡張 )
+		* [[!folder-open]] lib ( ライブラリフォルダ )
+			* [[!folder-open]] bootstrap ( Bootstrap3フォルダ )
 		* [[!folder-open]] doc ( ドキュメント )
 	* [[!folder-open]] sample ( Sample HTMLs )
 		* [[!file]]  simple.html
@@ -235,15 +240,16 @@ __{{/script}}__
 		* @start(2015-10-20) (( \@start\(xxxx\) ))
 		* @done(2015-10-20) (( \@done\(xxxx\) ))
 		* @wait(Bill) (( \@wait\(xxxx\) ))
+		* @delayed(2015-10-20) (( \@delayed\(xxxx\) ))
 	* **日本語**
 		* @〆切(2015-10-20) (( \@〆切\(xxxx\) ))
 		* @目標(2015-10-20) (( \@目標\(xxxx\) ))
 		* @期日(2015-10-20) (( \@期日\(xxxx\) ))
-		* @目標(2015-10-20) (( \@目標\(xxxx\) ))
 		* @開始(2015-10-20) (( \@開始\(xxxx\) ))
 		* @着手(2015-10-20) (( \@着手\(xxxx\) ))
 		* @終了(2015-10-20) (( \@終了\(xxxx\) ))
 		* @完了(2015-10-20) (( \@完了\(xxxx\) ))
+		* @遅延(2015-10-20) (( \@遅延\(xxxx\) ))
 		* @待ち(太郎) (( \@待ち\(xxxx\) ))
 		* @依頼済(太郎) (( \@依頼済\(xxxx\) ))
 
@@ -267,6 +273,7 @@ __{{/script}}__
 	- [x] アイコンのサポート @完了(2015.02.28)
 	- [x] バッジのサポート @完了(2015.02.28)
 	- [x] パネルのサポート @完了(2015.02.28)
+	- [x] todo 機能拡張からのサポートパネルのサポート @完了(2015.03.01)
 
 ### Version 2.0
 

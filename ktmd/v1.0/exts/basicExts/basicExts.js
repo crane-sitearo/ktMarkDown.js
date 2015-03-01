@@ -7,8 +7,6 @@
 
 
 	function basicExts() {
-		var bootStrapPath = ktmd.libFolderPath() + 'bootstrap/css/bootstrap.css';
-		ktmd.loadCss( bootStrapPath );
 		// EMPTY
 	}
 

@@ -37,14 +37,17 @@
 		this.reloadAfter = null;			// Reload Count Down
 		this.docTitle    = document.title;
 
-		if ( this.loadExtensions() == false ) { // NO EXTENSION
-			this.buildMarkDown();
-		}
-
 		// LOAD CSS
 		this.loadCss( this.cssFolderPath() + 'ktmd.css' );
 		this.loadCss( this.libFolderPath() + 'bootstrap/css/bootstrap.css' );
 
+	}
+
+
+	KtMarkDown.prototype.start = function() {
+		if ( this.loadExtensions() == false ) { // NO EXTENSION
+			this.buildMarkDown();
+		}
 	}
 
 
@@ -88,13 +91,19 @@
 
 	///// GET CSS PATH /////
 	KtMarkDown.prototype.loadCss = function( aPath ) {
+
+		var elms = document.getElementsByTagName( 'style' );
+		for ( var i = 0, n = elms.length ; i < n ; i++ ) {
+			if ( elms[ i ].src == aPath ) { console.log( 'alredy loaded : ' + aPath ); return; }
+		}
+
 		var elm = document.createElement( 'link' );
 		elm.rel  = 'stylesheet';
 		elm.type = 'text/css';
 		elm.href = aPath;
 		document.head.insertBefore( elm, document.head.childNodes[0] );
+		console.log( 'loaded : ' + aPath );
 	}
-
 
 
 	///// LOAD EXTENSIONS /////
@@ -936,3 +945,5 @@
 	}
 
 	var ktmd = new KtMarkDown();
+	ktmd.start();
+
