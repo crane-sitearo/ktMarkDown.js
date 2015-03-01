@@ -7,7 +7,14 @@
 
 
 	function basicExts() {
-		// EMPTY
+
+		// SETUP FOR BOOTSTRAP3
+
+		var elm = document.createElement( 'meta' );
+		elm.name    = 'viewport';
+		elm.content = 'width=device-width, initial-scale=1.0';
+		document.head.appendChild( elm );
+
 	}
 
 
@@ -380,7 +387,7 @@
 				clas = ' ktmd_oBox_' + matches[ 1 ];
 				text = matches[ 2 ];
 			}
-			else if ( matches = text.match( /^\{(.+?)\}(.*)/ ) ) { // {Class}
+			else if ( matches = text.match( /^\"(.+?)\"(.*)/ ) ) { // {Class}
 				clas = matches[ 1 ];
 				text = matches[ 2 ];
 			}

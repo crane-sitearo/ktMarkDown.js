@@ -29,6 +29,8 @@
 
 		if ( window.KtMarkDown_Options ) { this.opts = KtMarkDown_Options; }
 
+		this.export = {};
+
 		this.listStack        = [];			//
 		this.inPrefix         = false;		// <pre> true </pre> false
 		this.blockquoteLevel  = 0;
@@ -464,7 +466,7 @@
 
 			for ( var ext in this.extensions ) { // Call All Extensions
 				if ( this.extensions[ ext ].processCharAttribute ) {
-					text = this.extensions[ ext ].processCharAttribute( text );
+					text = this.extensions[ ext ].processCharAttribute( text, this.export );
 				}
 			}
 
@@ -843,11 +845,16 @@
 		var htmlOut = '';
 		var mdLines = aSrcElement.innerHTML.split( /\r\n|\r|\n/ );	// Put all lines into array.
 
+		this.export.lines = mdLines;
+
 		for ( var i = 0, n = mdLines.length ; i < n ; i++ ) { // Process all lines.
 
 			var mdLine = mdLines[ i ];					// Current line.
 			if ( mdLine === '/*' ) { continue; }		// Skip first line.
 			if ( mdLine === '*/' ) { continue; }		// Skip last line.
+
+			this.export.curLineNo   = i;		// CURRENT LINE NO.
+			this.export.curLineText = mdLine;	// ORIGINAL TEXT
 
 			Object.seal( this );
 
@@ -873,7 +880,7 @@
 						for ( var ext in this.extensions ) { // Run All Extensions
 							if ( this.extensions[ ext ].processLineAttribute ) { // Check Proc.
 								var tagInfo;
-								if ( tagInfo = this.extensions[ ext ].processLineAttribute( mdLine ) ) {
+								if ( tagInfo = this.extensions[ ext ].processLineAttribute( mdLine, this.export ) ) {
 									htmlLine = this._buildLineWithTagInfo( tagInfo );
 									break;
 								}
@@ -893,14 +900,23 @@
 
 		} // Loop end of all lines
 
-//		var elmSrcMd = document.getElementsByTagName( 'body' )[ 0 ];
-		var elmDstMd = document.createElement( 'div' );
-		elmDstMd.className = 'ktMarkDown';
-		elmDstMd.innerHTML = htmlOut;
+		// CREATE COLUMN
+		var elmCol = document.createElement( 'div' );
+		elmCol.className = 'col-md-12';
+		elmCol.innerHTML = htmlOut;
 
-//		elmSrcMd.appendChild( elmDstMd );
-//		var bodyNode = document.getElementsByTagName('body')[0];
-		document.body.insertBefore( elmDstMd, aSrcElement );
+		// CREATE ROW
+		var elmRow = document.createElement( 'div' );
+		elmRow.className = 'row';
+		elmRow.appendChild( elmCol );
+
+		// CREATE CONTAINER
+		var elmContainer = document.createElement( 'div' );
+		elmContainer.className = 'container';
+		elmContainer.appendChild( elmRow );
+
+		// APPEND TO DOCUMENT
+		document.body.insertBefore( elmContainer, aSrcElement );
 
 	}
 
@@ -944,6 +960,8 @@
 		this._startReloading(); // Reload
 	}
 
+
+	// AUTO START
 	var ktmd = new KtMarkDown();
 	ktmd.start();
 

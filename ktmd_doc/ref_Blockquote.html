@@ -1,44 +1,37 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
-	<title>ktMarkDown.js : Reference and Test Pattern : List</title>
+	<title>ktMarkDown.js : Blockquotes</title>
 </head><body>
 
 <script class="markdownSrc">/*
-# [ktMarkDown.js](../index.html) : Reference
+((("jumbotron"
+# [ktMarkDown.js](../index.html) : Blockquotes
+)))
 
 ## BLOCKQUOTES
 
 You can indicate blockquotes with a " ((\})) " at line top.
 行頭に " ((})) " を書くことで引用であることを示すことが出来ます。
 
-(((t101:
-''INPUT''
-)))
-(((b101:
+[[[ Input
 ((\})) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ((\}\})) Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 ((\}\}\})) Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-)))
+]]]
 
-(((t101:
-''OUTPUT''
-)))
-(((b101:
+[[[ Output
 } Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 }} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 }}} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-)))
+]]]
 
-(((t101:
-''OUTPUT'' as HTML
-)))
-(((b101:
+[[[ Output as HTML
 {{blockquotes}} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   {{blockquotes}} Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     {{blockquotes}} Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     {{/blockquotes}}
   {{/blockquotes}}
 {{/blockquotes}}
-)))
+]]]
 
 
 ---

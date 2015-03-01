@@ -2,45 +2,26 @@
 	<title>ktMarkDown.js : Reference : Lists</title>
 </head><body>
 <script type="text/ktMarkDown" class="markdownSrc">/*
-# [ktMarkDown.js](../index.html) : Reference
+((("jumbotron"
+# [ktMarkDown.js](../index.html) : Links
+)))
 
 ## LINKS
 
-
-### MANUAL LINK
+### MANUAL LINK ( 手動リンク )
 
 You can create a linked text with " ((\[)) title (( \]\()) url (( \) )) ".
 " ((\[)) title (( \]\( )) url (( \) )) " の記述でリンクを作ることが出来ます。
 
-(((t101:
-''INPUT''
-)))
-(((b101:
-((\[))Apple((\]\())http://www.apple.com (( \) ))
-)))
+| Input ( コピーして使えます ) 						| Output 							|
+|:-------------------------------------------------:|:---------------------------------:|
+| ((\[))Apple((\]\())http://www.apple.com (( \) ))	| [Apple](http://www.apple.com)		|
 
-(((t101:
-''OUTPUT''
-)))
-(((b101:
-[Apple](http://www.apple.com)
-)))
+URLの先頭に (( + )) を書くことで、新規ウィンドウ(もしくはタブ)で開くリンクになります。
 
-URLの先頭に (( + )) を書くことで、新規ウィンドウで開くリンクになります。
-
-(((t101:
-''INPUT'' OPEN IN NEW TAB / WINDOW
-)))
-(((b101:
-((\[))Apple((\]\()) +http://www.apple.com (( \) ))
-)))
-
-(((t101:
-''OUTPUT''
-)))
-(((b101:
-[Apple](+http://www.apple.com)
-)))
+| Input ( コピーして使えます ) 						| Output 								|
+|:-------------------------------------------------:|:-------------------------------------:|
+| ((\[))Apple((\]\())+http://www.apple.com (( \) ))	| [Apple](+http://www.apple.com)		|
 
 
 ### AUTO LINK
@@ -48,19 +29,9 @@ URLの先頭に (( + )) を書くことで、新規ウィンドウで開くリ�
 You can create a linked text with URL only.
 スペースを書いてURLを書くだけでリンクが作成されます。
 
-(((t101:
-''INPUT''
-)))
-(((b101:
-Apple site is here (( http\://www.apple.com/ )) .
-)))
-
-(((t101:
-''OUTPUT''
-)))
-(((b101:
-Apple site is here http://www.apple.com/ .
-)))
+| Input ( コピーして使えます ) 						| Output 								|
+|:-------------------------------------------------:|:-------------------------------------:|
+| Apple : (( http\://www.apple.com/ ))				| Apple : http://www.apple.com/			|
 
 * ''Supported schemes''
 	- http ( http://abc.com/ )
@@ -70,26 +41,20 @@ Apple site is here http://www.apple.com/ .
 	- file ( file://localfile.html )
 
 
-### LINK TO SAME PAGE
+### LINK TO SAME PAGE ( ページ内リンク )
 
 You can make place with " (({\#)) place name ((})) " and link to it with ((#)).
 " (({\#)) place name ((})) " で場所を定義して、((#)) でその場所へのリンクが可能です。
 
-(((t101:
-''INPUT''
-)))
-(((b101:
+[[[info **Input** ( コピーして使えます )
 ((\[))SECTION 1(( \]\( ))#section_1(( \) ))
 (({\#))section_1((})) SECTION 1 ( Link to here )
-)))
+]]]
 
-(((t101:
-''OUTPUT''
-)))
-(((b101:
+[[[info **Output**
 [SECTION 1](#section_1)
 {#section_1} SECTION 1 ( Link to here )
-)))
+]]]
 
 
 ### LINK TO SAME PAGE : HEADER
@@ -97,19 +62,13 @@ You can make place with " (({\#)) place name ((})) " and link to it with ((#)).
 You can define place with using header ( # at line top ). See also [Headers](ref_Header.html).
 ヘッダーを使うことで場所の定義を行うことが出来ます。[ヘッダー](ref_Header.html)もご覧ください.
 
-(((t101:
-''INPUT''
-)))
-(((b101:
+[[[info **Input** ( コピーして使えます )
 \#\# SECTION 2
-)))
+]]]
 
-(((t101:
-''OUTPUT'' as HTML
-)))
-(((b101:
+[[[info **Output as HTML**
 {{h2}}{{a name="SECTION_2"}}{{/a}}SECTION 2{{/h2}}
-)))
+]]]
 
 ---
 :: ''[Back](../index.html)''
