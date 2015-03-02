@@ -73,10 +73,10 @@
 			var tail = matches[ 4 ];
 
 			textOut += head;
-			textOut += '<div class="btn-group" role="group">';
-			textOut +=   '<button type="button" class="btn btn-' + clas + ' btn-sm">' + stat + '</button>';
-			textOut +=   '<button type="button" class="btn btn-default btn-sm">' + opts + '</button>';
-			textOut += '</div>';
+			textOut += '<span class="btn-group" role="group">';
+			textOut +=   '<span type="button" class="btn btn-' + clas + ' btn-xs">' + stat + '</span>';
+			textOut +=   '<span type="button" class="btn btn-default btn-xs">' + opts + '</span>';
+			textOut += '</span>';
 
 			textIn = tail;
 

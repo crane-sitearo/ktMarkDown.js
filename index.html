@@ -24,6 +24,7 @@
 
 </head><body>
 <script class="markdownSrc">/*
+
 ((("jumbotron"
 # ktMarkDown.js
 
@@ -31,79 +32,84 @@
 ::: 2015.2.28 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 )))
 
-## CONTENTS
+## ktMarkDown.js とは?
+
+　**ktMarkDown.js** は、JavaScriptによって記述されたマークダウンパーサです。テンプレートになるHTMLファイルに、テキストエディタでマークダウン記法で入力を行ったら、Webブラウザで表示するだけで確認ができます。
 
 - [[keyTop; [マーウダウンのすすめ](ktmd_doc/gd_whats.html) ]] : 「 マークダウンって何? 」って方はまずこちらをお読みください。
 - [[keyTop; [マーウダウンによるTODO管理のすすめ](ktmd_doc/gd_todo.html) ]] : マークダウンでTODO管理も出来るんです。
 - [[keyTop; [Bootstrap3のサポート](ktmd_doc/ref_Bootstrap3.html) ]] : Bootstrap3の表現力をマークダウンに。
 
-## OUTLINES
 
-　**ktMarkDown.js** は、JavaScriptによって記述されたマークダウンプロセッサです。テンプレートになるHTMLファイルに、テキストエディタでマークダウン記法で入力を行ったら、Webブラウザで表示するだけで確認ができます。
+## FEATURES
 
 ### QUICK START
 
-　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。難しい設定をしたり、ターミナルからごにょごにょしたり、サーバを立てたりといったことは一切不要です。JavaScript の外部ライブラリを使用していないため、色んなライブラリをかき集めてくる必要もありません。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
+　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。「 ターミナルからごにょごにょしたり 」とか「 サーバを立てたり 」といった難しいことは一切不要です。ZIPファイルをダウンロードして解凍するだけで始められます。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
 
-[[[info [[!thumbs-up]] すぐに始められます
+[[[info [[!thumbs-up]] **QUICKSTART** 〜 すぐに始められます
+* 使う前にすること : ZIPファイルをダウンロードして解凍する。
 * 編集に必要なモノ : いつも使っているテキストエディタ。
 * 表示に必要なモノ : いつも使っているウェブブラウザ。
 * 対応OS : いつも使っているOS。 ( OS X / Windows / Linux ... )
 * 外部ライブラリ : 必要ありません。
 ]]]
 
-### MARKDOWN SYNTAX
+### EASY SYNTAX
 
-　マークダウンには様々な方言がありますが、ktMarkDown.js は、デファクトスタンダード的な文法を中心にサポートを行っています。ただし、記号1文字によるものなどの副作用の多いモノは避けています。また、マークダウンの思想である「変換前のテキストもそのまま読める」ことも重要視しています。
+　マークダウンには様々な方言がありますが、ktMarkDown.js は、デファクトスタンダード的な文法を中心にサポートを行っています。ただし、記号1文字によるものなどの副作用の多いモノは避けています。また、マークダウンの思想である「 __変換前のテキストもそのまま読める__ 」ことも重要視しています。
 
-[[[info [[!check]] 文法
-* マークダウンの方言を複数サポートしており、既存のマークダウンテキストを流量が比較的容易。
-* マークダウンのまま読めるような文法を優先。
+[[[info [[!check]] **EASY SYNTAX** 〜 シンプルな文法
+* マークダウンの方言を複数サポートしており、既存のマークダウンテキストを流量が比較的容易 (..なはず)。
+* マークダウンのまま読めるような文法を優先しています。
 ]]]
 
-### EXTENSIBILITY
+### EXTENSIBLE
 
-　また、HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う [highlight.js](https://highlightjs.org) との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っています。
+　HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う [highlight.js](https://highlightjs.org) との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っていますし、Bootstrap3との連携も行っています。
 
-[[[info [[!cog]]  拡張性
-* マークダウンとHTMLやJavaScriptとの混在が可能 ( アクセス解析やシンタックスハイライトなども可能 )。
-* 機能拡張モジュール ( Extension ) によって機能を後から追加することが可能。
+[[[info [[!cog]] **EXTENSIBLE** 〜 機能拡張モジュールによって機能追加が可能
+* マークダウンとHTMLやJavaScriptを混在させることが可能 ( アクセス解析やシンタックスハイライトなども可能 )。
+* 機能拡張モジュールによって機能を後から追加することが可能。
 * 標準添付の機能拡張モジュールで、いくつかのマークダウン記法を追加しています。
 * 標準添付の機能拡張モジュールにより、Bootstrap3の表現力をマークダウンに取り入れています。
 ]]]
 
-## DOWNLOAD
+
+## DOWNLOAD & INSTALL
+
+### DOWNLOAD
 
 [[[info [[!download]] ダウンロードサイト
-* **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]] Latest version is here.
+* **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]] 最新版はこちらから!
 * **Download** from  [[keyTop; [this site](http://sitearo.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
 ]]]
 
 ## INSTALL
 
-　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
+　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。中身の構成を理解しておく必要はありませんが、ktMarkDown.js 本体の場所は知っておいた方がよいかと思います。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
-[[[info ''CONTENTS OF ZIP''
+[[[info [[!th-list]] ''CONTENTS OF ZIP''
 * [[!folder-open]] ktMarkDown.js
 	* [[!file]] index.html ( このドキュメント )
 	* [[!folder-open]] **ktmd**
-		* [[!folder-open]] v1.0 ( ktMarkDown )
-			* [[!file]]  **ktmd.js**  ( JavaScript )
+		* [[!folder-open]] v1.0 ( ktMarkDown v1.0 のフォルダ )
+			* [[!file]]  __**ktmd.js**  ( ktMarkDown.js 本体 )__
 			* [[!folder-open]] css ( CSSフォルダ )
-				* [[!file]]  **ktmd.css** ( Default CSS )
+				* [[!file]]  ktmd.css ( デフォルト CSS )
 			* [[!folder-open]] exts ( 機能拡張フォルダ )
 				* [[!folder-open]] basicExts ( 基本機能拡張 )
 				* [[!folder-open]] emoji ( 絵文字機能拡張 )
 				* [[!folder-open]] todo ( TODO機能拡張 )
 		* [[!folder-open]] lib ( ライブラリフォルダ )
 			* [[!folder-open]] bootstrap ( Bootstrap3フォルダ )
-		* [[!folder-open]] doc ( ドキュメント )
-	* [[!folder-open]] sample ( Sample HTMLs )
+		* [[!folder-open]] doc ( 文法の説明ドキュメント )
+	* [[!folder-open]] sample ( サンプルテキスト )
 		* [[!file]]  simple.html
 		* [[!file]]  multipart.html
 ]]]
 
-　HTMLの基本形は以下のようになっています。シンタックスハイライトは、[highlight.js](https://highlightjs.org) と連携させてることができます。
+　HTMLの基本形は以下のようになっています。
 
 ```{HTML}
 {{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
@@ -120,34 +126,38 @@ __{{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
 4. {{/body}} の手前に {{script}} タグを書いて ktMarkDown.js を読み込みます。HTMLの場所によってはパスは調整が必要です。
 
 
-## SYNTAX REFERENCE : CHARACTER ATTRIBUTES
+## SYNTAX REFERENCE
 
-* ''[Character Attributes](ktmd_doc/ref_Char.html)''
-	* ''[Bold](ktmd_doc/ref_Char.html#BOLD)'' ([ \*\* Bold \*\* ]) ([ \'\' Bold \'\' ])
-	* //[Italic](ktmd_doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
-	* __[Underline](ktmd_doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
-	* ~~[Strikethrough](ktmd_doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
-	* ``[Monospace](ktmd_doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
-* ''[Link](ktmd_doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
+　ここからはマークダウンの文法の説明になります。詳細な説明はリンク先をご覧ください。
+
+### CHARACTER ATTRIBUTES
+
+* ''[文字修飾](ktmd_doc/ref_Char.html)''
+	* ''[太字](ktmd_doc/ref_Char.html#BOLD)'' ([ \*\* Bold \*\* ]) ([ \'\' Bold \'\' ])
+	* //[斜体字](ktmd_doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
+	* __[下線](ktmd_doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
+	* ~~[打ち消し線](ktmd_doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
+	* ``[等幅文字](ktmd_doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
+* ''[リンク](ktmd_doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
 	* [Name](ktmd_doc/ref_Link.html#NAME) ([ \{\#Name\} ])
-* ''[Multimedia](ktmd_doc/ref_Multimedia.html)''
-	* [Images](ktmd_doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
-	* [Videos](ktmd_doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
-	* [Audios](ktmd_doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
-* ''[Escape Sequence](ktmd_doc/ref_Escape.html)'' ([ \\ ])
+* ''[マルチメディア](ktmd_doc/ref_Multimedia.html)''
+	* [画像](ktmd_doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
+	* [動画](ktmd_doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
+	* [音声](ktmd_doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
+* ''[エスケープ文字](ktmd_doc/ref_Escape.html)'' ([ \\ ])
 
 
-## SYNTAX REFERENCE : LINE ATTRIBUTES
+### LINE ATTRIBUTES
 
-* ''[Header](ktmd_doc/ref_Header.html)'' ([ \# Header ])
-* ''[Blockquote](ktmd_doc/ref_Blockquote.html)'' ([ \} Blockquote ])
-* ''[List](ktmd_doc/ref_List.html)''
-	* [Ordered List](ktmd_doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ([ \+ Ordered List ])
-	* [Unordered List](ktmd_doc/ref_List.html#ORDERED_LIST_:_PLUS) ([ \* Unordered List ])
-* ''[Prefix](ktmd_doc/ref_Prefix.html)'' ([ \`\`\` Prefix \`\`\` ])
+* ''[見出し](ktmd_doc/ref_Header.html)'' ([ \# Header ])
+* ''[引用](ktmd_doc/ref_Blockquote.html)'' ([ \} Blockquote ])
+* ''[箇条書き](ktmd_doc/ref_List.html)''
+	* [番号付き](ktmd_doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ([ \+ Ordered List ])
+	* [番号なし](ktmd_doc/ref_List.html#ORDERED_LIST_:_PLUS) ([ \* Unordered List ])
+* ''[整形済みテキスト](ktmd_doc/ref_Prefix.html)'' ([ \`\`\` Prefix \`\`\` ])
 	* [Syntax Highlighted by highlight.js](ktmd_doc/ref_Prefix.html#HIGHLIGHT_SYNTAX_BY_HIGHLIGHT.JS)
-* ''[Table](ktmd_doc/ref_Table.html)'' ([ |---|---| ])
-* ''[Horizontal Rule](ktmd_doc/ref_HorRule.html)'' ([ --- ])
+* ''[テーブル](ktmd_doc/ref_Table.html)'' ([ |---|---| ])
+* ''[水平線](ktmd_doc/ref_HorRule.html)'' ([ --- ])
 
 
 ## MULTI-PART MARKDOWN

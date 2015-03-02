@@ -324,6 +324,7 @@
 	};
 
 
+
 	///// RECT BOX /////
 	basicExts.prototype._line_RectBox = function( aLineIn ) {
 
@@ -419,11 +420,42 @@
 
 
 
+	///// OVAL BOX /////
+	basicExts.prototype._line_QuickClass = function( aLineIn ) {
+
+		var text = aLineIn;
+		var sTag, clas, styl, eTag, matches;
+
+		if ( matches = text.match( /^\(\(\"(.*?)\"\)\)(.*)$/ ) ) {
+
+			sTag = 'p';
+			clas = matches[ 1 ];
+			text = matches[ 2 ];
+
+			if ( 0 <= [ 'muted', 'primary', 'success', 'info', 'warning', 'danger' ].indexOf( clas ) ) {
+				clas = 'text-' + clas; // Shotcur for Bootstrap3
+			}
+
+			return( {
+				startTag: sTag,
+				cssClass: clas,
+				cssStyle: styl,
+				text    : text,
+				endTag  : sTag
+			} );
+
+		}
+
+		return;
+	};
+
+
 	basicExts.prototype.processLineAttribute = function( aLineIn ) {
 
 		var tagInfo;
 
-		if      ( tagInfo = this._line_RectBox( aLineIn ) ) { } // Rect Box
+		if      ( tagInfo = this._line_QuickClass( aLineIn ) ) { } // Rect Box
+		else if ( tagInfo = this._line_RectBox( aLineIn ) ) { } // Rect Box
 		else if ( tagInfo = this._line_OvalBox( aLineIn ) ) { } // Oval Box
 		else if ( tagInfo = this._line_BootstrapPanel( aLineIn ) ) { }
 
