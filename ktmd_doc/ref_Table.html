@@ -4,66 +4,190 @@
 
 </head><body>
 <script class="markdownSrc">/*
-# [ktMarkDown.js](../index.html) : Reference
+
+((("jumbotron"
+# [ktMarkDown.js](../index.html) : Tables
+)))
 
 ## TABLES
 
-表を作成するには、行頭と行末に ((|)) を書いて、セルの境界にも ((|)) を書いていきます。
+　表を作成するには、行頭と行末に ((|)) を書いて、セルの境界にも ((|)) を書いていきます。
 
-(((
-''INPUT''
-)))
+[[[info **INPUT** ( コピーして使えます )
 ```
 |Name      |Phone      |Age      |
 |----------|-----------|---------|
 |John      |123-4567   |       10|
 |Bill      |456-2345   |       20|
 ```
+]]]
 
-(((
-''OUTPUT''
-)))
+[[[info **Output**
+|Name      |Phone      |Age      |
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |123-2345   |       20|
+]]]
+
+### TEXT ALIGN
+
+　セル内の文字列の文字揃えを指定する場合は、以下の表の2行目のように書きます。
+
+[[[info **INPUT** ( コピーして使えます )
+```
+|Name      |Phone Number |Age        |
+|:---------|:-----------:|----------:|
+|Left Align|Center Align |Right Align|
+|John      |123-4567     |         10|
+|Bill      |456-2345     |         20|
+```
+]]]
+
+[[[info **Output**
+|Name      |Phone Number |Age        |
+|:---------|:-----------:|----------:|
+|Left Align|Center Align |Right Align|
+|John      |123-4567     |         10|
+|Bill      |456-2345     |         20|
+]]]
+
+### BORDERED STYLE
+
+　枠線を付けるには、最初の行の末尾に 「 bordered! 」と書きます。
+
+[[[info **INPUT** ( コピーして使えます )
+```
+|Name      |Phone      |Age      |bordered!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |456-2345   |       20|
+|Boby      |789-1234   |       30|
+```
+]]]
+
+[[[info **Output**
 |Name      |Phone      |Age      |bordered!
 |----------|-----------|---------|
 |John      |123-4567   |       10|
 |Bill      |123-2345   |       20|
+|Boby      |789-1234   |       30|
+]]]
 
-セル内の文字列の文字揃えを指定する場合は、以下の表の2行目のように書きます。
 
-(((
-''INPUT''
-)))
+### HOVER STYLE
+
+　マウスカーソルをかざしたときに色を変えるには、最初の行の末尾に 「 hover! 」と書きます。
+
+[[[info **INPUT** ( コピーして使えます )
 ```
-|Name      |Phone Number |Age        |
-|:---------|:-----------:|----------:|
-|Left Align|Center Align |Right Align|
-|John      |123-4567     |         10|
-|Bill      |456-2345     |         20|
+|Name      |Phone      |Age      |hover!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |456-2345   |       20|
+|Boby      |789-1234   |       30|
 ```
+]]]
 
-(((
-''OUTPUT''
-)))
-|Name      |Phone Number |Age        |
-|:---------|:-----------:|----------:|
-|Left Align|Center Align |Right Align|
-|John      |123-4567     |         10|
-|Bill      |456-2345     |         20|
+[[[info **Output**
+|Name      |Phone      |Age      |hover!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |123-2345   |       20|
+|Boby      |789-1234   |       30|
+]]]
 
-* Text Align in Table Cell
-	* Left Align ``:------``
-	* Center Align ``:-----:``
-	* Right Align ``-------:``
+### STRIPED STYLE
+
+　行の色を交互に変える場合は、最初の行の末尾に 「 striped! 」と書きます。
+
+[[[info **INPUT** ( コピーして使えます )
+```
+|Name      |Phone      |Age      |striped!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |456-2345   |       20|
+|Boby      |789-1234   |       30|
+```
+]]]
+
+[[[info **Output**
+|Name      |Phone      |Age      |striped!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |123-2345   |       20|
+|Boby      |789-1234   |       30|
+]]]
 
 
-(((
-''OUTPUT''
-)))
-|100: Name |Phone Number |Age        |
-|:---------|:-----------:|----------:|
-|Left Align|Center Align |Right Align|
-|John      |123-4567     |         10|
-|Bill      |456-2345     |         20|
+### TABLE WIDTH
+
+　テーブルの幅を変えるには、最初の行の末尾に 「 80! 」と書きます。この場合「 80% 」の幅になります。指定可能なのは「 10, 20, ... 90 」の10刻みです。
+
+[[[info **INPUT** ( コピーして使えます )
+```
+|Name      |Phone      |Age      |50!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |456-2345   |       20|
+|Boby      |789-1234   |       30|
+```
+]]]
+
+[[[info **Output**
+|Name      |Phone      |Age      |50!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |123-2345   |       20|
+|Boby      |789-1234   |       30|
+]]]
+
+### MIXED STYLE
+
+　テーブルのスタイルは複数同時指定が可能です。
+
+[[[info **INPUT** ( コピーして使えます )
+```
+|Name      |Phone      |Age      |bordered hover striped 50!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |456-2345   |       20|
+|Boby      |789-1234   |       30|
+```
+]]]
+
+[[[info **Output**
+|Name      |Phone      |Age      |bordered hover striped 50!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |123-2345   |       20|
+|Boby      |789-1234   |       30|
+]]]
+
+### ROW COLOR
+
+　テーブルの各行に個別に色が指定できます。行末に「 active! / info! / success! / warning! / danger! 」を書きます。
+
+[[[info **INPUT** ( コピーして使えます )
+```
+|Name      |Phone      |Color    |bordered hover striped 50!
+|----------|-----------|---------|
+|John      |123-4567   |active   |active!
+|Bill      |123-2345   |info     |info!
+|Boby      |789-1234   |success  |success!
+|John      |123-4567   |warning  |warning!
+|Bill      |123-2345   |danger   |danger!
+```
+]]]
+
+[[[info **Output**
+|Name      |Phone      |Color      |bordered hover striped 50!
+|----------|-----------|---------|
+|John      |123-4567   |active   |active!
+|Bill      |123-2345   |info     |info!
+|Boby      |789-1234   |success  |success!
+|John      |123-4567   |warning  |warning!
+|Bill      |123-2345   |danger   |danger!
+]]]
 
 
 ---

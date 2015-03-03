@@ -579,7 +579,7 @@
 		var matches;
 
 		if ( this.tableInfo ) { // ALREADY INSIDE OF TABLE
-			if ( matches = lineIn.match( /^\|.*\|\s*$/ ) ) { // INSIDE OF TABLE
+			if ( matches = lineIn.match( /^\|.*\|(.*?\!)?$/ ) ) { // INSIDE OF TABLE
 			} else { // OUTSIDE OF TABLE
 				html += '</tbody></table>';
 				this.tableInfo = null;
@@ -609,8 +609,9 @@
 		var html    = '';
 		var	matches = [];
 
-		if ( matches = lineIn.match( /^\|.*\|(.*?\!)?$/) ) { // INSIDE OF TABLE
+		if ( matches = lineIn.match( /^\|.*\|((.*?)\!)?$/) ) { // INSIDE OF TABLE
 
+			var matchTail = matches[ 2 ];
 			var cols = lineIn.split( '|' );
 			cols.pop();		// REMOVE LAST ITEM
 			cols.shift();	// REMOVE FIRST ITEM
@@ -641,7 +642,7 @@
 			}
 
 			///// AT TABLE BODY /////
-			html += '<tr>';
+			html += '<tr class="' + matchTail + '">';
 			for ( var i = 0, n = cols.length ; i < n ; i++ ) {
 				html += '<td style="text-align:' + this.tableInfo[ i ] + ';">';
 				html += this._buildLine( null, null, null, cols[ i ], null ) + '</td>';
