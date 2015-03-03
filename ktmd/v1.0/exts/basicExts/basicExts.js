@@ -204,7 +204,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\[\[\!(\S+?)\]\](.*)$/ ) ) {
+		while ( matches = textIn.match( /^(.*?)\[\[(\S+?)\!\]\](.*)$/ ) ) {
 
 			var matchHead = matches[ 1 ];
 			var matchBody = matches[ 2 ];

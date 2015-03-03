@@ -29,7 +29,7 @@
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Parser**
-::: 2015.2.28 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
+::: 2015.3.3 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 )))
 
 ## ktMarkDown.js とは?
@@ -47,7 +47,7 @@
 
 　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。「 ターミナルからごにょごにょしたり 」とか「 サーバを立てたり 」といった難しいことは一切不要です。ZIPファイルをダウンロードして解凍するだけで始められます。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
 
-[[[info [[!thumbs-up]] **QUICKSTART** 〜 すぐに始められます
+[[[info [[thumbs-up!]] **QUICKSTART** 〜 すぐに始められます
 * 使う前にすること : ZIPファイルをダウンロードして解凍する。
 * 編集に必要なモノ : いつも使っているテキストエディタ。
 * 表示に必要なモノ : いつも使っているウェブブラウザ。
@@ -59,16 +59,16 @@
 
 　マークダウンには様々な方言がありますが、ktMarkDown.js は、デファクトスタンダード的な文法を中心にサポートを行っています。ただし、記号1文字によるものなどの副作用の多いモノは避けています。また、マークダウンの思想である「 __変換前のテキストもそのまま読める__ 」ことも重要視しています。
 
-[[[info [[!check]] **EASY SYNTAX** 〜 シンプルな文法
+[[[info [[check!]] **EASY SYNTAX** 〜 シンプルな文法
 * マークダウンの方言を複数サポートしており、既存のマークダウンテキストを流量が比較的容易 (..なはず)。
 * マークダウンのまま読めるような文法を優先しています。
 ]]]
 
 ### EXTENSIBLE
 
-　HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う [highlight.js](https://highlightjs.org) との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っていますし、Bootstrap3との連携も行っています。
+　HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う **[highlight.js](+https://highlightjs.org)** [[new-window!]]との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っていますし、Bootstrap3との連携も行っています。
 
-[[[info [[!cog]] **EXTENSIBLE** 〜 機能拡張モジュールによって機能追加が可能
+[[[info [[cog!]] **EXTENSIBLE** 〜 機能拡張モジュールによって機能追加が可能
 * マークダウンとHTMLやJavaScriptを混在させることが可能 ( アクセス解析やシンタックスハイライトなども可能 )。
 * 機能拡張モジュールによって機能を後から追加することが可能。
 * 標準添付の機能拡張モジュールで、いくつかのマークダウン記法を追加しています。
@@ -80,7 +80,7 @@
 
 ### DOWNLOAD
 
-[[[info [[!download]] ダウンロードサイト
+[[[info [[download!]] ダウンロードサイト
 * **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]] 最新版はこちらから!
 * **Download** from  [[keyTop; [this site](http://sitearo.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
 ]]]
@@ -89,24 +89,24 @@
 
 　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。中身の構成を理解しておく必要はありませんが、ktMarkDown.js 本体の場所は知っておいた方がよいかと思います。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
-[[[info [[!th-list]] ''CONTENTS OF ZIP''
-* [[!folder-open]] ktMarkDown.js
-	* [[!file]] index.html ( このドキュメント )
-	* [[!folder-open]] **ktmd**
-		* [[!folder-open]] v1.0 ( ktMarkDown v1.0 のフォルダ )
-			* [[!file]]  __**ktmd.js**  ( ktMarkDown.js 本体 )__
-			* [[!folder-open]] css ( CSSフォルダ )
-				* [[!file]]  ktmd.css ( デフォルト CSS )
-			* [[!folder-open]] exts ( 機能拡張フォルダ )
-				* [[!folder-open]] basicExts ( 基本機能拡張 )
-				* [[!folder-open]] emoji ( 絵文字機能拡張 )
-				* [[!folder-open]] todo ( TODO機能拡張 )
-		* [[!folder-open]] lib ( ライブラリフォルダ )
-			* [[!folder-open]] bootstrap ( Bootstrap3フォルダ )
-		* [[!folder-open]] doc ( 文法の説明ドキュメント )
-	* [[!folder-open]] sample ( サンプルテキスト )
-		* [[!file]]  simple.html
-		* [[!file]]  multipart.html
+[[[info [[th-list!]] **CONTENTS OF ZIP**
+* [[folder-open!]] ktMarkDown.js
+	* [[file!]] index.html ( このドキュメント )
+	* [[folder-open!]] **ktmd**
+		* [[folder-open!]] v1.0 ( ktMarkDown v1.0 のフォルダ )
+			* [[file!]]  __**ktmd.js**  ( ktMarkDown.js 本体 )__
+			* [[folder-open!]] css ( CSSフォルダ )
+				* [[file!]]  ktmd.css ( デフォルト CSS )
+			* [[folder-open!]] exts ( 機能拡張フォルダ )
+				* [[folder-open!]] basicExts ( 基本機能拡張 )
+				* [[folder-open!]] emoji ( 絵文字機能拡張 )
+				* [[folder-open!]] todo ( TODO機能拡張 )
+		* [[folder-open!]] lib ( ライブラリフォルダ )
+			* [[folder-open!]] bootstrap ( Bootstrap3フォルダ )
+		* [[folder-open!]] doc ( 文法の説明ドキュメント )
+	* [[folder-open!]] sample ( サンプルテキスト )
+		* [[file!]]  simple.html
+		* [[file!]]  multipart.html
 ]]]
 
 　HTMLの基本形は以下のようになっています。
@@ -132,32 +132,33 @@ __{{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
 
 ### CHARACTER ATTRIBUTES
 
-* ''[文字修飾](ktmd_doc/ref_Char.html)''
-	* ''[太字](ktmd_doc/ref_Char.html#BOLD)'' ([ \*\* Bold \*\* ]) ([ \'\' Bold \'\' ])
-	* //[斜体字](ktmd_doc/ref_Char.html#ITALIC)// ([ \/\/ Italic \/\/ ])
-	* __[下線](ktmd_doc/ref_Char.html#UNDERLINE)__ ([ \_\_ Underline \_\_ ])
-	* ~~[打ち消し線](ktmd_doc/ref_Char.html#STRIKETHROUGH)~~ ([ \~\~ Strikethrough \~\~ ])
-	* ``[等幅文字](ktmd_doc/ref_Char.html#MONOSPACE)`` ([ \`\` Monospace \`\` ])
-* ''[リンク](ktmd_doc/ref_Link.html)'' ([ \[Link\]\(URL\) ])
-	* [Name](ktmd_doc/ref_Link.html#NAME) ([ \{\#Name\} ])
-* ''[マルチメディア](ktmd_doc/ref_Multimedia.html)''
-	* [画像](ktmd_doc/ref_Multimedia.html#IMAGES) ([ \!\[TITLE\]\(URL\) ])
-	* [動画](ktmd_doc/ref_Multimedia.html#VIDEOS) ([ \!v\[TITLE\]\(URL\) ])
-	* [音声](ktmd_doc/ref_Multimedia.html#AUDIOS) ([ \!a\[TITLE\]\(URL\) ])
-* ''[エスケープ文字](ktmd_doc/ref_Escape.html)'' ([ \\ ])
+* **[文字修飾](ktmd_doc/ref_Char.html)**
+	* **[太字](ktmd_doc/ref_Char.html#BOLD)** '' \*\* Bold \*\* ''
+	* **[マーク](ktmd_doc/ref_Char.html#MARK)** '' \'\' Mark \'\' ''
+	* //[斜体字](ktmd_doc/ref_Char.html#ITALIC)// '' \/\/ Italic \/\/ ''
+	* __[下線](ktmd_doc/ref_Char.html#UNDERLINE)__ '' \_\_ Underline \_\_ ''
+	* ~~[打ち消し線](ktmd_doc/ref_Char.html#STRIKETHROUGH)~~ '' \~\~ Strikethrough \~\~ ''
+	* ``[等幅文字](ktmd_doc/ref_Char.html#MONOSPACE)`` '' \`\` Monospace \`\` ''
+* **[リンク](ktmd_doc/ref_Link.html)** '' \[Link\]\(URL\) ''
+	* [Name](ktmd_doc/ref_Link.html#NAME) '' \{\#Name\} ''
+* **[マルチメディア](ktmd_doc/ref_Multimedia.html)**
+	* [画像](ktmd_doc/ref_Multimedia.html#IMAGES) '' \!\[TITLE\]\(URL\) ''
+	* [動画](ktmd_doc/ref_Multimedia.html#VIDEOS) '' \!v\[TITLE\]\(URL\) ''
+	* [音声](ktmd_doc/ref_Multimedia.html#AUDIOS) '' \!a\[TITLE\]\(URL\) ''
+* **[エスケープ文字](ktmd_doc/ref_Escape.html)** '' \\ ''
 
 
 ### LINE ATTRIBUTES
 
-* ''[見出し](ktmd_doc/ref_Header.html)'' ([ \# Header ])
-* ''[引用](ktmd_doc/ref_Blockquote.html)'' ([ \} Blockquote ])
-* ''[箇条書き](ktmd_doc/ref_List.html)''
+* **[見出し](ktmd_doc/ref_Header.html)** ([ \# Header ])
+* **[引用](ktmd_doc/ref_Blockquote.html)** ([ \} Blockquote ])
+* **[箇条書き](ktmd_doc/ref_List.html)**
 	* [番号付き](ktmd_doc/ref_List.html#UNORDERED_LISTS_:_ASTERISK) ([ \+ Ordered List ])
 	* [番号なし](ktmd_doc/ref_List.html#ORDERED_LIST_:_PLUS) ([ \* Unordered List ])
-* ''[整形済みテキスト](ktmd_doc/ref_Prefix.html)'' ([ \`\`\` Prefix \`\`\` ])
+* **[整形済みテキスト](ktmd_doc/ref_Prefix.html)** ([ \`\`\` Prefix \`\`\` ])
 	* [Syntax Highlighted by highlight.js](ktmd_doc/ref_Prefix.html#HIGHLIGHT_SYNTAX_BY_HIGHLIGHT.JS)
-* ''[テーブル](ktmd_doc/ref_Table.html)'' ([ |---|---| ])
-* ''[水平線](ktmd_doc/ref_HorRule.html)'' ([ --- ])
+* **[テーブル](ktmd_doc/ref_Table.html)** ([ |---|---| ])
+* **[水平線](ktmd_doc/ref_HorRule.html)** ([ --- ])
 
 
 ## MULTI-PART MARKDOWN
@@ -202,8 +203,8 @@ __{{/script}}__
 {{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
 ```
 
-1. ''自動リロード'' ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
-2. ''機能拡張'' ``extensions`` : 使用する機能拡張の名前を列挙します。
+1. **自動リロード** ``autoReload`` : 定期的にブラウザ側でリロードを行わせることができ、その間隔を秒単位で指定可能。0 にするとリロード停止。自動リロードはローカルファイルにのみ有効なため、そのままウェブサイトにアップロードしても大丈夫です。
+2. **機能拡張** ``extensions`` : 使用する機能拡張の名前を列挙します。
 
 
 ## BUILT-IN EXTENSIONS
@@ -227,21 +228,26 @@ __{{/script}}__
 		* Alerts
 			* [[INFO alert-info ]] [[INFO alert-info ]\]
 		* Icon ( [Bootstrap Grylphicons](+http://getbootstrap.com/components/) )
-			* [[!asterisk]] [\[!asterisk]]
-			* [[!time]] [\[!time]]
-			* [[!bell]] [\[!bell]]
-			* [[!cloud-download]] [\[!cloud-download]]
+			* [[asterisk!]] [\[asterisk!]]
+			* [[time!]] [\[time!]]
+			* [[bell!]] [\[bell!]]
+			* [[cloud-download!]] [\[cloud-download!]]
 
 * ** Character Attributes **
 	* ;;[Text Shadow](ktmd_doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
 	* ([ [Rect Box](ktmd_doc/ref_BasicExtensions.html#ROUNDED_RECTANGLE_BOX) ]) ([ \(\[ Rect Box \]\) ])
 	* (( [Oval Box](ktmd_doc/ref_BasicExtensions.html#RECTANGLE_BOX) )) ([ \(\( Oval Box \)\) ])
 * ** Line Attributes **
-	* ''[Text Box](ktmd_doc/ref_BasicExtensions.html)''
-		* ''[Rect Box](ktmd_doc/ref_BasicExtensions.html)'' ([ \(\(\[ Rect Box \]\)\) ])
-		* ''[Oval Box](ktmd_doc/ref_BasicExtensions.html)'' ([ \(\(\( Oval Box \)\)\) ])
-	* ''[Text Align](ktmd_doc/ref_BasicExtensions.html)''
-	* ''[Page Break](ktmd_doc/ref_BasicExtensions.html)'' ([ ===== ])
+	* **[Text Box](ktmd_doc/ref_BasicExtensions.html)**
+		* **[Rect Box](ktmd_doc/ref_BasicExtensions.html)** ([ \(\(\[ Rect Box \]\)\) ])
+		* **[Oval Box](ktmd_doc/ref_BasicExtensions.html)** ([ \(\(\( Oval Box \)\)\) ])
+	* **[文字揃え](ktmd_doc/ref_BasicExtensions.html)**
+		* 左揃え '' : ''
+		* 中央揃え '' :: ''
+		* 右揃え '' ::: ''
+		* 両端揃え '' ::::: ''
+		* ラップなし '' ::::: ''
+	* **[Page Break](ktmd_doc/ref_BasicExtensions.html)** ([ ===== ])
 
 ### TODO機能拡張 ( todo )
 	* **チェックボックス**
@@ -266,7 +272,7 @@ __{{/script}}__
 		* @依頼済(太郎) (( \@依頼済\(xxxx\) ))
 
 ## 絵文字機能拡張 ( emoji )
-	* ''[Emoji](ktmd_doc/ref_Emoji.html)'' :cat: ([ \:cat\: ])
+	* **[Emoji](ktmd_doc/ref_Emoji.html)** :cat: ([ \:cat\: ])
 
 
 ## HISTORY
@@ -293,8 +299,8 @@ __{{/script}}__
 
 ### Lisence
 
-Copyright (c) 2015 Kengo Tsuruzono
-Released under the MIT license
+	Copyright (c) 2015 Kengo Tsuruzono
+	Released under the MIT license
 
 ---
 :::This document is made by __ktMarkDown.js__.
@@ -305,7 +311,7 @@ Released under the MIT license
 <script type="text/javascript"><!-- ktMarkDown.js -->
 	var KtMarkDown_Options = {
 		autoReload : 0,	// Interval of auto reload ( sec, 0 = Don't reload )
-		extensions : [ 'basicExts',  'emoji', 'todo' ],	// Extensions
+		extensions : [ 'basicExts', 'todo' ],	// Extensions
 	};
 </script>
 <script src='ktmd/v1.0/ktmd.js'></script></body></html>

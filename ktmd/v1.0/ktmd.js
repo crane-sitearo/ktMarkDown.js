@@ -186,7 +186,7 @@
 		var matches = [];
 
 		while ( matches = textIn.match( /^(.*?)\'\'(.*?)\'\'(.*)$/ ) ) {	// '' BOLD ''
-			textOut += matches[ 1 ] + '<b class="ktmd_fw600">' + matches[ 2 ] + '</b>';
+			textOut += matches[ 1 ] + '<mark>' + matches[ 2 ] + '</mark>';
 			textIn   = matches[ 3 ];
 		}
 
@@ -585,13 +585,15 @@
 				this.tableInfo = null;
 			}
 		} else { // ALREADY OUTSIDE OF TABLE
-			if ( matches = lineIn.match( /^\|(.*)\|\s*$/ ) ) { // INSIDE OF TABLE
+			if ( matches = lineIn.match( /^\|(.*)\|((.*?)\!)?$/ ) ) { // INSIDE OF TABLE
 				var matchHead = matches[ 1 ];
-				if ( matches = matchHead.match( /^(\S+?)\:/) ) {
-					html += '<table class="ktmd_table_' + matches[ 1 ] + '">';
-				} else {
-					html += '<table class="ktmd_table">';
+				var matchTail = matches[ 3 ];
+				var className = 'table';
+				var classes   = matchTail ? matchTail.split( ' ' ) : [];
+				for ( var i = 0, n = classes.length ; i < n ; i++ ) {
+					className += ' table-' + classes[ i ];
 				}
+				html += '<table class="' + className + '">';
 				this.tableInfo = 'atHead';
 			}
 		}
@@ -607,7 +609,7 @@
 		var html    = '';
 		var	matches = [];
 
-		if ( matches = lineIn.match( /^\|.*\|\s*$/) ) { // INSIDE OF TABLE
+		if ( matches = lineIn.match( /^\|.*\|(.*?\!)?$/) ) { // INSIDE OF TABLE
 
 			var cols = lineIn.split( '|' );
 			cols.pop();		// REMOVE LAST ITEM
@@ -754,11 +756,12 @@
 				case 2 : align = 'center';  break;	// ::
 				case 3 : align = 'right';   break;	// :::
 				case 4 : align = 'justify'; break;	// ::::
+				case 4 : align = 'nowrap'; break;	// :::::
 			}
-			sTag = 'div';
-			styl = 'text-align:' + align + ';';
+			sTag = 'p';
+			clas = 'text-' + align;
 			text = matches[ 2 ];
-			eTag = 'div';
+			eTag = 'p';
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 

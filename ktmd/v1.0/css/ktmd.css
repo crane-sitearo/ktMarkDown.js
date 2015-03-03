@@ -3451,6 +3451,37 @@ code {
 /***********
  *  TABLE  *
  ***********/
+.table {
+  margin-right: auto;
+  margin-left: auto;
+}
+.table-90 {
+  width: 90%;
+}
+.table-80 {
+  width: 80%;
+}
+.table-70 {
+  width: 70%;
+}
+.table-60 {
+  width: 60%;
+}
+.table-50 {
+  width: 50%;
+}
+.table-40 {
+  width: 40%;
+}
+.table-30 {
+  width: 30%;
+}
+.table-20 {
+  width: 20%;
+}
+.table-10 {
+  width: 10%;
+}
 .ktmd_table {
   box-sizing: border-box;
   margin: 10px 12px;
@@ -3463,7 +3494,7 @@ code {
   margin: 10px auto;
 }
 /***** ROW *****/
-th {
+ktmd_th {
   box-sizing: border-box;
   margin: 0;
   border-left: 1px solid #d2d2d2;
@@ -3472,11 +3503,11 @@ th {
   background: #c8c8c8;
   text-align: center;
 }
-table th:last-child {
+ktmd_table ktmd_th:last-child {
   border-right: 1px solid #d2d2d2;
 }
 /***** CELL *****/
-td {
+ktmd_td {
   box-sizing: border-box;
   margin: 0;
   padding: 8px;
@@ -3484,10 +3515,10 @@ td {
   border-top: 1px solid #d2d2d2;
   background: #e6e6e6;
 }
-table td:last-child {
+ktmd_table ktmd_td:last-child {
   border-right: 1px solid #d2d2d2;
 }
-table tr:last-child td {
+ktmd_table ktmd_tr:last-child ktmd_td {
   border-bottom: 1px solid #d2d2d2;
 }
 .keyTop {
