@@ -3,6 +3,7 @@
 /*
 	CSS for ktMarkDown.js
 */
+/* GOOGLE FONTS */
 /* Box Border Color */
 body {
   box-sizing: border-box;
@@ -70,6 +71,12 @@ h1 {
   text-align: center;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
+h2 {
+  background: #f5f5f5;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 8px 20px;
+  border-radius: 8px;
+}
 .ktmd_h2 {
   margin: 4px 4px 0 4px;
   border-style: solid;
@@ -84,6 +91,10 @@ h1 {
   text-align: center;
   text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
 }
+h3 {
+  border-bottom: 2px solid #e6e6e6;
+  padding: 8px 16px;
+}
 .ktmd_h3 {
   margin: 16px 4px 16px 4px;
   border: 1px solid #c8c8c8;
@@ -96,26 +107,12 @@ h1 {
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 h4 {
-  margin: 10px 1em 10px 4px;
-  padding: 2px 1em;
-  font-size: 11pt;
-  font-weight: 900;
-  line-height: 1.8em;
-  color: #141414;
-  border: 1px solid #c8c8c8;
-  border-radius: 20px;
-  background-color: #e6e6f0;
-  text-align: left;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 8px 16px;
 }
 h5 {
-  margin: 0 0;
-  padding: 2px 1em;
-  font-weight: 600;
-  font-size: 10pt;
-  line-height: 1.8em;
-  color: #141414;
-  border-bottom: 1px solid #c8c8c8;
-  text-align: left;
+  padding: 8px 16px;
+  border-bottom: 1px dotted #e6e6e6;
 }
 h6 {
   margin: 0 0;
@@ -3452,8 +3449,16 @@ code {
  *  TABLE  *
  ***********/
 .table {
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
+}
+.table-left {
+  margin-left: 0;
+  margin-right: auto;
+}
+.table-right {
+  margin-left: auto;
+  margin-right: 0;
 }
 .table-90 {
   width: 90%;
@@ -3494,14 +3499,8 @@ code {
   margin: 10px auto;
 }
 /***** ROW *****/
-ktmd_th {
-  box-sizing: border-box;
-  margin: 0;
-  border-left: 1px solid #d2d2d2;
-  border-top: 1px solid #d2d2d2;
-  padding: 8px;
-  background: #c8c8c8;
-  text-align: center;
+th {
+  background: #f0f0f0;
 }
 ktmd_table ktmd_th:last-child {
   border-right: 1px solid #d2d2d2;

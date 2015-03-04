@@ -29,10 +29,10 @@
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Parser**
-::: 2015.3.3 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
+::: 2015.3.4 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 )))
 
-## ktMarkDown.js とは?
+## [[book!]] ktMarkDown.js とは?
 
 　**ktMarkDown.js** は、JavaScriptによって記述されたマークダウンパーサです。テンプレートになるHTMLファイルに、テキストエディタでマークダウン記法で入力を行ったら、Webブラウザで表示するだけで確認ができます。
 
@@ -41,13 +41,13 @@
 - [[keyTop; [Bootstrap3のサポート](ktmd_doc/ref_Bootstrap3.html) ]] : Bootstrap3の表現力をマークダウンに。
 
 
-## FEATURES
+## [[book!]] FEATURES
 
-### QUICK START
+### [[flash!]] QUICK START
 
 　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。「 ターミナルからごにょごにょしたり 」とか「 サーバを立てたり 」といった難しいことは一切不要です。ZIPファイルをダウンロードして解凍するだけで始められます。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
 
-[[[info [[thumbs-up!]] **QUICKSTART** 〜 すぐに始められます
+[[[info [[flash!]] **QUICKSTART** 〜 すぐに始められます
 * 使う前にすること : ZIPファイルをダウンロードして解凍する。
 * 編集に必要なモノ : いつも使っているテキストエディタ。
 * 表示に必要なモノ : いつも使っているウェブブラウザ。
@@ -55,7 +55,7 @@
 * 外部ライブラリ : 必要ありません。
 ]]]
 
-### EASY SYNTAX
+### [[check!]] EASY SYNTAX
 
 　マークダウンには様々な方言がありますが、ktMarkDown.js は、デファクトスタンダード的な文法を中心にサポートを行っています。ただし、記号1文字によるものなどの副作用の多いモノは避けています。また、マークダウンの思想である「 __変換前のテキストもそのまま読める__ 」ことも重要視しています。
 
@@ -64,7 +64,7 @@
 * マークダウンのまま読めるような文法を優先しています。
 ]]]
 
-### EXTENSIBLE
+### [[cog!]] EXTENSIBLE
 
 　HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う **[highlight.js](+https://highlightjs.org)** [[new-window!]]との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っていますし、Bootstrap3との連携も行っています。
 
@@ -76,16 +76,18 @@
 ]]]
 
 
-## DOWNLOAD & INSTALL
+## [[book!]] DOWNLOAD & INSTALL
 
-### DOWNLOAD
+### [[download!]] DOWNLOAD
+
+　現在、試行錯誤しながら開発中。GitHubから最新版をダウンロードできます。シンプルで覚えやすくてパワフルで美しいドキュメントが作れるものを目指しています。
 
 [[[info [[download!]] ダウンロードサイト
 * **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]] 最新版はこちらから!
 * **Download** from  [[keyTop; [this site](http://sitearo.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
 ]]]
 
-## INSTALL
+### [[download!]] INSTALL
 
 　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。中身の構成を理解しておく必要はありませんが、ktMarkDown.js 本体の場所は知っておいた方がよいかと思います。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
@@ -104,12 +106,16 @@
 		* [[folder-open!]] lib ( ライブラリフォルダ )
 			* [[folder-open!]] bootstrap ( Bootstrap3フォルダ )
 		* [[folder-open!]] doc ( 文法の説明ドキュメント )
-	* [[folder-open!]] sample ( サンプルテキスト )
+	* [[folder-open!]] ktmd_sample ( サンプルテキスト )
 		* [[file!]]  simple.html
 		* [[file!]]  multipart.html
 ]]]
 
-　HTMLの基本形は以下のようになっています。
+## [[book!]] USE IT!
+
+### [[pencil!]] 始めてみよう
+
+　HTMLの基本形は以下のようになっています。「 [[folder-open!]] ktmd_sample }} [[file!]] simple.html 」をテキストエディタで開いてみてください。
 
 ```{HTML}
 {{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
@@ -197,7 +203,7 @@ ktMarkDown.js の動作のカスタマイズの1つにオプション指定が�
 __{{script type="text/javascript"}}__
   var __KtMarkDown_Options__ = {
     autoReload : 30, // Interval of auto reload ( sec, 0 = Don't reload ) ...((1))
-    extensions : [ 'basicExts', 'emoji', 'todo' ], // Extensions ...((2))
+    extensions : [ 'basicExts', 'todo' ], // Extensions ...((2))
   };
 __{{/script}}__
 {{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
@@ -207,31 +213,27 @@ __{{/script}}__
 2. **機能拡張** ``extensions`` : 使用する機能拡張の名前を列挙します。
 
 
-## BUILT-IN EXTENSIONS
+## [[cog!]] BUILT-IN EXTENSIONS
 
-　ktMarkDown.js に添付の機能拡張モジュールがあります。
+　ktMarkDown.js は、いくつか機能拡張モジュールを同梱しています。標準的なマークダウンでは表現力が足りないという方は、こちらの機能拡張モジュールを試してみてください。
 
-### 基本機能拡張 ( basicExts )
+### [[cog!]] 基本機能拡張 ( basicExts )
 
-* ** Bootstrap3 Support ** [詳細はこちら](ktmd_doc/ref_Bootstrap3.html)
-	* ** Label ( label label-xxx ) **
-		* [[primary label-primary ]] [\[primary label-primary ]\]
-	* ** Button **
-		* Normal Size
-			* [[! button-default ]] [\[! button-default ]\]
-		* Large Size
-			* [[!+ button-default ]] [\[!+ button-default ]\]
-		* Small Size
-			* [[!- button-default ]] [\[!- button-default ]\]
-		* Extra Small Size
-			* [[!-- button-default ]] [\[!-- button-default ]\]
-		* Alerts
-			* [[INFO alert-info ]] [[INFO alert-info ]\]
-		* Icon ( [Bootstrap Grylphicons](+http://getbootstrap.com/components/) )
-			* [[asterisk!]] [\[asterisk!]]
-			* [[time!]] [\[time!]]
-			* [[bell!]] [\[bell!]]
-			* [[cloud-download!]] [\[cloud-download!]]
+
+### [[cog!]] Bootstrap3対応 ( basicExts )
+
+　basicExts は、ウェブサイトの製作に広く使われている Bootstrap3 をサポートしています。
+
+| **Input**					| **Output**				| **種類**		|bordered 70!
+|--------------------------:|---------------------------|---------------|
+| [[ ラベル ]]				| [\[ ラベル ]\]				| 6種類			|
+| [[primary! ボタン ]]		| [\[primary! ボタン ]\]		| 7種類×4サイズ	|
+| [[INFO アラート ]]			| [\[INFO アラート ]\]		| 4種類			|
+| [[# 10 ]]					| [\[# 10 ]\] バッジ			| 1種類			|
+| [[time!]]	アイコン			| [\[time!]\] アイコン		| 260種類		|
+| [` shift + B`] キーボード	| [\` shift + B`\] キーボード	| 1種類			|
+| : 文字揃え					| 							| 5種類			|
+
 
 * ** Character Attributes **
 	* ;;[Text Shadow](ktmd_doc/ref_BasicExtensions.html);; ( textShadow ) : Add 'Text Shadow' syntax. (( \;\;Text Shadow \;\; ))
@@ -241,12 +243,6 @@ __{{/script}}__
 	* **[Text Box](ktmd_doc/ref_BasicExtensions.html)**
 		* **[Rect Box](ktmd_doc/ref_BasicExtensions.html)** ([ \(\(\[ Rect Box \]\)\) ])
 		* **[Oval Box](ktmd_doc/ref_BasicExtensions.html)** ([ \(\(\( Oval Box \)\)\) ])
-	* **[文字揃え](ktmd_doc/ref_BasicExtensions.html)**
-		* 左揃え '' : ''
-		* 中央揃え '' :: ''
-		* 右揃え '' ::: ''
-		* 両端揃え '' ::::: ''
-		* ラップなし '' ::::: ''
 	* **[Page Break](ktmd_doc/ref_BasicExtensions.html)** ([ ===== ])
 
 ### TODO機能拡張 ( todo )
