@@ -6,34 +6,27 @@
 # [ktMarkDown.js](../index.html) : Links
 )))
 
-## LINKS
+## Links
 
-### MANUAL LINK ( 手動リンク )
+### Manual Links
 
-You can create a linked text with " ((\[)) title (( \]\()) url (( \) )) ".
-" ((\[)) title (( \]\( )) url (( \) )) " の記述でリンクを作ることが出来ます。
+「 \[ タイトル \]\(URL\) 」の記述でリンクを作ることが出来ます。URLの先頭に「 + 」を付け加えると、別ウィンドウ(もしくはタブ)でリンク先を開くことが可能です。
 
-| Input ( コピーして使えます ) 						| Output 							|bordered hover striped 70!
-|:-------------------------------------------------:|:---------------------------------:|
-| ((\[))Apple((\]\())http://www.apple.com (( \) ))	| [Apple](http://www.apple.com)		|
-
-URLの先頭に (( + )) を書くことで、新規ウィンドウ(もしくはタブ)で開くリンクになります。
-
-| Input ( コピーして使えます ) 						| Output 								|bordered hover striped 70!
-|:-------------------------------------------------:|:-------------------------------------:|
-| ((\[))Apple((\]\())+http://www.apple.com (( \) ))	| [Apple](+http://www.apple.com)		|
+| 種別 		| 入力 ( コピー利用可 ) 					| 出力 		|bordered condensed!
+|-----------|:-------------------------------------:|:---------------------------------:|
+| 同窓リンク	| \[Apple\]\(http://www.apple.com\)		| [Apple](http://www.apple.com)		|
+| 別窓リンク	| \[Apple\]\(+http://www.apple.com\)	| [Apple](+http://www.apple.com)	|
 
 
-### AUTO LINK
+### Auto Links
 
-You can create a linked text with URL only.
-スペースを書いてURLを書くだけでリンクが作成されます。
+URLを書くだけもリンクが作成されます。
 
-| Input ( コピーして使えます ) 						| Output 								|bordered hover striped 70!
-|:-------------------------------------------------:|:-------------------------------------:|
-| Apple : (( http\://www.apple.com/ ))				| Apple : http://www.apple.com/			|
+| 種別 		| 入力 ( コピー利用可 ) 					| 出力 		|bordered condensed 70!
+|:----------|--------------------------------------:|:---------------------------------:|
+| 自動リンク	| Apple : (( http\://www.apple.com/ ))	| Apple : http://www.apple.com/		|
 
-* ''Supported schemes''
+* **サポートしているスキーム**
 	- http ( http://abc.com/ )
 	- https ( https://abc.com/ )
 	- ftp ( ftp://abc.com/ )
@@ -71,7 +64,7 @@ You can define place with using header ( # at line top ). See also [Headers](ref
 ]]]
 
 ---
-:: ''[Back](../index.html)''
+:: **[Back](../index.html)**
 ---
 :::This document is made by __ktMarkDown.js__.
 

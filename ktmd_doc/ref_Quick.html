@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+<title>ktMarkDown.js : Quick Reference</title>
+</head><body>
+
+<script type="text/ktMarkDown" class="markdownSrc">/*
+
+((("jumbotron"
+# [ktMarkDown.js](../index.html) : Quick Reference
+)))
+
+### 凡例
+| 表記			| 説明									|bordered striped condensed!
+|:-------------:|:--------------------------------------|
+| [[# STD ]]	| 一般的なマークダウン記法					|
+| [[# STD+ ]]	| 準一般的なマークダウン記法				|
+| [[# GH ]]		| Github Fravered Markdown				|
+| [[# ktMD ]]	| ktMarkDown.jsによる拡張記法				|
+| [[# ktMD+ ]]	| ktMarkDown.jsのbasicExtsによる拡張記法	|
+
+
+## Character Attributes : 文字修飾
+
+### Basic : 基本
+| 種類			| 入力							| 出力						| 補足							| 文法			|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| 太字			| *\*BOLD*\*					| **BOLD**					| 								| [[# STD ]]	|
+| 斜体			| /\/ITALIC/\/					| //ITALIC//				| 								|				|
+| 下線			| _\_UNDERLINE_\_				| __UNDERLINE__				| 								|				|
+| 打ち消し線		| ~\~STRIKETHROUGH~\~			| ~~STRIKETHROUGH~~			| 								| [[# STD ]]	|
+| 等幅文字		| `\`MONOSPACE`\`				| ``MONOSPACE``				| 								| [[# STD ]]	|
+
+### Labels : ラベル ( Bootstrap3 )
+| 種類			| 入力 							| 出力						| 補足							| 文法			|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| デフォルト		| [\[ LABEL ]\]					| [[ LABEL ]]				| .label .label-default 		| [[# ktMD+ ]]	|
+| プライマリ		| [\[primary LABEL ]\]			| [[primary LABEL ]]		| .label .label-primary 		| [[# ktMD+ ]]	|
+| インフォ		| [\[info LABEL ]\]				| [[info LABEL ]]			| .label .label-info	 		| [[# ktMD+ ]]	|
+| サクセス		| [\[success LABEL ]\]			| [[success LABEL ]]		| .label .label-success 		| [[# ktMD+ ]]	|
+| ワーニング		| [\[warning LABEL ]\]			| [[warning LABEL ]]		| .label .label-warning 		| [[# ktMD+ ]]	|
+| デンジャー		| [\[danger LABEL ]\]			| [[danger LABEL ]]			| .label label-danger 			| [[# ktMD+ ]]	|
+
+
+### Buttons ( Bootstrap3 )
+
+#### Colors
+| 種類			| 入力 							| 出力						| 補足							| 文法			|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| デフォルト		| [\[! BUTTON ]\]				| [[! BUTTON ]]				| .btn .btn-default 			| [[# ktMD+ ]]	|
+| プライマリ		| [\[primary! BUTTON ]\]		| [[primary! BUTTON ]]		| .btn .btn-primary 			| [[# ktMD+ ]]	|
+| インフォ		| [\[info! BUTTON ]\]			| [[info! BUTTON ]]			| .btn .btn-info	 			| [[# ktMD+ ]]	|
+| サクセス		| [\[success! BUTTON ]\]		| [[success! BUTTON ]]		| .btn .btn-success 			| [[# ktMD+ ]]	|
+| ワーニング		| [\[warning! BUTTON ]\]		| [[warning! BUTTON ]]		| .btn .btn-warning 			| [[# ktMD+ ]]	|
+| デンジャー		| [\[danger! BUTTON ]\]			| [[danger! BUTTON ]]		| .btn .btn-danger 				| [[# ktMD+ ]]	|
+| リンク			| [\[link! BUTTON ]\]			| [[link! ボタン ]]			| .btn .btn-link 				| [[# ktMD+ ]]	|
+
+#### Sizes
+| 種類			| 入力 							| 出力						| 補足							| 文法			|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| 大きい			| [\[primary!+ BUTTON ]\]		| [[primary!+ BUTTON ]]		| .btn-lg						| [[# ktMD+ ]]	|
+| 標準			| [\[primary! BUTTON ]\]		| [[primary! BUTTON ]]		| 								| [[# ktMD+ ]]	|
+| 小さい			| [\[primary!- BUTTON ]\]		| [[primary!- BUTTON ]]		| .btn-sm			 			| [[# ktMD+ ]]	|
+| より小さい		| [\[primary!-- BUTTON ]\]		| [[primary!-- BUTTON ]]	| .btn-xs			 			| [[# ktMD+ ]]	|
+
+### Alerts ( Bootstrap3 )
+
+| 種類			| 入力 							| 出力						| 補足							| 文法			|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| インフォ		| [\[INFO ALERT ]\]				| [[INFO ALERT ]]			| .btn .btn-info	 			| [[# ktMD+ ]]	|
+| サクセス		| [\[SUCCESS ALERT ]\]			| [[SUCCESS ALERT ]]		| .btn .btn-success 			| [[# ktMD+ ]]	|
+| ワーニング		| [\[WARNING ALERT ]\]			| [[WARNING ALERT ]]		| .btn .btn-warning 			| [[# ktMD+ ]]	|
+| デンジャー		| [\[DANGER ALERT ]\]			| [[DANGER ALERT ]]			| .btn .btn-danger 				| [[# ktMD+ ]]	|
+
+### Icons : アイコン ( Bootstrap3 )
+| 種類			| 入力 							| 出力						| 補足							|				|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| OK			| [\[ok!]\] 					| [[ok!]]					| 								| [[# KTMD+ ]]	|
+| 削除			| [\[remove!]\] 				| [[remove!]]				| 								| [[# ktMD+ ]]	|
+| 設定			| [\[cog!]\]					| [[cog!]]					| 								| [[# ktMD+ ]]	|
+| 星				| [\[star!]\]					| [[star!]]					| 								| [[# ktMD+ ]]	|
+| ハート			| [\[heart!]\]					| [[heart!]]				| 								| [[# ktMD+ ]]	|
+| ユーザ			| [\[user!]\]					| [[user!]]					| 								| [[# ktMD+ ]]	|
+| ベル			| [\[bell!]\]					| [[bell!]]					| 								| [[# ktMD+ ]]	|
+| コメント		| [\[comment!]\]				| [[comment!]]				| 								| [[# ktMD+ ]]	|
+| いいね			| [\[thumbs-up!]\]				| [[thumbs-up!]]			| 								| [[# ktMD+ ]]	|
+| ファイル		| [\[file!]\]					| [[file!]]					| 								| [[# ktMD+ ]]	|
+| ダウンロード	| [\[download!]\]				| [[download!]]				| 								| [[# ktMD+ ]]	|
+一覧は[Bootstrap3](+http://getbootstrap.com/components/)
+
+### Badge : バッジ ( Bootstap3 )
+| 種類			| 入力 							| 出力						| 補足							| 文法			|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| デフォルト		| [\[# BADGE ]\]				| [[# BADGE ]]				| .badge 						| [[# ktMD+ ]]	|
+
+
+## Link : リンク
+| 種類			| 入力 							| 出力						| 補足							|				|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| 標準			| [ TITLE ]\(URL) 				| [ TITLE ](URL)			| 同じウィンドウ(タブ)で開く		| [[# STD ]]	|
+| 標準(別窓)		| [ TITLE ]\(+URL) 				| [ TITLE ](+URL)			| 別ウィンドウ(タブ)で開く			| [[## ktMD ]]	|
+| 自動リンク		| http\://www.foo.com/			| http://www.foo.com/		| 								|				|
+
+## Multimedia : マルチメディア
+| 種類			| 入力 							| 出力						| 補足							|				|bordered striped condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| 画像			| ![TITLE]\(URL) 				| 							| 								| [[# STD ]]	|
+| 動画			| !v[TITLE]\(URL) 				| 							| 								| [[# ktMD ]]	|
+| 音声			| !a[TITLE\]\(URL)				| 							| 								| [[# ktMD ]]	|
+
+
+* **[リンク](ktMD_doc/ref_Link.html)** '' \[Link\]\(URL\) ''
+	* [Name](ktMD_doc/ref_Link.html#NAME) '' \{\#Name\} ''
+* **[エスケープ文字](ktMD_doc/ref_Escape.html)** '' \\ ''
+
+
+
+
+| Input ( コピーして使えます)				| Output												| bordered hover striped 70!
+|:-----------------------------------------------------:|:-----------------------------------------------------:|
+| [\[! [\[ok!]\] OK [\[# 10 ]] ]\]					| [[! [[ok!]] OK [[# 10 ]] ]]						|
+| [\[primary! [\[thumbs-up!]\] いいね! [\[# 10 ]] ]\]	| [[primary! [[thumbs-up!]] いいね! [[# 10 ]] ]]		|
+| [\[info! [\[comment!]\] 情報 [\[# 10 ]] ]\]		| [[info! [[comment!]] 情報 [[# 10 ]] ]]				|
+
+
+## パネル
+
+　テキストを囲みの中で書きたい場合は「 パネル 」を使用します。行頭に「 [\[\[ 」でパネルが始まります。次の行からパネル内にテキストを書いていき、次の行の先頭に「 ]\]\] 」と書くことでパネルが閉じます。
+
+[[[info **Input** ( コピーして使えます )
+[\[\[
+テキストを囲みの中で書くにはパネルを使用します。
+]\]\]
+]]]
+
+[[[info **Output**
+[[[
+テキストを囲みの中で書くにはパネルを使用します。
+]]]
+]]]
+
+### ヘッダ付きパネル
+
+　パネルの先頭にヘッダを付けてタイトルを書きたい場合は、「 [\[\[ タイトル 」のように書きます。
+
+[[[info **Input** ( コピーして使えます )
+[\[\[ パネルのタイトル
+テキストを囲みの中で書くにはパネルを使用します。
+]\]\]
+]]]
+
+[[[info **Output**
+[[[ パネルのタイトル
+テキストを囲みの中で書くにはパネルを使用します。
+]]]
+]]]
+
+### フッタ付きパネル
+
+　パネルの末尾にフッタ付けて説明を書きたい場合は、「 ]\]\] 説明 」のように書きます。
+
+[[[info **Input** ( コピーして使えます )
+[\[\[
+テキストを囲みの中で書くにはパネルを使用します。
+]\]\] こんな感じになります
+]]]
+
+[[[info **Output**
+[[[
+テキストを囲みの中で書くにはパネルを使用します。
+]]] こんな感じになります
+]]]
+
+### ヘッダとフッタ付きパネル
+
+
+[[[info **Input** ( コピーして使えます )
+[\[\[ パネルのタイトル
+テキストを囲みの中で書くにはパネルを使用します。
+]\]\] こんな感じになります
+]]]
+
+[[[info **Output**
+[[[ パネルのタイトル
+テキストを囲みの中で書くにはパネルを使用します。
+]]] こんな感じになります
+]]]
+
+
+
+### パネルの種類
+
+　パネルには今までのデフォルトの色以外に、5種類の色があります。パネルの開始のところに「 [\[\[primary 」のように書きます。
+
+
+[[[primary ヘッダ
+primary
+]]] フッタ
+
+
+[[[success ヘッダ
+success
+]]] フッタ
+
+[[[info ヘッダ
+info
+]]] フッタ
+
+[[[warning ヘッダ
+warning
+]]] フッタ
+
+[[[danger ヘッダ
+danger
+]]] フッタ
+
+---
+:: ''[Back](../index.html)''
+---
+:::This document is made by __ktMarkDown.js__.
+
+*/</script>
+
+<script type="text/javascript">
+	var KtMarkDown_Options = {
+		autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		extensions : [ 'basicExts',  'emoji' ],
+	};
+</script>
+<script src='../ktmd/v1.0/ktmd.js'></script></body></html>

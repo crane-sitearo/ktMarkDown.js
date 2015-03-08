@@ -18,6 +18,52 @@
 	}
 
 
+
+	///// TEXT SHAODW /////
+	basicExts.prototype._char_textColor = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\[\[ ([^\[]*?) \!([^[]*?)\]\](.*)$/ ) ) { // [[ TEXT #COLOR]]
+
+			var matchHead  = matches[ 1 ];
+			var matchBody  = matches[ 2 ];
+			var matchColor = matches[ 3 ];
+			var matchTail  = matches[ 4 ];
+
+			if (( matchColor.length <= 3 )&&
+				( matchColor != 'red'    )&&
+				( matchColor != 'tan'    )) { // NUMBER [[ TEXT #RGB]]
+
+				textOut += matchHead + '<span style="color:#' + matchColor + ';">' + matchBody + '</span>';
+				textIn   = matchTail;
+
+			} else { // COLOR NAME
+
+				var BS_COLOR_NAME = [ 'muted',   'primary', 'info', 'success', 'warning', 'danger' ];
+				var BS_LABEL_NAME = [ 'Default', 'Primary', 'Info', 'Success', 'Warning', 'Danger' ];
+
+				if ( 0 <= BS_COLOR_NAME.indexOf( matchColor ) ) { // BOOTSTRAP3 COLOR NAME
+					textOut += matchHead + '<span class="text-' + matchColor + '">' + matchBody + '</span>';
+					textIn   = matchTail;
+				} else if ( 0 <= BS_LABEL_NAME.indexOf( matchColor ) ) { // BOOTSTRAP3 LABEL NAME
+					textOut += matchHead + '<span class="label label-' + matchColor.toLowerCase() + '">' + matchBody + '</span>';
+					textIn   = matchTail;
+				} else { // CSS COLOR NAME
+					textOut += matchHead + '<span style="color:' + matchColor + ';">' + matchBody + '</span>';
+					textIn   = matchTail;
+				}
+			}
+		}
+		return( textOut + textIn );
+
+	}
+
+
+
+
 	///// TEXT SHAODW /////
 	basicExts.prototype._char_textShadow = function( aLineIn ) {
 
@@ -87,66 +133,32 @@
 	}
 
 
-	basicExts.BOOTSTRAP_TAG = {
 
-		// ALERTS
-		'INFO'    : { tag: 'div', class: 'alert alert-info'    },
-		'SUCCESS' : { tag: 'div', class: 'alert alert-success' },
-		'WARNING' : { tag: 'div', class: 'alert alert-warning' },
-		'DANGER'  : { tag: 'div', class: 'alert alert-danger'  },
+	///// TEXT-COLOR /////
+	// basicExts.prototype._char_BootStrap_TextColor = function( aLineIn ) {
 
-		// LABELS
-		'default' : { tag: 'span', class: 'label label-default' },
-		'primary' : { tag: 'span', class: 'label label-primary' },
-		'info'    : { tag: 'span', class: 'label label-info'    },
-		'success' : { tag: 'span', class: 'label label-success' },
-		'warning' : { tag: 'span', class: 'label label-warning' },
-		'danger'  : { tag: 'span', class: 'label label-danger'  },
+	// 	var textIn  = aLineIn;
+	// 	var textOut = '';
+	// 	var matches;
 
-		// BUTTONS
-		'!'        : { tag: 'button', class: 'btn btn-default', type: 'button' },
-		'primary!' : { tag: 'button', class: 'btn btn-primary', type: 'button' },
-		'info!'    : { tag: 'button', class: 'btn btn-info',    type: 'button' },
-		'success!' : { tag: 'button', class: 'btn btn-success', type: 'button' },
-		'warning!' : { tag: 'button', class: 'btn btn-warning', type: 'button' },
-		'danger!'  : { tag: 'button', class: 'btn btn-danger',  type: 'button' },
-		'link!'    : { tag: 'button', class: 'btn btn-link',    type: 'button' },
+	// 	while ( matches = textIn.match( /^(.*?)\[\[ ([^\[]*?) \](muted|primary|info|success|warning|danger)\](.*)$/ ) ) {
 
-		// BUTTONS LARGE
-		'!+'        : { tag: 'button', class: 'btn btn-default btn-lg', type: 'button' },
-		'primary!+' : { tag: 'button', class: 'btn btn-primary btn-lg', type: 'button' },
-		'info!+'    : { tag: 'button', class: 'btn btn-info    btn-lg', type: 'button' },
-		'success!+' : { tag: 'button', class: 'btn btn-success btn-lg', type: 'button' },
-		'warning!+' : { tag: 'button', class: 'btn btn-warning btn-lg', type: 'button' },
-		'danger!+'  : { tag: 'button', class: 'btn btn-danger  btn-lg', type: 'button' },
-		'link!+'    : { tag: 'button', class: 'btn btn-link    btn-lg', type: 'button' },
+	// 		var matchHead = matches[ 1 ];
+	// 		var matchBody = matches[ 2 ];
+	// 		var matchAttr = matches[ 3 ]; if ( matchAttr.length < 1 ) { matchAttr = 'muted'; }
+	// 		var matchFoot = matches[ 4 ];
 
-		// BUTTONS SMALL
-		'!-'        : { tag: 'button', class: 'btn btn-default btn-sm', type: 'button' },
-		'primary!-' : { tag: 'button', class: 'btn btn-primary btn-sm', type: 'button' },
-		'info!-'    : { tag: 'button', class: 'btn btn-info    btn-sm', type: 'button' },
-		'success!-' : { tag: 'button', class: 'btn btn-success btn-sm', type: 'button' },
-		'warning!-' : { tag: 'button', class: 'btn btn-warning btn-sm', type: 'button' },
-		'danger!-'  : { tag: 'button', class: 'btn btn-danger  btn-sm', type: 'button' },
-		'link!-'    : { tag: 'button', class: 'btn btn-link    btn-sm', type: 'button' },
+	// 		textOut += matchHead + '<span class="text-' + matchAttr + '">' + matchBody + '</span>';
+	// 		textIn   = matchFoot;
 
-		// BUTTONS XTRA SMALL
-		'!--'        : { tag: 'button', class: 'btn btn-default btn-xs', type: 'button' },
-		'primary!--' : { tag: 'button', class: 'btn btn-primary btn-xs', type: 'button' },
-		'info!--'    : { tag: 'button', class: 'btn btn-info    btn-xs', type: 'button' },
-		'success!--' : { tag: 'button', class: 'btn btn-success btn-xs', type: 'button' },
-		'warning!--' : { tag: 'button', class: 'btn btn-warning btn-xs', type: 'button' },
-		'danger!--'  : { tag: 'button', class: 'btn btn-danger  btn-xs', type: 'button' },
-		'link!--'    : { tag: 'button', class: 'btn btn-link    btn-xs', type: 'button' },
-
-		'badge' : { tag: 'span', class: 'badge' },
-
-	};
+	// 	}
+	// 	return( textOut + textIn );
+	// }
 
 
 
 	///// OVAL BUTTON /////
-	basicExts.prototype._char_BootStrapBadge = function( aLineIn ) {
+	basicExts.prototype._char_BootStrap_Badge = function( aLineIn ) {
 
 		var textIn  = aLineIn;
 		var textOut = '';
@@ -167,45 +179,69 @@
 
 
 
-	///// OVAL BUTTON /////
-	basicExts.prototype._char_BootStrapKeyboard = function( aLineIn ) {
+	basicExts.BOOTSTRAP_WIDGETS = {
+
+		// BUTTONS
+		'default'  : { tag: 'button', class: 'btn btn-default', type: 'button' },
+		'primary'  : { tag: 'button', class: 'btn btn-primary', type: 'button' },
+		'info'     : { tag: 'button', class: 'btn btn-info',    type: 'button' },
+		'success'  : { tag: 'button', class: 'btn btn-success', type: 'button' },
+		'warning'  : { tag: 'button', class: 'btn btn-warning', type: 'button' },
+		'danger'   : { tag: 'button', class: 'btn btn-danger',  type: 'button' },
+		'link'     : { tag: 'button', class: 'btn btn-link',    type: 'button' },
+
+		// BUTTONS LARGE
+		'default+' : { tag: 'button', class: 'btn btn-default btn-lg', type: 'button' },
+		'primary+' : { tag: 'button', class: 'btn btn-primary btn-lg', type: 'button' },
+		'info+'    : { tag: 'button', class: 'btn btn-info    btn-lg', type: 'button' },
+		'success+' : { tag: 'button', class: 'btn btn-success btn-lg', type: 'button' },
+		'warning+' : { tag: 'button', class: 'btn btn-warning btn-lg', type: 'button' },
+		'danger+'  : { tag: 'button', class: 'btn btn-danger  btn-lg', type: 'button' },
+		'link+'    : { tag: 'button', class: 'btn btn-link    btn-lg', type: 'button' },
+
+		// BUTTONS SMALL
+		'default-' : { tag: 'button', class: 'btn btn-default btn-sm', type: 'button' },
+		'primary-' : { tag: 'button', class: 'btn btn-primary btn-sm', type: 'button' },
+		'info-'    : { tag: 'button', class: 'btn btn-info    btn-sm', type: 'button' },
+		'success-' : { tag: 'button', class: 'btn btn-success btn-sm', type: 'button' },
+		'warning-' : { tag: 'button', class: 'btn btn-warning btn-sm', type: 'button' },
+		'danger-'  : { tag: 'button', class: 'btn btn-danger  btn-sm', type: 'button' },
+		'link-'    : { tag: 'button', class: 'btn btn-link    btn-sm', type: 'button' },
+
+		// BUTTONS XTRA SMALL
+		'default--' : { tag: 'button', class: 'btn btn-default btn-xs', type: 'button' },
+		'primary--' : { tag: 'button', class: 'btn btn-primary btn-xs', type: 'button' },
+		'info--'    : { tag: 'button', class: 'btn btn-info    btn-xs', type: 'button' },
+		'success--' : { tag: 'button', class: 'btn btn-success btn-xs', type: 'button' },
+		'warning--' : { tag: 'button', class: 'btn btn-warning btn-xs', type: 'button' },
+		'danger--'  : { tag: 'button', class: 'btn btn-danger  btn-xs', type: 'button' },
+		'link--'    : { tag: 'button', class: 'btn btn-link    btn-xs', type: 'button' },
+
+		// ALERTS
+		'Info'    : { tag: 'div', class: 'alert alert-info'    },
+		'Success' : { tag: 'div', class: 'alert alert-success' },
+		'Warning' : { tag: 'div', class: 'alert alert-warning' },
+		'Danger'  : { tag: 'div', class: 'alert alert-danger'  },
+
+	};
+
+	///// BOOTSTRAP /////
+	basicExts.prototype._char_BootStrapWidgets = function( aLineIn ) {
 
 		var textIn  = aLineIn;
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\[\`(.*?)\`\](.*)$/ ) ) {
+		while ( matches = textIn.match( /^(.*?)\[\[ (.*?) \]\](\S*?)\!(.*)$/ ) ) {
 
 			var matchHead = matches[ 1 ];
 			var matchBody = matches[ 2 ];
-			var matchFoot = matches[ 3 ];
-
-			textOut += matchHead + '<kbd>' + matchBody + '</kbd>';
-			textIn   = matchFoot;
-
-		}
-		return( textOut + textIn );
-	}
-
-
-
-	///// BOOTSTRAP /////
-	basicExts.prototype._char_BootStrap = function( aLineIn ) {
-
-		var textIn  = aLineIn;
-		var textOut = '';
-		var matches;
-
-		while ( matches = textIn.match( /^(.*?)\[\[(\S*?) (.*?) \]\](.*)$/ ) ) {
-
-			var matchHead = matches[ 1 ];
-			var matchBs   = matches[ 2 ];
-			var matchBody = matches[ 3 ];
+			var matchBs   = matches[ 3 ];
 			var matchFoot = matches[ 4 ];
 
 			if ( matchBs.length == 0 ) { matchBs = 'default'; }
 
-			var tagInfo = basicExts.BOOTSTRAP_TAG[ matchBs ];
+			var tagInfo = basicExts.BOOTSTRAP_WIDGETS[ matchBs ];
 			if ( tagInfo ) { 
 				textOut += matchHead + '<' + tagInfo.tag;
 				if ( tagInfo.class ) { textOut += ' class="' + tagInfo.class + '"'; }
@@ -220,6 +256,49 @@
 		return( textOut + textIn );
 	}
 
+
+
+	///// KEYBOARD /////
+	basicExts.prototype._char_BootStrapKeyboard = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\[\`(.*?)\`\](.*)$/ ) ) { // [` KEY `]
+
+			var matchHead = matches[ 1 ];
+			var matchBody = matches[ 2 ];
+			var matchFoot = matches[ 3 ];
+
+			textOut += matchHead + '<kbd>' + matchBody + '</kbd>';
+			textIn   = matchFoot;
+
+		}
+		return( textOut + textIn );
+	}
+
+
+
+	///// CODE /////
+	basicExts.prototype._char_BootStrapCode = function( aLineIn ) {
+
+		var textIn  = aLineIn;
+		var textOut = '';
+		var matches;
+
+		while ( matches = textIn.match( /^(.*?)\(\`(.*?)\`\)(.*)$/ ) ) { // (` CODE `)
+
+			var matchHead = matches[ 1 ];
+			var matchBody = matches[ 2 ];
+			var matchFoot = matches[ 3 ];
+
+			textOut += matchHead + '<code>' + matchBody + '</code>';
+			textIn   = matchFoot;
+
+		}
+		return( textOut + textIn );
+	}
 
 
 	///// OVAL BUTTON /////
@@ -251,11 +330,11 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\[\[(\S*?)\;(.*?)\]\](.*)$/ ) ) {
+		while ( matches = textIn.match( /^(.*?)\[\? (.*?) \?(\w*?)\](.*)$/ ) ) { // [[]className?]
 
 			var matchHead = matches[ 1 ];
-			var matchSpan = matches[ 2 ];
-			var matchBody = matches[ 3 ];
+			var matchBody = matches[ 2 ];
+			var matchSpan = matches[ 3 ];
 			var matchFoot = matches[ 4 ];
 
 			textOut += matchHead + '<span class="' + matchSpan + '">' + matchBody + '</span>';
@@ -271,15 +350,20 @@
 	basicExts.prototype.processCharAttribute = function( aLineIn ) {
 		var lineOut = aLineIn;
 
-		lineOut = this._char_BootStrapBadge(  lineOut );	// Text Shadow
-		lineOut = this._char_BootStrapIcon(  lineOut );	// Text Shadow
-		lineOut = this._char_BootStrap(  lineOut );	// Text Shadow
-		lineOut = this._char_BootStrapKeyboard(  lineOut );	// Text Shadow
+		// INSIDE
+		lineOut = this._char_textColor( lineOut );					// Text Color
+//		lineOut = this._char_BootStrap_TextColor(  lineOut );		// Text Color ( Bootstrap3 )
+
+		lineOut = this._char_BootStrap_Badge(  lineOut );
+		lineOut = this._char_BootStrapIcon(  lineOut );		// Keyboard
+		lineOut = this._char_BootStrapCode(  lineOut );		// Code
+		lineOut = this._char_BootStrapWidgets(  lineOut );
+		lineOut = this._char_BootStrapKeyboard(  lineOut );
 
 		lineOut = this._char_textShadow( lineOut );	// Text Shadow
+		lineOut = this._char_CustomSpan( lineOut );	// Custom Span
 		lineOut = this._char_RectButton( lineOut );	// Rect Button
 		lineOut = this._char_OvalButton( lineOut );	// Oval Button
-		lineOut = this._char_CustomSpan( lineOut );	// Custom Span
 		return( lineOut );
 	}
 

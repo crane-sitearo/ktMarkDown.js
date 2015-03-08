@@ -1,12 +1,163 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
-<title>ktMarkDown.js : Reference : Character Attributes</title>
-</head><body>
-
+<title>ktMarkDown.js : Reference : Basic Extensions</title></head><body>
 <script type="text/ktMarkDown" class="markdownSrc">/*
-# [ktMarkDown.js](../index.html) : Basic Exts.
+
+((("jumbotron"
+# [ktMarkDown.js](../index.html) : Basic Extensions
+)))
+
+## [[book!]] Basic Extensionsとは?
+
+### Basic Extensionsの位置づけ
+
+　マークダウンの文法は簡素であることが望ましいとされている部分もありながら、その一方で表現力不足が指摘されることも多くあります。そのため、ktMarkDown.jsでは、シンプルな記法のみを標準でサポートし、表現力をアップさせる部分は機能拡張モジュールにまかせるという機能分担をしています。ktMarkDown.jsは、標準添付の Basic Extensions によって様々な表現力アップを行っています。
+
+### Bootstrap3対応
+
+　Basic Extentions の1つの特徴に、[Bootstrap3](+http://getbootstrap.com/) をサポートしていることが挙げられます。Bootstrap3というのは、ウェブサイトを構築する際に使われるフレームワークのことで、様々なデザインが定義されています。「 Bootstrap3って何? 」っていう方も心配はいりません。マークダウン記法によって、そのデザインを簡単に使えるようにktMarkDown.jsがサポートを行っています。
+
+　また、ktMarkDown.jsのパッケージの中にBootstrap3のファイルを同梱していますので、別途Bootstrap3をダウンロードする必要はありません。では、以下でどんな修飾が可能かを説明していきます。
 
 
-## BASIC
+## [[book!]] テキストカラー
+
+　一般のマークダウンでは自由に文字に色をつけることができませんが、ktMarkDown.jsでは色をつける記法をサポートしています。
+
+### Color Names
+
+ウェブ上で使える色には140種類の名前が付けられており、その名前を使って「 [\[ テキスト #COLOR_NAME]\] 」のように書くと色が指定できます。140種類を全て見たい方は、[こちら](+https://www.google.co.jp/search?q=css+color+name)からどうぞ。
+
+| 種別	| 入力 ( コピー利用可 )			| 出力						| 補足		| 文法	|bordered condensed!
+|:-----:|:-----------------------------:|:-------------------------:|:----------------------|---------------|
+| 黒		| [\[ テキスト !Black]\]			| [[ **テキスト** !Black]]	| 						| [[# ktMd+ ]]	|
+| 赤		| [\[ テキスト !Red]\]			| [[ **テキスト** !Red]]		| 						| [[# ktMd+ ]]	|
+| 緑		| [\[ テキスト !Green]\]			| [[ **テキスト** !Green]]	| 						| [[# ktMd+ ]]	|
+| 青		| [\[ テキスト !Blue]\]			| [[ **テキスト** !Blue]]		| 						| [[# ktMd+ ]]	|
+| 紫		| [\[ テキスト !Purple]\]			| [[ **テキスト** !Purple]]	| 						| [[# ktMd+ ]]	|
+| 黄		| [\[ テキスト !Yellow]\]			| [[ **テキスト** !Yellow]]	| 						| [[# ktMd+ ]]	|
+| 白		| [\[ テキスト !White]\]			| [[ **テキスト** !White]]	| 						| [[# ktMd+ ]]	|danger!
+　(注) 「出力」のところは、文字色を見やすくするために太字にしてあります。
+
+### RGB Values
+　色の名前を覚えるのも大変だし、微妙な色を表現したいという方には、数字を使った方法もあります。「 [\[ テキスト #NNN]\] 」という表記になります。3つの「 N 」は、「 R(赤), G(緑), B(青) 」の三原色の強さを「 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F 」の16段階で表したものです。「 #000 」が黒で、「 #FFF 」が白になります。
+
+| 種別	| 入力 ( コピー利用可 )		| 出力					| 補足		| 文法	|bordered condensed!
+|:-----:|:-------------------------:|:---------------------:|:----------------------|---------------|
+| 黒		| [\[ テキスト !000]\]		| [[ **テキスト** !000]]	| 						| [[# ktMd+ ]]	|
+| 赤		| [\[ テキスト !F00]\]		| [[ **テキスト** !F00]]	| 						| [[# ktMd+ ]]	|
+| 緑		| [\[ テキスト !0F0]\]		| [[ **テキスト** !0F0]]	| 						| [[# ktMd+ ]]	|
+| 青		| [\[ テキスト !00F]\]		| [[ **テキスト** !00F]]	| 						| [[# ktMd+ ]]	|
+| 紫		| [\[ テキスト !F0F]\]		| [[ **テキスト** !F0F]]	| 						| [[# ktMd+ ]]	|
+| 黄		| [\[ テキスト !FF0]\]		| [[ **テキスト** !FF0]]	| 						| [[# ktMd+ ]]	|
+| 白		| [\[ テキスト !FFF]\]		| [[ **テキスト** !FFF]]	| 						| [[# ktMd+ ]]	|danger!
+　(注) 「出力」のところは、文字色を見やすくするために太字にしてあります。
+
+### Bootstrap3 Color Names
+　Bootstrap3は、様々なパーツに対して「 [[ Primary #primary]] 」「 [[ Success #success]] 」「 [[ Danger #danger]] 」のような言葉で色を指定します。ktMarkDown.jsでは「 [\[ テキスト !primary]\] 」のように書くことで、文字に色をつけることが出来ます。色は以下の6種類あります。
+
+| 種別				| 入力 ( コピー利用可 )		| 出力						| 補足	| 文法	|bordered condensed!
+|:-----------------:|:-------------------------:|:-------------------------:|:------------------|---------------|
+| ミュート (灰色)		| [\[ テキスト !muted\]		| [[ **テキスト** !muted]]	| .text-muted 		| [[# ktMd+ ]]	|
+| プライマリ (青)		| [\[ テキスト !primary\]		| [[ **テキスト** !primary]]	| .text-primary 	| [[# ktMd+ ]]	|
+| インフォ (水色)		| [\[ テキスト !info\]		| [[ **テキスト** !info]]		| .text-info	 	| [[# ktMd+ ]]	|
+| サクセス (緑)		| [\[ テキスト !success\]		| [[ **テキスト** !success]]	| .text-success 	| [[# ktMd+ ]]	|
+| ワーニング (橙)		| [\[ テキスト !warning\]		| [[ **テキスト** !warning]]	| .text-warning 	| [[# ktMd+ ]]	|
+| デンジャー (赤)		| [\[ テキスト !danger\]		| [[ **テキスト** !danger]]	| .text-danger 		| [[# ktMd+ ]]	|
+　(注) 「出力」のところは、文字色を見やすくするために太字にしてあります。
+
+### Bootstrap3 Labels
+　Bootstrap3には、文字とその背景部分に色をつけたラベルという機能があります。「 [\[ ラベル !primary]\] 」のように書くことで「 [[ ラベル !Primary]] 」のような表示になります。色は以下の6種類あります。
+
+| 種別				| 入力 ( コピー利用可 )		| 出力						| 補足	| 文法			|bordered condensed!
+|:-----------------:|:-------------------------:|:-------------------------:|:--------------------------|:--------------|
+| デフォルト (灰色)	| [\[ ラベル !Default]\]		| [[ ラベル !Default]]		| .label .label-default 	| [[# ktMd+ ]]	|
+| プライマリ (青)		| [\[ ラベル !Primary]\]		| [[ ラベル !Primary]]		| .label .label-primary 	| [[# ktMd+ ]]	|
+| インフォ (水色)		| [\[ ラベル !Info]\]		| [[ ラベル !Info]]			| .label .label-info		| [[# ktMd+ ]]	|
+| サクセス (緑)		| [\[ ラベル !Success]\]		| [[ ラベル !Success]]		| .label .label-success 	| [[# ktMd+ ]]	|
+| ワーニング (橙)		| [\[ ラベル !Warning]\]		| [[ ラベル !Warning]]		| .label .label-warning 	| [[# ktMd+ ]]	|
+| デンジャー (赤)		| [\[ ラベル !Danger]\]		| [[ ラベル !Danger]]		| .label .label-danger 		| [[# ktMd+ ]]	|
+
+
+## [[book!]] ボタン
+
+　ラベルと似ていますが、ボタンの形状も用意されています。「 [\[ ボタン ]\]primary! 」のように書くことで「 [[ ボタン ]primary! 」のような表示になります。色は7種類あります。マウスをホバーした時に色が変化します。
+
+| 種別				| 入力 ( コピー利用可 )		| 出力						| 補足	| 文法			|bordered condensed!
+|:-----------------:|:-------------------------:|:-------------------------:|:--------------------------|:--------------|
+| デフォルト (白)		| [\[ ボタン ]\]default!		| [[ ボタン ]]default!		| .btn .btn-Default 		| [[# ktMd+ ]]	|
+| プライマリ (青)		| [\[ ボタン ]\]primary!		| [[ ボタン ]]primary!		| .btn .btn-primary 		| [[# ktMd+ ]]	|
+| インフォ (水色)		| [\[ ボタン ]\]info!		| [[ ボタン ]]info!			| .btn .btn-info	 		| [[# ktMd+ ]]	|
+| サクセス (緑)		| [\[ ボタン ]\]success!		| [[ ボタン ]]success!		| .btn .btn-success 		| [[# ktMd+ ]]	|
+| ワーニング (橙)		| [\[ ボタン ]\]warning!		| [[ ボタン ]]warning!		| .btn .btn-warning 		| [[# ktMd+ ]]	|
+| デンジャー (赤)		| [\[ ボタン ]\]danger!		| [[ ボタン ]]danger!		| .btn .btn-danger 			| [[# ktMd+ ]]	|
+| リンク				| [\[ ボタン ]\]link!		| [[ ボタン ]]link!			| .btn .btn-link 			| [[# ktMd+ ]]	|
+
+### 大きなボタン
+
+　ボタンには、大きさの指定が可能です。大きなボタンを作りたい場合は「 [\[ ボタン ]\]primary+! 」のように書きます。
+
+| 種別				| 入力 ( コピー利用可 )		| 出力						| 補足		| 文法			|bordered condensed!
+|:-----------------:|:-------------------------:|:-------------------------:|:------------------------------|---------------|
+| デフォルト (白)		| [\[ ボタン ]\]default+!	| [[ ボタン ]]default+!		| .btn .btn-Default .btn-lg 	| [[# ktMd+ ]]	|
+| プライマリ (青)		| [\[ ボタン ]\]primary+!	| [[ ボタン ]]primary+!		| .btn .btn-primary .btn-lg 	| [[# ktMd+ ]]	|
+| インフォ (水色)		| [\[ ボタン ]\]info+!		| [[ ボタン ]]info+!			| .btn .btn-info .btn-lg 		| [[# ktMd+ ]]	|
+| サクセス (緑)		| [\[ ボタン ]\]success+!	| [[ ボタン ]]success+!		| .btn .btn-success .btn-lg 	| [[# ktMd+ ]]	|
+| ワーニング (橙)		| [\[ ボタン ]\]warning+!	| [[ ボタン ]]warning+!		| .btn .btn-warning .btn-lg 	| [[# ktMd+ ]]	|
+| デンジャー (赤)		| [\[ ボタン ]\]danger+!		| [[ ボタン ]]danger+!		| .btn .btn-danger .btn-lg 		| [[# ktMd+ ]]	|
+| リンク				| [\[ ボタン ]\]link+!		| [[ ボタン ]]link+!			| .btn .btn-link .btn-lg 		| [[# ktMd+ ]]	|
+
+### 小さなボタン
+
+　小さいボタンもあります。「 [\[ ボタン ]\]primary-! 」のように書きます。
+
+| 種別				| 入力 ( コピー利用可 )			| 出力					| 補足		| 文法			|bordered condensed!
+|:-----------------:|:-----------------------------:|:---------------------:|:------------------------------|---------------|
+| デフォルト (白)		| [\[ ボタン ]\]default-!		| [[ ボタン ]]default-!	| .btn .btn-default .btn-sm 	| [[# ktMd+ ]]	|
+| プライマリ (青)		| [\[ ボタン ]\]primary-!		| [[ ボタン ]]primary-!	| .btn .btn-primary .btn-sm 	| [[# ktMd+ ]]	|
+| インフォ (水色)		| [\[ ボタン ]\]info-!			| [[ ボタン ]]info-!		| .btn .btn-info .btn-sm 		| [[# ktMd+ ]]	|
+| サクセス (緑)		| [\[ ボタン ]\]success-!		| [[ ボタン ]]success-!	| .btn .btn-success .btn-sm 	| [[# ktMd+ ]]	|
+| ワーニング (橙)		| [\[ ボタン ]\]warning-			| [[ ボタン ]]warning-!	| .btn .btn-warning .btn-sm 	| [[# ktMd+ ]]	|
+| デンジャー (赤)		| [\[ ボタン ]\]danger-!			| [[ ボタン ]]danger-!	| .btn .btn-danger .btn-sm 		| [[# ktMd+ ]]	|
+| リンク				| [\[ ボタン ]\]link-!			| [[ ボタン ]]link-!		| .btn .btn-link .btn-sm 		| [[# ktMd+ ]]	|
+
+### より小さなボタン
+
+　もっと小さいボタンもあります。「 [\[ ボタン ]\]primary--! 」のように書きます。
+
+| 種別				| 入力 ( コピー利用可 )		| 出力						| 補足		| 文法			|bordered condensed!
+|:-----------------:|:-------------------------:|:-------------------------:|:------------------------------|---------------|
+| デフォルト (白)		| [\[ ボタン ]\]default--!	| [[ ボタン ]]default--!		| .btn .btn-default .btn-xs 	| [[# ktMd+ ]]	|
+| プライマリ (青)		| [\[ ボタン ]\]primary--!	| [[ ボタン ]]primary--!		| .btn .btn-primary .btn-xs 	| [[# ktMd+ ]]	|
+| インフォ (水色)		| [\[ ボタン ]\]info--!		| [[ ボタン ]]info--!		| .btn .btn-info .btn-xs 		| [[# ktMd+ ]]	|
+| サクセス (緑)		| [\[ ボタン ]\]success--!	| [[ ボタン ]]success--!		| .btn .btn-success .btn-xs 	| [[# ktMd+ ]]	|
+| ワーニング (橙)		| [\[ ボタン ]\]warning--!	| [[ ボタン ]]warning--!		| .btn .btn-warning .btn-xs 	| [[# ktMd+ ]]	|
+| デンジャー (赤)		| [\[ ボタン ]\]danger--!	| [[ ボタン ]]danger--!		| .btn .btn-danger .btn-xs 		| [[# ktMd+ ]]	|
+| リンク				| [\[ ボタン ]\]link--!		| [[ ボタン ]]link--!		| .btn .btn-link .btn-xs 		| [[# ktMd+ ]]	|
+
+## [[book!]] アラート
+
+　1行全体を使って情報や警告を表示したい場合にはアラートという機能が使えます。種類は4種類で「 [\[ アラート ]\]Info! 」のように先頭を大文字で記述します。
+
+| 種別				| 入力 ( コピー利用可 )		| 出力						| 補足		| 文法			|bordered condensed!
+|:-----------------:|:-------------------------:|:-------------------------:|:------------------------------|---------------|
+| インフォ (水色)		| [\[ アラート ]\]Info!		| [[ アラート ]]Info!			| .alert .alert-default  		| [[# ktMd+ ]]	|
+| サクセス (緑)		| [\[ アラート ]\]Success!	| [[ アラート ]]Success!		| .alert .alert-success  		| [[# ktMd+ ]]	|
+| ワーニング (橙)		| [\[ アラート ]\]Warning!	| [[ アラート ]]Warning!		| .alert .alert-warning  		| [[# ktMd+ ]]	|
+| デンジャー (赤)		| [\[ アラート ]\]Danger!		| [[ アラート ]]Danger!		| .alert .alert-danger  		| [[# ktMd+ ]]	|
+
+　この一覧ではテーブル内にありますので小さいですが、テーブルの外で使うと以下のようになります。
+
+[[ アラート ]]Info!
+
+## [[book!]] CSSクラス指定
+
+　ktMarkDown.jsに備わっている修飾機能でも物足りないというあなたのために、CSSのクラス指定も可能です。
+
+| 種別				| 入力 ( コピー利用可 )		| 出力						| 補足		| 文法			|bordered condensed!
+|:-----------------:|:-------------------------:|:-------------------------:|:------------------------------|---------------|
+| カスタムクラス 		| \[\? SHIFT \?keyTop\]\]	| [? SHIFT ?keyTop]			| .keyTop 						| [[# ktMd+ ]]	|
+
+
 
 | INPUT									| OUTPUT					| CLASS								|
 |:-------------------------------------:|:-------------------------:|:----------------------------------|
@@ -16,13 +167,7 @@
 | (( (\( ))OVAL BUTTON(( \)\) ))	| ((OVAL BUTTON))			| ktmd_oButton_1 					|
 
 
-### CUSTOM CLASS
 
-| INPUT 										| OUTPUT 					| CSS CLASS 		|
-|:---------------------------------------------:|:-------------------------:|:------------------|
-| (( \[\[ ))big_1((;)) BIG ((\]\]))				| [[big_1; BIG ]]			| big_1 			|
-| (( \[\[ ))Nunito((;)) Nunito Font ((\]\]))	| [[Nunito; Nunito Font ]]	| Nunito 			|
-| (( \[\[ ))keyTop((;)) SHIFT ((\]\]))			| [[keyTop; SHIFT ]]		| keyTop 			|
 
 
 ### RECT BUTTON

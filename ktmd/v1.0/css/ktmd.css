@@ -49,62 +49,26 @@ body > ktmd_div {
 /*************
  *  HEADERS  *
  *************/
+/* OVERRIDE ON BOOTSTRAP3 */
 h1 {
   font-family: 'Exo 2', sans-serif;
-  font-size: 25pt;
+  font-size: 22pt;
   font-weight: 900;
   text-align: center;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
-}
-.ktmd_h1 {
-  box-sizing: border-box;
-  margin: 0 0 4px 0;
-  border-style: solid;
-  border-color: #7373a5;
-  border-width: 1px 8px;
-  padding: 30px 0;
-  background: #8787b9;
-  color: #141414;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 25pt;
-  font-weight: 900;
-  text-align: center;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
-}
-h2 {
-  background: #f5f5f5;
-  border-bottom: 1px solid #f0f0f0;
-  padding: 8px 20px;
-  border-radius: 8px;
-}
-.ktmd_h2 {
-  margin: 4px 4px 0 4px;
-  border-style: solid;
-  border-color: #8787b9;
-  border-width: 1px 6px;
-  padding: 8px 0px;
-  background: #9b9bcd;
-  color: #141414;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 13pt;
-  font-weight: 900;
-  text-align: center;
-  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
-}
-h3 {
-  border-bottom: 2px solid #e6e6e6;
   padding: 8px 16px;
 }
-.ktmd_h3 {
-  margin: 16px 4px 16px 4px;
-  border: 1px solid #c8c8c8;
-  padding: 2px 1em;
-  background-color: #d0d0e4;
-  color: #141414;
-  font-size: 12pt;
+h2 {
   font-weight: 900;
-  text-align: left;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  background: #f5f5f5;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 20px;
+  border-radius: 8px;
+}
+h3 {
+  font-weight: 600;
+  border-bottom: 2px solid #e6e6e6;
+  padding: 8px 10px;
 }
 h4 {
   border-bottom: 1px solid #e6e6e6;
@@ -123,6 +87,46 @@ h6 {
   color: #282828;
   border-bottom: 1px dotted #dcdcdc;
   text-align: left;
+}
+.ktmd_h1 {
+  box-sizing: border-box;
+  margin: 0 0 4px 0;
+  border-style: solid;
+  border-color: #7373a5;
+  border-width: 1px 8px;
+  padding: 30px 0;
+  background: #8787b9;
+  color: #141414;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 25pt;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.ktmd_h2 {
+  margin: 4px 4px 0 4px;
+  border-style: solid;
+  border-color: #8787b9;
+  border-width: 1px 6px;
+  padding: 8px 0px;
+  background: #9b9bcd;
+  color: #141414;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 13pt;
+  font-weight: 900;
+  text-align: center;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+}
+.ktmd_h3 {
+  margin: 16px 4px 16px 4px;
+  border: 1px solid #c8c8c8;
+  padding: 2px 1em;
+  background-color: #d0d0e4;
+  color: #141414;
+  font-size: 12pt;
+  font-weight: 900;
+  text-align: left;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 /****************
  *  BLOCKQUOTE  *

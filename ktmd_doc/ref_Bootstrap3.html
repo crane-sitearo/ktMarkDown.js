@@ -3,138 +3,54 @@
 </head><body>
 
 <script type="text/ktMarkDown" class="markdownSrc">/*
+
 ((("jumbotron"
 # [ktMarkDown.js](../index.html) : Bootstrap3
 )))
 
-　ktMarkDown.jsでは、標準添付の機能拡張モジュールである__BasicExts__で[Bootstrap3](+http://getbootstrap.com/)をサポートしています。「 Bootstrap3って何? 」っていう方も心配はいりません。要は「 簡単に色んなドキュメントの修飾ができる 」ということです。ktMarkDown.jsのパッケージの中にBootstrap3のファイルを同梱していますので、別途Bootstrap3をダウンロードする必要もありません。
 
-　では、以下でどんな修飾が可能かを説明していきます。
-
-
-## ラベル 
-
-　Bootstrap3には、文字とその背景部分に色をつけたラベルという機能があります。「 ``[\[ ラベル ]\]`` 」のように書くことで「 [[ ラベル ]] 」のような表示になります。さらに「 ``[\[primary ラベル ]\]`` 」のように種別を先頭に書くことで「 [[primary ラベル ]] 」のように色を変えることができます。色は以下の6種類あります。
-
-| Input ( コピーして使えます )		| Output					| Bootstrap3 CSS class			|bordered hover striped 70!
-|:-----------------------------:|:-------------------------:|:------------------------------|
-| [\[ ラベル ]\]					| [[ ラベル ]]				| .label .label-default 		|
-| [\[primary ラベル ]\]			| [[primary ラベル ]]		| .label .label-primary 		|
-| [\[info ラベル ]\]				| [[info ラベル ]]			| .label .label-info	 		|
-| [\[success ラベル ]\]			| [[success ラベル ]]		| .label .label-success 		|
-| [\[warning ラベル ]\]			| [[warning ラベル ]]		| .label .label-warning 		|
-| [\[danger ラベル ]\]			| [[danger ラベル ]]			| .label label-danger 			|
+## [[book!]] テキストカラー 
 
 
-## ボタン
-
-　ラベルと似ていますが、ボタンを表現するためのBootstrap3の機能もサポートしています。「 ``[\[! ボタン ]\]`` 」のように書くことで「 [[! ボタン ]] 」のような表示になります。さらに「 ``[\[primary! ボタン ]\]`` 」のように種別を先頭に書くことで「 [[primary! ボタン ]] 」のように色を変えることができます。色は7種類あります。ラベルとの違いは、大きさとマウスをホバーした時の色の変化です。
-
-| Input ( コピーして使えます )		| Output					| Bootstrap3 CSS class		|bordered hover striped 70!
-|:-----------------------------:|:-------------------------:|:--------------------------|
-| [\[! ボタン ]\]				| [[! ボタン ]]				| .btn .btn-default 		|
-| [\[primary! ボタン ]\]			| [[primary! ボタン ]]		| .btn .btn-primary 		|
-| [\[info! ボタン ]\]			| [[info! ボタン ]]			| .btn .btn-info	 		|
-| [\[success! ボタン ]\]			| [[success! ボタン ]]		| .btn .btn-success 		|
-| [\[warning! ボタン ]\]			| [[warning! ボタン ]]		| .btn .btn-warning 		|
-| [\[danger! ボタン ]\]			| [[danger! ボタン ]]		| .btn .btn-danger 			|
-| [\[link! ボタン ]\]			| [[link! ボタン ]]			| .btn .btn-link 			|
-
-### 大きなボタン
-
-　ボタンには、大きさの指定が可能です。大きなボタンを作りたい場合は「 [\[!+ ボタン ]\] 」のように書きます。
-
-| Input ( コピーして使えます )				| Output					| Bootstrap3 CSS class				|bordered hover striped 70!
-|:-------------------------------------:|:-------------------------:|:----------------------------------|
-| [\[!+ ボタン ]\]						| [[!+ ボタン ]]				| .btn .btn-default .btn-lg 		|
-| [\[primary!+ ボタン ]\]				| [[primary!+ ボタン ]]		| .btn .btn-primary .btn-lg 		|
-| [\[info!+ ボタン ]\]					| [[info!+ ボタン ]]			| .btn .btn-info .btn-lg 			|
-| [\[success!+ ボタン ]\]				| [[success!+ ボタン ]]		| .btn .btn-success .btn-lg 		|
-| [\[warning!+ ボタン ]\]				| [[warning!+ ボタン ]]		| .btn .btn-warning .btn-lg 		|
-| [\[danger!+ ボタン ]\]					| [[danger!+ ボタン ]]		| .btn .btn-danger .btn-lg 			|
-| [\[link!+ ボタン ]\]					| [[link!+ ボタン ]]			| .btn .btn-link .btn-lg 			|
-
-### 小さなボタン
-
-　小さいボタンもあります。「 [\[!- ボタン ]\] 」のように書きます。
-
-| Input ( コピーして使えます )			| Output				| Bootstrap3 CSS class			|bordered hover striped 70!
-|:---------------------------------:|:---------------------:|:------------------------------|
-| [\[!- ボタン ]\]					| [[!- ボタン ]]			| .btn .btn-default .btn-sm 	|
-| [\[primary!- ボタン ]\]			| [[primary!- ボタン ]]	| .btn .btn-primary .btn-sm 	|
-| [\[info!- ボタン ]\]				| [[info!- ボタン ]]		| .btn .btn-info .btn-sm 		|
-| [\[success!- ボタン ]\]			| [[success!- ボタン ]]	| .btn .btn-success .btn-sm 	|
-| [\[warning!- ボタン ]\]			| [[warning!- ボタン ]]	| .btn .btn-warning .btn-sm 	|
-| [\[danger!- ボタン ]\]				| [[danger!- ボタン ]]	| .btn .btn-danger .btn-sm 		|
-| [\[link!- ボタン ]\]				| [[link!- ボタン ]]		| .btn .btn-link .btn-sm 		|
-
-### より小さなボタン
-
-　もっと小さいボタンもあります。「 ``[\[!-- ボタン ]\]`` 」のように書きます。
-
-| Input ( コピーして使えます )				| Output					| Bootstrap3 CSS class				|bordered hover striped 70!
-|:-------------------------------------:|:-------------------------:|:----------------------------------|
-| [\[!-- ボタン ]\]						| [[!-- ボタン ]]			| .btn .btn-default .btn-xs 		|
-| [\[primary!-- ボタン ]\]				| [[primary!-- ボタン ]]		| .btn .btn-primary .btn-xs 		|
-| [\[info!-- ボタン ]\]					| [[info!-- ボタン ]]		| .btn .btn-info .btn-xs 			|
-| [\[success!-- ボタン ]\]				| [[success!-- ボタン ]]		| .btn .btn-success .btn-xs 		|
-| [\[warning!-- ボタン ]\]				| [[warning!-- ボタン ]]		| .btn .btn-warning .btn-xs 		|
-| [\[danger!-- ボタン ]\]				| [[danger!-- ボタン ]]		| .btn .btn-danger .btn-xs 			|
-| [\[link!-- ボタン ]\]					| [[link!-- ボタン ]]		| .btn .btn-link .btn-xs 			|
+　(注) 「出力」のところは、文字色を見やすくするために太字にしてあります。
 
 
-## アラート
 
-　1行全体を使って情報や警告を表示したい場合にはアラートという機能が使えます。種類は4種類で「 [\[INFO ]\] 」のように大文字で記述します。
-
-[[[info **Input** ( コピーして使えます )
-* [\[INFO アラート ]\]
-* [\[SUCCESS アラート ]\]
-* [\[WARNING アラート ]\]
-* [\[DANGER ボタン ]\]
-]]]
-
-[[[info **Output**
-[[INFO アラート ]]
-[[SUCCESS アラート ]]
-[[WARNING アラート ]]
-[[DANGER ボタン ]]
-]]]
-
-## アイコン
+## [[book!]] アイコン
 
 　Bootstrap3には、様々なアイコンが用意されていて、直感的に情報を伝えたり、デザインのアクセントに使えます。例えば「 [\[ok!]\] 」と書くと「 [[ok!]] 」。というアイコンに変わります。アイコンは260種類用意されており、一覧は[Bootstrap3](+http://getbootstrap.com/components/)のページにあります。アイコンの下に「 glyphicon glyphicon-XXX 」のように種類が書かれていますが、ktMarkDown.jsでは最後のXXXのところを抜き出して「 [\[XXX!]\] 」と書くだけです。以下は一部のサンプルです。
 
-| Input ( コピーして使えます)					| Output			|bordered hover striped 70!
-|:-----------------------------------------:|:-----------------:|
-| [\[ok!]\]									| [[ok!]]			|
-| [\[remove!]\]								| [[remove!]]		|
-| [\[cog!]\]								| [[cog!]]			|
-| [\[star!]\]								| [[star!]]			|
-| [\[heart!]\]								| [[heart!]]		|
-| [\[user!]\]								| [[user!]]			|
-| [\[bell!]\]								| [[bell!]]			|
-| [\[comment!]\]							| [[comment!]]		|
-| [\[thumbs-up!]\]							| [[thumbs-up!]]	|
-| [\[file!]\]								| [[file!]]			|
-| [\[download!]\]							| [[download!]]		|
+| 種類			| 入力 ( コピー利用可 ) 			| 出力						| 補足							| 文法			|bordered condensed!
+|:-------------:|:-----------------------------:|:-------------------------:|:------------------------------|---------------|
+| OK			| [\[ok!]\] 					| [[ok!]]					| 								| [[# ktMd+ ]]	|
+| 削除			| [\[remove!]\] 				| [[remove!]]				| 								| [[# ktMd+ ]]	|
+| 設定			| [\[cog!]\]					| [[cog!]]					| 								| [[# ktMd+ ]]	|
+| 星				| [\[star!]\]					| [[star!]]					| 								| [[# ktMd+ ]]	|
+| ハート			| [\[heart!]\]					| [[heart!]]				| 								| [[# ktMd+ ]]	|
+| ユーザ			| [\[user!]\]					| [[user!]]					| 								| [[# ktMd+ ]]	|
+| ベル			| [\[bell!]\]					| [[bell!]]					| 								| [[# ktMd+ ]]	|
+| コメント		| [\[comment!]\]				| [[comment!]]				| 								| [[# ktMd+ ]]	|
+| いいね			| [\[thumbs-up!]\]				| [[thumbs-up!]]			| 								| [[# ktMd+ ]]	|
+| ファイル		| [\[file!]\]					| [[file!]]					| 								| [[# ktMd+ ]]	|
+| ダウンロード	| [\[download!]\]				| [[download!]]				| 								| [[# ktMd+ ]]	|
+一覧は[Bootstrap3](+http://getbootstrap.com/components/)
 
 
 ## バッジ
 
 　Bootstrap3には、情報を細くするための丸で囲まれたバッジ機能というものがあります。例えば、メールの未読数なら「 未読 [\[# 10 ]\] 」と書くと「 未読 [[# 10 ]] 」のようにを表示できます。
 
-| Input ( コピーして使えます) 		| Output 			| Bootstrap3 CSS class 		|bordered hover striped 70!
-|:-----------------------------:|:-----------------:|:--------------------------|
-| [\[# バッジ \]\] 				| [[# バッジ ]]		| .badge					|
+| 種類 		| 入力 ( コピー利用可 )	 		| 出力	 			| 補足				| 文法			|bordered condensed!
+|:---------:|:-----------------------------:|:-----------------:|:------------------|---------------|
+| バッジ		| [\[# バッジ \]\] 				| [[# バッジ ]]		| .badge			| [[# ktMd+ ]]	|
 
 　このバッジですが、ボタンやアラートとの組み合せができます。バッジの背景色は、ボタンの種類によってみやすい物に自動的に変化します。アイコンと組み合わせることでさらに見やすくなります。
 
-| Input ( コピーして使えます)				| Output												| bordered hover striped 70!
+| Input ( コピーして使えます)								| 出力													| bordered condensed!
 |:-----------------------------------------------------:|:-----------------------------------------------------:|
-| [\[! [\[ok!]\] OK [\[# 10 ]] ]\]					| [[! [[ok!]] OK [[# 10 ]] ]]						|
-| [\[primary! [\[thumbs-up!]\] いいね! [\[# 10 ]] ]\]	| [[primary! [[thumbs-up!]] いいね! [[# 10 ]] ]]		|
-| [\[info! [\[comment!]\] 情報 [\[# 10 ]] ]\]		| [[info! [[comment!]] 情報 [[# 10 ]] ]]				|
+| [\[ [\[ok!]\] OK [\[# 10 ]] ]Primary\]				| [[ [[ok!]] OK [[# 10 ]] ]Primary]						|
+| [\[ [\[thumbs-up!]\] いいね! [\[# 10 ]] ]Primary\]		| [[ [[thumbs-up!]] いいね! [[# 10 ]] ]Primary]			|
+| [\[ [\[comment!]\] 情報 [\[# 10 ]] ]Info\]				| [[ [[comment!]] 情報 [[# 10 ]] ]Info]					|
 
 
 ## パネル

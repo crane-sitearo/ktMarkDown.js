@@ -193,7 +193,7 @@
 		textIn  = textOut + textIn;
 		textOut = '';
 		while ( matches = textIn.match( /^(.*?)\*\*(.*?)\*\*(.*)$/ ) ) {	// ** BOLD **
-			textOut += matches[ 1 ] + '<b class="ktmd_fw900">' + matches[ 2 ] + '</b>';
+			textOut += matches[ 1 ] + '<strong class="ktmd_fw900">' + matches[ 2 ] + '</strong>';
 			textIn   = matches[ 3 ];
 		}
 
@@ -209,7 +209,7 @@
 		var matches;
 
 		while ( matches = textIn.match( /^(.*?)\/\/(.*?)\/\/(.*)$/ ) ) {
-			textOut += matches[ 1 ] + '<i>' + matches[ 2 ] + '</i>';
+			textOut += matches[ 1 ] + '<em>' + matches[ 2 ] + '</em>';
 			textIn   = matches[ 3 ];
 		}
 		return( textOut + textIn );
@@ -234,13 +234,14 @@
 			if ( matches = matchBody.match( /^(\d+?)\:(.*)$/ ) ) { // __N:STRING__
 				spanClass = 'ktmd_uline_' + matches[ 1 ];
 				matchBody = matches[ 2 ];
+				textOut += matchHead + '<span class="' + spanClass + '">' + matchBody + '</span>';
+				textIn   = matchFoot;
 			}
 			else { // __STRING__
-				spanClass = 'ktmd_uline_1';
+				textOut += matchHead + '<u>' + matchBody + '</u>';
+				textIn   = matchFoot;
 			}
 
-			textOut += matchHead + '<span class="' + spanClass + '">' + matchBody + '</span>';
-			textIn   = matchFoot;
 
 		}
 
@@ -571,6 +572,7 @@
 	}
 
 
+
 	///// ADJUST TABLE /////
 	KtMarkDown.prototype._adjust_Table = function( aLineIn ) {
 
@@ -599,6 +601,30 @@
 		}
 
 		return( html );
+	}
+
+
+	KtMarkDown.prototype.colorFromString = function( aStr ) {
+
+		if (( aStr.length <= 3 )&&
+			( aStr != 'red'    )&&
+			( aStr != 'tan'    )) { // NUMBER
+
+			return( { type:'style', value:'#'+aStr } );
+
+		} else { // COLOR NAME
+
+			var BS_COLOR_NAME = [ 'default', 'muted', 'primary', 'info', 'success', 'active', 'warning', 'danger' ];
+
+			if ( 0 <= BS_COLOR_NAME.indexOf( aStr ) ) { // BOOTSTRAP3 COLOR NAME
+				return( { type:'class', value:aStr } );
+			} 
+
+			// CSS COLOR NAME
+			return( { type:'class', value:aStr } );
+
+		}
+
 	}
 
 
@@ -642,9 +668,27 @@
 			}
 
 			///// AT TABLE BODY /////
-			html += '<tr class="' + matchTail + '">';
-			for ( var i = 0, n = cols.length ; i < n ; i++ ) {
-				html += '<td style="text-align:' + this.tableInfo[ i ] + ';">';
+			var cellClass, cellStyle, cellColorClass;
+
+			html += '<tr' + ( ( matchTail ) ? ' class="' + matchTail + '"' : '' ) + '>';
+			for ( var i = 0, n = cols.length ; i < n ; i++ ) { // FOR ALL CELL IN ROW
+
+				cellClass      = '';
+				cellStyle      = 'text-align:' + this.tableInfo[ i ] + ';';
+				cellColorClass = null;
+
+				if ( matches = cols[ i ].match( /^(.*)\!(\S+?)$/ ) ) { // CELL BG COLOR
+					cellColorClass = this.colorFromString( matches[ 2 ] );
+					cols[ i ] = matches[ 1 ];
+					switch( cellColorClass.type ) {
+						case 'class': cellClass = cellColorClass.value; break;
+						case 'type' : cellStype = cellColorClass.value; break;
+					}
+				}
+
+				html += '<td style="' + cellStyle + '"';
+				html += ( 0 < cellClass.length ) ? ' class="' + cellClass + '"' : '';
+				html += '>';
 				html += this._buildLine( null, null, null, cols[ i ], null ) + '</td>';
 			}
 			html += '</tr>';

@@ -118,6 +118,27 @@
 |Boby      |789-1234   |       30|
 ]]]
 
+### CONDENSED STYLE
+
+　テーブル内の余白を少なくしたコンパクトタイプにしたい場合は 「 condensed! 」と書きます。
+
+[[[info **INPUT** ( コピーして使えます )
+```
+|Name      |Phone      |Age      |condensed!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |456-2345   |       20|
+|Boby      |789-1234   |       30|
+```
+]]]
+
+[[[info **Output**
+|Name      |Phone      |Age      |condensed!
+|----------|-----------|---------|
+|John      |123-4567   |       10|
+|Bill      |123-2345   |       20|
+|Boby      |789-1234   |       30|
+]]]
 
 ### TABLE WIDTH
 
@@ -194,7 +215,7 @@
 
 [[[info **INPUT** ( コピーして使えます )
 ```
-|Name      |Phone      |Color    |bordered hover striped 50!
+|Name      |Phone      |Color    |bordered 50!
 |----------|-----------|---------|
 |John      |123-4567   |active   |active!
 |Bill      |123-2345   |info     |info!
@@ -205,7 +226,7 @@
 ]]]
 
 [[[info **Output**
-|Name      |Phone      |Color      |bordered hover striped 50!
+|Name      |Phone      |Color      |bordered 50!
 |----------|-----------|---------|
 |John      |123-4567   |active   |active!
 |Bill      |123-2345   |info     |info!
@@ -214,9 +235,35 @@
 |Bill      |123-2345   |danger   |danger!
 ]]]
 
+### CELL COLOR
+
+　テーブル内の特定のセルに色を指定したい場合は、セルの末尾に「 !active / !info / !success / !warning / !danger 」を書きます。
+
+[[[info **入力**
+```
+|Name      |Phone               |Color      |bordered 50!
+|----------|--------------------|---------|
+|John      |123-4567	 !active|active   |
+|Bill      |123-2345   	   !info|info     |
+|Boby      |789-1234   	!success|success  |
+|John      |123-4567   	!warning|warning  |
+|Bill      |123-2345   	 !danger|danger   |
+```
+]]]
+
+[[[info **Output**
+|Name      |Phone				|Color      |bordered 50!
+|----------|--------------------|---------|
+|John      |123-4567	 !active|active   |
+|Bill      |123-2345   	   !info|info     |
+|Boby      |789-1234   	!success|success  |
+|John      |123-4567   	!warning|warning  |
+|Bill      |123-2345   	 !danger|danger   |
+]]]
+
 
 ---
-:: ''[Back](../index.html)''
+:: **[Back](../index.html)**
 ---
 :::This document is made by ktMarkDown.js.
 

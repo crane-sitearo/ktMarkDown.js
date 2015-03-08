@@ -29,21 +29,20 @@
 # ktMarkDown.js
 
 :: **JavaScript Driven MarkDown Parser**
-::: 2015.3.4 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
+::: 2015.3.8 Kengo Tsuruzono / [@_crane_](+https://twitter.com/_crane_)
 )))
 
-## [[book!]] ktMarkDown.js とは?
+## [[book!]] What's ktMarkDown.js?
 
 　**ktMarkDown.js** は、JavaScriptによって記述されたマークダウンパーサです。テンプレートになるHTMLファイルに、テキストエディタでマークダウン記法で入力を行ったら、Webブラウザで表示するだけで確認ができます。
 
-- [[keyTop; [マーウダウンのすすめ](ktmd_doc/gd_whats.html) ]] : 「 マークダウンって何? 」って方はまずこちらをお読みください。
-- [[keyTop; [マーウダウンによるTODO管理のすすめ](ktmd_doc/gd_todo.html) ]] : マークダウンでTODO管理も出来るんです。
-- [[keyTop; [Bootstrap3のサポート](ktmd_doc/ref_Bootstrap3.html) ]] : Bootstrap3の表現力をマークダウンに。
+- [? [マーウダウンのすすめ](ktmd_doc/gd_whats.html) ?keyTop] : 「 マークダウンって何? 」って方はまずこちらをお読みください。
+- [? [マーウダウンによるTODO管理のすすめ](ktmd_doc/gd_todo.html) ?keyTop] : マークダウンでTODO管理も出来るんです。
+- [? [Bootstrap3のサポート](ktmd_doc/ref_Bootstrap3.html) ?keyTop] : Bootstrap3の表現力をマークダウンに。
 
+## [[book!]] Features
 
-## [[book!]] FEATURES
-
-### [[flash!]] QUICK START
+### [[flash!]] Quick Start
 
 　ktMarkDown.js なら、いつもの使い慣れたテキストエディタとウェブブラウザがあれば、マークダウンによるテキスト編集環境ができあがります。「 ターミナルからごにょごにょしたり 」とか「 サーバを立てたり 」といった難しいことは一切不要です。ZIPファイルをダウンロードして解凍するだけで始められます。添付の[サンプルのHTMLファイル](ktmd_sample/simple.html)をテキストエディタで開いて、マークダウンで入力を行って、ウェブブラウザで開くだけです。
 
@@ -55,7 +54,7 @@
 * 外部ライブラリ : 必要ありません。
 ]]]
 
-### [[check!]] EASY SYNTAX
+### [[check!]] Easy Syntax
 
 　マークダウンには様々な方言がありますが、ktMarkDown.js は、デファクトスタンダード的な文法を中心にサポートを行っています。ただし、記号1文字によるものなどの副作用の多いモノは避けています。また、マークダウンの思想である「 __変換前のテキストもそのまま読める__ 」ことも重要視しています。
 
@@ -64,7 +63,7 @@
 * マークダウンのまま読めるような文法を優先しています。
 ]]]
 
-### [[cog!]] EXTENSIBLE
+### [[cog!]] Extensible
 
 　HTMLやJavaScriptとの混在も可能なので、腕のある方ならJavaScriptのライブラリを読み込ませてリッチなコンテンツの作成も可能です。プログラマーの方にも使いやすくするため、シンタックスハイライトを行う **[highlight.js](+https://highlightjs.org)** [[new-window!]]との連携も簡単にできるようにしてあります。さらに ktMarkDown.js は、Extension という機能拡張モジュールをサポートしており、文法の拡張が可能になっています。添付の機能拡張モジュールには通常のマークダウンでは実現できないような文法の追加も行っていますし、Bootstrap3との連携も行っています。
 
@@ -76,32 +75,31 @@
 ]]]
 
 
-## [[book!]] DOWNLOAD & INSTALL
+## [[book!]] Download & Install
 
-### [[download!]] DOWNLOAD
+### [[download!]] Download
 
 　現在、試行錯誤しながら開発中。GitHubから最新版をダウンロードできます。シンプルで覚えやすくてパワフルで美しいドキュメントが作れるものを目指しています。
 
 [[[info [[download!]] ダウンロードサイト
-* **Download** from [[keyTop; [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ]] 最新版はこちらから!
-* **Download** from  [[keyTop; [this site](http://sitearo.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ]] ( Version 1.0b3 / 2015.01.17 )
+* **Download** from [? [GitHub](+https://github.com/crane-sitearo/ktMarkDown.js) ?keyTop] 最新版はこちらから! (右下の Download ZIP )
+* **Download** from [? [this site](http://sitearo.com/soft/ktMarkDown.js/download/ktMarkDown.js_1.0b3.zip) ?keyTop] ( Version 1.0b3 / 2015.01.17 )
 ]]]
 
-### [[download!]] INSTALL
+### [[download!]] Install
 
 　ダウンロードが終わりましたら解凍します。index.html が、このドキュメントですので、テキストエディタとブラウザの両方で開くことで編集環境ができあがりです。中身の構成を理解しておく必要はありませんが、ktMarkDown.js 本体の場所は知っておいた方がよいかと思います。バージョン毎のレイアウトの微妙な違いが発生する可能性を考え、バージョン別にフォルダーを分けるようにしています。
 
 [[[info [[th-list!]] **CONTENTS OF ZIP**
 * [[folder-open!]] ktMarkDown.js
-	* [[file!]] index.html ( このドキュメント )
+	* [[file!]] [[ **index.html** ]]default! ( このドキュメント )
 	* [[folder-open!]] **ktmd**
 		* [[folder-open!]] v1.0 ( ktMarkDown v1.0 のフォルダ )
-			* [[file!]]  __**ktmd.js**  ( ktMarkDown.js 本体 )__
+			* [[file!]]  [[ **ktmd.js** ]]default! ( ktMarkDown.js 本体 ) 
 			* [[folder-open!]] css ( CSSフォルダ )
 				* [[file!]]  ktmd.css ( デフォルト CSS )
 			* [[folder-open!]] exts ( 機能拡張フォルダ )
 				* [[folder-open!]] basicExts ( 基本機能拡張 )
-				* [[folder-open!]] emoji ( 絵文字機能拡張 )
 				* [[folder-open!]] todo ( TODO機能拡張 )
 		* [[folder-open!]] lib ( ライブラリフォルダ )
 			* [[folder-open!]] bootstrap ( Bootstrap3フォルダ )
@@ -111,9 +109,9 @@
 		* [[file!]]  multipart.html
 ]]]
 
-## [[book!]] USE IT!
+## [[book!]] Use It!
 
-### [[pencil!]] 始めてみよう
+### [[pencil!]] Let's Start
 
 　HTMLの基本形は以下のようになっています。「 [[folder-open!]] ktmd_sample }} [[file!]] simple.html 」をテキストエディタで開いてみてください。
 
@@ -132,29 +130,46 @@ __{{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
 4. {{/body}} の手前に {{script}} タグを書いて ktMarkDown.js を読み込みます。HTMLの場所によってはパスは調整が必要です。
 
 
-## SYNTAX REFERENCE
+## [[book!]] Reference
 
-　ここからはマークダウンの文法の説明になります。詳細な説明はリンク先をご覧ください。
+　ここからはマークダウンの文法の概要説明になります。詳細な説明は各リファレンスリンク先をご覧ください。
 
-### CHARACTER ATTRIBUTES
+### [[pencil!]] Character Attributes
 
-* **[文字修飾](ktmd_doc/ref_Char.html)**
-	* **[太字](ktmd_doc/ref_Char.html#BOLD)** '' \*\* Bold \*\* ''
-	* **[マーク](ktmd_doc/ref_Char.html#MARK)** '' \'\' Mark \'\' ''
-	* //[斜体字](ktmd_doc/ref_Char.html#ITALIC)// '' \/\/ Italic \/\/ ''
-	* __[下線](ktmd_doc/ref_Char.html#UNDERLINE)__ '' \_\_ Underline \_\_ ''
-	* ~~[打ち消し線](ktmd_doc/ref_Char.html#STRIKETHROUGH)~~ '' \~\~ Strikethrough \~\~ ''
-	* ``[等幅文字](ktmd_doc/ref_Char.html#MONOSPACE)`` '' \`\` Monospace \`\` ''
-* **[リンク](ktmd_doc/ref_Link.html)** '' \[Link\]\(URL\) ''
-	* [Name](ktmd_doc/ref_Link.html#NAME) '' \{\#Name\} ''
-* **[マルチメディア](ktmd_doc/ref_Multimedia.html)**
-	* [画像](ktmd_doc/ref_Multimedia.html#IMAGES) '' \!\[TITLE\]\(URL\) ''
-	* [動画](ktmd_doc/ref_Multimedia.html#VIDEOS) '' \!v\[TITLE\]\(URL\) ''
-	* [音声](ktmd_doc/ref_Multimedia.html#AUDIOS) '' \!a\[TITLE\]\(URL\) ''
+　詳細な説明は [[ [文字修飾リファレンス](ktmd_doc/ref_Char.html) ]]default-! をご覧ください。
+
+| 種類			| 入力							| 出力					| 補足	| 文法	|bordered condensed!
+|:-------------:|:-----------------------------:|:---------------------:|:----------|---------------|
+| 太字			| *\*BOLD*\*					| **BOLD**				| 			| [[# Std ]]	|
+| 斜体			| /\/ITALIC/\/					| //ITALIC//			|			| [[# ktMd ]]	|
+| 下線			| _\_UNDERLINE_\_				| __UNDERLINE__			| 			| [[# Std ]]	|
+| 打ち消し線		| ~\~STRIKETHROUGH~\~			| ~~STRIKETHROUGH~~		| 			| [[# Std ]]	|
+| 等幅文字		| `\`MONOSPACE`\`				| ``MONOSPACE``			| 			| [[# Std ]]	|
+
+### [[pencil!]] Links
+
+　詳細な説明は [[ [リンクリファレンス](ktmd_doc/ref_Link.html) ]]default-! をご覧ください。
+
+| 種別 		| 入力 ( コピー利用可 ) 					| 出力 		|bordered condensed!
+|-----------|:-------------------------------------:|:---------------------------------:|
+| 同窓リンク	| \[Apple\]\(http://www.apple.com\)		| [Apple](http://www.apple.com)		|
+| 別窓リンク	| \[Apple\]\(+http://www.apple.com\)	| [Apple](+http://www.apple.com)	|
+| 自動リンク	| Apple : (( http\://www.apple.com/ ))	| Apple : http://www.apple.com/		|
+
+### [[pencil!]] Multimedias
+
+　詳細な説明は [[ [マルチメディアリファレンス](ktmd_doc/ref_Multimedia.html) ]]default-! をご覧ください。
+
+| 種別 		| 入力 ( コピー利用可 ) 					| 出力 		|bordered condensed!
+|-----------|:-------------------------------------:|:---------------------------------:|
+| 画像		| !\[TITLE]\(image.jpg)					| 									|
+| 動画		| !v\[TITLE]\(video.mp4)				| 									|
+| 音声		| !a\[TITLE]\(music.mp3)				| 									|
+
 * **[エスケープ文字](ktmd_doc/ref_Escape.html)** '' \\ ''
 
 
-### LINE ATTRIBUTES
+### [[pencil!]] Link Attributes
 
 * **[見出し](ktmd_doc/ref_Header.html)** ([ \# Header ])
 * **[引用](ktmd_doc/ref_Blockquote.html)** ([ \} Blockquote ])
@@ -167,33 +182,6 @@ __{{script src='**ktmd/v1.0/ktmd.js**'}}{{/script}}__{{/body}}{{/html}} ...((4))
 * **[水平線](ktmd_doc/ref_HorRule.html)** ([ --- ])
 
 
-## MULTI-PART MARKDOWN
-
-マークダウンの領域は {{script}}...{{/script}} を使って複数作っても構いません。その外側には自由にHTMLを記述することが出来ます。
-
-```{HTML}
-{{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
-    :
-  ANY HTML
-    :
-__{{script class="markdownSrc"}}/*__ ...((1))
-    :
-  WRITE MARKDOWN TEXT HERE!
-    :
-__\*\/{{/script}}__
-    :
-  ANY HTML
-    :
-__{{script class="markdownSrc"}}/*__ ...((2))
-    :
-  WRITE MARKDOWN TEXT HERE!
-    :
-__\*\/{{/script}}__
-    :
-  ANY HTML
-    :
-{{script src='**ktmd/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
-```
 
 ## OPTIONS
 
@@ -213,26 +201,49 @@ __{{/script}}__
 2. **機能拡張** ``extensions`` : 使用する機能拡張の名前を列挙します。
 
 
-## [[cog!]] BUILT-IN EXTENSIONS
+## [[cog!]] Built-In Extensions
 
-　ktMarkDown.js は、いくつか機能拡張モジュールを同梱しています。標準的なマークダウンでは表現力が足りないという方は、こちらの機能拡張モジュールを試してみてください。
+　ktMarkDown.js は、いくつか機能拡張モジュールを同梱しており、表現力アップや機能アップを必要に応じて行うことができます。
 
 ### [[cog!]] 基本機能拡張 ( basicExts )
+
+　基本機能拡張である basicExts は、標準的なマークダウンでは足りない表現力をアップさせることを主眼としたものです。Bootstrap3にも対応しています。以下はクイックリファレンスですので、詳しくは **[基本機能拡張リファレンス](ktmd_doc/ref_BasicExtensions.html)** をご覧ください。
+
+#### 文字修飾
+
+| 種別		| 入力						| 出力			| 種類		|bordered condensed!
+|-----------|:-------------------------:|---------------------------|-----------------------|
+| 文字色		| [\[ 文字色 !blue]\]		| [[ 文字色 !blue]]			| 140種類 (CSS) 			|
+| 文字色		| [\[ 文字色 !primary]\]		| [[ 文字色 !primary]]		| 6種類 (Bootstrap3) 	|
+| 文字色		| [\[ 文字色 !f00]\]			| [[ 文字色 !f00]]			| 						|
+| ラベル		| [\[ ラベル !Primary]\]		| [[ ラベル !Primary]]		| 6種類 (Bootstrap3)		|
+| ボタン		| [\[ ボタン ]\]primary!		| [[ ボタン ]]primary!		| 7種類×4サイズ			|
+| バッジ		| [\[# 10 ]\]				| [[# 10 ]] バッジ			| 1種類					|
+| キーボード	| [\` shift + B`\] キーボード	| [` shift + B`] キーボード	| 1種類					|
+| コード		| (\` code `\) コード		| (` code `) コード			| 1種類					|
+
+#### 行修飾
+
+| 種別 		| 入力					| 出力					| 種類	|bordered condensed!
+|-----------|-----------------------|:-------------------------:|-----------------------|
+| アラート	| [\[ アラート ]\]Info!	| [[ アラート ]]Info!			| 4種類					|
+| 文字揃え	| :左揃え				| 							| 						|
+|			| ::中央揃え				| 							| 						|
+|			| :::右揃え				| 							| 						|
+|			| ::::両端揃え			| 							| 						|
+|			| :::::ワードラップなし	| 							| 						|
+
+#### その他
+
+| 種別		| 入力						| 出力			| 種類		|bordered condensed!
+|-----------|:-------------------------:|---------------------------|-----------------------|
+| アイコン	| [\[time!]\]	アイコン		| [[time!]] アイコン			| 260種類				|
 
 
 ### [[cog!]] Bootstrap3対応 ( basicExts )
 
 　basicExts は、ウェブサイトの製作に広く使われている Bootstrap3 をサポートしています。
 
-| **Input**					| **Output**				| **種類**		|bordered 70!
-|--------------------------:|---------------------------|---------------|
-| [[ ラベル ]]				| [\[ ラベル ]\]				| 6種類			|
-| [[primary! ボタン ]]		| [\[primary! ボタン ]\]		| 7種類×4サイズ	|
-| [[INFO アラート ]]			| [\[INFO アラート ]\]		| 4種類			|
-| [[# 10 ]]					| [\[# 10 ]\] バッジ			| 1種類			|
-| [[time!]]	アイコン			| [\[time!]\] アイコン		| 260種類		|
-| [` shift + B`] キーボード	| [\` shift + B`\] キーボード	| 1種類			|
-| : 文字揃え					| 							| 5種類			|
 
 
 * ** Character Attributes **
@@ -270,6 +281,34 @@ __{{/script}}__
 ## 絵文字機能拡張 ( emoji )
 	* **[Emoji](ktmd_doc/ref_Emoji.html)** :cat: ([ \:cat\: ])
 
+
+## MULTI-PART MARKDOWN
+
+マークダウンの領域は {{script}}...{{/script}} を使って複数作っても構いません。その外側には自由にHTMLを記述することが出来ます。
+
+```{HTML}
+{{!DOCTYPE html}}{{html lang="ja"}}{{head}}{{meta charset="UTF-8"}}{{/head}}{{body}}
+    :
+  ANY HTML
+    :
+__{{script class="markdownSrc"}}/*__ ...((1))
+    :
+  WRITE MARKDOWN TEXT HERE!
+    :
+__\*\/{{/script}}__
+    :
+  ANY HTML
+    :
+__{{script class="markdownSrc"}}/*__ ...((2))
+    :
+  WRITE MARKDOWN TEXT HERE!
+    :
+__\*\/{{/script}}__
+    :
+  ANY HTML
+    :
+{{script src='**ktmd/ktmd.js**'}}{{/script}}{{/body}}{{/html}}
+```
 
 ## HISTORY
 
