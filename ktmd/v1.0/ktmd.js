@@ -1003,6 +1003,12 @@
 			this._buildHTML( this.elmSrc[ i ] );
 		}
 
+		for ( var ext in this.extensions ) { // Run All Extensions
+			if ( this.extensions[ ext ].didEndDocumentParse ) { // Check Proc.
+				this.extensions[ ext ].didEndDocumentParse( this.export );
+			}
+		}
+
 		if ( window.hljs ) { hljs.initHighlightingOnLoad(); } // Support highlight.js
 
 		this._startReloading(); // Reload
