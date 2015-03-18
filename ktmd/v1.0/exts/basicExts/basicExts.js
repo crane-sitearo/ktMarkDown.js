@@ -34,8 +34,8 @@
 			var matchTail  = matches[ 4 ];
 
 			if (( matchColor.length <= 3 )&&
-				( matchColor != 'red'    )&&
-				( matchColor != 'tan'    )) { // NUMBER [[ TEXT #RGB]]
+				( matchColor.toLowerCase() != 'red' )&&
+				( matchColor.toLowerCase() != 'tan' )) { // NUMBER [[ TEXT #RGB]]
 
 				textOut += matchHead + '<span style="color:#' + matchColor + ';">' + matchBody + '</span>';
 				textIn   = matchTail;
@@ -345,9 +345,45 @@
 	}
 
 
+	basicExts.prototype._char_CustomClassDiv = function( aLine, aExport ) {
+
+		var BS_COLORS = {
+
+			'muted'   : 'text-muted',
+			'primary' : 'text-primary',
+			'info'    : 'text-info',
+			'success' : 'text-success',
+			'warning' : 'text-warning',
+			'danger'  : 'text-danger',
+
+			'Primary' : 'bg-primary',
+			'Success' : 'bg-success',
+			'Info'    : 'bg-info',
+			'Warning' : 'bg-warning',
+			'Danger'  : 'bg-danger',
+
+		};
+
+		var textOut = aLine;
+		var matches = textOut.match( /^(.*?)\[\[\[([^\[]+?)\]\]\]$/ );
+
+		if ( matches ) {
+			textOut  = matches[ 1 ];
+			var cssClass = BS_COLORS[ matches[ 2 ] ];		// Bootstrap Class
+			if ( ! cssClass ) { cssClass = matches[ 2 ]; }	// Custom Class
+			aExport.curLine.tagInfo.cssClass += ' ' + cssClass;
+		}
+
+		return( textOut );
+
+	}
+
+
+
+
 
 	///// PROCESS CHAR /////
-	basicExts.prototype.processCharAttribute = function( aLineIn ) {
+	basicExts.prototype.processCharAttribute = function( aLineIn, aExport ) {
 		var lineOut = aLineIn;
 
 		// INSIDE
@@ -359,6 +395,7 @@
 		lineOut = this._char_BootStrapCode(  lineOut );		// Code
 		lineOut = this._char_BootStrapWidgets(  lineOut );
 		lineOut = this._char_BootStrapKeyboard(  lineOut );
+		lineOut = this._char_CustomClassDiv(  lineOut, aExport );
 
 		lineOut = this._char_textShadow( lineOut );	// Text Shadow
 		lineOut = this._char_CustomSpan( lineOut );	// Custom Span
@@ -529,7 +566,6 @@
 
 		return;
 	};
-
 
 
 	///// OVAL BOX /////

@@ -46,8 +46,9 @@
 	}
 
 
+	///// START /////
 	KtMarkDown.prototype.start = function() {
-		if ( this.loadExtensions() == false ) { // NO EXTENSION
+		if ( this.loadExtensions() == false ) { // No extension
 			this.buildMarkDown();
 		}
 	}
@@ -156,17 +157,17 @@
 		var text = aText;
 		var matches = [];
 
-		// [ >> ] -> &lt;
+		// End tag [ >> ] -> &lt;
 		while ( matches = text.match( /^(.*?)\{\{(.*?)$/ )) {
 			text = matches[ 1 ] + '&lt;' + matches[ 2 ];
 		}
 
-		// [ << ] -> &gt;
+		// Start tag [ << ] -> &gt;
 		while ( matches = text.match( /^(.*?)\}\}(.*?)$/ )) {
 			text = matches[ 1 ] + '&gt;' + matches[ 2 ];
 		}
 
-		// [ /? ] -> ?;
+		// Escape character [ /? ] -> ?;
 		var outText = '';
 		while ( matches = text.match( /^(.*?)\\(.)(.*?)$/ )) {
 			outText += matches[ 1 ] + matches[ 2 ];
@@ -410,7 +411,7 @@
 		var textOut = '';
 		var matches;
 
-		while ( matches = textIn.match( /^(.*?)\{\#(.+?)\}(.*)$/ ) ) {
+		while ( matches = textIn.match( /^(.*?)\{\#(.+?)\}(.*)$/ ) ) { // {#NAME}
 			textOut += matches[ 1 ] + '<a id="' + matches[ 2 ] + '"></a>';
 			textIn   = matches[ 3 ];
 		}
@@ -427,74 +428,71 @@
 	///// BUILD LINE /////
 	KtMarkDown.prototype._buildLine = function( aStartTag, aCssClass, aCssStyle, aText, aEndTag, aId ) {
 
-		var tagText = '';
-		var cssClass = aCssClass;
-		var text     = aText;
+		var tagInfo = this.export.curLine.tagInfo;
 
-		if (( ! cssClass )&&( ! text )&&( aStartTag )&&( aEndTag )) {
-			cssClass = 'ktmd_blankLine';
-			text     = '&nbsp;';
-		}
+		var tagOut = '';
 
-		if ( aStartTag ) {
-			tagText += '<' + aStartTag;
-			if ( cssClass  ) { tagText += ' class="' + cssClass  + '"'; }
-			if ( aCssStyle ) { tagText += ' style="' + aCssStyle + '"'; }
-			if ( aId       ) { tagText += ' id="'    + aId       + '"'; }
-			tagText += '>';
-		}
-
-		if ( text ) {
-
-//			var text = aText;
-//			var text += this._buildTEXT( aText );
+		if (( ! aCssClass )&&( ! aText )&&( aStartTag )&&( aEndTag )) { // BLANK LINE
+			tagInfo.cssClass = 'ktmd_blankLine';
+			tagInfo.text     = '&nbsp;';
+		} else {
 
 			///// CHARACTER ATTRIBUTES /////
+			tagInfo.text = this._char_Image( tagInfo.text );		// Image
+			tagInfo.text = this._char_Video( tagInfo.text );		// Video
+			tagInfo.text = this._char_Audio( tagInfo.text );		// Audio
 
-			text = this._char_Image( text );		// Image
-			text = this._char_Video( text );		// Video
-			text = this._char_Audio( text );		// Audio
+			tagInfo.text = this._char_Link( tagInfo.text );			// Link
+			tagInfo.text = this._char_AutoLink( tagInfo.text );		// Auto Link
+			tagInfo.text = this._char_Name( tagInfo.text );			// Name
 
-			text = this._char_Link( text );			// Link
-			text = this._char_AutoLink( text );		// Auto Link
-			text = this._char_Name( text );			// Name
+			tagInfo.text = this._char_Bold( tagInfo.text );			// Bold
+			tagInfo.text = this._char_Italic( tagInfo.text );		// Italic
+			tagInfo.text = this._char_Underline( tagInfo.text );	// Underline
+			tagInfo.text = this._char_MonoSpace( tagInfo.text );	// Monospace
+			tagInfo.text = this._char_Strike( tagInfo.text );		// Strikethrough
 
-			text = this._char_Bold( text );			// Bold
-			text = this._char_Italic( text );		// Italic
-			text = this._char_Underline( text );	// Underline
-			text = this._char_MonoSpace( text );	// Monospace
-			text = this._char_Strike( text );		// Strikethrough
-
-			for ( var ext in this.extensions ) { // Call All Extensions
+			///// RUN ALL EXTENSIONS /////
+			for ( var ext in this.extensions ) {
 				if ( this.extensions[ ext ].processCharAttribute ) {
-					text = this.extensions[ ext ].processCharAttribute( text, this.export );
+					tagInfo.text = this.extensions[ ext ].processCharAttribute( tagInfo.text, this.export );
 				}
 			}
 
-			tagText += this._buildTEXT( text );
-//			tagText += text;
+			tagInfo.text = this._buildTEXT( tagInfo.text );
+//			tagTxt += text;
 		}
 
-		if ( aEndTag ) {
-			tagText += '</' + aEndTag + '>';
+		if ( tagInfo.startTag ) {
+			tagOut += '<' + tagInfo.startTag;
+			if ( tagInfo.cssClass ) { tagOut += ' class="' + tagInfo.cssClass + '"'; }
+			if ( tagInfo.cssStyle ) { tagOut += ' style="' + tagInfo.cssStyle + '"'; }
+			if ( tagInfo.id       ) { tagOut += ' id="'    + tagInfo.id       + '"'; }
+			tagOut += '>';
 		}
 
-		return( tagText );
+		tagOut += tagInfo.text;
+
+		if ( tagInfo.endTag ) {
+			tagOut += '</' + tagInfo.endTag + '>';
+		}
+
+		return( tagOut );
 	}
 
 
 
 	///// BUILD LINE WITH TAG INFO /////
-	KtMarkDown.prototype._buildLineWithTagInfo = function( aTagInfo ) {
-		return( this._buildLine(
-			aTagInfo.startTag,
-			aTagInfo.cssClass,
-			aTagInfo.cssStyle,
-			aTagInfo.text,
-			aTagInfo.endTag,
-			aTagInfo.id
-		) );
-	}
+	// KtMarkDown.prototype._buildLineWithTagInfo = function( aTagInfo ) {
+	// 	return( this._buildLine(
+	// 		aTagInfo.startTag,
+	// 		aTagInfo.cssClass,
+	// 		aTagInfo.cssStyle,
+	// 		aTagInfo.text,
+	// 		aTagInfo.endTag,
+	// 		aTagInfo.id
+	// 	) );
+	// }
 
 
 
@@ -557,6 +555,12 @@
 			sTag = 'li';
 			text = matches[ 2 ];
 			eTag = 'li';
+
+			this.export.curLine.tagInfo.startTag = sTag;
+			this.export.curLine.tagInfo.cssClass = clas;
+			this.export.curLine.tagInfo.cssStyle = styl;
+			this.export.curLine.tagInfo.text     = text;
+			this.export.curLine.tagInfo.endTag   = eTag;
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
@@ -565,6 +569,12 @@
 			text = matches[ 4 ];
 			eTag = 'li';
 			if ( text.match( /^\[.\]/ ) ) { styl = 'list-style:none;'; } // ToDo 
+
+			this.export.curLine.tagInfo.startTag = sTag;
+			this.export.curLine.tagInfo.cssClass = clas;
+			this.export.curLine.tagInfo.cssStyle = styl;
+			this.export.curLine.tagInfo.text     = text;
+			this.export.curLine.tagInfo.endTag   = eTag;
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
@@ -604,11 +614,12 @@
 	}
 
 
+	///// COLOR FROM STRING /////
 	KtMarkDown.prototype.colorFromString = function( aStr ) {
 
 		if (( aStr.length <= 3 )&&
-			( aStr != 'red'    )&&
-			( aStr != 'tan'    )) { // NUMBER
+			( aStr.toLowerCase() != 'red' )&&
+			( aStr.toLowerCase() != 'tan' )) { // NUMBER
 
 			return( { type:'style', value:'#'+aStr } );
 
@@ -621,11 +632,12 @@
 			} 
 
 			// CSS COLOR NAME
-			return( { type:'class', value:aStr } );
+			return( { type:'style', value:aStr } );
 
 		}
 
 	}
+
 
 
 	///// TABLE /////
@@ -634,6 +646,7 @@
 		var	lineIn  = aLineIn;
 		var html    = '';
 		var	matches = [];
+		var tagInfo = this.export.curLine.tagInfo;
 
 		if ( matches = lineIn.match( /^\|.*\|((.*?)\!)?$/) ) { // INSIDE OF TABLE
 
@@ -660,6 +673,10 @@
 			if ( this.tableInfo === 'atHead' ) {
 				html += '<thead><tr>';
 				for ( var i = 0, n = cols.length ; i < n ; i++ ) {
+					tagInfo.startTag = '';
+					tagInfo.cssClass = '';
+					tagInfo.text     = cols[ i ];
+					tagInfo.endTag   = '';
 					html += '<th>' + this._buildLine( null, null, null, cols[ i ], null ) + '</th>';
 				}
 				html += '</tr></thead><tbody>';
@@ -689,6 +706,11 @@
 				html += '<td style="' + cellStyle + '"';
 				html += ( 0 < cellClass.length ) ? ' class="' + cellClass + '"' : '';
 				html += '>';
+
+				tagInfo.startTag = '';
+				tagInfo.cssClass = '';
+				tagInfo.text     = cols[ i ];
+				tagInfo.endTag   = '';
 				html += this._buildLine( null, null, null, cols[ i ], null ) + '</td>';
 			}
 			html += '</tr>';
@@ -722,7 +744,11 @@
 			name = name.replace( /[\ \#]/g, '_' );			// Space to Underscore
 //			text = '<a id="' + name + '"></a>' + text;
 
-			return( this._buildLine( sTag, clas, styl, text, eTag ) + '<a id="' + name + '"></a>' );
+			this.export.curLine.tagInfo.startTag = sTag;
+			this.export.curLine.tagInfo.cssClass = clas;
+			this.export.curLine.tagInfo.text     = text;
+			this.export.curLine.tagInfo.endTag   = eTag;
+			return( this._buildLine( this.export.curLine.tagInfo ) + '<a id="' + name + '"></a>' );
 		}
 
 		return;
@@ -763,6 +789,12 @@
 				clas = matches[ 1 ];
 				text = matches[ 2 ];
 			}
+
+			this.export.curLine.tagInfo.startTag = sTag;
+			this.export.curLine.tagInfo.cssClass = clas;
+			this.export.curLine.tagInfo.cssStyle = styl;
+			this.export.curLine.tagInfo.text     = text;
+			this.export.curLine.tagInfo.endTag   = eTag;
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
@@ -781,6 +813,12 @@
 			styl = 'margin-left:' + ( matches[ 1 ].length )  + 'em';
 			text = matches[ 2 ];
 			eTag = 'div';
+
+			this.export.curLine.tagInfo.startTag = sTag;
+			this.export.curLine.tagInfo.cssClass = clas;
+			this.export.curLine.tagInfo.cssStyle = styl;
+			this.export.curLine.tagInfo.text     = text;
+			this.export.curLine.tagInfo.endTag   = eTag;
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
@@ -807,6 +845,12 @@
 			clas = 'text-' + align;
 			text = matches[ 2 ];
 			eTag = 'p';
+
+			this.export.curLine.tagInfo.startTag = sTag;
+			this.export.curLine.tagInfo.cssClass = clas;
+			this.export.curLine.tagInfo.cssStyle = styl;
+			this.export.curLine.tagInfo.text     = text;
+			this.export.curLine.tagInfo.endTag   = eTag;
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
@@ -848,6 +892,12 @@
 				sTag = '';
 				text = matches[ 1 ] + '</code>';
 				eTag = 'pre';
+
+				this.export.curLine.tagInfo.startTag = sTag;
+				this.export.curLine.tagInfo.cssClass = clas;
+				this.export.curLine.tagInfo.cssStyle = styl;
+				this.export.curLine.tagInfo.text     = text;
+				this.export.curLine.tagInfo.endTag   = eTag;
 				return( this._buildLine( sTag, clas, styl, text, eTag ) );
 			}
 			return;
@@ -866,6 +916,12 @@
 			sTag = 'pre';
 			text = '<code>' + matchFoot;
 			eTag = '';
+
+			this.export.curLine.tagInfo.startTag = sTag;
+			this.export.curLine.tagInfo.cssClass = clas;
+			this.export.curLine.tagInfo.cssStyle = styl;
+			this.export.curLine.tagInfo.text     = text;
+			this.export.curLine.tagInfo.endTag   = eTag;
 			return( this._buildLine( sTag, clas, styl, text, eTag ) );
 		}
 
@@ -893,7 +949,8 @@
 		var htmlOut = '';
 		var mdLines = aSrcElement.innerHTML.split( /\r\n|\r|\n/ );	// Put all lines into array.
 
-		this.export.lines = mdLines;
+		this.export.lines   = mdLines; // ALL LINES IN A SECTION
+		this.export.curLine = {};      // CURRENT LINE
 
 		for ( var i = 0, n = mdLines.length ; i < n ; i++ ) { // Process all lines.
 
@@ -901,10 +958,17 @@
 			if ( mdLine === '/*' ) { continue; }		// Skip first line.
 			if ( mdLine === '*/' ) { continue; }		// Skip last line.
 
-			this.export.curLineNo   = i;		// CURRENT LINE NO.
-			this.export.curLineText = mdLine;	// ORIGINAL TEXT
-
-			Object.seal( this );
+			// SETUP EXPORT //
+			this.export.curLine.no      = i;		// CURRENT LINE NO.
+			this.export.curLine.orgText = mdLine;	// ORIGINAL TEXT
+			this.export.curLine.tagInfo = {			// TAG INFO
+				startTag : '',
+				cssClass : '',
+				cssStyle : '',
+				id       : '',
+				text     : mdLine,
+				endTag   : '',
+			};
 
 			var htmlLine;
 
@@ -925,22 +989,32 @@
 					else if ( htmlLine = this._line_PageBreak(  mdLine ) ) { } // Page Break
 					else {
 
-						for ( var ext in this.extensions ) { // Run All Extensions
+						//----- RUN ALL EXTENSIONS -----//
+						for ( var ext in this.extensions ) {
 							if ( this.extensions[ ext ].processLineAttribute ) { // Check Proc.
 								var tagInfo;
 								if ( tagInfo = this.extensions[ ext ].processLineAttribute( mdLine, this.export ) ) {
-									htmlLine = this._buildLineWithTagInfo( tagInfo );
+									this.export.curLine.tagInfo = tagInfo
+									htmlLine = this._buildLine( tagInfo );
 									break;
 								}
 							}
 						}
 
 						if ( ! htmlLine ) { // No Line Attribute
+							this.export.curLine.tagInfo.startTag = 'div';
+							this.export.curLine.tagInfo.endTag   = 'div';
+							this.export.curLine.tagInfo.text     = mdLine;
 							htmlLine = this._buildLine( 'div', null, null, mdLine, 'div' );
 						}
 
 					}
 				} else { // Inside of Prefix
+					this.export.curLine.tagInfo.startTag = '';
+					this.export.curLine.tagInfo.cssClass = '';
+					this.export.curLine.tagInfo.cssStyle = '';
+					this.export.curLine.tagInfo.text     = mdLine;
+					this.export.curLine.tagInfo.endTag   = '';
 					htmlLine = this._buildLine( null, null, null, mdLine, null ) + '\r\n';
 				}
 			}
@@ -1003,7 +1077,7 @@
 			this._buildHTML( this.elmSrc[ i ] );
 		}
 
-		for ( var ext in this.extensions ) { // Run All Extensions
+		for ( var ext in this.extensions ) { // Run all extensions
 			if ( this.extensions[ ext ].didEndDocumentParse ) { // Check Proc.
 				this.extensions[ ext ].didEndDocumentParse( this.export );
 			}

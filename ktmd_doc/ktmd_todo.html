@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8">
+	<title>ktMarkDown.js : Plan</title>
+</head><body>
+<script type="text/ktMarkDown" class="markdownSrc">/*
+
+((("jumbotron"
+# Plan of ktMarkDown.js
+)))
+[? [TOP](../index.html) ?keyTop]
+
+## Version 1.0
+
+### ベースシステム
+
+- [x] 機能拡張モジュールの機構 @完了(2015.02.10)
+- [ ] 目次の自動作成 @目標(2015.03.30)
+
+### 基本機能拡張モジュール basicExts.
+
+* [ ] Bootstrap3のサポート
+	- [x] ボタンのサポート @完了(2015.02.28)
+	- [x] ラベルのサポート @完了(2015.02.28)
+	- [x] アラートのサポート @完了(2015.02.28)
+	- [x] アイコンのサポート @完了(2015.02.28)
+	- [x] バッジのサポート @完了(2015.02.28)
+	- [x] パネルのサポート @完了(2015.02.28)
+	- [ ] ナビゲーション系 @目標(2015.04.30)
+	- [ ] 画像のレスポンシブル対応 @目標(2015.04.30)
+	- [ ] YouTube等の動画埋め込み @目標(2015.04.30)
+	- [ ] マルチカラム @目標(2015.04.30)
+
+* [ ] 独自拡張
+	- [x] 行全体の文字色指定 @完了(2015.03.18) [[star!]]
+	- [x] 行全体の背景色指定 @完了(2015.03.18) [[star!]]
+	- [x] 文字色指定 @完了(2015.03.06)
+
+### TODO管理用機能拡張モジュール
+
+* Todo Extension
+	- [x] Bootstrap3のCSSへの移行 @完了(2015.03.01)
+	- [ ] Todo一覧自動作成 @目標(2015.03.20)
+
+## Version 2.0
+
+### blog機能拡張モジュール
+
+* [ ] 検索機能
+* [ ] タグ機能
+
+### プレゼンテーション機能拡張モジュール
+
+* [ ] Presentaion Extension
+
+
+
+## Todo List 時間順
+
+@@@TODO_LIST:TODO一覧
+
+
+---
+:: **[Back](../index.html)**
+---
+:::This document is made by __[ktMarkDown.js](+http://sitearo.com/soft/ktMarkDown.js/)__.
+
+*/</script>
+
+<script type="text/javascript">
+	var KtMarkDown_Options = {
+		autoReload	: 0,		// Interval of 'Auto Reloading' ( sec, 0 = Don't reload )
+		extensions : [ 'basicExts',  'todo' ],
+	};
+</script>
+<script src='../ktmd/v1.0/ktmd.js'></script><!-- PLACE BEFORE END OF BODY -->
+</body></html>
